@@ -1,19 +1,26 @@
-'use client'
+"use client";
 
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react";
 
 export function Page() {
   return (
-    <div className="bg-white text-black min-h-screen font-sans" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
+    <div
+      className="bg-white text-black min-h-screen font-sans"
+      style={{ fontFamily: "Helvetica Neue, sans-serif" }}
+    >
       <div className="max-w-3xl mx-auto px-6 py-12">
         <header className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Antiwork</h1>
-          <p className="text-sm text-gray-600">We build products for fun and profit.</p>
+          <p className="text-sm text-gray-600">
+            We build products for fun and profit.
+          </p>
         </header>
 
         <main>
           <section className="mb-8">
-            <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">Stats</h2>
+            <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">
+              Stats
+            </h2>
             <div className="grid grid-cols-3 gap-4">
               <div className="border-t border-black pt-2">
                 <p className="text-xl font-bold">$20m</p>
@@ -31,18 +38,44 @@ export function Page() {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">Products</h2>
+            <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">
+              Products
+            </h2>
             <div className="grid grid-cols-1 gap-3">
               {[
-                { name: "Flexile", url: "http://Flexile.com", description: "to run your business" },
-                { name: "Gumroad", url: "http://Gumroad.com", description: "to see what sticks" },
-                { name: "Helper", url: "http://Helper.ai", description: "to answer support tickets" },
-                { name: "Iffy", url: "http://Iffy.com", description: "to moderate user content" },
-                { name: "Shortest", url: "http://shortest.com", description: "to write tests" },
+                {
+                  name: "Flexile",
+                  url: "http://Flexile.com",
+                  description: "to run your business",
+                },
+                {
+                  name: "Gumroad",
+                  url: "http://Gumroad.com",
+                  description: "to see what sticks",
+                },
+                {
+                  name: "Helper",
+                  url: "http://Helper.ai",
+                  description: "to answer support tickets",
+                },
+                {
+                  name: "Iffy",
+                  url: "http://Iffy.com",
+                  description: "to moderate user content",
+                },
+                {
+                  name: "Shortest",
+                  url: "http://shortest.com",
+                  description: "to write tests",
+                },
               ].map((product, index) => (
                 <div key={index} className="border-t border-black pt-2">
                   <h3 className="text-sm font-bold">{product.name}</h3>
-                  {product.description && <p className="text-xs text-gray-600 mb-1">{product.description}</p>}
+                  {product.description && (
+                    <p className="text-xs text-gray-600 mb-1">
+                      {product.description}
+                    </p>
+                  )}
                   {product.url && (
                     <a
                       href={product.url}
@@ -61,5 +94,5 @@ export function Page() {
         </main>
       </div>
     </div>
-  )
+  );
 }
