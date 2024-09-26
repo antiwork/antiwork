@@ -38,13 +38,13 @@ export function Page() {
 
   return (
     <div
-      className="bg-white text-black min-h-screen font-sans"
+      className="bg-white dark:bg-black text-black dark:text-white min-h-screen font-sans"
       style={{ fontFamily: "Helvetica Neue, sans-serif" }}
     >
       <div className="max-w-3xl mx-auto px-6 py-12">
         <header className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Antiwork</h1>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             We build products for fun and profit.
           </p>
         </header>
@@ -55,17 +55,23 @@ export function Page() {
               Stats
             </h2>
             <div className="grid grid-cols-3 gap-4">
-              <div className="border-t border-black pt-2">
+              <div className="border-t border-black dark:border-gray-600 pt-2">
                 <p className="text-xl font-bold">$20m</p>
-                <p className="text-xs text-gray-600">Annual revenue</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">
+                  Annual revenue
+                </p>
               </div>
-              <div className="border-t border-black pt-2">
+              <div className="border-t border-black dark:border-gray-600 pt-2">
                 <p className="text-xl font-bold">$8.91m</p>
-                <p className="text-xs text-gray-600">2023 net income</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">
+                  2023 net income
+                </p>
               </div>
-              <div className="border-t border-black pt-2">
+              <div className="border-t border-black dark:border-gray-600 pt-2">
                 <p className="text-xl font-bold">30</p>
-                <p className="text-xs text-gray-600">People</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">
+                  People
+                </p>
               </div>
             </div>
           </section>
@@ -76,27 +82,33 @@ export function Page() {
             </h2>
             <div className="grid grid-cols-1 gap-3">
               {alphabet.map((letter) => {
-                const product = products.find(product => product.name.startsWith(letter));
+                const product = products.find((product) =>
+                  product.name.startsWith(letter)
+                );
                 return (
                   <div
                     key={letter}
-                    className="border-t border-black pt-2"
+                    className="border-t border-black dark:border-gray-600 pt-2"
                     onMouseEnter={() => setHoveredProduct(letter)}
                     onMouseLeave={() => setHoveredProduct(null)}
                   >
-                    <h3 className={`text-sm font-bold ${!product ? 'text-gray-400' : ''}`}>
+                    <h3
+                      className={`text-sm font-bold ${
+                        !product ? "text-gray-400 dark:text-gray-600" : ""
+                      }`}
+                    >
                       {product ? product.name : letter}
                     </h3>
                     {hoveredProduct === letter && product && (
                       <>
-                        <p className="text-xs text-gray-600 mb-1">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
                           {product.description}
                         </p>
                         <a
                           href={product.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs text-black hover:underline"
+                          className="inline-flex items-center text-xs text-black dark:text-white hover:underline"
                           aria-label={`Learn more about ${product.name}`}
                         >
                           Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
