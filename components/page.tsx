@@ -1,10 +1,23 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { ArrowUpRight, Moon, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export function Page() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   const products = [
     {
@@ -38,15 +51,24 @@ export function Page() {
 
   return (
     <div
-      className="bg-white text-black min-h-screen font-sans"
+      className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen font-sans transition-colors duration-300"
       style={{ fontFamily: "Helvetica Neue, sans-serif" }}
     >
       <div className="max-w-3xl mx-auto px-6 py-12">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Antiwork</h1>
-          <p className="text-sm text-gray-600">
-            We build products for fun and profit.
-          </p>
+        <header className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Antiwork</h1>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              We build products for fun and profit.
+            </p>
+          </div>
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            aria-label="Toggle dark mode"
+          >
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </header>
 
         <main>
@@ -55,17 +77,17 @@ export function Page() {
               Stats
             </h2>
             <div className="grid grid-cols-3 gap-4">
-              <div className="border-t border-black pt-2">
+              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
                 <p className="text-xl font-bold">$20m</p>
-                <p className="text-xs text-gray-600">Annual revenue</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Annual revenue</p>
               </div>
-              <div className="border-t border-black pt-2">
+              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
                 <p className="text-xl font-bold">$8.91m</p>
-                <p className="text-xs text-gray-600">2023 net income</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">2023 net income</p>
               </div>
-              <div className="border-t border-black pt-2">
+              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
                 <p className="text-xl font-bold">30</p>
-                <p className="text-xs text-gray-600">People</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">People</p>
               </div>
             </div>
           </section>
@@ -80,23 +102,23 @@ export function Page() {
                 return (
                   <div
                     key={letter}
-                    className="border-t border-black pt-2"
+                    className="border-t border-gray-300 dark:border-gray-700 pt-2"
                     onMouseEnter={() => setHoveredProduct(letter)}
                     onMouseLeave={() => setHoveredProduct(null)}
                   >
-                    <h3 className={`text-sm font-bold ${!product ? 'text-gray-400' : ''}`}>
+                    <h3 className={`text-sm font-bold ${!product ? 'text-gray-400 dark:text-gray-600' : ''}`}>
                       {product ? product.name : letter}
                     </h3>
                     {hoveredProduct === letter && product && (
                       <>
-                        <p className="text-xs text-gray-600 mb-1">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
                           {product.description}
                         </p>
                         <a
                           href={product.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs text-black hover:underline"
+                          className="inline-flex items-center text-xs text-black dark:text-white hover:underline"
                           aria-label={`Learn more about ${product.name}`}
                         >
                           Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
