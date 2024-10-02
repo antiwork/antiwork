@@ -2,6 +2,8 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import { Logo } from "@/app/components/Logo";
+import { motion } from "framer-motion";
 
 export function Page() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
@@ -37,59 +39,114 @@ export function Page() {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen font-sans transition-colors duration-300"
       style={{ fontFamily: "Helvetica Neue, sans-serif" }}
     >
-      <div className="max-w-3xl mx-auto px-6 py-12">
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="max-w-3xl mx-auto px-6 py-12"
+      >
         <header className="mb-8">
-          <div>
-            <h1 className="text-3xl font-bold mb-2">Antiwork</h1>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              We build products for fun and profit.
-            </p>
+          <div className="flex items-center mb-2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Logo size={32} color="currentColor" background="transparent" />
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="text-3xl font-bold ml-3"
+            >
+              Antiwork
+            </motion.h1>
           </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="text-sm text-gray-600 dark:text-gray-400"
+          >
+            We build products for fun and profit.
+          </motion.p>
         </header>
 
         <main>
-          <section className="mb-8">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="mb-8"
+          >
             <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">
               Stats
             </h2>
             <div className="grid grid-cols-3 gap-4">
-              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.1 }}
+                className="border-t border-gray-300 dark:border-gray-700 pt-2"
+              >
                 <p className="text-xl font-bold">$20m</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   Annual revenue
                 </p>
-              </div>
-              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.3 }}
+                className="border-t border-gray-300 dark:border-gray-700 pt-2"
+              >
                 <p className="text-xl font-bold">$8.91m</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   2023 net income
                 </p>
-              </div>
-              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.5 }}
+                className="border-t border-gray-300 dark:border-gray-700 pt-2"
+              >
                 <p className="text-xl font-bold">30</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   People
                 </p>
-              </div>
+              </motion.div>
             </div>
-          </section>
+          </motion.section>
 
-          <section className="mb-8">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.7 }}
+            className="mb-8"
+          >
             <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">
               Products
             </h2>
             <div className="grid grid-cols-1 gap-3">
-              {alphabet.map((letter) => {
+              {alphabet.map((letter, index) => {
                 const product = products.find((product) =>
                   product.name.startsWith(letter)
                 );
                 return (
-                  <div
+                  <motion.div
                     key={letter}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1.9 + index * 0.05 }}
                     className="border-t border-gray-300 dark:border-gray-700 pt-2"
                     onMouseEnter={() => setHoveredProduct(letter)}
                     onMouseLeave={() => setHoveredProduct(null)}
@@ -102,7 +159,11 @@ export function Page() {
                       {product ? product.name : letter}
                     </h3>
                     {hoveredProduct === letter && product && (
-                      <>
+                      <motion.div
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
                           {product.description}
                         </p>
@@ -115,15 +176,15 @@ export function Page() {
                         >
                           Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
                         </a>
-                      </>
+                      </motion.div>
                     )}
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
-          </section>
+          </motion.section>
         </main>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
