@@ -1,12 +1,12 @@
 "use client";
 
 import { ArrowUpRight, Shuffle } from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export function Page() {
+function PageContent() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
@@ -261,5 +261,13 @@ export function Page() {
         </main>
       </motion.div>
     </motion.div>
+  );
+}
+
+export function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageContent />
+    </Suspense>
   );
 }
