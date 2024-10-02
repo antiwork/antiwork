@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { Logo } from "@/app/components/Logo";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Page() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
@@ -158,26 +158,29 @@ export function Page() {
                     >
                       {product ? product.name : letter}
                     </h3>
-                    {hoveredProduct === letter && product && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                          {product.description}
-                        </p>
-                        <a
-                          href={product.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs text-black dark:text-white hover:underline"
-                          aria-label={`Learn more about ${product.name}`}
+                    <AnimatePresence>
+                      {hoveredProduct === letter && product && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
-                        </a>
-                      </motion.div>
-                    )}
+                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                            {product.description}
+                          </p>
+                          <a
+                            href={product.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-xs text-black dark:text-white hover:underline"
+                            aria-label={`Learn more about ${product.name}`}
+                          >
+                            Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
+                          </a>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 );
               })}
