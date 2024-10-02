@@ -47,8 +47,6 @@ export function Page() {
     },
   ];
 
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
   return (
     <div
       className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen font-sans transition-colors duration-300"
@@ -97,37 +95,34 @@ export function Page() {
               Products
             </h2>
             <div className="grid grid-cols-1 gap-3">
-              {alphabet.map((letter) => {
-                const product = products.find(product => product.name.startsWith(letter));
-                return (
-                  <div
-                    key={letter}
-                    className="border-t border-gray-300 dark:border-gray-700 pt-2"
-                    onMouseEnter={() => setHoveredProduct(letter)}
-                    onMouseLeave={() => setHoveredProduct(null)}
-                  >
-                    <h3 className={`text-sm font-bold ${!product ? 'text-gray-400 dark:text-gray-600' : ''}`}>
-                      {product ? product.name : letter}
-                    </h3>
-                    {hoveredProduct === letter && product && (
-                      <>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                          {product.description}
-                        </p>
-                        <a
-                          href={product.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs text-black dark:text-white hover:underline"
-                          aria-label={`Learn more about ${product.name}`}
-                        >
-                          Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
-                        </a>
-                      </>
-                    )}
-                  </div>
-                );
-              })}
+              {products.map((product, index) => (
+                <div
+                  key={index}
+                  className="border-t border-gray-300 dark:border-gray-700 pt-2"
+                  onMouseEnter={() => setHoveredProduct(product.name)}
+                  onMouseLeave={() => setHoveredProduct(null)}
+                >
+                  <h3 className="text-sm font-bold">
+                    {product.name}
+                  </h3>
+                  {hoveredProduct === product.name && (
+                    <>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                        {product.description}
+                      </p>
+                      <a
+                        href={product.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-xs text-black dark:text-white hover:underline"
+                        aria-label={`Learn more about ${product.name}`}
+                      >
+                        Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
+                      </a>
+                    </>
+                  )}
+                </div>
+              ))}
             </div>
           </section>
         </main>
