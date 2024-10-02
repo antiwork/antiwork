@@ -15,8 +15,8 @@ export function Page() {
     const generateRandomColor = () =>
       `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
-    const getContrastRatio = (color1, color2) => {
-      const luminance = (color) => {
+    const getContrastRatio = (color1: string, color2: string) => {
+      const luminance = (color: string) => {
         const rgb = parseInt(color.slice(1), 16);
         const r = (rgb >> 16) & 0xff;
         const g = (rgb >> 8) & 0xff;
