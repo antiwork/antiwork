@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Shuffle } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Logo } from "@/app/components/Logo";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -13,19 +13,7 @@ export function Page() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  useEffect(() => {
-    const bgColor = searchParams.get("bg");
-    const txtColor = searchParams.get("txt");
-
-    if (bgColor && txtColor) {
-      setBackgroundColor(`#${bgColor}`);
-      setTextColor(`#${txtColor}`);
-    } else {
-      generateRandomColors();
-    }
-  }, [searchParams]);
-
-  const generateRandomColors = () => {
+  const generateRandomColors = useCallback(() => {
     const generateRandomColor = () =>
       `#${Math.floor(Math.random() * 16777215)
         .toString(16)
@@ -55,7 +43,19 @@ export function Page() {
 
     // Update URL with new colors
     router.push(`?bg=${backgroundColor.slice(1)}&txt=${textColor.slice(1)}`);
-  };
+  }, [router]);
+
+  useEffect(() => {
+    const bgColor = searchParams.get("bg");
+    const txtColor = searchParams.get("txt");
+
+    if (bgColor && txtColor) {
+      setBackgroundColor(`#${bgColor}`);
+      setTextColor(`#${txtColor}`);
+    } else {
+      generateRandomColors();
+    }
+  }, [searchParams, generateRandomColors]);
 
   const products = [
     {
