@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  ArrowUpRight,
-  Shuffle,
-  ChevronUp,
-  ChevronDown,
-  MoreHorizontal,
-  Search,
-} from "lucide-react";
+import { ArrowUpRight, Shuffle, MoreHorizontal } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense, useRef } from "react";
 import { Logo } from "@/app/components/Logo";
 import {
@@ -17,6 +10,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import {
   Tooltip,
   TooltipContent,
@@ -28,10 +22,7 @@ function PageContent() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
-  const [editingLetter, setEditingLetter] = useState<string | null>(null);
-  const [newProductName, setNewProductName] = useState("");
   const [showAllProducts, setShowAllProducts] = useState(false);
-  const [searchResults, setSearchResults] = useState<string[]>([]);
   const router = useRouter();
   const searchParams = useSearchParams();
   const containerRef = useRef(null);
@@ -134,79 +125,33 @@ function PageContent() {
 
   const [products, setProducts] = useState([
     {
-      name: "Antiwork",
-      url: "https://Antiwork.com",
-      description: "to stop work",
-      votes: 0,
-    },
-    {
       name: "Flexile",
       url: "https://Flexile.com",
       description: "to pay your people in equity and dividends",
-      votes: 0,
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
       description: "to see what sticks",
-      votes: 0,
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
       description: "to answer support tickets",
-      votes: 0,
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
       description: "to moderate user content",
-      votes: 0,
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
       description: "to write tests",
-      votes: 0,
     },
   ]);
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
-  const handleVote = (index: number, increment: number) => {
-    const newProducts = [...products];
-    newProducts[index].votes += increment;
-    setProducts(newProducts.sort((a, b) => b.votes - a.votes));
-  };
-
-  const handleSearch = (query: string) => {
-    const results = products
-      .filter((product) =>
-        product.name.toLowerCase().startsWith(query.toLowerCase())
-      )
-      .map((product) => product.name);
-    setSearchResults(results);
-
-    if (query.toLowerCase() + ".com" === results[0]?.toLowerCase()) {
-      setSearchResults([...results, "Suggest buying this company"]);
-    }
-  };
-
-  const handleSubmitNewProduct = () => {
-    if (newProductName) {
-      setProducts([
-        ...products,
-        {
-          name: newProductName,
-          url: `https://${newProductName}.com`,
-          description: "",
-          votes: 0,
-        },
-      ]);
-      setEditingLetter(null);
-      setNewProductName("");
-    }
-  };
 
   return (
     <motion.div
@@ -373,152 +318,50 @@ function PageContent() {
                     onMouseEnter={() => setHoveredProduct(letter)}
                     onMouseLeave={() => setHoveredProduct(null)}
                   >
-                    {editingLetter === letter ? (
-                      <div className="relative">
-                        <div className="relative">
-                          <input
-                            type="text"
-                            value={newProductName}
-                            onChange={(e) => {
-                              setNewProductName(e.target.value);
-                              handleSearch(e.target.value);
-                            }}
-                            placeholder={letter}
-                            className="text-4xl font-bold mb-1 w-full bg-transparent border-b pr-10"
-                            style={{ borderColor: textColor, color: textColor }}
-                            autoFocus
-                          />
-                          <Search
-                            className="absolute right-2 top-1/2 transform -translate-y-1/2"
-                            size={24}
-                            style={{ color: textColor }}
-                          />
-                        </div>
-                        <span
-                          className="text-4xl font-bold absolute right-0 bottom-0"
-                          style={{ color: textColor }}
-                        >
-                          .com
-                        </span>
-                        {searchResults.length > 0 && (
-                          <ul className="absolute left-0 right-0 bg-white shadow-lg rounded-b-lg">
-                            {searchResults.map((result, index) => (
-                              <li
-                                key={index}
-                                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                                onClick={() => {
-                                  if (
-                                    result === "Suggest buying this company"
-                                  ) {
-                                    alert(
-                                      "Suggestion to buy the company has been noted!"
-                                    );
-                                  } else {
-                                    setNewProductName(result);
-                                    handleSubmitNewProduct();
-                                  }
-                                }}
-                              >
-                                {result}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                        <button
-                          onClick={handleSubmitNewProduct}
-                          className="mt-2 text-xs px-2 py-1 rounded"
-                          style={{
-                            backgroundColor: textColor,
-                            color: backgroundColor,
-                          }}
-                        >
-                          Submit idea
-                        </button>
-                      </div>
+                    {product ? (
+                      <h3 className="text-sm font-bold cursor-pointer">
+                        {product.name}
+                      </h3>
                     ) : (
-                      <>
+                      <Link href={`/${letter.toLowerCase()}`}>
                         <h3
-                          className={`text-sm font-bold ${
-                            !product ? "opacity-50" : ""
-                          } cursor-pointer`}
-                          onClick={() => !product && setEditingLetter(letter)}
+                          className={`text-sm font-bold opacity-50 cursor-pointer ${
+                            hoveredProduct === letter ? "underline" : ""
+                          }`}
                         >
-                          {product ? product.name : letter}
+                          {letter}
                         </h3>
-                        {!product && hoveredProduct === letter && (
-                          <TooltipProvider>
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <div
-                                  className="absolute left-0 bottom-full mb-2 px-2 py-1 text-xs rounded"
-                                  style={{
-                                    backgroundColor: backgroundColor,
-                                    color: textColor,
-                                  }}
-                                >
-                                  Click to suggest an idea!
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Suggest a new product idea</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        )}
-                        <AnimatePresence>
-                          {hoveredProduct === letter && product && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <div className="flex justify-between items-center">
-                                <a
-                                  href={product.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center text-xs hover:underline"
-                                  aria-label={`Learn more about ${product.name}`}
-                                  style={{ color: textColor }}
-                                >
-                                  Learn more{" "}
-                                  <ArrowUpRight className="ml-1 h-3 w-3" />
-                                </a>
-                                <div className="flex items-center">
-                                  <button
-                                    onClick={() => handleVote(index, 1)}
-                                    className="mr-1"
-                                  >
-                                    <ChevronUp size={16} />
-                                  </button>
-                                  <span className="text-xs mr-1">
-                                    {product.votes}
-                                  </span>
-                                  <button onClick={() => handleVote(index, -1)}>
-                                    <ChevronDown size={16} />
-                                  </button>
-                                </div>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </>
+                      </Link>
                     )}
+                    <AnimatePresence>
+                      {hoveredProduct === letter && product && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <div className="flex justify-between items-center">
+                            {product.description}
+                            <a
+                              href={product.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-xs hover:underline"
+                              aria-label={`Learn more about ${product.name}`}
+                              style={{ color: textColor }}
+                            >
+                              Learn more{" "}
+                              <ArrowUpRight className="ml-1 h-3 w-3" />
+                            </a>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 );
               })}
             </div>
-            {products.length > 10 && (
-              <button
-                onClick={() => setShowAllProducts(!showAllProducts)}
-                className="mt-4 text-sm flex items-center"
-                style={{ color: textColor }}
-              >
-                <MoreHorizontal size={16} className="mr-1" />
-                {showAllProducts ? "Show less" : "Show more"}
-              </button>
-            )}
           </motion.section>
         </main>
       </motion.div>
