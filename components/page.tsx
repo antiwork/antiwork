@@ -197,7 +197,7 @@ function PageContent() {
                   className="absolute right-0 mt-2 px-2 py-1 text-xs rounded"
                   style={{ backgroundColor: textColor, color: backgroundColor }}
                 >
-                  Press 'S' to shuffle
+                  Press &apos;S&apos; to shuffle
                 </motion.div>
               )}
             </AnimatePresence>
