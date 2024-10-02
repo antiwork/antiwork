@@ -1,12 +1,42 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logo } from "@/app/components/Logo";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Page() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
+  const [backgroundColor, setBackgroundColor] = useState("");
+  const [textColor, setTextColor] = useState("");
+
+  useEffect(() => {
+    // Generate random colors on each render
+    const generateRandomColor = () =>
+      `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+
+    const getContrastRatio = (color1, color2) => {
+      const luminance = (color) => {
+        const rgb = parseInt(color.slice(1), 16);
+        const r = (rgb >> 16) & 0xff;
+        const g = (rgb >> 8) & 0xff;
+        const b = (rgb >> 0) & 0xff;
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      };
+      const l1 = luminance(color1);
+      const l2 = luminance(color2);
+      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    };
+
+    let backgroundColor, textColor;
+    do {
+      backgroundColor = generateRandomColor();
+      textColor = generateRandomColor();
+    } while (getContrastRatio(backgroundColor, textColor) < 4.5);
+
+    setBackgroundColor(backgroundColor);
+    setTextColor(textColor);
+  }, []);
 
   const products = [
     {
@@ -43,8 +73,12 @@ export function Page() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen font-sans transition-colors duration-300"
-      style={{ fontFamily: "Helvetica Neue, sans-serif" }}
+      className="min-h-screen font-sans transition-colors duration-300"
+      style={{
+        fontFamily: "Helvetica Neue, sans-serif",
+        backgroundColor: backgroundColor,
+        color: textColor,
+      }}
     >
       <motion.div
         initial={{ y: 20, opacity: 0 }}
@@ -59,7 +93,7 @@ export function Page() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Logo size={32} color="currentColor" background="transparent" />
+              <Logo size={32} color={textColor} background="transparent" />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
@@ -74,7 +108,8 @@ export function Page() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="text-sm text-gray-600 dark:text-gray-400"
+            className="text-sm"
+            style={{ color: textColor }}
           >
             We build products for fun and profit.
           </motion.p>
@@ -95,10 +130,11 @@ export function Page() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.1 }}
-                className="border-t border-gray-300 dark:border-gray-700 pt-2"
+                className="border-t pt-2"
+                style={{ borderColor: textColor }}
               >
                 <p className="text-xl font-bold">$20m</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">
+                <p className="text-xs" style={{ color: textColor }}>
                   Annual revenue
                 </p>
               </motion.div>
@@ -106,10 +142,11 @@ export function Page() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.3 }}
-                className="border-t border-gray-300 dark:border-gray-700 pt-2"
+                className="border-t pt-2"
+                style={{ borderColor: textColor }}
               >
                 <p className="text-xl font-bold">$8.91m</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">
+                <p className="text-xs" style={{ color: textColor }}>
                   2023 net income
                 </p>
               </motion.div>
@@ -117,10 +154,11 @@ export function Page() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.5 }}
-                className="border-t border-gray-300 dark:border-gray-700 pt-2"
+                className="border-t pt-2"
+                style={{ borderColor: textColor }}
               >
                 <p className="text-xl font-bold">30</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">
+                <p className="text-xs" style={{ color: textColor }}>
                   People
                 </p>
               </motion.div>
@@ -147,13 +185,14 @@ export function Page() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.9 + index * 0.05 }}
-                    className="border-t border-gray-300 dark:border-gray-700 pt-2"
+                    className="border-t pt-2"
+                    style={{ borderColor: textColor }}
                     onMouseEnter={() => setHoveredProduct(letter)}
                     onMouseLeave={() => setHoveredProduct(null)}
                   >
                     <h3
                       className={`text-sm font-bold ${
-                        !product ? "text-gray-400 dark:text-gray-600" : ""
+                        !product ? "opacity-50" : ""
                       }`}
                     >
                       {product ? product.name : letter}
@@ -166,15 +205,19 @@ export function Page() {
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                          <p
+                            className="text-xs mb-1"
+                            style={{ color: textColor }}
+                          >
                             {product.description}
                           </p>
                           <a
                             href={product.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center text-xs text-black dark:text-white hover:underline"
+                            className="inline-flex items-center text-xs hover:underline"
                             aria-label={`Learn more about ${product.name}`}
+                            style={{ color: textColor }}
                           >
                             Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
                           </a>
