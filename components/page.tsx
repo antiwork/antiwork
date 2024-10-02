@@ -1,19 +1,35 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Shuffle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Logo } from "@/app/components/Logo";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export function Page() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Generate random colors on each render
+    const bgColor = searchParams.get("bg");
+    const txtColor = searchParams.get("txt");
+
+    if (bgColor && txtColor) {
+      setBackgroundColor(`#${bgColor}`);
+      setTextColor(`#${txtColor}`);
+    } else {
+      generateRandomColors();
+    }
+  }, [searchParams]);
+
+  const generateRandomColors = () => {
     const generateRandomColor = () =>
-      `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+      `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0")}`;
 
     const getContrastRatio = (color1: string, color2: string) => {
       const luminance = (color: string) => {
@@ -36,7 +52,10 @@ export function Page() {
 
     setBackgroundColor(backgroundColor);
     setTextColor(textColor);
-  }, []);
+
+    // Update URL with new colors
+    router.push(`?bg=${backgroundColor.slice(1)}&txt=${textColor.slice(1)}`);
+  };
 
   const products = [
     {
@@ -86,7 +105,7 @@ export function Page() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="max-w-3xl mx-auto px-6 py-12"
       >
-        <header className="mb-8">
+        <header className="flex justify-between items-center">
           <div className="flex items-center mb-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -104,16 +123,26 @@ export function Page() {
               Antiwork
             </motion.h1>
           </div>
-          <motion.p
+          <motion.button
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="text-sm"
-            style={{ color: textColor }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            onClick={generateRandomColors}
+            className="p-2 rounded"
+            style={{ backgroundColor: textColor, color: backgroundColor }}
           >
-            We build products for fun and profit.
-          </motion.p>
+            <Shuffle size={24} />
+          </motion.button>
         </header>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="text-sm mb-8"
+          style={{ color: textColor }}
+        >
+          We build products for fun and profit.
+        </motion.p>
 
         <main>
           <motion.section
