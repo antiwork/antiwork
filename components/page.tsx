@@ -10,6 +10,7 @@ function PageContent() {
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
+  const [showShortcutHint, setShowShortcutHint] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -92,6 +93,20 @@ function PageContent() {
     document.body.style.backgroundColor = backgroundColor;
   }, [backgroundColor]);
 
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "s" || event.key === "S") {
+        generateRandomColors();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [generateRandomColors]);
+
   const products = [
     {
       name: "Flexile",
@@ -152,22 +167,41 @@ function PageContent() {
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.5 }}
               className="text-3xl font-bold ml-3"
             >
               Antiwork
             </motion.h1>
           </div>
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
-            onClick={generateRandomColors}
-            className="p-2 rounded"
-            style={{ backgroundColor: textColor, color: backgroundColor }}
+            className="relative"
+            onMouseEnter={() => setShowShortcutHint(true)}
+            onMouseLeave={() => setShowShortcutHint(false)}
           >
-            <Shuffle size={24} />
-          </motion.button>
+            <button
+              onClick={generateRandomColors}
+              className="p-2 rounded"
+              style={{ backgroundColor: textColor, color: backgroundColor }}
+            >
+              <Shuffle size={24} />
+            </button>
+            <AnimatePresence>
+              {showShortcutHint && (
+                <motion.div
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 5 }}
+                  className="absolute right-0 mt-2 px-2 py-1 text-xs rounded"
+                  style={{ backgroundColor: textColor, color: backgroundColor }}
+                >
+                  Press 'S' to shuffle
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </header>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
