@@ -9,27 +9,27 @@ export function Page() {
   const products = [
     {
       name: "Flexile",
-      url: "http://Flexile.com",
+      url: "https://Flexile.com",
       description: "to run your business",
     },
     {
       name: "Gumroad",
-      url: "http://Gumroad.com",
+      url: "https://Gumroad.com",
       description: "to see what sticks",
     },
     {
       name: "Helper",
-      url: "http://Helper.ai",
+      url: "https://Helper.ai",
       description: "to answer support tickets",
     },
     {
       name: "Iffy",
-      url: "http://Iffy.com",
+      url: "https://Iffy.com",
       description: "to moderate user content",
     },
     {
       name: "Shortest",
-      url: "http://shortest.com",
+      url: "https://shortest.com",
       description: "to write tests",
     },
   ];
@@ -38,15 +38,17 @@ export function Page() {
 
   return (
     <div
-      className="bg-white dark:bg-black text-black dark:text-white min-h-screen font-sans"
+      className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen font-sans transition-colors duration-300"
       style={{ fontFamily: "Helvetica Neue, sans-serif" }}
     >
       <div className="max-w-3xl mx-auto px-6 py-12">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Antiwork</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            We build products for fun and profit.
-          </p>
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Antiwork</h1>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              We build products for fun and profit.
+            </p>
+          </div>
         </header>
 
         <main>
@@ -55,19 +57,19 @@ export function Page() {
               Stats
             </h2>
             <div className="grid grid-cols-3 gap-4">
-              <div className="border-t border-black dark:border-gray-600 pt-2">
+              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
                 <p className="text-xl font-bold">$20m</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   Annual revenue
                 </p>
               </div>
-              <div className="border-t border-black dark:border-gray-600 pt-2">
+              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
                 <p className="text-xl font-bold">$8.91m</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   2023 net income
                 </p>
               </div>
-              <div className="border-t border-black dark:border-gray-600 pt-2">
+              <div className="border-t border-gray-300 dark:border-gray-700 pt-2">
                 <p className="text-xl font-bold">30</p>
                 <p className="text-xs text-gray-600 dark:text-gray-400">
                   People
@@ -88,7 +90,7 @@ export function Page() {
                 return (
                   <div
                     key={letter}
-                    className="border-t border-black dark:border-gray-600 pt-2"
+                    className="border-t border-gray-300 dark:border-gray-700 pt-2"
                     onMouseEnter={() => setHoveredProduct(letter)}
                     onMouseLeave={() => setHoveredProduct(null)}
                   >
