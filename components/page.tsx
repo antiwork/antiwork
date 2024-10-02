@@ -45,6 +45,35 @@ function PageContent() {
     router.push(`?bg=${backgroundColor.slice(1)}&txt=${textColor.slice(1)}`);
   }, [router]);
 
+  const setInitialColors = useCallback(() => {
+    const generateRandomColor = () =>
+      `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0")}`;
+
+    const getContrastRatio = (color1: string, color2: string) => {
+      const luminance = (color: string) => {
+        const rgb = parseInt(color.slice(1), 16);
+        const r = (rgb >> 16) & 0xff;
+        const g = (rgb >> 8) & 0xff;
+        const b = (rgb >> 0) & 0xff;
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      };
+      const l1 = luminance(color1);
+      const l2 = luminance(color2);
+      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    };
+
+    let backgroundColor, textColor;
+    do {
+      backgroundColor = generateRandomColor();
+      textColor = generateRandomColor();
+    } while (getContrastRatio(backgroundColor, textColor) < 4.5);
+
+    setBackgroundColor(backgroundColor);
+    setTextColor(textColor);
+  }, []);
+
   useEffect(() => {
     const bgColor = searchParams.get("bg");
     const txtColor = searchParams.get("txt");
@@ -53,9 +82,9 @@ function PageContent() {
       setBackgroundColor(`#${bgColor}`);
       setTextColor(`#${txtColor}`);
     } else {
-      generateRandomColors();
+      setInitialColors();
     }
-  }, [searchParams, generateRandomColors]);
+  }, [searchParams, setInitialColors]);
 
   const products = [
     {
@@ -266,7 +295,22 @@ function PageContent() {
 
 export function Page() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
+          ▼▼
+        </div>
+      }
+    >
       <PageContent />
     </Suspense>
   );
