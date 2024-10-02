@@ -2,13 +2,21 @@ import { ImageResponse } from "next/og";
 import { Logo } from "../../components/Logo";
 
 export async function GET() {
+  // Generate random colors
+  const randomBackgroundColor = `#${Math.floor(
+    Math.random() * 16777215
+  ).toString(16)}`;
+  const randomLogoColor = `#${Math.floor(Math.random() * 16777215).toString(
+    16
+  )}`;
+
   return new ImageResponse(
     (
       <div
         style={{
           fontSize: 40,
-          color: "white",
-          background: "#111827", // This is the dark:bg-gray-900 color from Tailwind CSS
+          color: randomLogoColor,
+          background: randomBackgroundColor,
           width: "100%",
           height: "100%",
           display: "flex",
@@ -17,7 +25,7 @@ export async function GET() {
           justifyContent: "center",
         }}
       >
-        <Logo size={300} color="white" background="transparent" />
+        <Logo size={300} color={randomLogoColor} background="transparent" />
       </div>
     ),
     {
