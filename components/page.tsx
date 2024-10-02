@@ -86,6 +86,12 @@ function PageContent() {
     }
   }, [searchParams, setInitialColors]);
 
+  useEffect(() => {
+    // Set the background color of the html and body elements
+    document.documentElement.style.backgroundColor = backgroundColor;
+    document.body.style.backgroundColor = backgroundColor;
+  }, [backgroundColor]);
+
   const products = [
     {
       name: "Flexile",
