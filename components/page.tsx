@@ -11,6 +11,7 @@ function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
   const [showShortcutHint, setShowShortcutHint] = useState(false);
+  const [logoSize, setLogoSize] = useState(32);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -107,6 +108,27 @@ function PageContent() {
     };
   }, [generateRandomColors]);
 
+  useEffect(() => {
+    const updateLogoSize = () => {
+      if (window.innerWidth >= 1280) {
+        setLogoSize(64);
+      } else if (window.innerWidth >= 1024) {
+        setLogoSize(40);
+      } else if (window.innerWidth >= 640) {
+        setLogoSize(36);
+      } else {
+        setLogoSize(32);
+      }
+    };
+
+    updateLogoSize();
+    window.addEventListener("resize", updateLogoSize);
+
+    return () => {
+      window.removeEventListener("resize", updateLogoSize);
+    };
+  }, []);
+
   const products = [
     {
       name: "Flexile",
@@ -153,22 +175,26 @@ function PageContent() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="max-w-3xl mx-auto px-6 py-12"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-24"
       >
-        <header className="flex justify-between items-center">
-          <div className="flex items-center mb-2">
+        <header className="flex flex-col sm:flex-row justify-between items-center mb-8 xl:mb-16">
+          <div className="flex items-center mb-4 sm:mb-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Logo size={32} color={textColor} background="transparent" />
+              <Logo
+                size={logoSize}
+                color={textColor}
+                background="transparent"
+              />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-bold ml-3"
+              className="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold ml-3"
             >
               Antiwork
             </motion.h1>
@@ -183,10 +209,10 @@ function PageContent() {
           >
             <button
               onClick={generateRandomColors}
-              className="p-2 rounded"
+              className="p-2 rounded xl:p-4"
               style={{ backgroundColor: textColor, color: backgroundColor }}
             >
-              <Shuffle size={24} />
+              <Shuffle size={24} className="xl:w-8 xl:h-8" />
             </button>
             <AnimatePresence>
               {showShortcutHint && (
@@ -194,7 +220,7 @@ function PageContent() {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 5 }}
-                  className="absolute right-0 mt-2 px-2 py-1 text-xs rounded"
+                  className="absolute right-0 mt-2 px-2 py-1 text-xs xl:text-sm rounded"
                   style={{ backgroundColor: textColor, color: backgroundColor }}
                 >
                   Press &apos;S&apos; to shuffle
@@ -207,7 +233,7 @@ function PageContent() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="text-sm mb-8"
+          className="text-sm sm:text-base lg:text-lg xl:text-2xl mb-8 xl:mb-16"
           style={{ color: textColor }}
         >
           We build products for fun and profit.
@@ -218,21 +244,26 @@ function PageContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
-            className="mb-8"
+            className="mb-12 xl:mb-24"
           >
-            <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">
+            <h2 className="text-sm sm:text-base lg:text-lg xl:text-2xl font-bold mb-4 xl:mb-8 uppercase tracking-wide">
               Stats
             </h2>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 xl:gap-12">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.1 }}
-                className="border-t pt-2"
+                className="border-t pt-4 xl:pt-8"
                 style={{ borderColor: textColor }}
               >
-                <p className="text-xl font-bold">$20m</p>
-                <p className="text-xs" style={{ color: textColor }}>
+                <p className="text-xl sm:text-2xl lg:text-3xl xl:text-5xl font-bold">
+                  $20m
+                </p>
+                <p
+                  className="text-xs sm:text-sm xl:text-lg"
+                  style={{ color: textColor }}
+                >
                   Annual revenue
                 </p>
               </motion.div>
@@ -240,11 +271,16 @@ function PageContent() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.3 }}
-                className="border-t pt-2"
+                className="border-t pt-4 xl:pt-8"
                 style={{ borderColor: textColor }}
               >
-                <p className="text-xl font-bold">$8.91m</p>
-                <p className="text-xs" style={{ color: textColor }}>
+                <p className="text-xl sm:text-2xl lg:text-3xl xl:text-5xl font-bold">
+                  $8.91m
+                </p>
+                <p
+                  className="text-xs sm:text-sm xl:text-lg"
+                  style={{ color: textColor }}
+                >
                   2023 net income
                 </p>
               </motion.div>
@@ -252,11 +288,16 @@ function PageContent() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.5 }}
-                className="border-t pt-2"
+                className="border-t pt-4 xl:pt-8"
                 style={{ borderColor: textColor }}
               >
-                <p className="text-xl font-bold">30</p>
-                <p className="text-xs" style={{ color: textColor }}>
+                <p className="text-xl sm:text-2xl lg:text-3xl xl:text-5xl font-bold">
+                  30
+                </p>
+                <p
+                  className="text-xs sm:text-sm xl:text-lg"
+                  style={{ color: textColor }}
+                >
                   People
                 </p>
               </motion.div>
@@ -267,12 +308,12 @@ function PageContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.7 }}
-            className="mb-8"
+            className="mb-8 xl:mb-16"
           >
-            <h2 className="text-sm font-bold mb-3 uppercase tracking-wide">
+            <h2 className="text-sm sm:text-base lg:text-lg xl:text-2xl font-bold mb-4 xl:mb-8 uppercase tracking-wide">
               Products
             </h2>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8">
               {alphabet.map((letter, index) => {
                 const product = products.find((product) =>
                   product.name.startsWith(letter)
@@ -283,13 +324,13 @@ function PageContent() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.9 + index * 0.05 }}
-                    className="border-t pt-2"
+                    className="border-t pt-3 xl:pt-6"
                     style={{ borderColor: textColor }}
                     onMouseEnter={() => setHoveredProduct(letter)}
                     onMouseLeave={() => setHoveredProduct(null)}
                   >
                     <h3
-                      className={`text-sm font-bold ${
+                      className={`text-sm sm:text-base lg:text-lg xl:text-2xl font-bold ${
                         !product ? "opacity-50" : ""
                       }`}
                     >
@@ -304,7 +345,7 @@ function PageContent() {
                           transition={{ duration: 0.2 }}
                         >
                           <p
-                            className="text-xs mb-1"
+                            className="text-xs sm:text-sm xl:text-lg mb-2 xl:mb-4"
                             style={{ color: textColor }}
                           >
                             {product.description}
@@ -313,11 +354,12 @@ function PageContent() {
                             href={product.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center text-xs hover:underline"
+                            className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline"
                             aria-label={`Learn more about ${product.name}`}
                             style={{ color: textColor }}
                           >
-                            Learn more <ArrowUpRight className="ml-1 h-3 w-3" />
+                            Learn more{" "}
+                            <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
                           </a>
                         </motion.div>
                       )}
