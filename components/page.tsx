@@ -12,7 +12,7 @@ export function Page() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "to run your business",
+      description: "to pay your people in equity and dividends",
     },
     {
       name: "Gumroad",
