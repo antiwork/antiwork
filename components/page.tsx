@@ -184,7 +184,7 @@ function PageContent() {
       points: [
         "Time is our most sacred asset.",
         "Everything important is where AI can see it.",
-        "Focus on what will make shipping easier for everyone, not just yourself.",
+        "Make shipping easier for everyone, not just you.",
       ],
     },
     {
@@ -193,7 +193,7 @@ function PageContent() {
       points: [
         "We say no by default.",
         "No performative busywork.",
-        "Less lines of stuff to understand to ship.",
+        "Decrease the stuff one needs to understand to ship.",
       ],
     },
     {
@@ -251,7 +251,7 @@ function PageContent() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
-            className="relative"
+            className="relative hidden sm:block"
             onMouseEnter={() => setShowShortcutHint(true)}
             onMouseLeave={() => setShowShortcutHint(false)}
           >
@@ -460,7 +460,7 @@ function PageContent() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 2.3 + values.length * 0.1 }}
-                className="border-dashed border-2 pt-4 xl:pt-8 p-4 sm:col-span-2 lg:col-span-3"
+                className="border-dashed border-2 pt-4 xl:pt-8 p-4 col-span-2 pl-6"
                 style={{ borderColor: textColor }}
               >
                 <div className="flex items-center mb-2 xl:mb-4">
@@ -478,7 +478,7 @@ function PageContent() {
                   from you!
                 </p>
                 <a
-                  href="#"
+                  href="https://x.com/shl"
                   className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline mt-2"
                   style={{ color: textColor }}
                 >
