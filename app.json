@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "e4d0a5c7-c920-4f41-926d-c97988fa6911"
+      }
+    },
+    "owner": "antiwork",
+    "slug": "antiwork"
+  }
+}
