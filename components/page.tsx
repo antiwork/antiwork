@@ -6,7 +6,6 @@ import {
   Star,
   Clock,
   Minus,
-  DollarSign,
   Zap,
   Heart,
 } from "lucide-react";
