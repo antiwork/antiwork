@@ -1,6 +1,15 @@
 "use client";
 
-import { ArrowUpRight, Shuffle } from "lucide-react";
+import {
+  ArrowUpRight,
+  Shuffle,
+  Star,
+  Clock,
+  Minus,
+  DollarSign,
+  Zap,
+  Heart,
+} from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
 import { motion, AnimatePresence } from "framer-motion";
@@ -158,6 +167,45 @@ function PageContent() {
   ];
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+  const values = [
+    {
+      title: "Real artists ship",
+      icon: <Star size={24} />,
+      points: [
+        "We ship early and often.",
+        "We get feedback before shipping more.",
+        "Use other peoples' code before writing your own.",
+      ],
+    },
+    {
+      title: "Save others time and energy",
+      icon: <Clock size={24} />,
+      points: [
+        "Time is our most sacred asset.",
+        "Everything important is where AI can see it.",
+        "Focus on what will make shipping easier for everyone, not just yourself.",
+      ],
+    },
+    {
+      title: "Less is more",
+      icon: <Minus size={24} />,
+      points: [
+        "We say no by default.",
+        "No performative busywork.",
+        "Less lines of stuff to understand to ship.",
+      ],
+    },
+    {
+      title: "Above and beyond",
+      icon: <Zap size={24} />,
+      points: [
+        "We ship better than we scope.",
+        "Minimize surface area to maximize polish.",
+        "Our jobs change constantly–every 3 months.",
+      ],
+    },
+  ];
 
   return (
     <motion.div
@@ -367,6 +415,77 @@ function PageContent() {
                   </motion.div>
                 );
               })}
+            </div>
+          </motion.section>
+
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 2.1 }}
+            className="mb-8 xl:mb-16"
+          >
+            <h2 className="text-sm sm:text-base lg:text-lg xl:text-2xl font-bold mb-4 xl:mb-8 uppercase tracking-wide">
+              Values
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
+              {values.map((value, index) => (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 2.3 + index * 0.1 }}
+                  className="border-t pt-4 xl:pt-8"
+                  style={{ borderColor: textColor }}
+                >
+                  <div className="flex items-center mb-2 xl:mb-4">
+                    {value.icon}
+                    <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold ml-2">
+                      {value.title}
+                    </h3>
+                  </div>
+                  <div className="space-y-2 xl:space-y-4">
+                    {value.points.map((point, pointIndex) => (
+                      <p
+                        key={pointIndex}
+                        className="text-xs sm:text-sm xl:text-base"
+                        style={{ color: textColor }}
+                      >
+                        {point}
+                      </p>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 2.3 + values.length * 0.1 }}
+                className="border-dashed border-2 pt-4 xl:pt-8 p-4 sm:col-span-2 lg:col-span-3"
+                style={{ borderColor: textColor }}
+              >
+                <div className="flex items-center mb-2 xl:mb-4">
+                  <Heart size={24} />
+                  <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold ml-2">
+                    Join Us
+                  </h3>
+                </div>
+                <p
+                  className="text-xs sm:text-sm xl:text-base"
+                  style={{ color: textColor }}
+                >
+                  We&apos;re always looking for talented individuals to join our
+                  team. If you resonate with our values, we&apos;d love to hear
+                  from you!
+                </p>
+                <a
+                  href="#"
+                  className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline mt-2"
+                  style={{ color: textColor }}
+                >
+                  Apply now{" "}
+                  <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
+                </a>
+              </motion.div>
             </div>
           </motion.section>
         </main>
