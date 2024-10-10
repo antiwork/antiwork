@@ -8,6 +8,7 @@ import {
   Minus,
   Zap,
   Heart,
+  Rabbit
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
@@ -202,6 +203,15 @@ function PageContent() {
         "We ship better than we scope.",
         "Minimize surface area to maximize polish.",
         "Our jobs change constantly–every 3 months.",
+      ],
+    },
+    {
+      title: "Now or never",
+      icon: <Rabbit size={24} />,
+      points: [
+        "We avoid to-do lists and backlogs.",
+        "We scope, design, and build at the same time.",
+        "We focus on the impact we can have today, not tomorrow.",
       ],
     },
   ];
