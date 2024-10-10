@@ -469,7 +469,7 @@ function PageContent() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 2.3 + values.length * 0.1 }}
-                className="border-dashed border-2 pt-4 xl:pt-8 p-4 col-span-2 pl-6"
+                className="border-dashed border-2 pt-4 xl:pt-8 p-4 pl-6"
                 style={{ borderColor: textColor }}
               >
                 <div className="flex items-center mb-2 xl:mb-4">
