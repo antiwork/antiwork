@@ -23,22 +23,14 @@ export function Logo({
       }}
     >
       <svg
-        width={size / 2}
+        width={size}
         height={size}
-        viewBox="0 0 12 24"
+        viewBox="0 0 28 24"
         fill={color}
         xmlns="http://www.w3.org/2000/svg"
       >
-        <polygon points="6,22 0,2 12,2" />
-      </svg>
-      <svg
-        width={size / 2}
-        height={size}
-        viewBox="0 0 12 24"
-        fill={color}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <polygon points="6,22 0,2 12,2" />
+        <polygon points="7,21.5 0,2.5 14,2.5" />
+        <polygon points="21,21.5 14,2.5 28,2.5" />
       </svg>
     </div>
   );
