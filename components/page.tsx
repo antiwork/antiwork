@@ -126,7 +126,7 @@ function PageContent() {
       } else if (window.innerWidth >= 640) {
         setLogoSize(34);
       } else {
-        setLogoSize(26);
+        setLogoSize(28);
       }
     };
 
@@ -240,6 +240,7 @@ function PageContent() {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
+              className="xl:mt-[2px] lg:mt-[1px] md:mt-[0px] mt-[1px]"
             >
               <Logo
                 size={logoSize}
