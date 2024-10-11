@@ -8,7 +8,7 @@ import {
   Minus,
   Zap,
   Heart,
-  Rabbit
+  Rabbit,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
@@ -124,9 +124,9 @@ function PageContent() {
       } else if (window.innerWidth >= 1024) {
         setLogoSize(40);
       } else if (window.innerWidth >= 640) {
-        setLogoSize(36);
+        setLogoSize(34);
       } else {
-        setLogoSize(32);
+        setLogoSize(28);
       }
     };
 
@@ -232,14 +232,15 @@ function PageContent() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-24"
+        className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-24"
       >
-        <header className="flex flex-col sm:flex-row justify-between items-center mb-8 xl:mb-16">
-          <div className="flex items-center mb-4 sm:mb-0">
+        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center md:mb-8 xl:mb-16">
+          <div className="flex items-center mb-4 md:mb-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
+              className="xl:mt-[2px] lg:mt-[1px] md:mt-[0px] mt-[1px]"
             >
               <Logo
                 size={logoSize}
