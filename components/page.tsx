@@ -140,29 +140,34 @@ function PageContent() {
 
   const products = [
     {
+      name: "Dohr",
+      url: "https://Dohr.com",
+      description: "play your welcome song when you walk in",
+    },
+    {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "to pay your people in equity and dividends",
+      description: "S corp setup and profit-sharing for creators",
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
-      description: "to see what sticks",
+      description: "sell digital products online",
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
-      description: "to answer support tickets",
+      description: "world-class support for creators",
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
-      description: "to moderate user content",
+      description: "prevent bad actors from ruining your business",
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
-      description: "to write tests",
+      description: "app evals",
     },
   ];
 
@@ -294,7 +299,8 @@ function PageContent() {
           className="text-sm sm:text-base lg:text-lg xl:text-2xl mb-8 xl:mb-16"
           style={{ color: textColor }}
         >
-          We build products for fun and profit.
+          We help business owners, creators, freelancers, and engineers spend
+          100% of their time doing what they love.
         </motion.p>
 
         <main>
