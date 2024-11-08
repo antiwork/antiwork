@@ -54,7 +54,7 @@ const slides = [
           alt={`Slide ${i + 3}`}
           width={800}
           height={600}
-          className="max-w-[80vw] max-h-[80vh] object-contain"
+          className="w-screen h-screen object-contain"
         />
       </div>
     ),
