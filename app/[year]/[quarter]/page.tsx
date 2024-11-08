@@ -6,21 +6,33 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import { Logo } from "../../components/Logo";
 import Image from "next/image";
+import { Tweet } from "react-tweet";
 
 const slides = [
   {
     id: 1,
-    backgroundColor: "bg-white",
+    backgroundColor: "bg-white dark:bg-gray-900",
     content: (
       <div className="min-h-screen w-full flex items-center justify-center">
         <div className="text-center space-y-6">
           <div className="flex items-center justify-center gap-2">
             <div className="flex gap-[2px]">
-              <Logo size={50} color="black" background="transparent" />
+              <Logo
+                size={50}
+                color={
+                  typeof window !== "undefined" &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "white"
+                    : "black"
+                }
+                background="transparent"
+              />
             </div>
-            <span className="text-5xl font-bold tracking-tight">Antiwork</span>
+            <span className="text-5xl font-bold tracking-tight dark:text-white">
+              Antiwork
+            </span>
           </div>
-          <h2 className="text-2xl text-gray-500 font-normal">
+          <h2 className="text-2xl text-gray-500 dark:text-gray-400 font-normal">
             Transforming Work and Compensation
           </h2>
         </div>
@@ -46,18 +58,23 @@ const slides = [
   },
   ...Array.from({ length: 23 }, (_, i) => ({
     id: i + 3,
-    backgroundColor: "bg-white",
-    content: (
-      <div className="min-h-screen w-full flex items-center justify-center">
-        <Image
-          src={`/${i + 3}.png`}
-          alt={`Slide ${i + 3}`}
-          width={800}
-          height={600}
-          className="w-screen h-screen object-contain"
-        />
-      </div>
-    ),
+    backgroundColor: i + 3 === 22 ? "bg-white dark:bg-gray-900" : "bg-white",
+    content:
+      i + 3 === 22 ? (
+        <div className="min-h-screen w-full flex items-center justify-center">
+          <Tweet id="1750589558876705087" />
+        </div>
+      ) : (
+        <div className="min-h-screen w-full flex items-center justify-center">
+          <Image
+            src={`/${i + 3}.png`}
+            alt={`Slide ${i + 3}`}
+            width={800}
+            height={600}
+            className="w-screen h-screen object-contain"
+          />
+        </div>
+      ),
   })),
 ];
 
@@ -137,7 +154,7 @@ export default function SlideDeck({
         >
           {currentSlideContent}
         </motion.div>
-        <div className="fixed bottom-4 right-4 text-sm opacity-50">
+        <div className="fixed bottom-4 right-4 text-sm opacity-50 dark:text-white">
           {currentSlide} / {slides.length}
         </div>
       </motion.div>
