@@ -46,11 +46,12 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-white",
       content: (
         <Image
-          src="/app/2024/q4/nomeetings.png"
+          src="/2024/q4/nomeetings.png"
           alt="No meetings"
           width={563}
           height={762}
           className="p-8 h-full object-contain"
+          priority
         />
       ),
     },
@@ -68,11 +69,12 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-white",
       content: (
         <Image
-          src="/app/2024/q4/godmode.png"
+          src="/2024/q4/godmode.png"
           alt="God mode"
           width={626}
           height={750}
           className="p-8 h-full object-contain"
+          priority
         />
       ),
     },
@@ -334,11 +336,12 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-gray-50",
       content: (
         <Image
-          src="/app/2024/q4/whiteboard.png"
+          src="/2024/q4/whiteboard.png"
           alt="Whiteboard"
           width={1920}
           height={1080}
           className="w-full h-full object-contain"
+          priority
         />
       ),
     },
@@ -458,11 +461,12 @@ export default function QuarterlyAllHands() {
             <p>Reinvent work (make it more fun, creative), not end it</p>
           </div>
           <Image
-            src="/app/2024/q4/ai.png"
+            src="/2024/q4/ai.png"
             alt="AI illustration"
             width={500}
             height={300}
             className="object-contain"
+            priority
           />
         </div>
       ),
@@ -531,11 +535,12 @@ export default function QuarterlyAllHands() {
             Retirement via Antiwork
           </h1>
           <Image
-            src="/app/2024/q4/retirement.png"
+            src="/2024/q4/retirement.png"
             alt="Retirement via Antiwork spreadsheet"
             width={800}
             height={400}
             className="object-contain"
+            priority
           />
         </div>
       ),
@@ -629,25 +634,15 @@ export default function QuarterlyAllHands() {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="h-full w-full"
+      <div className="h-full w-full">
+        <Slide
+          id={currentSlide}
+          currentSlide={currentSlide}
+          backgroundColor={slides[currentSlide - 1].backgroundColor}
         >
-          <Slide
-            id={currentSlide}
-            currentSlide={currentSlide}
-            backgroundColor={slides[currentSlide - 1].backgroundColor}
-          >
-            {slides[currentSlide - 1].content}
-          </Slide>
-        </motion.div>
-      </AnimatePresence>
-
+          {slides[currentSlide - 1].content}
+        </Slide>
+      </div>
       <div
         className={`py-1 px-2 rounded fixed bottom-2 right-2 text-sm flex items-center gap-1 ${
           typedNumber
