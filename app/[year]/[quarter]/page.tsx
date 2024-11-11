@@ -433,7 +433,7 @@ export default function QuarterlyAllHands() {
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Example: "sign up to Gumroad and sell a product"
+                  Example: &quot;sign up to Gumroad and sell a product&quot;
                 </li>
               </ul>
             </div>
@@ -447,7 +447,7 @@ export default function QuarterlyAllHands() {
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">AI, AI, AI</h1>
           <div className="space-y-6 text-xl text-gray-800 mb-12">
-            <p>Why work for someone who's so focused on automation?</p>
+            <p>Why work for someone who&apos;s so focused on automation?</p>
             <p>Ending work in exhange for profit-sharing</p>
             <p className="font-mono">npx create-antiwork-app</p>
             <p>
@@ -625,7 +625,7 @@ export default function QuarterlyAllHands() {
         clearTimeout(typingTimeout);
       }
     };
-  }, [currentSlide, typedNumber, typingTimeout]);
+  }, [currentSlide, typedNumber, typingTimeout, handleKeyPress, totalSlides]);
 
   return (
     <div className="relative h-screen w-screen overflow-hidden">
