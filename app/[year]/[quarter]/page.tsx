@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Logo } from "@/app/components/Logo";
@@ -197,9 +197,9 @@ export default function QuarterlyAllHands() {
           </p>
 
           <p>
-            As Paul states in Founder Mode, "It seems to be working.
+            As Paul states in Founder Mode, &quot;It seems to be working.
             Airbnb&apos;s free cash flow margin is now among the best in Silicon
-            Valley."
+            Valley.&quot;
           </p>
 
           <p>
@@ -224,11 +224,11 @@ export default function QuarterlyAllHands() {
           </p>
 
           <p>
-            That&apos;s what Paul refers to in his essay as "manager mode,"
-            which is already commonly taught in business school and practiced in
-            all kinds of businesses around the world. Therefore, optimization
-            isn&apos;t enough to build the singular businesses investors like
-            Paul are hoping to invest in.
+            That&apos;s what Paul refers to in his essay as &quot;manager
+            mode,&quot; which is already commonly taught in business school and
+            practiced in all kinds of businesses around the world. Therefore,
+            optimization isn&apos;t enough to build the singular businesses
+            investors like Paul are hoping to invest in.
           </p>
 
           <p>The third point of god mode defines founder mode: destruction.</p>
