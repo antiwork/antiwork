@@ -1,53 +1,64 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Logo } from "@/app/components/Logo";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
-import { Page } from "@/components/page";
 import { Slide } from "./Slide";
 import { Tweet } from "react-tweet";
+import Link from "next/link";
 
 export default function QuarterlyAllHands() {
+  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+  const [textColor, setTextColor] = useState("#000000");
+  const searchParams = useSearchParams();
+
+  const generateRandomColors = useCallback(() => {
+    const generateRandomColor = () =>
+      `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0")}`;
+
+    const getContrastRatio = (color1: string, color2: string) => {
+      const luminance = (color: string) => {
+        const rgb = parseInt(color.slice(1), 16);
+        const r = (rgb >> 16) & 0xff;
+        const g = (rgb >> 8) & 0xff;
+        const b = (rgb >> 0) & 0xff;
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      };
+      const l1 = luminance(color1);
+      const l2 = luminance(color2);
+      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    };
+
+    let bg, txt;
+    do {
+      bg = generateRandomColor();
+      txt = generateRandomColor();
+    } while (getContrastRatio(bg, txt) < 4.5);
+
+    setBackgroundColor(bg);
+    setTextColor(txt);
+  }, []);
+
+  useEffect(() => {
+    generateRandomColors();
+  }, [generateRandomColors]);
+
   const slides = [
-    {
-      backgroundColor: undefined,
-      content: (
-        <div className="text-center space-y-6">
-          <div className="flex items-center justify-center gap-2">
-            <Logo size={50} color="black" background="transparent" />
-            <span className="text-5xl font-bold tracking-tight">Antiwork</span>
-          </div>
-          <h2 className="text-2xl text-gray-500 font-normal">
-            Transforming Work and Compensation
-          </h2>
-        </div>
-      ),
-    },
     {
       backgroundColor: "bg-black",
       content: (
-        <div className="min-h-screen w-full flex items-center justify-center">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <Logo size={500} color="white" background="transparent" />
-            </motion.div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      backgroundColor: "bg-white",
-      content: (
-        <div className="scale-50">
-          <div className="scale-50">
-            <Page />
+        <div className="text-center space-y-6">
+          <div className="flex items-center justify-center gap-2">
+            <div>
+              <Link href="/">
+                <Logo size={500} color="white" background="transparent" />
+              </Link>
+            </div>
           </div>
         </div>
       ),
@@ -228,17 +239,30 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <h1 className="text-4xl font-bold text-gray-800 mb-12">
-            Welcome to New York
-          </h1>
-          <div className="prose">
-            <ul>
-              <li>In-person by default (10 in person, 20 remote)</li>
-              <li>Design engineering in person, systems engineering remote</li>
-              <li>In-house, in-office legal and accounting</li>
-              <li>Iteration velocity is of the essence</li>
-            </ul>
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="w-1/2 p-20">
+            <h1 className="text-4xl font-bold text-gray-800 mb-12">
+              Welcome to New York
+            </h1>
+            <div className="prose">
+              <ul>
+                <li>In-person by default (10 in person, 20 remote)</li>
+                <li>
+                  Design engineering in person, systems engineering remote
+                </li>
+                <li>In-house, in-office legal and accounting</li>
+                <li>Iteration velocity is of the essence</li>
+              </ul>
+            </div>
+          </div>
+          <div className="w-1/2 relative h-full group">
+            <Image
+              src="/2024/q4/whiteboard.png"
+              alt="Whiteboard"
+              fill
+              priority
+              className="object-cover group-hover:object-contain group-hover:p-8 transition-all duration-200"
+            />
           </div>
         </div>
       ),
@@ -246,80 +270,89 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <Image src="/2024/q4/whiteboard.png" alt="Whiteboard" fill priority />
-      ),
-    },
-    {
-      backgroundColor: "bg-gray-50",
-      content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <div className="relative w-full h-full">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 border-2 border-gray-200 rounded-lg p-6 bg-white z-10">
-              <h2 className="text-3xl font-bold mb-4">Gumroad</h2>
-              <div className="prose">
-                <ul>
-                  <li>COSS to collect 1.5% fee above $1M/yr</li>
-                  <li>
-                    Open sourcing Gumroad on Ruby on Rails and Gumroad on Next
-                    on TypeScript
-                  </li>
-                  <li>
-                    Advertising our other products within our codebase, provide
-                    AI with training data
-                  </li>
-                  <li>Bounties for OSS contributors</li>
-                </ul>
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="flex gap-8 w-full max-w-7xl mx-auto px-8">
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-12 flex items-center mb-6">
+                <Image
+                  src="/2024/q4/Gumroad.svg"
+                  alt="Gumroad"
+                  width={400}
+                  height={48}
+                />
               </div>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li>COSS to collect 1.5% fee above $1M/yr</li>
+                <li>Open sourcing Gumroad (Rails + Next.js)</li>
+                <li>Advertising products within codebase</li>
+                <li>Bounties for OSS contributors</li>
+              </ul>
             </div>
 
-            <div className="absolute top-0 left-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
-              <h2 className="text-2xl font-bold mb-4">Helper</h2>
-              <div className="prose">
-                <ul>
-                  <li>
-                    $10/mo for Gumroad creators to increase sales & prevent
-                    refunds
-                  </li>
-                  <li>Solving self-serve support automation</li>
-                  <li>Desktop app, mobile app, and command bar interface</li>
-                </ul>
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-12 flex items-center mb-6">
+                <Image
+                  src="/2024/q4/Flexile.svg"
+                  alt="Flexile"
+                  width={143}
+                  height={48}
+                />
               </div>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li>Flexible roles with options</li>
+                <li>Bounties & challenges</li>
+                <li>Self-serve equity distribution</li>
+                <li>Product-market fit validation</li>
+              </ul>
             </div>
 
-            <div className="absolute top-0 right-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
-              <h2 className="text-2xl font-bold mb-4">Iffy</h2>
-              <div className="prose">
-                <ul>
-                  <li>Deep Stripe integration</li>
-                  <li>Outbound and in-person sales targeting 100 customers</li>
-                </ul>
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-12 flex items-center mb-6">
+                <Image
+                  src="/2024/q4/Helper.svg"
+                  alt="Helper"
+                  width={166}
+                  height={48}
+                />
               </div>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li>$10/mo for Gumroad creators</li>
+                <li>Self-serve support automation</li>
+                <li>Desktop, mobile & command bar</li>
+              </ul>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
-              <h2 className="text-2xl font-bold mb-4">Shortest</h2>
-              <div className="prose">
-                <ul>
-                  <li>Natural language E2E testing</li>
-                  <li>
-                    Example: &quot;sign up to Gumroad and sell a product&quot;
-                  </li>
-                </ul>
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-12 flex items-center mb-6">
+                <Image
+                  src="/2024/q4/iffy.svg"
+                  alt="Iffy"
+                  width={170}
+                  height={48}
+                />
               </div>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li>Deep Stripe integration</li>
+                <li>Outbound & in-person sales</li>
+                <li>Targeting 100 customers</li>
+              </ul>
             </div>
 
-            <div className="absolute bottom-0 right-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
-              <h2 className="text-2xl font-bold mb-4">Flexile</h2>
-              <div className="prose">
-                <ul>
-                  <li>
-                    Flexible roles with options + profit-sharing for vendors
-                  </li>
-                  <li>Bounties & challenges for contributors</li>
-                  <li>Self-serve equity distribution</li>
-                  <li>Product-market fit validation</li>
-                </ul>
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-12 flex items-center mb-6">
+                <h2 className="text-xl font-bold">
+                  <span className="ml-2 font-semibold text-gray-900 flex items-center">
+                    <span className="text-2xl transform scale-y-75">S</span>
+                    <span className="text-xl">hortest</span>
+                  </span>
+                </h2>
               </div>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li>Natural language E2E testing</li>
+                <li>
+                  Example: &quot;sign up to Gumroad and sell a product&quot;
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -501,7 +534,6 @@ export default function QuarterlyAllHands() {
     },
   ];
 
-  const searchParams = useSearchParams();
   const initialSlide = searchParams.get("slide")
     ? parseInt(searchParams.get("slide")!)
     : 1;
@@ -517,6 +549,10 @@ export default function QuarterlyAllHands() {
     url.searchParams.set("slide", currentSlide.toString());
     window.history.replaceState({}, "", url);
   }, [currentSlide]);
+
+  useEffect(() => {
+    generateRandomColors();
+  }, [currentSlide, generateRandomColors]);
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight" && currentSlide < totalSlides) {
