@@ -32,45 +32,10 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function QuarterlyAllHands() {
-  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
-  const [textColor, setTextColor] = useState("#000000");
   const searchParams = useSearchParams();
   const [equitySplit, setEquitySplit] = useState(20);
   const [annualCompensation, setAnnualCompensation] = useState(250000);
   const [yearlyGrowth, setYearlyGrowth] = useState(0);
-
-  const generateRandomColors = useCallback(() => {
-    const generateRandomColor = () =>
-      `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, "0")}`;
-
-    const getContrastRatio = (color1: string, color2: string) => {
-      const luminance = (color: string) => {
-        const rgb = parseInt(color.slice(1), 16);
-        const r = (rgb >> 16) & 0xff;
-        const g = (rgb >> 8) & 0xff;
-        const b = (rgb >> 0) & 0xff;
-        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-      };
-      const l1 = luminance(color1);
-      const l2 = luminance(color2);
-      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
-    };
-
-    let bg, txt;
-    do {
-      bg = generateRandomColor();
-      txt = generateRandomColor();
-    } while (getContrastRatio(bg, txt) < 4.5);
-
-    setBackgroundColor(bg);
-    setTextColor(txt);
-  }, []);
-
-  useEffect(() => {
-    generateRandomColors();
-  }, [generateRandomColors]);
 
   const calculateTableData = (equityPercentage: number) => {
     return [...Array(10)].map((_, i) => {
@@ -126,6 +91,22 @@ export default function QuarterlyAllHands() {
               </Link>
             </div>
           </div>
+        </div>
+      ),
+    },
+    {
+      backgroundColor: "bg-white",
+      content: (
+        <div className="text-center space-y-6">
+          <div className="flex items-center justify-center gap-2">
+            <div className="flex gap-[2px]">
+              <Logo size={50} color="black" background="transparent" />
+            </div>
+            <span className="text-5xl font-bold">Antiwork</span>
+          </div>
+          <h2 className="text-2xl text-gray-500 dark:text-gray-400 font-normal">
+            Transforming Work and Compensation
+          </h2>
         </div>
       ),
     },
@@ -264,8 +245,8 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-gray-50",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <div className="grid grid-cols-2 gap-20">
-            <div>
+          <div className="grid grid-cols-2 gap-40 w-full max-w-7xl">
+            <div className="flex flex-col items-center">
               <h1 className="text-4xl font-bold text-gray-800 mb-12">
                 What was destructed
               </h1>
@@ -288,7 +269,7 @@ export default function QuarterlyAllHands() {
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-col items-center">
               <h1 className="text-4xl font-bold text-gray-800 mb-12">TBD</h1>
               <div className="prose">
                 <ul>
@@ -314,7 +295,7 @@ export default function QuarterlyAllHands() {
               <ul>
                 <li>In-person by default (10 in person, 20 remote)</li>
                 <li>
-                  Design engineering in person, systems engineering remote
+                  Design engineering in-person, systems engineering remote
                 </li>
                 <li>In-house, in-office legal and accounting</li>
                 <li>Iteration velocity is of the essence</li>
@@ -671,10 +652,6 @@ export default function QuarterlyAllHands() {
     url.searchParams.set("slide", currentSlide.toString());
     window.history.replaceState({}, "", url);
   }, [currentSlide]);
-
-  useEffect(() => {
-    generateRandomColors();
-  }, [currentSlide, generateRandomColors]);
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight" && currentSlide < totalSlides) {
