@@ -45,24 +45,75 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <Image
-          src="/2024/q4/nomeetings.png"
-          alt="No meetings"
-          width={563}
-          height={762}
-          className="p-8 h-full object-contain"
-          priority
-        />
-      ),
-    },
-    {
-      backgroundColor: "bg-white",
-      content: (
         <div className="scale-50">
           <div className="scale-50">
             <Page />
           </div>
         </div>
+      ),
+    },
+    {
+      backgroundColor: "bg-white",
+      content: (
+        <main className="prose mx-auto p-4 sm:p-8 flex-1 w-full max-w-3xl relative z-10">
+          <label className="block mt-8 mb-8">
+            Jan 7, 2021 by{" "}
+            <a href="https://sahillavingia.com/work">
+              <u>Sahil Lavingia</u>
+            </a>
+          </label>
+
+          <div className="relative">
+            <h1>No Meetings, No Deadlines, No Full-Time Employees</h1>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ delay: 2, duration: 0.5 }}
+              style={{
+                height: "5px",
+                background: "black",
+                position: "absolute",
+                top: "100%",
+                transform: "translateY(-50%)",
+                marginTop: "-57px",
+              }}
+            />
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "27%" }}
+              transition={{ delay: 2.5, duration: 0.5 }}
+              style={{
+                height: "5px",
+                background: "black",
+                position: "absolute",
+                top: "100%",
+                transform: "translateY(-50%)",
+                marginTop: "-19px",
+              }}
+            />
+          </div>
+
+          <p>
+            I started Gumroad in 2011. In 2015, we reached a peak of 23
+            full-time employees. In 2016, after{" "}
+            <a href="https://sahillavingia.com/reflecting">failing</a> to raise
+            more money, I ended up back where I began: a one-person company.
+          </p>
+          <p>
+            Today, when I&apos;m asked how many people work at Gumroad, I
+            respond with &quot;ten or so.&quot; That&apos;s how I convert the
+            number of people we have into what others expect. But the truth is
+            more complicated:
+          </p>
+          <p>If we include everyone who works on Gumroad, it&apos;s 25.</p>
+          <p>If we include full-time employees, it&apos;s none. Not even me.</p>
+          <p>We have no meetings, and no deadlines either.</p>
+          <p>
+            And it&apos;s working: our creators earn over $175 million a year,
+            and we generate $11 million in annualized revenue, growing 85%
+            year-over-year.
+          </p>
+        </main>
       ),
     },
     {
@@ -88,8 +139,9 @@ export default function QuarterlyAllHands() {
           </p>
 
           <p>
-            As Paul states in Founder Mode, "It seems to be working. Airbnb's
-            free cash flow margin is now among the best in Silicon Valley."
+            As Paul states in Founder Mode, "It seems to be working.
+            Airbnb&apos;s free cash flow margin is now among the best in Silicon
+            Valley."
           </p>
 
           <p>
@@ -114,104 +166,21 @@ export default function QuarterlyAllHands() {
           </p>
 
           <p>
-            That's what Paul refers to in his essay as "manager mode," which is
-            already commonly taught in business school and practiced in all
-            kinds of businesses around the world. Therefore, optimization isn't
-            enough to build the singular businesses investors like Paul are
-            hoping to invest in.
+            That&apos;s what Paul refers to in his essay as "manager mode,"
+            which is already commonly taught in business school and practiced in
+            all kinds of businesses around the world. Therefore, optimization
+            isn&apos;t enough to build the singular businesses investors like
+            Paul are hoping to invest in.
           </p>
 
           <p>The third point of god mode defines founder mode: destruction.</p>
 
           <p>
             Destruction is akin to invasive surgery, and similar to surgery,
-            it's only possible with a god-like omniscience about the entire
+            it&apos;s only possible with a god-like omniscience about the entire
             system.
           </p>
-
-          <p>Hence, god mode.</p>
         </main>
-      ),
-    },
-    {
-      backgroundColor: "bg-white",
-      content: (
-        <div className="w-full h-full flex items-center justify-center p-20">
-          <motion.svg
-            width="1666"
-            height="829"
-            viewBox="0 0 1666 829"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.path
-              d="M2 828 C 416 828 833 600 1664 2"
-              stroke="black"
-              strokeWidth="4"
-              fill="none"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-            />
-          </motion.svg>
-        </div>
-      ),
-    },
-    {
-      backgroundColor: "bg-white",
-      content: (
-        <div className="w-full h-full flex items-center justify-center p-20">
-          <motion.svg
-            width="1666"
-            height="829"
-            viewBox="0 0 1666 829"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.path
-              d="M2 414
-                 C 85 0, 251 0, 334 414
-                 C 417 828, 583 828, 666 414
-                 C 749 0, 915 0, 998 414
-                 C 1081 828, 1247 828, 1330 414
-                 C 1413 0, 1579 0, 1664 414"
-              stroke="black"
-              strokeWidth="4"
-              fill="none"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-            />
-          </motion.svg>
-        </div>
-      ),
-    },
-    {
-      backgroundColor: "bg-white",
-      content: (
-        <div className="w-full h-full flex items-center justify-center p-20">
-          <motion.svg
-            width="1666"
-            height="829"
-            viewBox="0 0 1666 829"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.path
-              d="M2 828
-                 C 200 700, 400 956,
-                 600 600
-                 C 800 244, 1000 956,
-                 1666 0"
-              stroke="black"
-              strokeWidth="4"
-              fill="none"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-            />
-          </motion.svg>
-        </div>
       ),
     },
     {
