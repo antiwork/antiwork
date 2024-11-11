@@ -223,78 +223,34 @@ export default function QuarterlyAllHands() {
               <h1 className="text-4xl font-bold text-gray-800 mb-12">
                 What was destructed
               </h1>
-              <ul className="space-y-4 text-xl text-gray-700">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  PayPal → Stripe
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  CSS → Tailwind
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Our own components → Shadcn
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Private Figma → public design system files
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Zoom → Google Meet
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Chrome → Safari
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Notion → Slack, Apple Notes
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Buildkite → GitHub Actions
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Iffy, internal → Iffy.com, Stripe Radar
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Bill.com → Mercury
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Wells Fargo → Mercury
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Elastic Transcoder → GRMC
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  support@gumroad.com → in-app live chat
-                </li>
-              </ul>
+              <div className="prose">
+                <ul>
+                  <li>PayPal → Stripe</li>
+                  <li>CSS → Tailwind</li>
+                  <li>Our own components → Shadcn</li>
+                  <li>Private Figma → public design system files</li>
+                  <li>Zoom → Google Meet</li>
+                  <li>Chrome → Safari</li>
+                  <li>Notion → Slack, Apple Notes</li>
+                  <li>Buildkite → GitHub Actions</li>
+                  <li>Iffy, internal → Iffy.com, Stripe Radar</li>
+                  <li>Bill.com → Mercury</li>
+                  <li>Wells Fargo → Mercury</li>
+                  <li>Elastic Transcoder → GRMC</li>
+                  <li>support@gumroad.com → in-app live chat</li>
+                </ul>
+              </div>
             </div>
 
             <div>
               <h1 className="text-4xl font-bold text-gray-800 mb-12">TBD</h1>
-              <ul className="space-y-4 text-xl text-gray-700">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Swift, Kotlin → React Native/Expo/Electron
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  AWS → CloudFlare, Vercel, Hetzner
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Ruby on Rails → Next on TypeScript
-                </li>
-              </ul>
+              <div className="prose">
+                <ul>
+                  <li>Swift, Kotlin → React Native/Expo/Electron</li>
+                  <li>AWS → CloudFlare, Vercel, Hetzner</li>
+                  <li>Ruby on Rails → Next on TypeScript</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -307,24 +263,14 @@ export default function QuarterlyAllHands() {
           <h1 className="text-4xl font-bold text-gray-800 mb-12">
             Welcome to New York
           </h1>
-          <ul className="space-y-3">
-            <li className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-              In-person by default (10 in person, 20 remote)
-            </li>
-            <li className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-              Design engineering in person, systems engineering remote
-            </li>
-            <li className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-              In-house, in-office legal and accounting
-            </li>
-            <li className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-              Iteration velocity is of the essence
-            </li>
-          </ul>
+          <div className="prose">
+            <ul>
+              <li>In-person by default (10 in person, 20 remote)</li>
+              <li>Design engineering in person, systems engineering remote</li>
+              <li>In-house, in-office legal and accounting</li>
+              <li>Iteration velocity is of the essence</li>
+            </ul>
+          </div>
         </div>
       ),
     },
@@ -341,95 +287,70 @@ export default function QuarterlyAllHands() {
           <div className="relative w-full h-full">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 border-2 border-gray-200 rounded-lg p-6 bg-white z-10">
               <h2 className="text-3xl font-bold mb-4">Gumroad</h2>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  COSS to collect 1.5% fee above $1M/yr
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Open sourcing Gumroad on Ruby on Rails and Gumroad on Next on
-                  TypeScript
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Advertising our other products within our codebase, provide AI
-                  with training data
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Bounties for OSS contributors
-                </li>
-              </ul>
+              <div className="prose">
+                <ul>
+                  <li>COSS to collect 1.5% fee above $1M/yr</li>
+                  <li>
+                    Open sourcing Gumroad on Ruby on Rails and Gumroad on Next
+                    on TypeScript
+                  </li>
+                  <li>
+                    Advertising our other products within our codebase, provide
+                    AI with training data
+                  </li>
+                  <li>Bounties for OSS contributors</li>
+                </ul>
+              </div>
             </div>
 
             <div className="absolute top-0 left-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
               <h2 className="text-2xl font-bold mb-4">Helper</h2>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  $10/mo for Gumroad creators to increase sales & prevent
-                  refunds
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Solving self-serve support automation
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Desktop app, mobile app, and command bar interface
-                </li>
-              </ul>
+              <div className="prose">
+                <ul>
+                  <li>
+                    $10/mo for Gumroad creators to increase sales & prevent
+                    refunds
+                  </li>
+                  <li>Solving self-serve support automation</li>
+                  <li>Desktop app, mobile app, and command bar interface</li>
+                </ul>
+              </div>
             </div>
 
             <div className="absolute top-0 right-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
               <h2 className="text-2xl font-bold mb-4">Iffy</h2>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Deep Stripe integration
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Outbound and in-person sales targeting 100 customers
-                </li>
-              </ul>
+              <div className="prose">
+                <ul>
+                  <li>Deep Stripe integration</li>
+                  <li>Outbound and in-person sales targeting 100 customers</li>
+                </ul>
+              </div>
             </div>
 
             <div className="absolute bottom-0 left-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
               <h2 className="text-2xl font-bold mb-4">Shortest</h2>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Natural language E2E testing
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Example: &quot;sign up to Gumroad and sell a product&quot;
-                </li>
-              </ul>
+              <div className="prose">
+                <ul>
+                  <li>Natural language E2E testing</li>
+                  <li>
+                    Example: &quot;sign up to Gumroad and sell a product&quot;
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className="absolute bottom-0 right-0 w-64 border-2 border-gray-200 rounded-lg p-4 bg-white">
               <h2 className="text-2xl font-bold mb-4">Flexile</h2>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Flexible roles with options + profit-sharing for vendors
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Bounties & challenges for contributors
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Self-serve equity distribution
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-                  Product-market fit validation
-                </li>
-              </ul>
+              <div className="prose">
+                <ul>
+                  <li>
+                    Flexible roles with options + profit-sharing for vendors
+                  </li>
+                  <li>Bounties & challenges for contributors</li>
+                  <li>Self-serve equity distribution</li>
+                  <li>Product-market fit validation</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -439,21 +360,21 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex">
-          <div className="w-1/2 p-20 flex flex-col justify-center">
+          <div className="w-1/2 p-20 flex flex-col justify-center prose">
             <h1 className="text-4xl font-bold text-gray-900 mb-12">
               AI, AI, AI
             </h1>
-            <div className="space-y-6 text-xl text-gray-800">
-              <p>Why work for someone who&apos;s so focused on automation?</p>
-              <p>Ending work in exhange for profit-sharing</p>
-              <p className="font-mono">npx create-antiwork-app</p>
-              <p>
+            <ul>
+              <li>Why work for someone who&apos;s so focused on automation?</li>
+              <li>Ending work in exhange for profit-sharing</li>
+              <li className="font-mono">npx create-antiwork-app</li>
+              <li>
                 Open source all of our code, pay core maintainers to scope,
                 review, QA, merge
-              </p>
-              <p>KPI-based compensation</p>
-              <p>Reinvent work (make it more fun, creative), not end it</p>
-            </div>
+              </li>
+              <li>KPI-based compensation</li>
+              <li>Reinvent work (make it more fun, creative), not end it</li>
+            </ul>
           </div>
           <div className="w-1/2 relative">
             <Image
@@ -470,47 +391,16 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
+        <div className="w-full h-full flex flex-col items-center justify-center p-20 prose">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
             Profit-sharing
           </h1>
-          <div className="space-y-6 text-xl text-gray-800">
-            <p>
+          <ul>
+            <li>
               Based on 409a instead of last raised valuation ($40.5M instead of
               $100M)
-            </p>
-            <p>Get dividends as profit-sharing on vested options ownership %</p>
-            <div className="mt-8 space-y-4">
-              <p className="font-semibold">Math:</p>
-              <p>Gumroad 2023 net income: $8,911,000</p>
-              <p>Dividend of 60%: $5,346,600</p>
-              <p>Dividend yield: 22.00%</p>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      backgroundColor: "bg-gray-50",
-      content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12">
-            Minimum equity split
-          </h1>
-          <ul className="space-y-6 text-2xl text-gray-800">
-            <li className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-              50% minimum for remote contractors
             </li>
-            <li className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-              20% minimum for in-office part-time employees
-            </li>
-            <li className="flex items-center">
-              <div className="w-2 h-2 rounded-full bg-gray-400 mr-4"></div>
-              50% minimum for in-office full-time employees, but more flexible
-              to your situation
-            </li>
+            <li>Profit-sharing on vested options ownership %</li>
           </ul>
         </div>
       ),
@@ -588,25 +478,47 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-gray-50",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12">DIYPO:</h1>
-          <ul className="space-y-8 text-2xl text-gray-800">
-            <li>
-              <span className="font-bold text-blue-600">A</span>utomate to make
-              the business more valuable
-            </li>
-            <li>
-              <span className="font-bold text-blue-600">B</span>uyback to cash
-              out early investors
-            </li>
-            <li>
-              <span className="font-bold text-blue-600">C</span>rowdfund to
-              allow people to double down on our future
-            </li>
-            <li>
-              <span className="font-bold text-blue-600">D</span>ividend to get
-              everyone paid for our efforts, including me
-            </li>
-          </ul>
+          <h1 className="text-4xl font-bold text-gray-900 mb-12">
+            Minimum equity split
+          </h1>
+          <div className="prose">
+            <ul>
+              <li>50% minimum for remote contractors</li>
+              <li>20% minimum for in-office part-time employees</li>
+              <li>
+                50% minimum for in-office full-time employees, but more flexible
+                to your situation
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      backgroundColor: "bg-gray-50",
+      content: (
+        <div className="w-full h-full flex flex-col items-center justify-center p-20">
+          <h1 className="text-4xl font-bold text-gray-900 mb-12">DIYPO</h1>
+          <div className="prose">
+            <ul>
+              <li>
+                <span className="font-bold">A</span>utomate to make the business
+                more valuable
+              </li>
+              <li>
+                <span className="font-bold">B</span>uyback to cash out early
+                investors
+              </li>
+              <li>
+                <span className="font-bold">C</span>rowdfund to allow people to
+                double down on our future
+              </li>
+              <li>
+                <span className="font-bold">D</span>ividend to get everyone paid
+                for our efforts, including me
+              </li>
+            </ul>
+          </div>
         </div>
       ),
     },
