@@ -11,13 +11,19 @@ export function Logo({
   color = "white",
   background = "black",
 }: LogoProps) {
+  // Ensure background is a valid CSS color value
+  const validBackground =
+    background.startsWith("#") && background.length === 4
+      ? background + background.slice(1)
+      : background;
+
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background,
+        background: validBackground,
         width: size,
         height: size,
       }}
