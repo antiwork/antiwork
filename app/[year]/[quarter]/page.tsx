@@ -543,7 +543,7 @@ export default function QuarterlyAllHands() {
                     <tr
                       key={row.year}
                       className={
-                        row.dividends > row.salary ? "bg-blue-100" : ""
+                        row.dividends > annualCompensation ? "bg-blue-100" : ""
                       }
                     >
                       <td className="border border-gray-300 p-2">{row.year}</td>
