@@ -9,11 +9,35 @@ import { Loader2 } from "lucide-react";
 import { Slide } from "./Slide";
 import { Tweet } from "react-tweet";
 import Link from "next/link";
+import { Slider } from "@/components/ui/slider";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+
+const chartConfig = {
+  salary: {
+    label: "Annual Cash",
+    color: "#2563eb",
+  },
+  dividends: {
+    label: "Profit Sharing",
+    color: "#60a5fa",
+  },
+} satisfies ChartConfig;
 
 export default function QuarterlyAllHands() {
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
   const [textColor, setTextColor] = useState("#000000");
   const searchParams = useSearchParams();
+  const [equitySplit, setEquitySplit] = useState(20);
+  const [annualCompensation, setAnnualCompensation] = useState(250000);
+  const [yearlyGrowth, setYearlyGrowth] = useState(0);
 
   const generateRandomColors = useCallback(() => {
     const generateRandomColor = () =>
@@ -47,6 +71,48 @@ export default function QuarterlyAllHands() {
   useEffect(() => {
     generateRandomColors();
   }, [generateRandomColors]);
+
+  const calculateTableData = (equityPercentage: number) => {
+    return [...Array(10)].map((_, i) => {
+      const growthMultiplier = Math.pow(1 + yearlyGrowth / 100, i);
+      const yearlyCompensation = annualCompensation;
+      const yearlyDividends = 5340000 * growthMultiplier;
+
+      const salary = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(yearlyCompensation * (1 - equityPercentage / 100));
+      const equityPosition = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(((yearlyCompensation * equityPercentage) / 100) * (i + 1));
+      const percentOfCompanyOwned = Number(
+        (
+          ((((yearlyCompensation * equityPercentage) / 100) * (i + 1)) /
+            40500000) *
+          100
+        ).toFixed(2)
+      );
+      const dividends = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format((yearlyDividends * percentOfCompanyOwned) / 100);
+
+      return {
+        year: 2025 + i,
+        salary: Number(salary.replace(/[^0-9.-]+/g, "")),
+        equityPosition: equityPosition,
+        dividends: Number(dividends.replace(/[^0-9.-]+/g, "")),
+        percentOfCompanyOwned: percentOfCompanyOwned,
+      };
+    });
+  };
 
   const slides = [
     {
@@ -362,21 +428,23 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex">
-          <div className="w-1/2 p-20 flex flex-col justify-center prose">
-            <h1 className="text-4xl font-bold text-gray-900 mb-12">
-              AI, AI, AI
-            </h1>
-            <ul>
-              <li>Why work for someone who&apos;s so focused on automation?</li>
-              <li>Ending work in exhange for profit-sharing</li>
-              <li className="font-mono">npx create-antiwork-app</li>
-              <li>
-                Open source all of our code, pay core maintainers to scope,
-                review, QA, merge
-              </li>
-              <li>KPI-based compensation</li>
-              <li>Reinvent work (make it more fun, creative), not end it</li>
-            </ul>
+          <div className="w-1/2 p-20 flex flex-col justify-center">
+            <div className="prose">
+              <h1 className="text-4xl font-bold text-gray-900 mb-12">
+                AI, AI, AI
+              </h1>
+              <ul>
+                <li>
+                  Why work for someone who&apos;s so focused on automation?
+                </li>
+                <li>Ending work in exhange for profit-sharing</li>
+                <li>
+                  Open source all of our code, pay core team to scope, QA, ship
+                </li>
+                <li>Performance-based compensation</li>
+                <li>End today&apos;s work, not tomorrow&apos;s</li>
+              </ul>
+            </div>
           </div>
           <div className="w-1/2 relative">
             <Image
@@ -391,23 +459,6 @@ export default function QuarterlyAllHands() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
-      content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20 prose">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12">
-            Profit-sharing
-          </h1>
-          <ul>
-            <li>
-              Based on 409a instead of last raised valuation ($40.5M instead of
-              $100M)
-            </li>
-            <li>Profit-sharing on vested options ownership %</li>
-          </ul>
-        </div>
-      ),
-    },
-    {
       backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex items-center justify-center">
@@ -418,80 +469,151 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-16">
-            Retirement via Antiwork
-          </h1>
-          <div className="overflow-x-auto">
-            <table className="text-sm border-collapse">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="border border-gray-300 p-2"></th>
-                  <th className="border border-gray-300 p-2">Salary</th>
-                  <th className="border border-gray-300 p-2">Equity split</th>
-                  <th className="border border-gray-300 p-2">
-                    Amount earned in cash
-                  </th>
-                  <th className="border border-gray-300 p-2">Amount saved</th>
-                  <th className="border border-gray-300 p-2">409a valuation</th>
-                  <th className="border border-gray-300 p-2">Dividends</th>
-                  <th className="border border-gray-300 p-2">Rate of return</th>
-                  <th className="border border-gray-300 p-2">Equity</th>
-                  <th className="border border-gray-300 p-2">
-                    Equity position
-                  </th>
-                  <th className="border border-gray-300 p-2">
-                    Dividends for person
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[...Array(10)].map((_, i) => (
-                  <tr key={i}>
-                    <td className="border border-gray-300 p-2">Year {i + 1}</td>
-                    <td className="border border-gray-300 p-2">$250,000</td>
-                    <td className="border border-gray-300 p-2">80.00%</td>
-                    <td className="border border-gray-300 p-2">$50,000</td>
-                    <td className="border border-gray-300 p-2">
-                      ${(i + 1) * 50000}
-                    </td>
-                    <td className="border border-gray-300 p-2">$40,500,000</td>
-                    <td className="border border-gray-300 p-2">$5,340,000</td>
-                    <td className="border border-gray-300 p-2">13.19%</td>
-                    <td className="border border-gray-300 p-2">$200,000</td>
-                    <td className="border border-gray-300 p-2">
-                      ${(i + 1) * 200000}
-                    </td>
-                    <td className="border border-gray-300 p-2">
-                      ${(26370 * (i + 1)).toFixed(0)}
-                      {i === 9
-                        ? ' You\'re now earning enough to "retire"!'
-                        : ""}
-                    </td>
+        <div className="w-full h-full flex">
+          <div className="w-1/2 h-full flex flex-col justify-center p-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-8">
+              Retirement via Profit-sharing
+            </h1>
+
+            <div className="prose mb-8">
+              <p>
+                Based on our 409a valuation of $40,500,000 and 2023 dividends of
+                $5,340,000, we have a dividend yield of 13.18%.
+              </p>
+            </div>
+
+            <div className="w-full max-w-xl mb-8">
+              <div className="flex justify-between mb-2">
+                <span>Annual compensation: ${annualCompensation}</span>
+              </div>
+              <Slider
+                defaultValue={[250000]}
+                max={500000}
+                min={0}
+                step={1000}
+                onValueChange={(value) => setAnnualCompensation(value[0])}
+              />
+            </div>
+            <div className="w-full max-w-xl mb-8">
+              <div className="flex justify-between mb-2">
+                <span>Equity Split: {equitySplit}%</span>
+              </div>
+              <Slider
+                defaultValue={[20]}
+                max={100}
+                min={0}
+                step={1}
+                onValueChange={(value) => setEquitySplit(value[0])}
+              />
+            </div>
+            <div className="w-full max-w-xl mb-8">
+              <div className="flex justify-between mb-2">
+                <span>Yearly Growth: {yearlyGrowth}%</span>
+              </div>
+              <Slider
+                defaultValue={[0]}
+                max={100}
+                min={0}
+                step={1}
+                onValueChange={(value) => setYearlyGrowth(value[0])}
+              />
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="text-sm border-collapse">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="border border-gray-300 p-2">Year</th>
+                    <th className="border border-gray-300 p-2">
+                      Annual salary
+                    </th>
+                    <th className="border border-gray-300 p-2">
+                      Equity position
+                    </th>
+                    <th className="border border-gray-300 p-2">
+                      Percent of company owned
+                    </th>
+                    <th className="border border-gray-300 p-2">
+                      Profit-sharing cash bonus
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {calculateTableData(equitySplit).map((row) => (
+                    <tr
+                      key={row.year}
+                      className={
+                        row.dividends > row.salary ? "bg-blue-100" : ""
+                      }
+                    >
+                      <td className="border border-gray-300 p-2">{row.year}</td>
+                      <td className="border border-gray-300 p-2">
+                        {new Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                          minimumFractionDigits: 0,
+                          maximumFractionDigits: 0,
+                        }).format(row.salary)}
+                      </td>
+                      <td className="border border-gray-300 p-2">
+                        {row.equityPosition}
+                      </td>
+                      <td className="border border-gray-300 p-2">
+                        {row.percentOfCompanyOwned}%
+                      </td>
+                      <td className="border border-gray-300 p-2">
+                        {new Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                          minimumFractionDigits: 0,
+                          maximumFractionDigits: 0,
+                        }).format(row.dividends)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      ),
-    },
-    {
-      backgroundColor: "bg-gray-50",
-      content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12">
-            Minimum equity split
-          </h1>
-          <div className="prose">
-            <ul>
-              <li>50% minimum for remote contractors</li>
-              <li>20% minimum for in-office part-time employees</li>
-              <li>
-                50% minimum for in-office full-time employees, but more flexible
-                to your situation
-              </li>
-            </ul>
+          <div className="w-1/2 h-full flex items-center justify-center p-8">
+            <ChartContainer
+              config={chartConfig}
+              className="min-h-[200px] w-full"
+            >
+              <BarChart
+                accessibilityLayer
+                data={calculateTableData(equitySplit)}
+              >
+                <CartesianGrid vertical={false} />
+                <XAxis
+                  dataKey="year"
+                  tickLine={false}
+                  tickMargin={10}
+                  axisLine={false}
+                  label={{ value: "Year", position: "bottom" }}
+                />
+                <YAxis
+                  label={{ value: "Amount ($)", angle: -90, position: "left" }}
+                  tickLine={false}
+                  tickMargin={10}
+                  axisLine={false}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <ChartLegend content={<ChartLegendContent />} />
+                <Bar
+                  dataKey="salary"
+                  fill="var(--color-salary)"
+                  name="Annual Cash"
+                  radius={4}
+                />
+                <Bar
+                  dataKey="dividends"
+                  fill="var(--color-dividends)"
+                  name="Profit Sharing"
+                  radius={4}
+                />
+              </BarChart>
+            </ChartContainer>
           </div>
         </div>
       ),
