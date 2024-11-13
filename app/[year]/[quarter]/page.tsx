@@ -36,6 +36,8 @@ export default function QuarterlyAllHands() {
   const [equitySplit, setEquitySplit] = useState(20);
   const [annualCompensation, setAnnualCompensation] = useState(250000);
   const [yearlyGrowth, setYearlyGrowth] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const calculateTableData = (equityPercentage: number) => {
     return [...Array(10)].map((_, i) => {
@@ -677,15 +679,57 @@ export default function QuarterlyAllHands() {
     }
   };
 
+  // Handle touch events for swipe navigation
+  const handleTouchStart = (e: TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && currentSlide < totalSlides) {
+      setCurrentSlide(currentSlide + 1);
+    }
+
+    if (isRightSwipe && currentSlide > 1) {
+      setCurrentSlide(currentSlide - 1);
+    }
+
+    setTouchEnd(null);
+    setTouchStart(null);
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
+
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
       if (typingTimeout) {
         clearTimeout(typingTimeout);
       }
     };
-  }, [currentSlide, typedNumber, typingTimeout, handleKeyPress, totalSlides]);
+  }, [
+    currentSlide,
+    typedNumber,
+    typingTimeout,
+    handleKeyPress,
+    touchStart,
+    touchEnd,
+  ]);
 
   return (
     <div className="relative h-screen w-screen overflow-hidden">
