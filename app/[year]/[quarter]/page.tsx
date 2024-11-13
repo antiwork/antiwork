@@ -89,7 +89,12 @@ export default function QuarterlyAllHands() {
           <div className="flex items-center justify-center gap-2">
             <div>
               <Link href="/">
-                <Logo size={300} color="white" background="transparent" className="sm:w-[500px]" />
+                <Logo
+                  size={300}
+                  color="white"
+                  background="transparent"
+                  className="sm:w-[500px]"
+                />
               </Link>
             </div>
           </div>
@@ -97,12 +102,17 @@ export default function QuarterlyAllHands() {
       ),
     },
     {
-      backgroundColor: "bg-white", 
+      backgroundColor: "bg-white",
       content: (
         <div className="text-center space-y-6 p-4">
           <div className="flex items-center justify-center gap-2">
             <div className="flex gap-[2px]">
-              <Logo size={30} color="black" background="transparent" className="sm:w-[50px]" />
+              <Logo
+                size={30}
+                color="black"
+                background="transparent"
+                className="sm:w-[50px]"
+              />
             </div>
             <span className="text-3xl sm:text-5xl font-bold">Antiwork</span>
           </div>
@@ -124,7 +134,9 @@ export default function QuarterlyAllHands() {
           </label>
 
           <div className="relative">
-            <h1 className="text-2xl sm:text-4xl">No Meetings, No Deadlines, No Full-Time Employees</h1>
+            <h1 className="text-2xl sm:text-4xl">
+              No Meetings, No Deadlines, No Full-Time Employees
+            </h1>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
@@ -272,7 +284,9 @@ export default function QuarterlyAllHands() {
             </div>
 
             <div className="flex flex-col items-center">
-              <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-12">TBD</h1>
+              <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-12">
+                TBD
+              </h1>
               <div className="prose">
                 <ul>
                   <li>Swift, Kotlin → React Native/Expo/Electron</li>
@@ -395,7 +409,9 @@ export default function QuarterlyAllHands() {
               <div className="h-8 sm:h-12 flex items-center mb-4 sm:mb-6">
                 <h2 className="text-lg sm:text-xl font-bold">
                   <span className="ml-2 font-semibold text-gray-900 flex items-center">
-                    <span className="text-xl sm:text-2xl transform scale-y-75">S</span>
+                    <span className="text-xl sm:text-2xl transform scale-y-75">
+                      S
+                    </span>
                     <span className="text-lg sm:text-xl">hortest</span>
                   </span>
                 </h2>
@@ -533,7 +549,9 @@ export default function QuarterlyAllHands() {
                         row.dividends > annualCompensation ? "bg-blue-100" : ""
                       }
                     >
-                      <td className="border border-gray-300 p-1 sm:p-2">{row.year}</td>
+                      <td className="border border-gray-300 p-1 sm:p-2">
+                        {row.year}
+                      </td>
                       <td className="border border-gray-300 p-1 sm:p-2">
                         {new Intl.NumberFormat("en-US", {
                           style: "currency",
@@ -609,7 +627,9 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-gray-50",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-6 sm:p-20">
-          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-12">DIYPO</h1>
+          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-12">
+            DIYPO
+          </h1>
           <div className="prose">
             <ul>
               <li>
@@ -637,7 +657,9 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-gray-50",
       content: (
         <div className="w-full h-full flex items-center justify-center">
-          <h1 className="text-3xl sm:text-6xl font-bold text-gray-900">Questions?</h1>
+          <h1 className="text-3xl sm:text-6xl font-bold text-gray-900">
+            Questions?
+          </h1>
         </div>
       ),
     },
