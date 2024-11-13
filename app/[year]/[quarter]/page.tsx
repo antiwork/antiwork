@@ -90,10 +90,9 @@ export default function QuarterlyAllHands() {
             <div>
               <Link href="/">
                 <Logo
-                  size={300}
+                  size={typeof window !== 'undefined' && window.innerWidth < 640 ? 300 : 500}
                   color="white"
                   background="transparent"
-                  className="sm:w-[500px]"
                 />
               </Link>
             </div>
