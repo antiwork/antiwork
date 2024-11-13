@@ -89,7 +89,7 @@ export default function QuarterlyAllHands() {
           <div className="flex items-center justify-center gap-2">
             <div>
               <Link href="/">
-                <Logo size={500} color="white" background="transparent" />
+                <Logo size={300} color="white" background="transparent" className="sm:w-[500px]" />
               </Link>
             </div>
           </div>
@@ -97,16 +97,16 @@ export default function QuarterlyAllHands() {
       ),
     },
     {
-      backgroundColor: "bg-white",
+      backgroundColor: "bg-white", 
       content: (
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-6 p-4">
           <div className="flex items-center justify-center gap-2">
             <div className="flex gap-[2px]">
-              <Logo size={50} color="black" background="transparent" />
+              <Logo size={30} color="black" background="transparent" className="sm:w-[50px]" />
             </div>
-            <span className="text-5xl font-bold">Antiwork</span>
+            <span className="text-3xl sm:text-5xl font-bold">Antiwork</span>
           </div>
-          <h2 className="text-2xl text-gray-500 dark:text-gray-400 font-normal">
+          <h2 className="text-xl sm:text-2xl text-gray-500 dark:text-gray-400 font-normal">
             Transforming Work and Compensation
           </h2>
         </div>
@@ -124,7 +124,7 @@ export default function QuarterlyAllHands() {
           </label>
 
           <div className="relative">
-            <h1>No Meetings, No Deadlines, No Full-Time Employees</h1>
+            <h1 className="text-2xl sm:text-4xl">No Meetings, No Deadlines, No Full-Time Employees</h1>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
@@ -187,7 +187,7 @@ export default function QuarterlyAllHands() {
             </a>
           </label>
 
-          <h1>God Mode</h1>
+          <h1 className="text-2xl sm:text-4xl">God Mode</h1>
 
           <p>
             A few weeks ago, Paul Graham published{" "}
@@ -246,10 +246,10 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <div className="grid grid-cols-2 gap-40 w-full max-w-7xl">
+        <div className="w-full h-full flex flex-col items-center justify-center p-4 sm:p-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-40 w-full max-w-7xl">
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl font-bold text-gray-800 mb-12">
+              <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-12">
                 What was destructed
               </h1>
               <div className="prose">
@@ -272,7 +272,7 @@ export default function QuarterlyAllHands() {
             </div>
 
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl font-bold text-gray-800 mb-12">TBD</h1>
+              <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-12">TBD</h1>
               <div className="prose">
                 <ul>
                   <li>Swift, Kotlin → React Native/Expo/Electron</li>
@@ -288,9 +288,9 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="w-1/2 p-20">
-            <h1 className="text-4xl font-bold text-gray-800 mb-12">
+        <div className="w-full h-full flex flex-col sm:flex-row">
+          <div className="w-full sm:w-1/2 p-6 sm:p-20 flex flex-col justify-center">
+            <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-12">
               Welcome to New York
             </h1>
             <div className="prose">
@@ -304,7 +304,7 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
           </div>
-          <div className="w-1/2 relative h-full group">
+          <div className="w-full sm:w-1/2 relative h-[300px] sm:h-full group">
             <Image
               src="/2024/q4/whiteboard.png"
               alt="Whiteboard"
@@ -319,18 +319,19 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="flex gap-8 w-full max-w-7xl mx-auto px-8">
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+        <div className="w-full h-full flex items-center justify-center p-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full max-w-7xl mx-auto px-4 sm:px-8">
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-4 sm:p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-8 sm:h-12 flex items-center mb-4 sm:mb-6">
                 <Image
                   src="/2024/q4/Gumroad.svg"
                   alt="Gumroad"
                   width={400}
                   height={48}
+                  className="w-auto h-full"
                 />
               </div>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li>COSS to collect 1.5% fee above $1M/yr</li>
                 <li>Open sourcing Gumroad (Rails + Next.js)</li>
                 <li>Advertising products within codebase</li>
@@ -338,16 +339,17 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-4 sm:p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-8 sm:h-12 flex items-center mb-4 sm:mb-6">
                 <Image
                   src="/2024/q4/Flexile.svg"
                   alt="Flexile"
                   width={143}
                   height={48}
+                  className="w-auto h-full"
                 />
               </div>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li>Flexible roles with options</li>
                 <li>Bounties & challenges</li>
                 <li>Self-serve equity distribution</li>
@@ -355,48 +357,50 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-4 sm:p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-8 sm:h-12 flex items-center mb-4 sm:mb-6">
                 <Image
                   src="/2024/q4/Helper.svg"
                   alt="Helper"
                   width={166}
                   height={48}
+                  className="w-auto h-full"
                 />
               </div>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li>$10/mo for Gumroad creators</li>
                 <li>Self-serve support automation</li>
                 <li>Desktop, mobile & command bar</li>
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-4 sm:p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-8 sm:h-12 flex items-center mb-4 sm:mb-6">
                 <Image
                   src="/2024/q4/iffy.svg"
                   alt="Iffy"
                   width={170}
                   height={48}
+                  className="w-auto h-full"
                 />
               </div>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li>Deep Stripe integration</li>
                 <li>Outbound & in-person sales</li>
                 <li>Targeting 100 customers</li>
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
-                <h2 className="text-xl font-bold">
+            <div className="flex-1 bg-white rounded-lg shadow-sm p-4 sm:p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
+              <div className="h-8 sm:h-12 flex items-center mb-4 sm:mb-6">
+                <h2 className="text-lg sm:text-xl font-bold">
                   <span className="ml-2 font-semibold text-gray-900 flex items-center">
-                    <span className="text-2xl transform scale-y-75">S</span>
-                    <span className="text-xl">hortest</span>
+                    <span className="text-xl sm:text-2xl transform scale-y-75">S</span>
+                    <span className="text-lg sm:text-xl">hortest</span>
                   </span>
                 </h2>
               </div>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li>Natural language E2E testing</li>
                 <li>
                   Example: &quot;sign up to Gumroad and sell a product&quot;
@@ -410,10 +414,10 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="w-full h-full flex">
-          <div className="w-1/2 p-20 flex flex-col justify-center">
+        <div className="w-full h-full flex flex-col sm:flex-row">
+          <div className="w-full sm:w-1/2 p-6 sm:p-20 flex flex-col justify-center">
             <div className="prose">
-              <h1 className="text-4xl font-bold text-gray-900 mb-12">
+              <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-12">
                 AI, AI, AI
               </h1>
               <ul>
@@ -429,7 +433,7 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
           </div>
-          <div className="w-1/2 relative">
+          <div className="w-full sm:w-1/2 relative h-[300px] sm:h-full">
             <Image
               src="/2024/q4/ai.png"
               alt="AI illustration"
@@ -444,7 +448,7 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center p-4">
           <Tweet id="1750589558876705087" />
         </div>
       ),
@@ -452,20 +456,20 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="w-full h-full flex">
-          <div className="w-1/2 h-full flex flex-col justify-center p-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">
+        <div className="w-full h-full flex flex-col sm:flex-row">
+          <div className="w-full sm:w-1/2 h-full flex flex-col justify-center p-4 sm:p-8">
+            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-8">
               Retirement via Profit-sharing
             </h1>
 
-            <div className="prose mb-8">
+            <div className="prose mb-4 sm:mb-8">
               <p>
                 Based on our 409a valuation of $40,500,000 and 2023 dividends of
                 $5,340,000, we have a dividend yield of 13.18%.
               </p>
             </div>
 
-            <div className="w-full max-w-xl mb-8">
+            <div className="w-full max-w-xl mb-4 sm:mb-8">
               <div className="flex justify-between mb-2">
                 <span>Annual compensation: ${annualCompensation}</span>
               </div>
@@ -477,7 +481,7 @@ export default function QuarterlyAllHands() {
                 onValueChange={(value) => setAnnualCompensation(value[0])}
               />
             </div>
-            <div className="w-full max-w-xl mb-8">
+            <div className="w-full max-w-xl mb-4 sm:mb-8">
               <div className="flex justify-between mb-2">
                 <span>Equity Split: {equitySplit}%</span>
               </div>
@@ -489,7 +493,7 @@ export default function QuarterlyAllHands() {
                 onValueChange={(value) => setEquitySplit(value[0])}
               />
             </div>
-            <div className="w-full max-w-xl mb-8">
+            <div className="w-full max-w-xl mb-4 sm:mb-8">
               <div className="flex justify-between mb-2">
                 <span>Yearly Growth: {yearlyGrowth}%</span>
               </div>
@@ -502,21 +506,21 @@ export default function QuarterlyAllHands() {
               />
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="text-sm border-collapse">
+            <div className="overflow-x-auto text-xs sm:text-sm">
+              <table className="border-collapse">
                 <thead>
                   <tr className="bg-gray-100">
-                    <th className="border border-gray-300 p-2">Year</th>
-                    <th className="border border-gray-300 p-2">
+                    <th className="border border-gray-300 p-1 sm:p-2">Year</th>
+                    <th className="border border-gray-300 p-1 sm:p-2">
                       Annual salary
                     </th>
-                    <th className="border border-gray-300 p-2">
+                    <th className="border border-gray-300 p-1 sm:p-2">
                       Equity position
                     </th>
-                    <th className="border border-gray-300 p-2">
+                    <th className="border border-gray-300 p-1 sm:p-2">
                       Percent of company owned
                     </th>
-                    <th className="border border-gray-300 p-2">
+                    <th className="border border-gray-300 p-1 sm:p-2">
                       Profit-sharing cash bonus
                     </th>
                   </tr>
@@ -529,8 +533,8 @@ export default function QuarterlyAllHands() {
                         row.dividends > annualCompensation ? "bg-blue-100" : ""
                       }
                     >
-                      <td className="border border-gray-300 p-2">{row.year}</td>
-                      <td className="border border-gray-300 p-2">
+                      <td className="border border-gray-300 p-1 sm:p-2">{row.year}</td>
+                      <td className="border border-gray-300 p-1 sm:p-2">
                         {new Intl.NumberFormat("en-US", {
                           style: "currency",
                           currency: "USD",
@@ -538,13 +542,13 @@ export default function QuarterlyAllHands() {
                           maximumFractionDigits: 0,
                         }).format(row.salary)}
                       </td>
-                      <td className="border border-gray-300 p-2">
+                      <td className="border border-gray-300 p-1 sm:p-2">
                         {row.equityPosition}
                       </td>
-                      <td className="border border-gray-300 p-2">
+                      <td className="border border-gray-300 p-1 sm:p-2">
                         {row.percentOfCompanyOwned}%
                       </td>
-                      <td className="border border-gray-300 p-2">
+                      <td className="border border-gray-300 p-1 sm:p-2">
                         {new Intl.NumberFormat("en-US", {
                           style: "currency",
                           currency: "USD",
@@ -558,7 +562,7 @@ export default function QuarterlyAllHands() {
               </table>
             </div>
           </div>
-          <div className="w-1/2 h-full flex items-center justify-center p-8">
+          <div className="w-full sm:w-1/2 h-[300px] sm:h-full flex items-center justify-center p-4 sm:p-8">
             <ChartContainer
               config={chartConfig}
               className="min-h-[200px] w-full"
@@ -604,8 +608,8 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12">DIYPO</h1>
+        <div className="w-full h-full flex flex-col items-center justify-center p-6 sm:p-20">
+          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-12">DIYPO</h1>
           <div className="prose">
             <ul>
               <li>
@@ -633,7 +637,7 @@ export default function QuarterlyAllHands() {
       backgroundColor: "bg-gray-50",
       content: (
         <div className="w-full h-full flex items-center justify-center">
-          <h1 className="text-6xl font-bold text-gray-900">Questions?</h1>
+          <h1 className="text-3xl sm:text-6xl font-bold text-gray-900">Questions?</h1>
         </div>
       ),
     },
