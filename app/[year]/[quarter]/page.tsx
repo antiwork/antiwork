@@ -90,7 +90,11 @@ export default function QuarterlyAllHands() {
             <div>
               <Link href="/">
                 <Logo
-                  size={typeof window !== 'undefined' && window.innerWidth < 640 ? 300 : 500}
+                  size={
+                    typeof window !== "undefined" && window.innerWidth < 640
+                      ? 300
+                      : 500
+                  }
                   color="white"
                   background="transparent"
                 />
@@ -105,12 +109,15 @@ export default function QuarterlyAllHands() {
       content: (
         <div className="text-center space-y-6 p-4">
           <div className="flex items-center justify-center gap-2">
-            <div className="flex gap-[2px]">
+            <div>
               <Logo
-                size={30}
+                size={
+                  typeof window !== "undefined" && window.innerWidth < 640
+                    ? 30
+                    : 50
+                }
                 color="black"
                 background="transparent"
-                className="sm:w-[50px]"
               />
             </div>
             <span className="text-3xl sm:text-5xl font-bold">Antiwork</span>
