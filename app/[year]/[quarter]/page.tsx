@@ -491,7 +491,7 @@ export default function QuarterlyAllHands() {
             </div>
             <div className="w-full max-w-xl mb-8">
               <div className="flex justify-between mb-2">
-                <span>Yearly Growth: {yearlyGrowth}%</span>
+                <span>Yearly growth: {yearlyGrowth}%</span>
               </div>
               <Slider
                 defaultValue={[0]}
