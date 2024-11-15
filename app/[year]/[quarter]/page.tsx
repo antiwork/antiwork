@@ -467,7 +467,7 @@ export default function QuarterlyAllHands() {
 
             <div className="w-full max-w-xl mb-8">
               <div className="flex justify-between mb-2">
-                <span>Annual compensation: ${annualCompensation}</span>
+                <span>Annual compensation: ${annualCompensation.toLocaleString()}</span>
               </div>
               <Slider
                 defaultValue={[250000]}
@@ -479,7 +479,7 @@ export default function QuarterlyAllHands() {
             </div>
             <div className="w-full max-w-xl mb-8">
               <div className="flex justify-between mb-2">
-                <span>Equity Split: {equitySplit}%</span>
+                <span>Equity split: {equitySplit}%</span>
               </div>
               <Slider
                 defaultValue={[20]}
@@ -491,7 +491,7 @@ export default function QuarterlyAllHands() {
             </div>
             <div className="w-full max-w-xl mb-8">
               <div className="flex justify-between mb-2">
-                <span>Yearly Growth: {yearlyGrowth}%</span>
+                <span>Yearly growth: {yearlyGrowth}%</span>
               </div>
               <Slider
                 defaultValue={[0]}
@@ -580,6 +580,7 @@ export default function QuarterlyAllHands() {
                   tickLine={false}
                   tickMargin={10}
                   axisLine={false}
+                  tickFormatter={(value) => value.toLocaleString()}
                 />
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <ChartLegend content={<ChartLegendContent />} />
