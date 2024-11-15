@@ -558,7 +558,7 @@ export default function QuarterlyAllHands() {
               </table>
             </div>
           </div>
-          <div className="w-1/2 h-full flex items-center justify-center p-8">
+          <div className="w-1/2 h-full flex items-center justify-center">
             <ChartContainer
               config={chartConfig}
               className="min-h-[200px] w-full"
@@ -566,6 +566,7 @@ export default function QuarterlyAllHands() {
               <BarChart
                 accessibilityLayer
                 data={calculateTableData(equitySplit)}
+                margin={{ left: 40, right: 40 }}
               >
                 <CartesianGrid vertical={false} />
                 <XAxis
@@ -576,7 +577,7 @@ export default function QuarterlyAllHands() {
                   label={{ value: "Year", position: "bottom" }}
                 />
                 <YAxis
-                  label={{ value: "Amount ($)", angle: -90, position: "left" }}
+                  label={{ value: "Amount ($)", angle: -90, position: "left", offset: 20 }}
                   tickLine={false}
                   tickMargin={10}
                   axisLine={false}
