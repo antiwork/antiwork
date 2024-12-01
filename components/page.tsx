@@ -147,22 +147,22 @@ function PageContent() {
     {
       name: "Exemplar",
       url: "https://github.com/anti-work/exemplar",
-      description: "anonymize your app's content for easy sharing",
+      description: "anonymize your app for easy demoing",
     },
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "S corp setup and profit-sharing for creators",
+      description: "equity compensation for your team",
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
-      description: "sell digital products online",
+      description: "sell your work and see what sticks",
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
-      description: "world-class support for creators",
+      description: "help your customers help themselves",
     },
     {
       name: "Iffy",
@@ -172,7 +172,7 @@ function PageContent() {
     {
       name: "Shortest",
       url: "https://shortest.com",
-      description: "app evals",
+      description: "natural language tests",
     },
   ];
 
@@ -379,8 +379,14 @@ function PageContent() {
             transition={{ duration: 0.5, delay: 1.7 }}
             className="mb-8 xl:mb-16"
           >
-            <h2 className="text-sm sm:text-base lg:text-lg xl:text-2xl font-bold mb-4 xl:mb-8 uppercase tracking-wide">
-              Products
+            <h2 className="text-sm sm:text-base lg:text-lg xl:text-2xl font-bold mb-4 xl:mb-8 uppercase tracking-wide group">
+              Products{" "}
+              <small className="text-opacity-50 group-hover:hidden transition">
+                ({products.length}/26)
+              </small>
+              <small className="hidden group-hover:inline-block transition">
+                ({Math.round((products.length / 26) * 100)}%)
+              </small>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8">
               {alphabet.map((letter, index) => {
