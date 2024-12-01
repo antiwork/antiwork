@@ -145,6 +145,11 @@ function PageContent() {
       description: "play your welcome song when you walk in",
     },
     {
+      name: "Exemplar",
+      url: "https://github.com/anti-work/exemplar",
+      description: "anonymize your app's content for easy sharing",
+    },
+    {
       name: "Flexile",
       url: "https://Flexile.com",
       description: "S corp setup and profit-sharing for creators",
