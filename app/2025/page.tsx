@@ -12,6 +12,7 @@ import {
   ChartLegend,
   ChartTooltip,
 } from "@/components/ui/chart";
+import { motion } from "framer-motion";
 
 const creatorEarningsConfig = {
   creatorEarnings: {
@@ -131,9 +132,14 @@ export default function AnnualMeeting() {
               </Link>
             </div>
           </div>
-          <h2 className="text-4xl text-black font-bold mt-8">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-4xl text-black font-bold mt-8"
+          >
             2025 Public Annual Meeting
-          </h2>
+          </motion.h2>
         </div>
       ),
     },
@@ -315,7 +321,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -372,7 +378,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -391,7 +397,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <div className="relative">
@@ -419,7 +425,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <div className="relative">
@@ -447,7 +453,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -506,7 +512,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -554,7 +560,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -601,7 +607,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -651,7 +657,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -681,7 +687,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center p-20">
           <h1 className="text-4xl font-bold text-gray-900 mb-12">
@@ -704,7 +710,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center space-y-6">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -748,7 +754,7 @@ export default function AnnualMeeting() {
       ),
     },
     {
-      backgroundColor: "bg-gray-50",
+      backgroundColor: "bg-white",
       content: (
         <div className="w-full h-full flex items-center justify-center">
           <h1 className="text-6xl font-bold text-gray-900">Questions?</h1>
