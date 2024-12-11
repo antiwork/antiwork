@@ -141,17 +141,17 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "S corp setup and profit-sharing for creators",
+      description: "equity compensation for your team",
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
-      description: "sell digital products online",
+      description: "sell your work and see what sticks",
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
-      description: "world-class support for creators",
+      description: "help your customers help themselves",
     },
     {
       name: "Iffy",
