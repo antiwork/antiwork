@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { Logo } from "@/app/components/Logo";
 import { Loader2 } from "lucide-react";
 import { Slide } from "@/components/Slide";
@@ -117,7 +116,6 @@ const financialsData = [
 ];
 
 export default function AnnualMeeting() {
-  const searchParams = useSearchParams();
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -759,21 +757,12 @@ export default function AnnualMeeting() {
     },
   ];
 
-  const initialSlide = searchParams.get("slide")
-    ? parseInt(searchParams.get("slide")!)
-    : 1;
-  const [currentSlide, setCurrentSlide] = useState(initialSlide);
+  const [currentSlide, setCurrentSlide] = useState(1);
   const [typedNumber, setTypedNumber] = useState("");
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
   const totalSlides = slides.length;
-
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("slide", currentSlide.toString());
-    window.history.replaceState({}, "", url);
-  }, [currentSlide]);
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight" && currentSlide < totalSlides) {
@@ -848,6 +837,9 @@ export default function AnnualMeeting() {
     handleKeyPress,
     touchStart,
     touchEnd,
+    handleTouchEnd,
+    handleTouchMove,
+    handleTouchStart,
   ]);
 
   return (

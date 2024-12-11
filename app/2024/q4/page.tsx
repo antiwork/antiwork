@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Logo } from "@/app/components/Logo";
 import Image from "next/image";
@@ -32,7 +31,6 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function QuarterlyAllHands() {
-  const searchParams = useSearchParams();
   const [equitySplit, setEquitySplit] = useState(20);
   const [annualCompensation, setAnnualCompensation] = useState(250000);
   const [yearlyGrowth, setYearlyGrowth] = useState(0);
@@ -648,21 +646,12 @@ export default function QuarterlyAllHands() {
     },
   ];
 
-  const initialSlide = searchParams.get("slide")
-    ? parseInt(searchParams.get("slide")!)
-    : 1;
-  const [currentSlide, setCurrentSlide] = useState(initialSlide);
+  const [currentSlide, setCurrentSlide] = useState(1);
   const [typedNumber, setTypedNumber] = useState("");
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
   const totalSlides = slides.length;
-
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("slide", currentSlide.toString());
-    window.history.replaceState({}, "", url);
-  }, [currentSlide]);
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight" && currentSlide < totalSlides) {
@@ -738,6 +727,9 @@ export default function QuarterlyAllHands() {
     handleKeyPress,
     touchStart,
     touchEnd,
+    handleTouchEnd,
+    handleTouchMove,
+    handleTouchStart,
   ]);
 
   return (
