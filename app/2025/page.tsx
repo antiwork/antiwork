@@ -709,10 +709,13 @@ export default function AnnualMeeting() {
       backgroundColor: "bg-gray-50",
       content: (
         <div className="w-full h-full flex flex-col items-center justify-center space-y-6">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Introducing...
+          </h1>
+
           <pre className="font-mono bg-gray-100 rounded-lg p-4">
             <code>
-              <span className="text-gray-500">npx</span>{" "}
-              create-antiwork-app@latest [project-name] [options]
+              <span className="text-gray-500">npx</span> create-antiwork-app
             </code>
           </pre>
           <div className="text-gray-700">
@@ -731,6 +734,15 @@ export default function AnnualMeeting() {
               </span>
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded">
                 Vercel
+              </span>
+              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded">
+                Stripe
+              </span>
+              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded">
+                Resend
+              </span>
+              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded">
+                Clerk
               </span>
             </div>
           </div>
