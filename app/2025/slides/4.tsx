@@ -1,10 +1,4 @@
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
@@ -71,7 +65,10 @@ export default function Slide4() {
         </h1>
       </div>
       <div className="flex-1 w-full flex items-center justify-center">
-        <ChartContainer config={financialsWithoutCreatorConfig} className="w-4/5 h-4/5">
+        <ChartContainer
+          config={financialsWithoutCreatorConfig}
+          className="w-4/5 h-4/5"
+        >
           <BarChart
             data={financialsData}
             margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
@@ -81,7 +78,7 @@ export default function Slide4() {
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
             />
-            <ChartTooltip />
+            <ChartTooltip formatter={(value) => `$${value.toLocaleString()}`} />
             <ChartLegend />
             <Bar
               dataKey="revenue"

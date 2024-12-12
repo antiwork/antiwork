@@ -3,7 +3,6 @@
 import { SlideDeck } from "@/components/SlideDeck";
 import Slide1 from "./slides/1";
 import Slide2 from "./slides/2";
-import Slide3 from "./slides/3";
 import Slide4 from "./slides/4";
 import Slide5 from "./slides/5";
 import Slide6 from "./slides/6";
@@ -23,7 +22,6 @@ export default function AnnualMeeting() {
   const slides = [
     <Slide1 key={1} />,
     <Slide2 key={2} />,
-    <Slide3 key={3} />,
     <Slide4 key={4} />,
     <Slide5 key={5} />,
     <Slide6 key={6} />,

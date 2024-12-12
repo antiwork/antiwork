@@ -2,7 +2,6 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
   ChartTooltip,
 } from "@/components/ui/chart";
 
@@ -15,16 +14,56 @@ const creatorEarningsConfig = {
 
 const creatorEarningsData = [
   {
+    year: 2012,
+    creatorEarnings: 600945,
+  },
+  {
+    year: 2013,
+    creatorEarnings: 4940038,
+  },
+  {
+    year: 2014,
+    creatorEarnings: 13775340,
+  },
+  {
+    year: 2015,
+    creatorEarnings: 21046470,
+  },
+  {
+    year: 2016,
+    creatorEarnings: 36251075,
+  },
+  {
+    year: 2017,
+    creatorEarnings: 41463817,
+  },
+  {
+    year: 2018,
+    creatorEarnings: 52395391,
+  },
+  {
+    year: 2019,
+    creatorEarnings: 73105515,
+  },
+  {
+    year: 2020,
+    creatorEarnings: 142301488,
+  },
+  {
+    year: 2021,
+    creatorEarnings: 185482505,
+  },
+  {
     year: 2022,
-    creatorEarnings: 88000000,
+    creatorEarnings: 185824553,
   },
   {
     year: 2023,
-    creatorEarnings: 100000000,
+    creatorEarnings: 170717933,
   },
   {
     year: 2024,
-    creatorEarnings: 120000000,
+    creatorEarnings: 142334418,
   },
 ];
 
@@ -32,9 +71,7 @@ export default function Slide2() {
   return (
     <div className="w-full h-full flex flex-col">
       <div className="h-24 mt-12 flex items-center justify-center">
-        <h1 className="text-4xl font-bold text-gray-900">
-          Creator Earnings Growth
-        </h1>
+        <h1 className="text-4xl font-bold text-gray-900">Creator Earnings</h1>
       </div>
       <div className="flex-1 w-full flex items-center justify-center">
         <ChartContainer config={creatorEarningsConfig} className="w-4/5 h-4/5">
@@ -47,8 +84,7 @@ export default function Slide2() {
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
             />
-            <ChartTooltip />
-            <ChartLegend />
+            <ChartTooltip formatter={(value) => `$${value.toLocaleString()}`} />
             <Bar
               dataKey="creatorEarnings"
               fill={creatorEarningsConfig.creatorEarnings.color}

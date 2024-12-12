@@ -20,7 +20,13 @@ export default function Slide7() {
               <li>Shortest: Replace e2e tests with natural language</li>
             </ul>
           </li>
-          <li>Open source projects and build commercial open source model</li>
+          <li>
+            Build{" "}
+            <span className="font-bold text-blue-600">
+              open source projects
+            </span>{" "}
+            and commercial open source model
+          </li>
           <li>New products must be additive to existing ecosystem</li>
         </ul>
       </div>
