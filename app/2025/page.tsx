@@ -26,7 +26,6 @@ export default function AnnualMeeting() {
     <Slide5 key={5} />,
     <Slide6 key={6} />,
     <Slide7 key={7} />,
-    <Slide8 key={8} />,
     <Slide9 key={9} />,
     <Slide10 key={10} />,
     <Slide11 key={11} />,
@@ -34,6 +33,7 @@ export default function AnnualMeeting() {
     <Slide13 key={13} />,
     <Slide14 key={14} />,
     <Slide15 key={15} />,
+    <Slide8 key={8} />,
     <Slide16 key={16} />,
     <Slide18 key={18} />,
   ];

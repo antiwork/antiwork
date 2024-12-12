@@ -8,9 +8,9 @@ export default function Slide8() {
         <ul>
           <li>Compete with larger players through community</li>
           <li>Focus internal team on highest-impact work</li>
-          <li>Community-driven improvements and features</li>
-          <li>Risky but necessary to scale with small team</li>
+          <li>Community-driven features and roadmap</li>
           <li>Largest customers subsidize smallest ones</li>
+          <li>Risky but necessary to scale with small team</li>
         </ul>
       </div>
     </div>
