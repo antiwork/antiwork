@@ -64,18 +64,17 @@ const financialsData = [
 
 export default function Slide4() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-20">
-      <h1 className="text-4xl font-bold text-gray-900 mb-12">
-        Financial Performance
-      </h1>
-      <div className="w-full h-[400px]">
-        <ChartContainer
-          config={financialsWithoutCreatorConfig}
-          className="h-[600px] w-full"
-        >
+    <div className="w-full h-full flex flex-col">
+      <div className="h-24 mt-12 flex items-center justify-center">
+        <h1 className="text-4xl font-bold text-gray-900">
+          Financial Performance
+        </h1>
+      </div>
+      <div className="flex-1 w-full flex items-center justify-center">
+        <ChartContainer config={financialsWithoutCreatorConfig} className="w-4/5 h-4/5">
           <BarChart
             data={financialsData}
-            margin={{ top: 20, right: 30, left: 40, bottom: 30 }}
+            margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
