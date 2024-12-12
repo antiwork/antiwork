@@ -17,7 +17,6 @@ import Slide13 from "./slides/13";
 import Slide14 from "./slides/14";
 import Slide15 from "./slides/15";
 import Slide16 from "./slides/16";
-import Slide17 from "./slides/17";
 import Slide18 from "./slides/18";
 
 export default function AnnualMeeting() {
@@ -38,7 +37,6 @@ export default function AnnualMeeting() {
     <Slide14 key={14} />,
     <Slide15 key={15} />,
     <Slide16 key={16} />,
-    <Slide17 key={17} />,
     <Slide18 key={18} />,
   ];
 

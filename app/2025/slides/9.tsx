@@ -3,7 +3,7 @@ export default function Slide9() {
     <div className="w-full h-full flex flex-col items-center justify-center p-20">
       <div className="relative">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-          <span className="text-xl font-bold">AI</span>
+          <span className="text-xl font-bold">Built for AI</span>
         </div>
         <div className="absolute bottom-[300px] right-0 -translate-x-12 rotate-[66deg] origin-bottom-left">
           <span className="text-xl font-bold">Serverless</span>
