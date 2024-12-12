@@ -42,5 +42,5 @@ export default function AnnualMeeting() {
     <Slide18 key={18} />,
   ];
 
-  return <SlideDeck slides={slides} />;
+  return <SlideDeck slides={slides} backgroundColor="bg-gray-200" />;
 }

@@ -2,13 +2,13 @@ export default function Slide13() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-20">
       <h1 className="text-4xl font-bold text-gray-900 mb-12">
-        Helper: Help Your Customers Help Themselves
+        Helper: AI Customer Support Agents
       </h1>
       <div className="grid grid-cols-2 gap-8 w-[40%]">
         <div className="border-r pr-8">
           <h2 className="font-bold mb-4">2024</h2>
           <ul>
-            <li className="line-through">✓ AI-powered support</li>
+            <li className="line-through">✓ AI support</li>
             <li className="line-through">✓ In-app live chat</li>
             <li className="line-through">✓ Tool usage</li>
             <li className="line-through">✓ Slack integration</li>

@@ -1,10 +1,4 @@
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
@@ -36,18 +30,17 @@ const creatorEarningsData = [
 
 export default function Slide2() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-20">
-      <h1 className="text-4xl font-bold text-gray-900 mb-12">
-        Creator Earnings Growth
-      </h1>
-      <div className="w-full h-[400px]">
-        <ChartContainer
-          config={creatorEarningsConfig}
-          className="h-[600px] w-full"
-        >
+    <div className="w-full h-full flex flex-col">
+      <div className="h-24 mt-12 flex items-center justify-center">
+        <h1 className="text-4xl font-bold text-gray-900">
+          Creator Earnings Growth
+        </h1>
+      </div>
+      <div className="flex-1 w-full flex items-center justify-center">
+        <ChartContainer config={creatorEarningsConfig} className="w-4/5 h-4/5">
           <BarChart
             data={creatorEarningsData}
-            margin={{ top: 20, right: 30, left: 40, bottom: 30 }}
+            margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
