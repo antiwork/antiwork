@@ -16,3 +16,6 @@ export default function Slide6() {
     </div>
   );
 }
+
+Slide6.backgroundColor = "bg-rose-50";
+Slide6.foregroundColor = "text-gray-900";
