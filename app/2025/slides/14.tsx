@@ -47,3 +47,6 @@ export default function Slide14() {
     </div>
   );
 }
+
+Slide14.backgroundColor = "bg-slate-50";
+Slide14.foregroundColor = "text-gray-900";
