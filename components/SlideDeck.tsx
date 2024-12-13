@@ -16,16 +16,19 @@ export function SlideDeck({ slides }: SlideDeckProps) {
   const [typedNumber, setTypedNumber] = useState("");
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
   const [currentColors, setCurrentColors] = useState(() => {
-    const { backgroundColor: bg, textColor: fg } = generateRandomColors();
-    return { backgroundColor: hexToTailwindBg(bg), foregroundColor: hexToTailwindText(fg) };
+    const { backgroundColor, textColor } = generateRandomColors();
+    return {
+      backgroundColor: hexToTailwindBg(backgroundColor),
+      foregroundColor: hexToTailwindText(textColor)
+    };
   });
   const totalSlides = slides.length;
 
   const generateNewColors = useCallback(() => {
-    const { backgroundColor: bg, textColor: fg } = generateRandomColors();
+    const { backgroundColor, textColor } = generateRandomColors();
     setCurrentColors({
-      backgroundColor: hexToTailwindBg(bg),
-      foregroundColor: hexToTailwindText(fg)
+      backgroundColor: hexToTailwindBg(backgroundColor),
+      foregroundColor: hexToTailwindText(textColor)
     });
   }, []);
 
