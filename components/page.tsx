@@ -262,8 +262,8 @@ function PageContent() {
           className="text-sm sm:text-base lg:text-lg xl:text-2xl mb-8 xl:mb-16"
           style={{ color: textColor }}
         >
-          We help creators and business owners spend 100% of their time doing
-          what they love.
+          A sweet suite of open source software for small businesses and large
+          enterprises alike.
         </p>
 
         <main>

@@ -7,16 +7,18 @@ interface SlideProps {
   currentSlide?: number;
 }
 
-export function Slide({ 
-  id, 
+export function Slide({
+  id,
   backgroundColor = "bg-white",
   currentSlide = 1,
-  children 
+  children,
 }: SlideProps) {
   return (
     <div
       id={`slide-${id}`}
-      className={`h-screen w-screen flex items-center justify-center ${backgroundColor} ${currentSlide === id ? 'block' : 'hidden'}`}
+      className={`w-full h-full flex items-center justify-center ${backgroundColor} ${
+        currentSlide === id ? "block" : "hidden"
+      }`}
     >
       {children}
     </div>

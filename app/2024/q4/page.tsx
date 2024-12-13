@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Logo } from "@/app/components/Logo";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
-import { Slide } from "./Slide";
+import { Slide } from "@/components/Slide";
 import { Tweet } from "react-tweet";
 import Link from "next/link";
 import { Slider } from "@/components/ui/slider";
@@ -32,7 +31,6 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function QuarterlyAllHands() {
-  const searchParams = useSearchParams();
   const [equitySplit, setEquitySplit] = useState(20);
   const [annualCompensation, setAnnualCompensation] = useState(250000);
   const [yearlyGrowth, setYearlyGrowth] = useState(0);
@@ -467,7 +465,9 @@ export default function QuarterlyAllHands() {
 
             <div className="w-full max-w-xl mb-8">
               <div className="flex justify-between mb-2">
-                <span>Annual compensation: ${annualCompensation.toLocaleString()}</span>
+                <span>
+                  Annual compensation: ${annualCompensation.toLocaleString()}
+                </span>
               </div>
               <Slider
                 defaultValue={[250000]}
@@ -577,7 +577,12 @@ export default function QuarterlyAllHands() {
                   label={{ value: "Year", position: "bottom" }}
                 />
                 <YAxis
-                  label={{ value: "Amount ($)", angle: -90, position: "left", offset: 20 }}
+                  label={{
+                    value: "Amount ($)",
+                    angle: -90,
+                    position: "left",
+                    offset: 20,
+                  }}
                   tickLine={false}
                   tickMargin={10}
                   axisLine={false}
@@ -641,21 +646,12 @@ export default function QuarterlyAllHands() {
     },
   ];
 
-  const initialSlide = searchParams.get("slide")
-    ? parseInt(searchParams.get("slide")!)
-    : 1;
-  const [currentSlide, setCurrentSlide] = useState(initialSlide);
+  const [currentSlide, setCurrentSlide] = useState(1);
   const [typedNumber, setTypedNumber] = useState("");
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
   const totalSlides = slides.length;
-
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("slide", currentSlide.toString());
-    window.history.replaceState({}, "", url);
-  }, [currentSlide]);
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight" && currentSlide < totalSlides) {
@@ -731,6 +727,9 @@ export default function QuarterlyAllHands() {
     handleKeyPress,
     touchStart,
     touchEnd,
+    handleTouchEnd,
+    handleTouchMove,
+    handleTouchStart,
   ]);
 
   return (
