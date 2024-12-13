@@ -25,3 +25,6 @@ export default function Slide10() {
     </div>
   );
 }
+
+Slide10.backgroundColor = "bg-emerald-50";
+Slide10.foregroundColor = "text-gray-900";
