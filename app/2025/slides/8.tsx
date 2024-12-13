@@ -16,3 +16,6 @@ export default function Slide8() {
     </div>
   );
 }
+
+Slide8.backgroundColor = "bg-teal-50";
+Slide8.foregroundColor = "text-gray-900";
