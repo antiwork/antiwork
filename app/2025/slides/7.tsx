@@ -33,3 +33,6 @@ export default function Slide7() {
     </div>
   );
 }
+
+Slide7.backgroundColor = "bg-indigo-50";
+Slide7.foregroundColor = "text-gray-900";
