@@ -56,3 +56,6 @@ export default function Slide11() {
     </div>
   );
 }
+
+Slide11.backgroundColor = "bg-sky-50";
+Slide11.foregroundColor = "text-gray-900";
