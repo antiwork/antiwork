@@ -27,6 +27,3 @@ export default function Slide5() {
     </div>
   );
 }
-
-Slide5.backgroundColor = "bg-amber-50";
-Slide5.foregroundColor = "text-gray-900";

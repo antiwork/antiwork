@@ -96,7 +96,3 @@ export default function Slide2() {
     </div>
   );
 }
-
-// Add static color properties
-Slide2.backgroundColor = "bg-blue-100";
-Slide2.foregroundColor = "text-blue-900";

@@ -5,6 +5,3 @@ export default function Slide18() {
     </div>
   );
 }
-
-Slide18.backgroundColor = "bg-lime-50";
-Slide18.foregroundColor = "text-gray-900";

@@ -27,6 +27,3 @@ export default function Slide15() {
     </div>
   );
 }
-
-Slide15.backgroundColor = "bg-cyan-50";
-Slide15.foregroundColor = "text-gray-900";

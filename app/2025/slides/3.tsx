@@ -126,6 +126,3 @@ export default function Slide3() {
     </div>
   );
 }
-
-Slide3.backgroundColor = "bg-gray-50";
-Slide3.foregroundColor = "text-gray-900";

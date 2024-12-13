@@ -44,6 +44,3 @@ export default function Slide13() {
     </div>
   );
 }
-
-Slide13.backgroundColor = "bg-purple-50";
-Slide13.foregroundColor = "text-gray-900";

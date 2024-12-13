@@ -25,6 +25,3 @@ export default function Slide9() {
     </div>
   );
 }
-
-Slide9.backgroundColor = "bg-violet-50";
-Slide9.foregroundColor = "text-gray-900";

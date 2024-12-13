@@ -111,6 +111,3 @@ export default function Slide4() {
     </div>
   );
 }
-
-Slide4.backgroundColor = "bg-gray-100";
-Slide4.foregroundColor = "text-gray-900";

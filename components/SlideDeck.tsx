@@ -1,28 +1,41 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Loader2 } from "lucide-react";
 import { Slide } from "@/components/Slide";
+import { generateRandomColors, hexToTailwindBg, hexToTailwindText } from "@/utils/colors";
 
 interface SlideDeckProps {
   slides: React.ReactElement[];
   backgroundColor?: string;
-  foregroundColor?: string;  // Add foreground color support
+  foregroundColor?: string;
 }
 
-export function SlideDeck({ slides, backgroundColor = "bg-white", foregroundColor = "text-black" }: SlideDeckProps) {
+export function SlideDeck({ slides }: SlideDeckProps) {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const [typedNumber, setTypedNumber] = useState("");
-  const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
-    null
-  );
+  const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [currentColors, setCurrentColors] = useState(() => {
+    const { backgroundColor: bg, textColor: fg } = generateRandomColors();
+    return { backgroundColor: hexToTailwindBg(bg), foregroundColor: hexToTailwindText(fg) };
+  });
   const totalSlides = slides.length;
+
+  const generateNewColors = useCallback(() => {
+    const { backgroundColor: bg, textColor: fg } = generateRandomColors();
+    setCurrentColors({
+      backgroundColor: hexToTailwindBg(bg),
+      foregroundColor: hexToTailwindText(fg)
+    });
+  }, []);
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight" && currentSlide < totalSlides) {
       setCurrentSlide(currentSlide + 1);
+      generateNewColors();
     } else if (e.key === "ArrowLeft" && currentSlide > 1) {
       setCurrentSlide(currentSlide - 1);
+      generateNewColors();
     } else if (/^[0-9]$/.test(e.key)) {
       if (typingTimeout) {
         clearTimeout(typingTimeout);
@@ -34,6 +47,7 @@ export function SlideDeck({ slides, backgroundColor = "bg-white", foregroundColo
         const slideNumber = parseInt(newTypedNumber);
         if (slideNumber > 0 && slideNumber <= totalSlides) {
           setCurrentSlide(slideNumber);
+          generateNewColors();
         }
         setTypedNumber("");
       }, 750);
@@ -59,10 +73,12 @@ export function SlideDeck({ slides, backgroundColor = "bg-white", foregroundColo
 
     if (isLeftSwipe && currentSlide < totalSlides) {
       setCurrentSlide(currentSlide + 1);
+      generateNewColors();
     }
 
     if (isRightSwipe && currentSlide > 1) {
       setCurrentSlide(currentSlide - 1);
+      generateNewColors();
     }
 
     setTouchEnd(null);
@@ -92,8 +108,8 @@ export function SlideDeck({ slides, backgroundColor = "bg-white", foregroundColo
         <Slide
           id={currentSlide}
           currentSlide={currentSlide}
-          backgroundColor={slides[currentSlide - 1].props.backgroundColor || backgroundColor}
-          foregroundColor={slides[currentSlide - 1].props.foregroundColor || foregroundColor}
+          backgroundColor={currentColors.backgroundColor}
+          foregroundColor={currentColors.foregroundColor}
         >
           {slides[currentSlide - 1]}
         </Slide>

@@ -43,6 +43,3 @@ export default function Slide1() {
     </div>
   );
 }
-
-Slide1.backgroundColor = "bg-white";
-Slide1.foregroundColor = "text-black";
