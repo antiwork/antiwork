@@ -5,9 +5,10 @@ import { Slide } from "@/components/Slide";
 interface SlideDeckProps {
   slides: React.ReactElement[];
   backgroundColor?: string;
+  foregroundColor?: string;  // Add foreground color support
 }
 
-export function SlideDeck({ slides, backgroundColor = "bg-white" }: SlideDeckProps) {
+export function SlideDeck({ slides, backgroundColor = "bg-white", foregroundColor = "text-black" }: SlideDeckProps) {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -92,6 +93,7 @@ export function SlideDeck({ slides, backgroundColor = "bg-white" }: SlideDeckPro
           id={currentSlide}
           currentSlide={currentSlide}
           backgroundColor={slides[currentSlide - 1].props.backgroundColor || backgroundColor}
+          foregroundColor={slides[currentSlide - 1].props.foregroundColor || foregroundColor}
         >
           {slides[currentSlide - 1]}
         </Slide>
