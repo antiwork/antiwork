@@ -45,3 +45,6 @@ export default function Slide12() {
     </div>
   );
 }
+
+Slide12.backgroundColor = "bg-indigo-50";
+Slide12.foregroundColor = "text-gray-900";
