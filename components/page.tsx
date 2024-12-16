@@ -233,7 +233,7 @@ function PageContent() {
               />
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold ml-3">
-              Antiwork
+              Anti-Work
             </h1>
           </div>
           <div
@@ -317,7 +317,7 @@ function PageContent() {
                   Know a product we should consider?
                 </p>
                 <a
-                  href="mailto:sahil@antiwork.com"
+                  href="mailto:sahil@anti-work.com"
                   className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline"
                   style={{ color: textColor }}
                 >
@@ -377,7 +377,7 @@ function PageContent() {
                   from you!
                 </p>
                 <a
-                  href="https://jobs.antiwork.com"
+                  href="https://jobs.anti-work.com"
                   className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline mt-2"
                   style={{ color: textColor }}
                 >

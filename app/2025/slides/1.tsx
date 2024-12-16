@@ -33,7 +33,7 @@ export default function Slide1() {
             <Logo size={logoSize} color="black" background="transparent" />
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold ml-3">
-            Antiwork
+            Anti-Work
           </h1>
         </div>
       </h2>
