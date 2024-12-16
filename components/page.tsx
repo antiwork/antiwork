@@ -317,7 +317,7 @@ function PageContent() {
                   Know a product we should consider?
                 </p>
                 <a
-                  href="mailto:sahil@anti-work.com"
+                  href="mailto:sahil@anti"
                   className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline"
                   style={{ color: textColor }}
                 >
@@ -377,7 +377,7 @@ function PageContent() {
                   from you!
                 </p>
                 <a
-                  href="https://jobs.anti-work.com"
+                  href="https://jobs.antiwork.com"
                   className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline mt-2"
                   style={{ color: textColor }}
                 >
