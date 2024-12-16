@@ -233,7 +233,7 @@ function PageContent() {
               />
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold ml-3">
-              Antiwork
+              Anti-Work
             </h1>
           </div>
           <div
