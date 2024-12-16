@@ -102,7 +102,7 @@ export default function QuarterlyAllHands() {
             <div className="flex gap-[2px]">
               <Logo size={50} color="black" background="transparent" />
             </div>
-            <span className="text-5xl font-bold">Antiwork</span>
+            <span className="text-5xl font-bold">Anti-Work</span>
           </div>
           <h2 className="text-2xl text-gray-500 dark:text-gray-400 font-normal">
             Transforming Work and Compensation

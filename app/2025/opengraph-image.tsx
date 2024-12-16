@@ -41,7 +41,7 @@ export default async function Image() {
               marginLeft: 12,
             }}
           >
-            Antiwork
+            Anti-Work
           </div>
         </div>
         <div
