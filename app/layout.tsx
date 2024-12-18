@@ -24,7 +24,7 @@ export default function RootLayout({
         >
           Support
         </button>
-        <Script src="/sdk.js" strategy="afterInteractive" />
+        <Script src="https://helper.ai/widget/embed" strategy="afterInteractive" />
         <Script id="init-widget">
           {`
             function initWidget() {
