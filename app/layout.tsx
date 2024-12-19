@@ -3,6 +3,15 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 
+declare global {
+  interface Window {
+    HelperWidget: {
+      init: (config: { mailbox_slug: string; title?: string }) => void;
+      show: () => void;
+    };
+  }
+}
+
 export const metadata: Metadata = {
   title: "Anti-Work",
   description: "A suite of sweet software",
@@ -18,32 +27,19 @@ export default function RootLayout({
       <body>
         {children}
         <Analytics />
-        <button
-          data-helper-toggle
-          className="fixed bottom-4 right-4 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-        >
-          Support
-        </button>
-        <Script src="/sdk.js" strategy="afterInteractive" />
-        <Script id="init-widget">
+        <Script id="helper-widget" strategy="afterInteractive">
           {`
-            function initWidget() {
-              if (typeof window !== 'undefined' && window.HelperWidget) {
+            (function(d,t) {
+              var g = d.createElement("script");
+              g.src = "https://helper.ai/widget/sdk.js";
+              g.onload = function() {
                 window.HelperWidget.init({
-                  title: 'Support',
                   mailbox_slug: 'antiwork',
+                  title: 'Anti-Work Support'
                 });
-                console.log('HelperWidget initialized');
-              } else {
-                console.error('HelperWidget not found on window');
-              }
-            }
-
-            if (typeof window !== 'undefined' && window.HelperWidget) {
-              initWidget();
-            } else {
-              window.addEventListener('load', initWidget);
-            }
+              };
+              d.body.appendChild(g);
+            })(document);
           `}
         </Script>
       </body>
