@@ -12,8 +12,10 @@ declare global {
         mailbox_slug: string;
         timestamp: number;
         title?: string;
+        autoOpen?: boolean;
       }) => void;
       show: () => void;
+      toggle: () => void;
     };
   }
 }
@@ -45,20 +47,12 @@ export default function RootLayout({
                   email_hash: 'public',
                   mailbox_slug: 'gumroad',
                   timestamp: timestamp,
-                  title: 'Anti-Work Support'
+                  title: 'Anti-Work Support',
+                  autoOpen: false
                 });
               };
               d.body.appendChild(g);
             })(document);
-          `}
-        </Script>
-        <Script id="helper-widget-click" strategy="afterInteractive">
-          {`
-            document.addEventListener('click', function(e) {
-              if (e.target && e.target.closest('.helper-widget-icon')) {
-                window.HelperWidget.show();
-              }
-            });
           `}
         </Script>
       </body>
