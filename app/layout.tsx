@@ -41,15 +41,27 @@ export default function RootLayout({
               var g = d.createElement("script");
               g.src = "https://helper.ai/widget/sdk.js";
               g.onload = function() {
-                const timestamp = Date.now();
                 window.HelperWidget.init({
                   email: 'public@antiwork.com',
                   email_hash: 'public',
-                  mailbox_slug: 'gumroad',
-                  timestamp: timestamp,
+                  mailbox_slug: 'antiwork',
+                  timestamp: Date.now(),
                   title: 'Anti-Work Support',
                   autoOpen: false
                 });
+
+                // Ensure widget is always visible with correct classes
+                setTimeout(() => {
+                  const toggleButton = document.querySelector('.helper-widget-toggle-button');
+                  if (toggleButton) {
+                    toggleButton.classList.add('visible', 'helper-widget-icon');
+                    toggleButton.setAttribute('data-helper-open', 'true');
+                    const svg = toggleButton.querySelector('svg');
+                    if (svg) {
+                      svg.classList.add('hand-icon');
+                    }
+                  }
+                }, 1000);
               };
               d.body.appendChild(g);
             })(document);
