@@ -6,7 +6,13 @@ import Script from "next/script";
 declare global {
   interface Window {
     HelperWidget: {
-      init: (config: { mailbox_slug: string; title?: string }) => void;
+      init: (config: {
+        email: string;
+        email_hash: string;
+        mailbox_slug: string;
+        timestamp: number;
+        title?: string;
+      }) => void;
       show: () => void;
     };
   }
@@ -33,8 +39,12 @@ export default function RootLayout({
               var g = d.createElement("script");
               g.src = "https://helper.ai/widget/sdk.js";
               g.onload = function() {
+                const timestamp = Date.now();
                 window.HelperWidget.init({
-                  mailbox_slug: 'antiwork',
+                  email: 'public@antiwork.com',
+                  email_hash: '${process.env.HELPER_PUBLIC_HASH || "public-hash"}',
+                  mailbox_slug: 'gumroad',
+                  timestamp: timestamp,
                   title: 'Anti-Work Support'
                 });
               };
