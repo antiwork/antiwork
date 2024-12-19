@@ -47,6 +47,7 @@ export default function RootLayout({
                   timestamp: timestamp,
                   title: 'Anti-Work Support'
                 });
+                window.HelperWidget.show();
               };
               d.body.appendChild(g);
             })(document);
