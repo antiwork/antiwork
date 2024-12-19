@@ -7,8 +7,6 @@ declare global {
   interface Window {
     HelperWidget: {
       init: (config: {
-        email: string;
-        email_hash: string;
         mailbox_slug: string;
         timestamp: number;
         title?: string;
@@ -41,16 +39,22 @@ export default function RootLayout({
               g.onload = function() {
                 const timestamp = Date.now();
                 window.HelperWidget.init({
-                  email: 'public@antiwork.com',
-                  email_hash: '${process.env.HELPER_PUBLIC_HASH || "public-hash"}',
                   mailbox_slug: 'gumroad',
                   timestamp: timestamp,
                   title: 'Anti-Work Support'
                 });
-                window.HelperWidget.show();
               };
               d.body.appendChild(g);
             })(document);
+          `}
+        </Script>
+        <Script id="helper-widget-click" strategy="afterInteractive">
+          {`
+            document.addEventListener('click', function(e) {
+              if (e.target && e.target.closest('.helper-widget-icon')) {
+                window.HelperWidget.show();
+              }
+            });
           `}
         </Script>
       </body>
