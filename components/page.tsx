@@ -141,27 +141,27 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "equity compensation for your team",
+      description: "team and shareholder management",
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
-      description: "sell your work and see what sticks",
+      description: "sell your stuff. see what sticks",
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
-      description: "help your customers help themselves",
+      description: "customer support AI",
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
-      description: "prevent meanies from abusing your product",
+      description: "keep your product clean",
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
-      description: "app evals using natural language",
+      description: "QA via natural language AI tests",
     },
   ];
 
