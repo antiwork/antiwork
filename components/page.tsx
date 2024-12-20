@@ -262,8 +262,7 @@ function PageContent() {
           className="text-sm sm:text-base lg:text-lg xl:text-2xl mb-8 xl:mb-16"
           style={{ color: textColor }}
         >
-          A sweet suite of open source software for small businesses and large
-          enterprises alike.
+          Automating the boring stuff that ran Gumroad.
         </p>
 
         <main>
