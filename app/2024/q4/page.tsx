@@ -83,7 +83,7 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-black",
       content: (
-        <div className="text-center space-y-6">
+        <div className="space-y-6 text-center">
           <div className="flex items-center justify-center gap-2">
             <div>
               <Link href="/">
@@ -97,14 +97,14 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="text-center space-y-6">
+        <div className="space-y-6 text-center">
           <div className="flex items-center justify-center gap-2">
             <div className="flex gap-[2px]">
               <Logo size={50} color="black" background="transparent" />
             </div>
             <span className="text-5xl font-bold">Anti-Work</span>
           </div>
-          <h2 className="text-2xl text-gray-500 dark:text-gray-400 font-normal">
+          <h2 className="text-2xl font-normal text-gray-500 dark:text-gray-400">
             Transforming Work and Compensation
           </h2>
         </div>
@@ -113,8 +113,8 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <main className="prose mx-auto p-4 sm:p-8 flex-1 w-full max-w-3xl relative z-10">
-          <label className="block mt-8 mb-8">
+        <main className="prose relative z-10 mx-auto w-full max-w-3xl flex-1 p-4 sm:p-8">
+          <label className="mb-8 mt-8 block">
             Jan 7, 2021 by{" "}
             <a href="https://sahillavingia.com/work">
               <u>Sahil Lavingia</u>
@@ -177,8 +177,8 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <main className="prose mx-auto p-4 sm:p-8 flex-1 w-full max-w-3xl relative z-10">
-          <label className="block mt-8 mb-8">
+        <main className="prose relative z-10 mx-auto w-full max-w-3xl flex-1 p-4 sm:p-8">
+          <label className="mb-8 mt-8 block">
             October 17, 2024 by{" "}
             <a href="https://sahillavingia.com/god">
               <u>Sahil Lavingia</u>
@@ -244,10 +244,10 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <div className="grid grid-cols-2 gap-40 w-full max-w-7xl">
+        <div className="flex h-full w-full flex-col items-center justify-center p-20">
+          <div className="grid w-full max-w-7xl grid-cols-2 gap-40">
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl font-bold text-gray-800 mb-12">
+              <h1 className="mb-12 text-4xl font-bold text-gray-800">
                 What was destructed
               </h1>
               <div className="prose">
@@ -270,7 +270,7 @@ export default function QuarterlyAllHands() {
             </div>
 
             <div className="flex flex-col items-center">
-              <h1 className="text-4xl font-bold text-gray-800 mb-12">TBD</h1>
+              <h1 className="mb-12 text-4xl font-bold text-gray-800">TBD</h1>
               <div className="prose">
                 <ul>
                   <li>Swift, Kotlin → React Native/Expo/Electron</li>
@@ -286,9 +286,9 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center">
           <div className="w-1/2 p-20">
-            <h1 className="text-4xl font-bold text-gray-800 mb-12">
+            <h1 className="mb-12 text-4xl font-bold text-gray-800">
               Welcome to New York
             </h1>
             <div className="prose">
@@ -302,13 +302,13 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
           </div>
-          <div className="w-1/2 relative h-full group">
+          <div className="group relative h-full w-1/2">
             <Image
               src="/2024/q4/whiteboard.png"
               alt="Whiteboard"
               fill
               priority
-              className="object-cover group-hover:object-contain group-hover:p-8 transition-all duration-200"
+              className="object-cover transition-all duration-200 group-hover:object-contain group-hover:p-8"
             />
           </div>
         </div>
@@ -317,10 +317,10 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="flex gap-8 w-full max-w-7xl mx-auto px-8">
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+        <div className="flex h-full w-full items-center justify-center">
+          <div className="mx-auto flex w-full max-w-7xl gap-8 px-8">
+            <div className="group flex flex-1 flex-col rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:flex-[2]">
+              <div className="mb-6 flex h-12 items-center">
                 <Image
                   src="/2024/q4/Gumroad.svg"
                   alt="Gumroad"
@@ -336,8 +336,8 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+            <div className="group flex flex-1 flex-col rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:flex-[2]">
+              <div className="mb-6 flex h-12 items-center">
                 <Image
                   src="/2024/q4/Flexile.svg"
                   alt="Flexile"
@@ -353,8 +353,8 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+            <div className="group flex flex-1 flex-col rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:flex-[2]">
+              <div className="mb-6 flex h-12 items-center">
                 <Image
                   src="/2024/q4/Helper.svg"
                   alt="Helper"
@@ -369,8 +369,8 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+            <div className="group flex flex-1 flex-col rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:flex-[2]">
+              <div className="mb-6 flex h-12 items-center">
                 <Image
                   src="/2024/q4/iffy.svg"
                   alt="Iffy"
@@ -385,11 +385,11 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
 
-            <div className="flex-1 bg-white rounded-lg shadow-sm p-8 border border-gray-200 flex flex-col transition-all duration-300 hover:flex-[2] group">
-              <div className="h-12 flex items-center mb-6">
+            <div className="group flex flex-1 flex-col rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:flex-[2]">
+              <div className="mb-6 flex h-12 items-center">
                 <h2 className="text-xl font-bold">
-                  <span className="ml-2 font-semibold text-gray-900 flex items-center">
-                    <span className="text-2xl transform scale-y-75">S</span>
+                  <span className="ml-2 flex items-center font-semibold text-gray-900">
+                    <span className="scale-y-75 transform text-2xl">S</span>
                     <span className="text-xl">hortest</span>
                   </span>
                 </h2>
@@ -408,10 +408,10 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="w-full h-full flex">
-          <div className="w-1/2 p-20 flex flex-col justify-center">
+        <div className="flex h-full w-full">
+          <div className="flex w-1/2 flex-col justify-center p-20">
             <div className="prose">
-              <h1 className="text-4xl font-bold text-gray-900 mb-12">
+              <h1 className="mb-12 text-4xl font-bold text-gray-900">
                 AI, AI, AI
               </h1>
               <ul>
@@ -427,7 +427,7 @@ export default function QuarterlyAllHands() {
               </ul>
             </div>
           </div>
-          <div className="w-1/2 relative">
+          <div className="relative w-1/2">
             <Image
               src="/2024/q4/ai.png"
               alt="AI illustration"
@@ -442,7 +442,7 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center">
           <Tweet id="1750589558876705087" />
         </div>
       ),
@@ -450,9 +450,9 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-white",
       content: (
-        <div className="w-full h-full flex">
-          <div className="w-1/2 h-full flex flex-col justify-center p-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">
+        <div className="flex h-full w-full">
+          <div className="flex h-full w-1/2 flex-col justify-center p-8">
+            <h1 className="mb-8 text-4xl font-bold text-gray-900">
               Retirement via Profit-sharing
             </h1>
 
@@ -463,8 +463,8 @@ export default function QuarterlyAllHands() {
               </p>
             </div>
 
-            <div className="w-full max-w-xl mb-8">
-              <div className="flex justify-between mb-2">
+            <div className="mb-8 w-full max-w-xl">
+              <div className="mb-2 flex justify-between">
                 <span>
                   Annual compensation: ${annualCompensation.toLocaleString()}
                 </span>
@@ -477,8 +477,8 @@ export default function QuarterlyAllHands() {
                 onValueChange={(value) => setAnnualCompensation(value[0])}
               />
             </div>
-            <div className="w-full max-w-xl mb-8">
-              <div className="flex justify-between mb-2">
+            <div className="mb-8 w-full max-w-xl">
+              <div className="mb-2 flex justify-between">
                 <span>Equity split: {equitySplit}%</span>
               </div>
               <Slider
@@ -489,8 +489,8 @@ export default function QuarterlyAllHands() {
                 onValueChange={(value) => setEquitySplit(value[0])}
               />
             </div>
-            <div className="w-full max-w-xl mb-8">
-              <div className="flex justify-between mb-2">
+            <div className="mb-8 w-full max-w-xl">
+              <div className="mb-2 flex justify-between">
                 <span>Yearly growth: {yearlyGrowth}%</span>
               </div>
               <Slider
@@ -503,7 +503,7 @@ export default function QuarterlyAllHands() {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="text-sm border-collapse">
+              <table className="border-collapse text-sm">
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="border border-gray-300 p-2">Year</th>
@@ -558,7 +558,7 @@ export default function QuarterlyAllHands() {
               </table>
             </div>
           </div>
-          <div className="w-1/2 h-full flex items-center justify-center">
+          <div className="flex h-full w-1/2 items-center justify-center">
             <ChartContainer
               config={chartConfig}
               className="min-h-[200px] w-full"
@@ -611,8 +611,8 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex flex-col items-center justify-center p-20">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12">DIYPO</h1>
+        <div className="flex h-full w-full flex-col items-center justify-center p-20">
+          <h1 className="mb-12 text-4xl font-bold text-gray-900">DIYPO</h1>
           <div className="prose">
             <ul>
               <li>
@@ -639,7 +639,7 @@ export default function QuarterlyAllHands() {
     {
       backgroundColor: "bg-gray-50",
       content: (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center">
           <h1 className="text-6xl font-bold text-gray-900">Questions?</h1>
         </div>
       ),
@@ -744,7 +744,7 @@ export default function QuarterlyAllHands() {
         </Slide>
       </div>
       <div
-        className={`py-1 px-2 rounded fixed bottom-2 right-2 text-sm flex items-center gap-1 ${
+        className={`fixed bottom-2 right-2 flex items-center gap-1 rounded px-2 py-1 text-sm ${
           typedNumber
             ? "bg-black text-white opacity-100"
             : "bg-white text-black opacity-50"
@@ -752,7 +752,7 @@ export default function QuarterlyAllHands() {
       >
         {typedNumber ? (
           <>
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin" />
             <span>Jumping to {typedNumber}</span>
           </>
         ) : (

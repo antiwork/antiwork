@@ -3,6 +3,7 @@ import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
+  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 const creatorEarningsConfig = {
@@ -69,26 +70,37 @@ const creatorEarningsData = [
 
 export default function Slide2() {
   return (
-    <div className="w-full h-full flex flex-col">
-      <div className="h-24 mt-12 flex items-center justify-center">
-        <h1 className="text-4xl font-bold text-gray-900">Creator Earnings</h1>
+    <div className="flex h-full w-full flex-col">
+      <div className="mt-12 flex h-24 items-center justify-center">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+          Creator Earnings
+        </h1>
       </div>
-      <div className="flex-1 w-full flex items-center justify-center">
-        <ChartContainer config={creatorEarningsConfig} className="w-4/5 h-4/5">
+      <div className="flex w-full flex-1 items-center justify-center">
+        <ChartContainer config={creatorEarningsConfig} className="h-4/5 w-4/5">
           <BarChart
             data={creatorEarningsData}
             margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
+            accessibilityLayer
           >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="year" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="currentColor"
+              opacity={0.1}
+            />
+            <XAxis dataKey="year" stroke="currentColor" />
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
+              stroke="currentColor"
             />
-            <ChartTooltip formatter={(value) => `$${value.toLocaleString()}`} />
+            <ChartTooltip
+              content={<ChartTooltipContent labelKey="year" prefix="$" />}
+            />
             <Bar
               dataKey="creatorEarnings"
               fill={creatorEarningsConfig.creatorEarnings.color}
               name="Creator Earnings"
+              radius={4}
             />
           </BarChart>
         </ChartContainer>

@@ -14,6 +14,7 @@ import {
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
 import { useRouter, useSearchParams } from "next/navigation";
+import { generateRandomColors } from "@/utils/colors";
 
 function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
@@ -23,63 +24,15 @@ function PageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const generateRandomColors = useCallback(() => {
-    const generateRandomColor = () =>
-      `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, "0")}`;
-
-    const getContrastRatio = (color1: string, color2: string) => {
-      const luminance = (color: string) => {
-        const rgb = parseInt(color.slice(1), 16);
-        const r = (rgb >> 16) & 0xff;
-        const g = (rgb >> 8) & 0xff;
-        const b = (rgb >> 0) & 0xff;
-        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-      };
-      const l1 = luminance(color1);
-      const l2 = luminance(color2);
-      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
-    };
-
-    let backgroundColor, textColor;
-    do {
-      backgroundColor = generateRandomColor();
-      textColor = generateRandomColor();
-    } while (getContrastRatio(backgroundColor, textColor) < 4.5);
-
+  const generateRandomColorsForPage = useCallback(() => {
+    const { backgroundColor, textColor } = generateRandomColors();
     setBackgroundColor(backgroundColor);
     setTextColor(textColor);
-
-    // Update URL with new colors
     router.push(`?bg=${backgroundColor.slice(1)}&txt=${textColor.slice(1)}`);
   }, [router]);
 
-  const setInitialColors = useCallback(() => {
-    const generateRandomColor = () =>
-      `#${Math.floor(Math.random() * 16777215)
-        .toString(16)
-        .padStart(6, "0")}`;
-
-    const getContrastRatio = (color1: string, color2: string) => {
-      const luminance = (color: string) => {
-        const rgb = parseInt(color.slice(1), 16);
-        const r = (rgb >> 16) & 0xff;
-        const g = (rgb >> 8) & 0xff;
-        const b = (rgb >> 0) & 0xff;
-        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-      };
-      const l1 = luminance(color1);
-      const l2 = luminance(color2);
-      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
-    };
-
-    let backgroundColor, textColor;
-    do {
-      backgroundColor = generateRandomColor();
-      textColor = generateRandomColor();
-    } while (getContrastRatio(backgroundColor, textColor) < 4.5);
-
+  const setInitialColorsForPage = useCallback(() => {
+    const { backgroundColor, textColor } = generateRandomColors();
     setBackgroundColor(backgroundColor);
     setTextColor(textColor);
   }, []);
@@ -92,9 +45,9 @@ function PageContent() {
       setBackgroundColor(`#${bgColor}`);
       setTextColor(`#${txtColor}`);
     } else {
-      setInitialColors();
+      setInitialColorsForPage();
     }
-  }, [searchParams, setInitialColors]);
+  }, [searchParams, setInitialColorsForPage]);
 
   useEffect(() => {
     // Set the background color of the html and body elements
@@ -105,7 +58,7 @@ function PageContent() {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "s" || event.key === "S") {
-        generateRandomColors();
+        generateRandomColorsForPage();
       }
     };
 
@@ -114,7 +67,7 @@ function PageContent() {
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
-  }, [generateRandomColors]);
+  }, [generateRandomColorsForPage]);
 
   useEffect(() => {
     const updateLogoSize = () => {
@@ -222,17 +175,17 @@ function PageContent() {
         color: textColor,
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-24">
-        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center md:mb-8 xl:mb-16">
-          <div className="flex items-center mb-4 md:mb-0">
-            <div className="xl:mt-[2px] lg:mt-[1px] md:mt-[0px] mt-[1px]">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
+        <header className="flex flex-col items-start justify-between sm:flex-row sm:items-center md:mb-8 xl:mb-16">
+          <div className="mb-4 flex items-center md:mb-0">
+            <div className="mt-[1px] md:mt-[0px] lg:mt-[1px] xl:mt-[2px]">
               <Logo
                 size={logoSize}
                 color={textColor}
                 background="transparent"
               />
             </div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold ml-3">
+            <h1 className="ml-3 text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-6xl">
               Anti-Work
             </h1>
           </div>
@@ -242,15 +195,15 @@ function PageContent() {
             onMouseLeave={() => setShowShortcutHint(false)}
           >
             <button
-              onClick={generateRandomColors}
-              className="p-2 rounded xl:p-4"
+              onClick={generateRandomColorsForPage}
+              className="rounded p-2 xl:p-4"
               style={{ backgroundColor: textColor, color: backgroundColor }}
             >
-              <Shuffle size={24} className="xl:w-8 xl:h-8" />
+              <Shuffle size={24} className="xl:h-8 xl:w-8" />
             </button>
             {showShortcutHint && (
               <div
-                className="absolute right-0 mt-2 px-2 py-1 text-xs xl:text-sm rounded"
+                className="absolute right-0 mt-2 rounded px-2 py-1 text-xs xl:text-sm"
                 style={{ backgroundColor: textColor, color: backgroundColor }}
               >
                 Press &apos;S&apos; to shuffle
@@ -259,7 +212,7 @@ function PageContent() {
           </div>
         </header>
         <p
-          className="text-sm sm:text-base lg:text-lg xl:text-2xl mb-8 xl:mb-16"
+          className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
           style={{ color: textColor }}
         >
           Automating the boring stuff that ran Gumroad.
@@ -267,21 +220,21 @@ function PageContent() {
 
         <main>
           <section className="mb-8 xl:mb-16">
-            <h2 className="text-sm sm:text-base lg:text-lg xl:text-2xl font-bold mb-4 xl:mb-8 uppercase tracking-wide">
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
               Products
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
               {products.map((product) => (
                 <div
                   key={product.name}
                   className="border-t pt-3 xl:pt-6"
                   style={{ borderColor: textColor }}
                 >
-                  <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold">
+                  <h3 className="text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
                     {product.name}
                   </h3>
                   <p
-                    className="text-xs sm:text-sm xl:text-lg mb-2 xl:mb-4"
+                    className="mb-2 text-xs sm:text-sm xl:mb-4 xl:text-lg"
                     style={{ color: textColor }}
                   >
                     {product.description}
@@ -290,7 +243,7 @@ function PageContent() {
                     href={product.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline"
+                    className="inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
                     aria-label={`Learn more about ${product.name}`}
                     style={{ color: textColor }}
                   >
@@ -300,24 +253,24 @@ function PageContent() {
                 </div>
               ))}
               <div
-                className="border-dashed border-2 xl:pt-6 p-3 pl-6"
+                className="border-2 border-dashed p-3 pl-6 xl:pt-6"
                 style={{ borderColor: textColor }}
               >
-                <div className="flex items-center mb-2 xl:mb-4">
+                <div className="mb-2 flex items-center xl:mb-4">
                   <Mail size={24} />
-                  <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold ml-2">
+                  <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
                     Suggest a product
                   </h3>
                 </div>
                 <p
-                  className="text-xs sm:text-sm xl:text-lg mb-2 xl:mb-4"
+                  className="mb-2 text-xs sm:text-sm xl:mb-4 xl:text-lg"
                   style={{ color: textColor }}
                 >
                   Know a product we should consider?
                 </p>
                 <a
                   href="mailto:sahil@antiwork.com"
-                  className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline"
+                  className="inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
                   style={{ color: textColor }}
                 >
                   Suggest a product{" "}
@@ -328,19 +281,19 @@ function PageContent() {
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="text-sm sm:text-base lg:text-lg xl:text-2xl font-bold mb-4 xl:mb-8 uppercase tracking-wide">
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
               Values
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:gap-12">
               {values.map((value) => (
                 <div
                   key={value.title}
                   className="border-t pt-4 xl:pt-8"
                   style={{ borderColor: textColor }}
                 >
-                  <div className="flex items-center mb-2 xl:mb-4">
+                  <div className="mb-2 flex items-center xl:mb-4">
                     {value.icon}
-                    <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold ml-2">
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
                       {value.title}
                     </h3>
                   </div>
@@ -358,12 +311,12 @@ function PageContent() {
                 </div>
               ))}
               <div
-                className="border-dashed border-2 pt-4 xl:pt-8 p-4 pl-6"
+                className="border-2 border-dashed p-4 pl-6 pt-4 xl:pt-8"
                 style={{ borderColor: textColor }}
               >
-                <div className="flex items-center mb-2 xl:mb-4">
+                <div className="mb-2 flex items-center xl:mb-4">
                   <Heart size={24} />
-                  <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold ml-2">
+                  <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
                     Join Us
                   </h3>
                 </div>
@@ -377,7 +330,7 @@ function PageContent() {
                 </p>
                 <a
                   href="https://jobs.antiwork.com"
-                  className="inline-flex items-center text-xs sm:text-sm xl:text-lg hover:underline mt-2"
+                  className="mt-2 inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
                   style={{ color: textColor }}
                 >
                   Apply now{" "}

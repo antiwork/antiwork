@@ -1,33 +1,26 @@
+import { Tweet } from "react-tweet";
+
 export default function Slide7() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-20">
-      <h1 className="text-4xl font-bold text-gray-900 mb-12">
-        2025 Product Focus
+    <div className="flex h-full w-full flex-col items-center justify-center p-20">
+      <h1 className="mb-12 text-4xl font-bold text-gray-900 dark:text-white">
+        2025: Make Work Play
       </h1>
-      <div className="prose">
+      <div className="prose dark:prose-invert">
         <ul>
           <li>
-            Achieve product-market fit for existing products before launching
-            new ones
+            <Tweet id="1631853875539111938" />
+          </li>
+          <li>Become the world-class B2B SaaS standard/monopoly/default</li>
+          <li>
+            Focus on usage–it&apos;s hard, collecting money is relatively easy
           </li>
           <li>
-            Narrow scope of each product to core mission
-            <ul>
-              <li>Gumroad: Core creator experience to reduce churn</li>
-              <li>Helper: Best possible responses, not full platform</li>
-              <li>Flexile: Profit sharing for open source contributors</li>
-              <li>Iffy: Little-code integrations</li>
-              <li>Shortest: Replace e2e tests with natural language</li>
-            </ul>
-          </li>
-          <li>
-            Build{" "}
-            <span className="font-bold text-blue-600">
-              open source projects
+            <span className="font-bold text-blue-600 dark:text-blue-400">
+              Open source everything
             </span>{" "}
             and commercial open source model
           </li>
-          <li>New products must be additive to existing ecosystem</li>
         </ul>
       </div>
     </div>
