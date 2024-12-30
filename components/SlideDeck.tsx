@@ -11,19 +11,23 @@ interface SlideDeckProps {
 
 export function SlideDeck({ slides }: SlideDeckProps) {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [currentSlide, setCurrentSlide] = useState(() => {
-    const slideParam = searchParams.get("slide");
-    const slideNumber = slideParam ? parseInt(slideParam) : 1;
-    return slideNumber > 0 && slideNumber <= slides.length ? slideNumber : 1;
-  });
+  const [currentSlide, setCurrentSlide] = useState(1);
   const [typedNumber, setTypedNumber] = useState("");
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
   const totalSlides = slides.length;
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const slideParam = searchParams.get("slide");
+    const slideNumber = slideParam ? parseInt(slideParam) : 1;
+    if (slideNumber > 0 && slideNumber <= slides.length) {
+      setCurrentSlide(slideNumber);
+    }
+  }, [slides.length]);
 
   const updateSlide = (slideNumber: number) => {
     setCurrentSlide(slideNumber);
