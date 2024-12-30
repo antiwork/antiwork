@@ -3,6 +3,7 @@ import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
+  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 const creatorEarningsConfig = {
@@ -80,6 +81,7 @@ export default function Slide2() {
           <BarChart
             data={creatorEarningsData}
             margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
+            accessibilityLayer
           >
             <CartesianGrid
               strokeDasharray="3 3"
@@ -91,27 +93,12 @@ export default function Slide2() {
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"
             />
-            <ChartTooltip
-              formatter={(value) => `$${value.toLocaleString()}`}
-              contentStyle={{
-                backgroundColor: "#1f2937",
-                border: "1px solid #374151",
-                borderRadius: "6px",
-                color: "#f3f4f6",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                padding: "8px 12px"
-              }}
-              itemStyle={{
-                color: "#f3f4f6"
-              }}
-              labelStyle={{
-                color: "#f3f4f6"
-              }}
-            />
+            <ChartTooltip content={<ChartTooltipContent prefix="$" />} />
             <Bar
               dataKey="creatorEarnings"
               fill={creatorEarningsConfig.creatorEarnings.color}
               name="Creator Earnings"
+              radius={4}
             />
           </BarChart>
         </ChartContainer>

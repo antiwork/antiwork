@@ -4,6 +4,7 @@ import {
   ChartContainer,
   ChartLegend,
   ChartTooltip,
+  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 const financialsWithoutCreatorConfig = {
@@ -72,6 +73,7 @@ export default function Slide4() {
           <BarChart
             data={financialsData}
             margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
+            accessibilityLayer
           >
             <CartesianGrid
               strokeDasharray="3 3"
@@ -83,48 +85,37 @@ export default function Slide4() {
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"
             />
-            <ChartTooltip
-              formatter={(value) => `$${value.toLocaleString()}`}
-              contentStyle={{
-                backgroundColor: "#1f2937",
-                border: "1px solid #374151",
-                borderRadius: "6px",
-                color: "#f3f4f6",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                padding: "8px 12px"
-              }}
-              itemStyle={{
-                color: "#f3f4f6"
-              }}
-              labelStyle={{
-                color: "#f3f4f6"
-              }}
-            />
+            <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend />
             <Bar
               dataKey="revenue"
               fill={financialsWithoutCreatorConfig.revenue.color}
               name="Revenue"
+              radius={4}
             />
             <Bar
               dataKey="profit"
               fill={financialsWithoutCreatorConfig.profit.color}
               name="Gross Profit"
+              radius={4}
             />
             <Bar
               dataKey="netIncome"
               fill={financialsWithoutCreatorConfig.netIncome.color}
               name="Net Income"
+              radius={4}
             />
             <Bar
               dataKey="dividends"
               fill={financialsWithoutCreatorConfig.dividends.color}
               name="Dividends Issued"
+              radius={4}
             />
             <Bar
               dataKey="buyback"
               fill={financialsWithoutCreatorConfig.buyback.color}
               name="Share Buyback"
+              radius={4}
             />
           </BarChart>
         </ChartContainer>
