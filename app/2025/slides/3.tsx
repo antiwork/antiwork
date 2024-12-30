@@ -88,11 +88,20 @@ export default function Slide3() {
               stroke="currentColor"
             />
             <ChartTooltip
+              formatter={(value) => `$${value.toLocaleString()}`}
               contentStyle={{
-                backgroundColor: "var(--background)",
-                border: "1px solid var(--border)",
+                backgroundColor: "#1f2937",
+                border: "1px solid #374151",
                 borderRadius: "6px",
-                color: "var(--foreground)",
+                color: "#f3f4f6",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                padding: "8px 12px"
+              }}
+              itemStyle={{
+                color: "#f3f4f6"
+              }}
+              labelStyle={{
+                color: "#f3f4f6"
               }}
             />
             <ChartLegend />
