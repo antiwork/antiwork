@@ -99,13 +99,13 @@ export default function Slide2() {
                 borderRadius: "6px",
                 color: "#f3f4f6",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                padding: "8px 12px"
+                padding: "8px 12px",
               }}
               itemStyle={{
-                color: "#f3f4f6"
+                color: "#f3f4f6",
               }}
               labelStyle={{
-                color: "#f3f4f6"
+                color: "#f3f4f6",
               }}
             />
             <Bar
