@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+"use client";
+
+import { useState, useEffect, Suspense } from "react";
 import { Loader2 } from "lucide-react";
 import { Slide } from "@/components/Slide";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -99,28 +101,30 @@ export function SlideDeck({ slides }: SlideDeckProps) {
   }, [currentSlide, typedNumber, typingTimeout]);
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden">
-      <div className="h-screen w-screen">
-        <Slide id={currentSlide} currentSlide={currentSlide}>
-          {slides[currentSlide - 1]}
-        </Slide>
+    <Suspense>
+      <div className="relative h-screen w-screen overflow-hidden">
+        <div className="h-screen w-screen">
+          <Slide id={currentSlide} currentSlide={currentSlide}>
+            {slides[currentSlide - 1]}
+          </Slide>
+        </div>
+        <div
+          className={`fixed bottom-2 right-2 flex items-center gap-1 rounded px-2 py-1 text-sm ${
+            typedNumber
+              ? "bg-black text-white opacity-100 dark:bg-white dark:text-black"
+              : "bg-white text-black opacity-50 dark:bg-gray-800 dark:text-white"
+          }`}
+        >
+          {typedNumber ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              <span>Jumping to {typedNumber}</span>
+            </>
+          ) : (
+            `${currentSlide} / ${totalSlides}`
+          )}
+        </div>
       </div>
-      <div
-        className={`fixed bottom-2 right-2 flex items-center gap-1 rounded px-2 py-1 text-sm ${
-          typedNumber
-            ? "bg-black text-white opacity-100 dark:bg-white dark:text-black"
-            : "bg-white text-black opacity-50 dark:bg-gray-800 dark:text-white"
-        }`}
-      >
-        {typedNumber ? (
-          <>
-            <Loader2 className="h-4 w-4 animate-spin" />
-            <span>Jumping to {typedNumber}</span>
-          </>
-        ) : (
-          `${currentSlide} / ${totalSlides}`
-        )}
-      </div>
-    </div>
+    </Suspense>
   );
 }
