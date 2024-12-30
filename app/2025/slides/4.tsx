@@ -85,7 +85,7 @@ export default function Slide4() {
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"
             />
-            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartTooltip content={<ChartTooltipContent labelKey="year" prefix="$" />} />
             <ChartLegend />
             <Bar
               dataKey="revenue"

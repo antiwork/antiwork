@@ -93,7 +93,7 @@ export default function Slide2() {
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"
             />
-            <ChartTooltip content={<ChartTooltipContent prefix="$" />} />
+            <ChartTooltip content={<ChartTooltipContent labelKey="year" prefix="$" />} />
             <Bar
               dataKey="creatorEarnings"
               fill={creatorEarningsConfig.creatorEarnings.color}
