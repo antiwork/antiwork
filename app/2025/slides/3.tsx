@@ -1,10 +1,4 @@
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
@@ -71,24 +65,36 @@ const financialsData = [
 
 export default function Slide3() {
   return (
-    <div className="w-full h-full flex flex-col">
-      <div className="h-24 mt-12 flex items-center justify-center">
-        <h1 className="text-4xl font-bold text-gray-900">
+    <div className="flex h-full w-full flex-col">
+      <div className="mt-12 flex h-24 items-center justify-center">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
           Financial Performance with Creator Earnings
         </h1>
       </div>
-      <div className="flex-1 w-full flex items-center justify-center">
-        <ChartContainer config={financialsConfig} className="w-4/5 h-4/5">
+      <div className="flex w-full flex-1 items-center justify-center">
+        <ChartContainer config={financialsConfig} className="h-4/5 w-4/5">
           <BarChart
             data={financialsData}
             margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="year" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="currentColor"
+              opacity={0.1}
+            />
+            <XAxis dataKey="year" stroke="currentColor" />
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
+              stroke="currentColor"
             />
-            <ChartTooltip />
+            <ChartTooltip
+              contentStyle={{
+                backgroundColor: "var(--background)",
+                border: "1px solid var(--border)",
+                borderRadius: "6px",
+                color: "var(--foreground)",
+              }}
+            />
             <ChartLegend />
             <Bar
               dataKey="creatorEarnings"

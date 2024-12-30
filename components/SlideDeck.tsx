@@ -1,44 +1,40 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import { Slide } from "@/components/Slide";
-import { generateRandomColors, hexToTailwindBg, hexToTailwindText } from "@/utils/colors";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface SlideDeckProps {
   slides: React.ReactElement[];
-  backgroundColor?: string;
-  foregroundColor?: string;
 }
 
 export function SlideDeck({ slides }: SlideDeckProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [typedNumber, setTypedNumber] = useState("");
-  const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
-  const [currentColors, setCurrentColors] = useState(() => {
-    const { backgroundColor, textColor } = generateRandomColors();
-    return {
-      backgroundColor: hexToTailwindBg(backgroundColor),
-      foregroundColor: hexToTailwindText(textColor)
-    };
+  const [currentSlide, setCurrentSlide] = useState(() => {
+    const slideParam = searchParams.get("slide");
+    const slideNumber = slideParam ? parseInt(slideParam) : 1;
+    return slideNumber > 0 && slideNumber <= slides.length ? slideNumber : 1;
   });
+  const [typedNumber, setTypedNumber] = useState("");
+  const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
   const totalSlides = slides.length;
 
-  const generateNewColors = useCallback(() => {
-    const { backgroundColor, textColor } = generateRandomColors();
-    setCurrentColors({
-      backgroundColor: hexToTailwindBg(backgroundColor),
-      foregroundColor: hexToTailwindText(textColor)
-    });
-  }, []);
+  const updateSlide = (slideNumber: number) => {
+    setCurrentSlide(slideNumber);
+    const params = new URLSearchParams(window.location.search);
+    params.set("slide", slideNumber.toString());
+    router.replace(`?${params.toString()}`, { scroll: false });
+  };
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight" && currentSlide < totalSlides) {
-      setCurrentSlide(currentSlide + 1);
-      generateNewColors();
+      updateSlide(currentSlide + 1);
     } else if (e.key === "ArrowLeft" && currentSlide > 1) {
-      setCurrentSlide(currentSlide - 1);
-      generateNewColors();
+      updateSlide(currentSlide - 1);
     } else if (/^[0-9]$/.test(e.key)) {
       if (typingTimeout) {
         clearTimeout(typingTimeout);
@@ -49,8 +45,7 @@ export function SlideDeck({ slides }: SlideDeckProps) {
       const timeout = setTimeout(() => {
         const slideNumber = parseInt(newTypedNumber);
         if (slideNumber > 0 && slideNumber <= totalSlides) {
-          setCurrentSlide(slideNumber);
-          generateNewColors();
+          updateSlide(slideNumber);
         }
         setTypedNumber("");
       }, 750);
@@ -75,13 +70,11 @@ export function SlideDeck({ slides }: SlideDeckProps) {
     const isRightSwipe = distance < -50;
 
     if (isLeftSwipe && currentSlide < totalSlides) {
-      setCurrentSlide(currentSlide + 1);
-      generateNewColors();
+      updateSlide(currentSlide + 1);
     }
 
     if (isRightSwipe && currentSlide > 1) {
-      setCurrentSlide(currentSlide - 1);
-      generateNewColors();
+      updateSlide(currentSlide - 1);
     }
 
     setTouchEnd(null);
@@ -108,25 +101,20 @@ export function SlideDeck({ slides }: SlideDeckProps) {
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       <div className="h-screen w-screen">
-        <Slide
-          id={currentSlide}
-          currentSlide={currentSlide}
-          backgroundColor={currentColors.backgroundColor}
-          foregroundColor={currentColors.foregroundColor}
-        >
+        <Slide id={currentSlide} currentSlide={currentSlide}>
           {slides[currentSlide - 1]}
         </Slide>
       </div>
       <div
-        className={`py-1 px-2 rounded fixed bottom-2 right-2 text-sm flex items-center gap-1 ${
+        className={`fixed bottom-2 right-2 flex items-center gap-1 rounded px-2 py-1 text-sm ${
           typedNumber
-            ? "bg-black text-white opacity-100"
-            : "bg-white text-black opacity-50"
+            ? "bg-black text-white opacity-100 dark:bg-white dark:text-black"
+            : "bg-white text-black opacity-50 dark:bg-gray-800 dark:text-white"
         }`}
       >
         {typedNumber ? (
           <>
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <Loader2 className="h-4 w-4 animate-spin" />
             <span>Jumping to {typedNumber}</span>
           </>
         ) : (

@@ -20,7 +20,7 @@ export const generateRandomColors = () => {
       const g = (rgb >> 8) & 0xff;
       const b = (rgb >> 0) & 0xff;
       // Convert to relative luminance using WCAG formula
-      const [rr, gg, bb] = [r, g, b].map(c => {
+      const [rr, gg, bb] = [r, g, b].map((c) => {
         const s = c / 255;
         return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
       });

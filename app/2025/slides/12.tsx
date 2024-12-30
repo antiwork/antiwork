@@ -1,13 +1,13 @@
 export default function Slide12() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-20">
-      <h1 className="text-4xl font-bold text-gray-900 mb-12">
+    <div className="flex h-full w-full flex-col items-center justify-center p-20">
+      <h1 className="mb-12 text-4xl font-bold text-gray-900 dark:text-white">
         Flexile: Manage Your Team, Investors, and Equity
       </h1>
-      <div className="grid grid-cols-2 gap-8 w-[40%]">
-        <div className="border-r pr-8">
-          <h2 className="font-bold mb-4">2024</h2>
-          <ul>
+      <div className="grid w-[40%] grid-cols-2 gap-8">
+        <div className="border-r border-gray-200 pr-8 dark:border-gray-700">
+          <h2 className="mb-4 font-bold dark:text-white">2024</h2>
+          <ul className="dark:text-gray-300">
             <li className="line-through">✓ Cap table management</li>
             <li className="line-through">✓ Equity grants and vesting</li>
             <li className="line-through">✓ Team updates</li>
@@ -16,11 +16,11 @@ export default function Slide12() {
         </div>
 
         <div className="pl-8">
-          <h2 className="font-bold mb-4">2025</h2>
-          <ul className="space-y-4">
+          <h2 className="mb-4 font-bold dark:text-white">2025</h2>
+          <ul className="space-y-4 dark:text-gray-300">
             <li>
               Open Source:
-              <ul className="ml-6 space-y-2 mt-2">
+              <ul className="ml-6 mt-2 space-y-2">
                 <li>
                   Free-to-use under 2,000 shareholders, $50M in market cap
                 </li>
@@ -29,7 +29,7 @@ export default function Slide12() {
 
             <li>
               Features:
-              <ul className="ml-6 space-y-2 mt-2">
+              <ul className="ml-6 mt-2 space-y-2">
                 <li>Buybacks, dividends, and crowdfunding</li>
                 <li>Team and performance management</li>
                 <li>Compliance automation</li>
