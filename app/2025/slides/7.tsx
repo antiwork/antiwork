@@ -11,7 +11,6 @@ export default function Slide7() {
           <li>
             <Tweet id="1631853875539111938" />
           </li>
-          <li>Become the world-class B2B SaaS standard/monopoly/default</li>
           <li>
             Usage is hard (getting people to use software), sales is easy
             (getting them to pay)
@@ -39,6 +38,7 @@ export default function Slide7() {
               top 0.1% pay
             </a>
           </li>
+          <li>Goal: Become the world-class B2B SaaS standard</li>
         </ul>
       </div>
     </div>
