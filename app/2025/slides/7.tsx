@@ -38,7 +38,7 @@ export default function Slide7() {
               top 0.1% pay
             </a>
           </li>
-          <li>Goal: Become the world-class B2B SaaS standard</li>
+          <li>Goal: Become the world-class B2B SaaS suite</li>
         </ul>
       </div>
     </div>
