@@ -21,6 +21,7 @@ export default function Slide15() {
             <li>Used for Flexile</li>
             <li>Used for Gumroad</li>
             <li>Managed CI service</li>
+            <li>Reached 4,000 GitHub stars ⭐️ on Shortest!</li>
           </ul>
         </div>
       </div>
