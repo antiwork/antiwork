@@ -344,19 +344,13 @@ function PageContent() {
             <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
               newsletter
             </h2>
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:gap-8">
+            <div>
               <div
                 className="border-t pt-4 xl:pt-8"
                 style={{ borderColor: textColor }}
               >
-                <div className="mb-2 flex items-center xl:mb-4">
-                  <Mail size={24} />
-                  <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
-                    stay updated
-                  </h3>
-                </div>
                 <p
-                  className="mb-4 text-xs sm:text-sm xl:text-base"
+                  className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
                   style={{ color: textColor }}
                 >
                   subscribe to our newsletter for updates on new products and
