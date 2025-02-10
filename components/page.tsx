@@ -215,7 +215,7 @@ function PageContent() {
           className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
           style={{ color: textColor }}
         >
-          Automating the boring stuff that ran Gumroad.
+          automating the boring stuff that ran gumroad.
         </p>
 
         <main>
