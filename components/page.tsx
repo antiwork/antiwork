@@ -364,13 +364,13 @@ function PageContent() {
                     console.log("Newsletter signup:", email);
                   }}
                 >
-                  <div className="max-w-[1200px] flex flex-col space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0">
+                  <div className="flex max-w-[1200px] flex-col space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0">
                     <input
                       type="email"
                       name="email"
                       placeholder="Enter your email"
                       required
-                      className="flex-1 rounded-xl px-8 py-6 text-2xl sm:text-3xl xl:text-4xl w-full"
+                      className="w-full flex-1 rounded-xl px-8 py-6 text-2xl sm:text-3xl xl:text-4xl"
                       style={{
                         backgroundColor: "transparent",
                         border: `2px solid ${textColor}`,
@@ -379,7 +379,7 @@ function PageContent() {
                     />
                     <button
                       type="submit"
-                      className="rounded-xl px-12 py-6 text-2xl sm:text-3xl xl:text-4xl whitespace-nowrap"
+                      className="whitespace-nowrap rounded-xl px-12 py-6 text-2xl sm:text-3xl xl:text-4xl"
                       style={{
                         backgroundColor: textColor,
                         color: backgroundColor,
