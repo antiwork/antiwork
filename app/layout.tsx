@@ -3,8 +3,8 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
-  title: "Anti-Work",
-  description: "A suite of sweet software",
+  title: "anti-work",
+  description: "a suite of sweet software",
 };
 
 export default function RootLayout({

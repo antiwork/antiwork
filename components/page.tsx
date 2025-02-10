@@ -120,48 +120,48 @@ function PageContent() {
 
   const values = [
     {
-      title: "Real artists ship",
+      title: "real artists ship",
       icon: <Star size={24} />,
       points: [
-        "We ship early and often",
-        "We get feedback before shipping more",
-        "Use other peoples' code before writing your own",
+        "we ship early and often",
+        "we get feedback before shipping more",
+        "use other peoples' code before writing your own",
       ],
     },
     {
-      title: "Save others time and energy",
+      title: "save others time and energy",
       icon: <Clock size={24} />,
       points: [
-        "Time is our most sacred asset",
-        "Everything important is where AI can see it",
-        "Make shipping easier for everyone, not just you",
+        "time is our most sacred asset",
+        "everything important is where AI can see it",
+        "make shipping easier for everyone, not just you",
       ],
     },
     {
-      title: "Less is more",
+      title: "less is more",
       icon: <Minus size={24} />,
       points: [
-        "We say no by default",
-        "No performative busywork",
-        "Decrease the stuff one needs to understand to ship",
+        "we say no by default",
+        "no performative busywork",
+        "decrease the stuff one needs to understand to ship",
       ],
     },
     {
-      title: "Above and beyond",
+      title: "above and beyond",
       icon: <Zap size={24} />,
       points: [
-        "We ship better than we scope",
-        "Minimize surface area to maximize polish",
-        "Our jobs change constantly–every 3 months",
+        "we ship better than we scope",
+        "minimize surface area to maximize polish",
+        "our jobs change constantly–every 3 months",
       ],
     },
     {
-      title: "Now or never",
+      title: "now or never",
       icon: <Rabbit size={24} />,
       points: [
-        "We avoid to-do lists and backlogs",
-        "We scope, design, and build at the same time",
-        "We focus on impact we can have today, not tomorrow",
+        "we avoid to-do lists and backlogs",
+        "we scope, design, and build at the same time",
+        "we focus on impact we can have today, not tomorrow",
       ],
     },
   ];
@@ -221,7 +221,7 @@ function PageContent() {
         <main>
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
-              Products
+              products
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
               {products.map((product) => (
@@ -244,10 +244,10 @@ function PageContent() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
-                    aria-label={`Learn more about ${product.name}`}
+                    aria-label={`learn more about ${product.name}`}
                     style={{ color: textColor }}
                   >
-                    Learn more{" "}
+                    learn more{" "}
                     <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
                   </a>
                 </div>
@@ -259,21 +259,21 @@ function PageContent() {
                 <div className="mb-2 flex items-center xl:mb-4">
                   <Mail size={24} />
                   <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
-                    Suggest a product
+                    suggest a product
                   </h3>
                 </div>
                 <p
                   className="mb-2 text-xs sm:text-sm xl:mb-4 xl:text-lg"
                   style={{ color: textColor }}
                 >
-                  Know a product we should consider?
+                  know a product we should consider?
                 </p>
                 <a
                   href="mailto:sahil@antiwork.com"
                   className="inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
                   style={{ color: textColor }}
                 >
-                  Suggest a product{" "}
+                  suggest a product{" "}
                   <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
                 </a>
               </div>
@@ -282,7 +282,7 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
-              Values
+              values
             </h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:gap-12">
               {values.map((value) => (
@@ -317,15 +317,15 @@ function PageContent() {
                 <div className="mb-2 flex items-center xl:mb-4">
                   <Heart size={24} />
                   <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
-                    Join Us
+                    join us
                   </h3>
                 </div>
                 <p
                   className="text-xs sm:text-sm xl:text-base"
                   style={{ color: textColor }}
                 >
-                  We&apos;re always looking for talented individuals to join our
-                  team. If you resonate with our values, we&apos;d love to hear
+                  we&apos;re always looking for talented individuals to join our
+                  team. if you resonate with our values, we&apos;d love to hear
                   from you!
                 </p>
                 <a
@@ -333,7 +333,7 @@ function PageContent() {
                   className="mt-2 inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
                   style={{ color: textColor }}
                 >
-                  Apply now{" "}
+                  apply now{" "}
                   <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
                 </a>
               </div>
