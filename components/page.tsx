@@ -359,14 +359,17 @@ function PageContent() {
                   className="mb-4 text-xs sm:text-sm xl:text-base"
                   style={{ color: textColor }}
                 >
-                  subscribe to our newsletter for updates on new products and features
+                  subscribe to our newsletter for updates on new products and
+                  features
                 </p>
-                <form onSubmit={(e) => {
-                  e.preventDefault();
-                  // TODO: Add newsletter signup logic
-                  const email = (e.target as HTMLFormElement).email.value;
-                  console.log('Newsletter signup:', email);
-                }}>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // TODO: Add newsletter signup logic
+                    const email = (e.target as HTMLFormElement).email.value;
+                    console.log("Newsletter signup:", email);
+                  }}
+                >
                   <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
                     <input
                       type="email"
@@ -374,8 +377,8 @@ function PageContent() {
                       placeholder="Enter your email"
                       required
                       className="rounded px-3 py-2 text-xs sm:text-sm xl:text-base"
-                      style={{ 
-                        backgroundColor: 'transparent',
+                      style={{
+                        backgroundColor: "transparent",
                         border: `1px solid ${textColor}`,
                         color: textColor,
                       }}
@@ -383,7 +386,10 @@ function PageContent() {
                     <button
                       type="submit"
                       className="rounded px-4 py-2 text-xs sm:text-sm xl:text-base"
-                      style={{ backgroundColor: textColor, color: backgroundColor }}
+                      style={{
+                        backgroundColor: textColor,
+                        color: backgroundColor,
+                      }}
                     >
                       subscribe
                     </button>
