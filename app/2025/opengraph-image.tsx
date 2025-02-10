@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { Logo } from "@/app/components/Logo";
 
 export const runtime = "edge";
-export const alt = "2025 Annual Meeting";
+export const alt = "2025 annual meeting";
 export const size = {
   width: 1200,
   height: 630,
@@ -41,7 +41,7 @@ export default async function Image() {
               marginLeft: 12,
             }}
           >
-            Anti-Work
+            anti-work
           </div>
         </div>
         <div
@@ -50,7 +50,7 @@ export default async function Image() {
             color: "#6B7280", // gray-500
           }}
         >
-          2025 Public Annual Meeting
+          2025 public annual meeting
         </div>
       </div>
     ),
