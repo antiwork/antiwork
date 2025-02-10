@@ -339,6 +339,59 @@ function PageContent() {
               </div>
             </div>
           </section>
+
+          <section className="mb-8 xl:mb-16">
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
+              newsletter
+            </h2>
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:gap-8">
+              <div
+                className="border-t pt-4 xl:pt-8"
+                style={{ borderColor: textColor }}
+              >
+                <div className="mb-2 flex items-center xl:mb-4">
+                  <Mail size={24} />
+                  <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                    stay updated
+                  </h3>
+                </div>
+                <p
+                  className="mb-4 text-xs sm:text-sm xl:text-base"
+                  style={{ color: textColor }}
+                >
+                  subscribe to our newsletter for updates on new products and features
+                </p>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  // TODO: Add newsletter signup logic
+                  const email = (e.target as HTMLFormElement).email.value;
+                  console.log('Newsletter signup:', email);
+                }}>
+                  <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter your email"
+                      required
+                      className="rounded px-3 py-2 text-xs sm:text-sm xl:text-base"
+                      style={{ 
+                        backgroundColor: 'transparent',
+                        border: `1px solid ${textColor}`,
+                        color: textColor,
+                      }}
+                    />
+                    <button
+                      type="submit"
+                      className="rounded px-4 py-2 text-xs sm:text-sm xl:text-base"
+                      style={{ backgroundColor: textColor, color: backgroundColor }}
+                    >
+                      subscribe
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
     </div>
