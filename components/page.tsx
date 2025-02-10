@@ -349,13 +349,6 @@ function PageContent() {
                 className="border-t pt-4 xl:pt-8"
                 style={{ borderColor: textColor }}
               >
-                <p
-                  className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
-                  style={{ color: textColor }}
-                >
-                  subscribe to our newsletter for updates on new products and
-                  features
-                </p>
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
