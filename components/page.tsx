@@ -340,6 +340,13 @@ function PageContent() {
             </div>
           </section>
         </main>
+        <footer className="mt-8 bg-black py-8 xl:mt-16 xl:py-16">
+          <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+            <div className="text-white">
+              {/* Footer content will be updated based on requirements */}
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
