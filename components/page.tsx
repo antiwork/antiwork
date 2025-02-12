@@ -186,7 +186,7 @@ function PageContent() {
               />
             </div>
             <h1 className="ml-3 text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-6xl">
-              anti-work
+              antiwork
             </h1>
           </div>
           <div
@@ -215,7 +215,7 @@ function PageContent() {
           className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
           style={{ color: textColor }}
         >
-          automating the boring stuff that ran gumroad.
+          on a mission to make Work play.
         </p>
 
         <main>

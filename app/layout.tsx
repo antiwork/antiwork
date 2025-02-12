@@ -3,7 +3,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
-  title: "anti-work",
+  title: "antiwork",
   description: "a suite of sweet software",
 };
 

@@ -1,4 +1,4 @@
-# Anti-Work
+# Antiwork
 
 ## Getting Started
 
