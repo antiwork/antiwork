@@ -186,7 +186,7 @@ function PageContent() {
               />
             </div>
             <h1 className="ml-3 text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-6xl">
-              antiwork
+              Antiwork
             </h1>
           </div>
           <div
