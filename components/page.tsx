@@ -174,7 +174,7 @@ function PageContent() {
         color: textColor,
       }}
     >
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
+      <div className="mx-auto max-w-2xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
         <header className="flex flex-col items-start justify-between sm:flex-row sm:items-center md:mb-8 xl:mb-16">
           <div className="mb-4 flex items-center md:mb-0">
             <div className="mt-[1px] md:mt-[0px] lg:mt-[1px] xl:mt-[2px]">
@@ -211,7 +211,7 @@ function PageContent() {
           </div>
         </header>
         <p
-          className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
+          className="mb-8 text-sm font-bold sm:text-base lg:text-lg xl:mb-16 xl:text-4xl"
           style={{ color: textColor }}
         >
           on a mission to make <span title="boring, rote">Work</span>{" "}
@@ -222,7 +222,7 @@ function PageContent() {
           <section className="mb-8 xl:mb-16">
             <p className="text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl">
               we build software that liberates creative builders from what they
-              consider toil—whether it's{" "}
+              consider toil—whether it&apos;s{" "}
               <a
                 href="https://shortest.com"
                 className="hover:underline"
@@ -271,7 +271,7 @@ function PageContent() {
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-4 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
+            <h2 className="mb-16 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
               rules of the playground
             </h2>
             <div className="grid grid-cols-1 gap-8 xl:gap-12">
