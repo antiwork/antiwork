@@ -3,12 +3,11 @@
 import {
   ArrowUpRight,
   Shuffle,
-  Star,
-  Clock,
-  Minus,
-  Zap,
+  Sparkles,
   Heart,
-  Rabbit,
+  Hammer,
+  Trophy,
+  Rocket,
   Mail,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
@@ -120,48 +119,48 @@ function PageContent() {
 
   const values = [
     {
-      title: "real artists ship",
-      icon: <Star size={24} />,
+      title: "make Work play",
+      icon: <Sparkles size={24} />,
       points: [
-        "we ship early and often",
-        "we get feedback before shipping more",
-        "use other peoples' code before writing your own",
+        "ship products that make work fun",
+        "build our office like a playground",
+        "celebrate wins big and small",
       ],
     },
     {
-      title: "save others time and energy",
-      icon: <Clock size={24} />,
+      title: "meaning over money",
+      icon: <Heart size={24} />,
       points: [
-        "time is our most sacred asset",
-        "everything important is where AI can see it",
-        "make shipping easier for everyone, not just you",
+        "measure success by impact",
+        "offer equity to everyone",
+        "prioritize purpose-driven projects",
       ],
     },
     {
-      title: "less is more",
-      icon: <Minus size={24} />,
+      title: "build for builders",
+      icon: <Hammer size={24} />,
       points: [
-        "we say no by default",
-        "no performative busywork",
-        "decrease the stuff one needs to understand to ship",
+        "open-source everything",
+        "teach what we know",
+        "champion creative expression",
       ],
     },
     {
-      title: "above and beyond",
-      icon: <Zap size={24} />,
+      title: "ship world-class software",
+      icon: <Trophy size={24} />,
       points: [
-        "we ship better than we scope",
-        "minimize surface area to maximize polish",
-        "our jobs change constantly–every 3 months",
+        "craft with pride",
+        "play with the best",
+        "seek feedback on everything from everyone",
       ],
     },
     {
-      title: "now or never",
-      icon: <Rabbit size={24} />,
+      title: "every day anew",
+      icon: <Rocket size={24} />,
       points: [
-        "we avoid to-do lists and backlogs",
-        "we scope, design, and build at the same time",
-        "we focus on impact we can have today, not tomorrow",
+        "stay nimble and embrace change",
+        "fire yourself into new challenges",
+        "reject performative busywork",
       ],
     },
   ];
@@ -215,80 +214,68 @@ function PageContent() {
           className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
           style={{ color: textColor }}
         >
-          on a mission to make Work play.
+          on a mission to make <span title="boring, rote">Work</span> <span title="fun, creative">play</span>.
         </p>
 
         <main>
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
-              products
-            </h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
-              {products.map((product) => (
-                <div
-                  key={product.name}
-                  className="border-t pt-3 xl:pt-6"
-                  style={{ borderColor: textColor }}
-                >
-                  <h3 className="text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
-                    {product.name}
-                  </h3>
-                  <p
-                    className="mb-2 text-xs sm:text-sm xl:mb-4 xl:text-lg"
-                    style={{ color: textColor }}
-                  >
-                    {product.description}
-                  </p>
-                  <a
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
-                    aria-label={`learn more about ${product.name}`}
-                    style={{ color: textColor }}
-                  >
-                    learn more{" "}
-                    <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
-                  </a>
-                </div>
-              ))}
-              <div
-                className="border-2 border-dashed p-3 pl-6 xl:pt-6"
-                style={{ borderColor: textColor }}
+            <p className="text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl">
+              we build software that liberates creative builders from what they consider toil—whether it's{" "}
+              <a
+                href="https://shortest.com"
+                className="hover:underline"
+                title="Shortest: QA via natural language AI tests"
+                style={{ color: textColor }}
               >
-                <div className="mb-2 flex items-center xl:mb-4">
-                  <Mail size={24} />
-                  <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
-                    suggest a product
-                  </h3>
-                </div>
-                <p
-                  className="mb-2 text-xs sm:text-sm xl:mb-4 xl:text-lg"
-                  style={{ color: textColor }}
-                >
-                  know a product we should consider?
-                </p>
-                <a
-                  href="mailto:sahil@antiwork.com"
-                  className="inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
-                  style={{ color: textColor }}
-                >
-                  suggest a product{" "}
-                  <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
-                </a>
-              </div>
-            </div>
+                QA
+              </a>
+              ,{" "}
+              <a
+                href="https://Iffy.com"
+                className="hover:underline"
+                title="Iffy: keep your product clean"
+                style={{ color: textColor }}
+              >
+                moderation
+              </a>
+              ,{" "}
+              <a
+                href="https://Helper.ai"
+                className="hover:underline"
+                title="Helper: customer support AI"
+                style={{ color: textColor }}
+              >
+                support
+              </a>
+              , or{" "}
+              <a
+                href="https://Flexile.com"
+                className="hover:underline"
+                title="Flexile: team and shareholder management"
+                style={{ color: textColor }}
+              >
+                payroll
+              </a>
+              . {" "}
+              <a
+                href="https://Gumroad.com"
+                className="hover:underline"
+                title="Gumroad: sell your stuff. see what sticks"
+                style={{ color: textColor }}
+              >
+                (or all of the above.)
+              </a>
+            </p>
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
-              values
+            <h2 className="mb-4 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:mb-8 xl:text-2xl">
+              rules of the playground
             </h2>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:gap-12">
+            <div className="grid grid-cols-1 gap-8 xl:gap-12">
               {values.map((value) => (
                 <div
                   key={value.title}
-                  className="border-t pt-4 xl:pt-8"
                   style={{ borderColor: textColor }}
                 >
                   <div className="mb-2 flex items-center xl:mb-4">
@@ -310,33 +297,6 @@ function PageContent() {
                   </div>
                 </div>
               ))}
-              <div
-                className="border-2 border-dashed p-4 pl-6 pt-4 xl:pt-8"
-                style={{ borderColor: textColor }}
-              >
-                <div className="mb-2 flex items-center xl:mb-4">
-                  <Heart size={24} />
-                  <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
-                    join us
-                  </h3>
-                </div>
-                <p
-                  className="text-xs sm:text-sm xl:text-base"
-                  style={{ color: textColor }}
-                >
-                  we&apos;re always looking for talented individuals to join our
-                  team. if you resonate with our values, we&apos;d love to hear
-                  from you!
-                </p>
-                <a
-                  href="https://jobs.antiwork.com"
-                  className="mt-2 inline-flex items-center text-xs hover:underline sm:text-sm xl:text-lg"
-                  style={{ color: textColor }}
-                >
-                  apply now{" "}
-                  <ArrowUpRight className="ml-1 h-3 w-3 xl:h-4 xl:w-4" />
-                </a>
-              </div>
             </div>
           </section>
         </main>

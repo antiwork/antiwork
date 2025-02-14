@@ -1,27 +1,69 @@
+import Image from "next/image";
+
 export default function Slide5() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-20">
-      <h1 className="mb-12 text-4xl font-bold text-gray-900 dark:text-white">
-        2024 Review
-      </h1>
-      <div className="prose dark:prose-invert">
-        <ul>
-          <li>Gumroad got better, but didn&apos;t grow</li>
-          <li>Flexile added equity and dividends</li>
-          <li>Launched Helper, Iffy, and Shortest</li>
-          <li>Opened NYC office with 4 in-person team members</li>
-          <li>Grew revenue X% YoY to $XXM ARR</li>
-          <li>Distributed $5.34M in profits</li>
-        </ul>
-        <blockquote className="mt-8 text-sm italic text-gray-600 dark:text-gray-400">
-          &quot;If all 3 work (few million ARR), it would be nice to have ≈36
-          people work across the 3 products (up from 28 people today).&quot;
-          <br />
-          <span className="not-italic">— January 2023 Update</span>
-        </blockquote>
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          (Narrator: this didn&apos;t happen.)
-        </p>
+      <div className="flex w-full flex-col items-center gap-8">
+        <div className="text-center dark:bg-gray-800">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Customers
+          </h2>
+        </div>
+
+        <div className="w-full rounded-lg border-4 border-black-500 bg-white p-8 text-center transition-colors hover:border-black dark:bg-gray-800">
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex justify-center">
+              <Image src="/2024/q4/iffy.svg" alt="Iffy" width={170} height={48} />
+            </div>
+            <span className="text-lg text-gray-600">moderation</span>
+          </div>
+        </div>
+
+        <div className="w-full rounded-lg border-4 border-black-500 bg-white p-8 text-center transition-colors hover:border-yellow-500 dark:bg-gray-800">
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex justify-center">
+              <Image src="/2024/q4/Helper.svg" alt="Helper" width={166} height={48} />
+            </div>
+            <span className="text-lg text-gray-600">support</span>
+          </div>
+        </div>
+
+        <div className="w-full rounded-lg border-4 border-black-500 bg-white p-16 text-center transition-colors hover:border-[rgba(255,144,232)] dark:bg-gray-800">
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex justify-center">
+              <Image src="/2024/q4/Gumroad.svg" alt="Gumroad" width={400} height={96} />
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full rounded-lg border-4 border-black-500 bg-white p-8 text-center transition-colors hover:border-orange-500 dark:bg-gray-800">
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex items-center justify-center">
+              <div className="text-orange-500">
+                <Image src="/2024/q4/Shortest.svg" alt="Shortest" width={48} height={48} />
+              </div>
+              <span className="ml-5 text-[48pt] font-semibold text-gray-900 dark:text-white">
+                Shortest
+              </span>
+            </div>
+            <span className="text-lg text-gray-600">QA</span>
+          </div>
+        </div>
+
+        <div className="w-full rounded-lg border-4 border-black-500 bg-white p-8 text-center transition-colors hover:border-blue-500 dark:bg-gray-800">
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex justify-center">
+              <Image src="/2024/q4/Flexile.svg" alt="Flexile" width={200} height={48} />
+            </div>
+            <span className="text-lg text-gray-600">payroll & equity</span>
+          </div>
+        </div>
+
+        <div className="text-center dark:bg-gray-800">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Government
+          </h2>
+        </div>
       </div>
     </div>
   );

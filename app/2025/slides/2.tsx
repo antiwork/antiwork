@@ -64,7 +64,7 @@ const creatorEarningsData = [
   },
   {
     year: 2024,
-    creatorEarnings: 142334418,
+    creatorEarnings: 145334418,
   },
 ];
 
