@@ -19,8 +19,12 @@ export default function Slide7() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-20">
       <Link href="/">
-        <h1 className="text-[12rem] font-bold tracking-tighter text-gray-900 dark:text-white hover:opacity-80">
-          {showMake && "make "}<span className={isStrikethrough ? "line-through" : ""}>Work</span> play
+        <h1 className="text-[12rem] font-bold tracking-tighter text-gray-900 hover:opacity-80 dark:text-white">
+          {showMake && "make "}
+          <span className={isStrikethrough ? "line-through" : ""}>
+            Work
+          </span>{" "}
+          play
         </h1>
       </Link>
     </div>

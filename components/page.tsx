@@ -214,13 +214,15 @@ function PageContent() {
           className="mb-8 text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl"
           style={{ color: textColor }}
         >
-          on a mission to make <span title="boring, rote">Work</span> <span title="fun, creative">play</span>.
+          on a mission to make <span title="boring, rote">Work</span>{" "}
+          <span title="fun, creative">play</span>.
         </p>
 
         <main>
           <section className="mb-8 xl:mb-16">
             <p className="text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl">
-              we build software that liberates creative builders from what they consider toil—whether it's{" "}
+              we build software that liberates creative builders from what they
+              consider toil—whether it's{" "}
               <a
                 href="https://shortest.com"
                 className="hover:underline"
@@ -256,7 +258,7 @@ function PageContent() {
               >
                 payroll
               </a>
-              . {" "}
+              .{" "}
               <a
                 href="https://Gumroad.com"
                 className="hover:underline"
@@ -274,10 +276,7 @@ function PageContent() {
             </h2>
             <div className="grid grid-cols-1 gap-8 xl:gap-12">
               {values.map((value) => (
-                <div
-                  key={value.title}
-                  style={{ borderColor: textColor }}
-                >
+                <div key={value.title} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
                     {value.icon}
                     <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">

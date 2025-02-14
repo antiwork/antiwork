@@ -23,7 +23,7 @@ export default function Logo() {
         />
       </svg>
       <span
-        className="text-dark ml-2 rounded-full border-1 border-black px-2 dark:border-white dark:text-white"
+        className="text-dark border-1 ml-2 rounded-full border-black px-2 dark:border-white dark:text-white"
         style={{ backgroundColor: "rgb(255, 144, 232)" }}
       >
         .new
