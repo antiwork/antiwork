@@ -354,7 +354,7 @@ function PageContent() {
                     particleCount: 100,
                     spread: 70,
                     origin: { y: 0.7 },
-                    shapes: ["square"],
+                    shapes: ["triangle"],
                     colors: ["#26ccff", "#a25afd", "#ff5e7e"]
                   }}
                   manualstart={true}
