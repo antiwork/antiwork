@@ -15,7 +15,7 @@ import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
 import { useRouter, useSearchParams } from "next/navigation";
 import { generateRandomColors } from "@/utils/colors";
-import confetti from "canvas-confetti";
+import { Confetti } from "@/components/magicui/confetti";
 
 function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
@@ -349,21 +349,24 @@ function PageContent() {
                 onMouseEnter={() => setShowShortcutHint(true)}
                 onMouseLeave={() => setShowShortcutHint(false)}
               >
-                <button
-                  onClick={() => {
-                    generateRandomColorsForPage();
-                    confetti({
-                      shapes: ["circle"] as const,
-                      particleCount: 100,
-                      spread: 70,
-                      origin: { y: 0.7 },
-                    });
+                <Confetti
+                  options={{
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.7 },
+                    shapes: ["square"],
+                    colors: ["#26ccff", "#a25afd", "#ff5e7e"]
                   }}
-                  className="p-2 xl:p-4"
-                  style={{ backgroundColor: textColor, color: backgroundColor }}
+                  manualstart={true}
                 >
-                  <Send size={24} className="xl:h-8 xl:w-8" />
-                </button>
+                  <button
+                    onClick={generateRandomColorsForPage}
+                    className="p-2 xl:p-4"
+                    style={{ backgroundColor: textColor, color: backgroundColor }}
+                  >
+                    <Send size={24} className="xl:h-8 xl:w-8" />
+                  </button>
+                </Confetti>
                 {showShortcutHint && (
                   <div
                     className="absolute right-0 mt-2 px-2 py-1 text-xs xl:text-sm"
