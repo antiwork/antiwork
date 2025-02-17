@@ -29,65 +29,65 @@ export function SlideDeck({ slides }: SlideDeckProps) {
     }
   }, [slides.length]);
 
-  const updateSlide = (slideNumber: number) => {
-    setCurrentSlide(slideNumber);
-    const params = new URLSearchParams(window.location.search);
-    params.set("slide", slideNumber.toString());
-    router.replace(`?${params.toString()}`, { scroll: false });
-  };
+  useEffect(() => {
+    const updateSlide = (slideNumber: number) => {
+      setCurrentSlide(slideNumber);
+      const params = new URLSearchParams(window.location.search);
+      params.set("slide", slideNumber.toString());
+      router.replace(`?${params.toString()}`, { scroll: false });
+    };
 
-  const handleKeyPress = (e: KeyboardEvent) => {
-    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
-      updateSlide(currentSlide + 1);
-    } else if (e.key === "ArrowLeft" && currentSlide > 1) {
-      updateSlide(currentSlide - 1);
-    } else if (/^[0-9]$/.test(e.key)) {
-      if (typingTimeout) {
-        clearTimeout(typingTimeout);
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+        updateSlide(currentSlide + 1);
+      } else if (e.key === "ArrowLeft" && currentSlide > 1) {
+        updateSlide(currentSlide - 1);
+      } else if (/^[0-9]$/.test(e.key)) {
+        if (typingTimeout) {
+          clearTimeout(typingTimeout);
+        }
+
+        const newTypedNumber = typedNumber + e.key;
+        setTypedNumber(newTypedNumber);
+        const timeout = setTimeout(() => {
+          const slideNumber = parseInt(newTypedNumber);
+          if (slideNumber > 0 && slideNumber <= totalSlides) {
+            updateSlide(slideNumber);
+          }
+          setTypedNumber("");
+        }, 750);
+
+        setTypingTimeout(timeout);
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      setTouchStart(e.touches[0].clientX);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      setTouchEnd(e.touches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+      if (!touchStart || !touchEnd) return;
+
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > 50;
+      const isRightSwipe = distance < -50;
+
+      if (isLeftSwipe && currentSlide < totalSlides) {
+        updateSlide(currentSlide + 1);
       }
 
-      const newTypedNumber = typedNumber + e.key;
-      setTypedNumber(newTypedNumber);
-      const timeout = setTimeout(() => {
-        const slideNumber = parseInt(newTypedNumber);
-        if (slideNumber > 0 && slideNumber <= totalSlides) {
-          updateSlide(slideNumber);
-        }
-        setTypedNumber("");
-      }, 750);
+      if (isRightSwipe && currentSlide > 1) {
+        updateSlide(currentSlide - 1);
+      }
 
-      setTypingTimeout(timeout);
-    }
-  };
+      setTouchEnd(null);
+      setTouchStart(null);
+    };
 
-  const handleTouchStart = (e: TouchEvent) => {
-    setTouchStart(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e: TouchEvent) => {
-    setTouchEnd(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe && currentSlide < totalSlides) {
-      updateSlide(currentSlide + 1);
-    }
-
-    if (isRightSwipe && currentSlide > 1) {
-      updateSlide(currentSlide - 1);
-    }
-
-    setTouchEnd(null);
-    setTouchStart(null);
-  };
-
-  useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchmove", handleTouchMove);
@@ -102,7 +102,15 @@ export function SlideDeck({ slides }: SlideDeckProps) {
         clearTimeout(typingTimeout);
       }
     };
-  }, [currentSlide, typedNumber, typingTimeout]);
+  }, [
+    currentSlide,
+    totalSlides,
+    touchStart,
+    touchEnd,
+    typedNumber,
+    typingTimeout,
+    router,
+  ]);
 
   return (
     <Suspense>
