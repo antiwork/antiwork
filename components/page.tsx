@@ -94,31 +94,31 @@ function PageContent() {
       name: "Flexile",
       url: "https://Flexile.com",
       description: "team and shareholder management",
-      icon: <Trophy size={24} />
+      icon: <Trophy size={24} />,
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
       description: "sell your stuff. see what sticks",
-      icon: <Rocket size={24} />
+      icon: <Rocket size={24} />,
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
       description: "customer support AI",
-      icon: <Mail size={24} />
+      icon: <Mail size={24} />,
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
       description: "keep your product clean",
-      icon: <Hammer size={24} />
+      icon: <Hammer size={24} />,
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
       description: "QA via natural language AI tests",
-      icon: <Sparkles size={24} />
+      icon: <Sparkles size={24} />,
     },
   ];
 
@@ -286,7 +286,10 @@ function PageContent() {
                       </a>
                     </h3>
                   </div>
-                  <p className="text-xs sm:text-sm xl:text-base" style={{ color: textColor }}>
+                  <p
+                    className="text-xs sm:text-sm xl:text-base"
+                    style={{ color: textColor }}
+                  >
                     {product.description}
                   </p>
                 </div>
