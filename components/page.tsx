@@ -356,7 +356,7 @@ function PageContent() {
                       shapes: ["circle"] as const,
                       particleCount: 100,
                       spread: 70,
-                      origin: { y: 0.7 }
+                      origin: { y: 0.7 },
                     });
                   }}
                   className="p-2 xl:p-4"
