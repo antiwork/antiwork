@@ -355,14 +355,17 @@ function PageContent() {
                     spread: 70,
                     origin: { y: 0.7 },
                     shapes: ["triangle"],
-                    colors: ["#26ccff", "#a25afd", "#ff5e7e"]
+                    colors: ["#26ccff", "#a25afd", "#ff5e7e"],
                   }}
                   manualstart={true}
                 >
                   <button
                     onClick={generateRandomColorsForPage}
                     className="p-2 xl:p-4"
-                    style={{ backgroundColor: textColor, color: backgroundColor }}
+                    style={{
+                      backgroundColor: textColor,
+                      color: backgroundColor,
+                    }}
                   >
                     <Send size={24} className="xl:h-8 xl:w-8" />
                   </button>
