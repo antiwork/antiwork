@@ -353,7 +353,7 @@ function PageContent() {
                   onClick={() => {
                     generateRandomColorsForPage();
                     confetti({
-                      shapes: ["triangle"] as const,
+                      shapes: ["circle"] as const,
                       particleCount: 100,
                       spread: 70,
                       origin: { y: 0.7 }
