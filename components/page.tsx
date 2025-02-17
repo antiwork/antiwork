@@ -325,6 +325,30 @@ function PageContent() {
               ))}
             </div>
           </section>
+
+          <section className="mb-8 xl:mb-16">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+              stay in the loop
+            </h2>
+            <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+              <input
+                type="email"
+                placeholder="your email"
+                className="flex-1 rounded bg-transparent px-4 py-2 text-sm sm:text-base lg:text-lg xl:text-xl"
+                style={{
+                  border: `2px solid ${textColor}`,
+                  color: textColor,
+                }}
+              />
+              <button
+                onClick={generateRandomColorsForPage}
+                className="rounded px-4 py-2 text-sm sm:text-base lg:text-lg xl:text-xl"
+                style={{ backgroundColor: textColor, color: backgroundColor }}
+              >
+                subscribe
+              </button>
+            </div>
+          </section>
         </main>
       </div>
     </div>
