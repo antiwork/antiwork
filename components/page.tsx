@@ -328,7 +328,7 @@ function PageContent() {
             </div>
           </section>
 
-          <section className="mb-8 xl:mb-16">
+          <section className="mb-8 hidden xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
               stay in the loop
             </h2>
