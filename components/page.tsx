@@ -357,7 +357,7 @@ function PageContent() {
                     shapes: ["triangle"],
                     particleCount: 100,
                     spread: 70,
-                    origin: { y: 0.7 }
+                    origin: { y: 0.7 },
                   }}
                 >
                   <Send size={24} className="xl:h-8 xl:w-8" />
