@@ -94,26 +94,31 @@ function PageContent() {
       name: "Flexile",
       url: "https://Flexile.com",
       description: "team and shareholder management",
+      icon: <Trophy size={24} />
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
       description: "sell your stuff. see what sticks",
+      icon: <Rocket size={24} />
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
       description: "customer support AI",
+      icon: <Mail size={24} />
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
       description: "keep your product clean",
+      icon: <Hammer size={24} />
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
       description: "QA via natural language AI tests",
+      icon: <Sparkles size={24} />
     },
   ];
 
@@ -247,7 +252,7 @@ function PageContent() {
                 title="Helper: customer support AI"
                 style={{ color: textColor }}
               >
-                support
+                customer support
               </a>
               , or{" "}
               <a
@@ -258,20 +263,39 @@ function PageContent() {
               >
                 payroll
               </a>
-              .{" "}
-              <a
-                href="https://Gumroad.com"
-                className="hover:underline"
-                title="Gumroad: sell your stuff. see what sticks"
-                style={{ color: textColor }}
-              >
-                (or all of the above.)
-              </a>
+              .
             </p>
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-16 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+              made with love
+            </h2>
+            <div className="grid grid-cols-1 gap-8 xl:gap-12">
+              {products.map((product) => (
+                <div key={product.name} style={{ borderColor: textColor }}>
+                  <div className="mb-2 flex items-center xl:mb-4">
+                    {product.icon}
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                      <a
+                        href={product.url}
+                        className="hover:underline"
+                        style={{ color: textColor }}
+                      >
+                        {product.name}
+                      </a>
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm xl:text-base" style={{ color: textColor }}>
+                    {product.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-8 xl:mb-16">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
               rules of the playground
             </h2>
             <div className="grid grid-cols-1 gap-8 xl:gap-12">
