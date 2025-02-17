@@ -9,6 +9,7 @@ import {
   Trophy,
   Rocket,
   Mail,
+  Send,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
@@ -330,23 +331,42 @@ function PageContent() {
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
               stay in the loop
             </h2>
-            <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+            <div
+              className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+              style={{ border: `2px solid ${textColor}` }}
+            >
               <input
                 type="email"
                 placeholder="your email"
-                className="flex-1 rounded bg-transparent px-4 py-2 text-sm sm:text-base lg:text-lg xl:text-xl"
+                className="flex-1 bg-transparent px-4 py-2 text-sm placeholder-current sm:text-base lg:text-lg xl:text-xl"
                 style={{
-                  border: `2px solid ${textColor}`,
                   color: textColor,
                 }}
               />
-              <button
-                onClick={generateRandomColorsForPage}
-                className="rounded px-4 py-2 text-sm sm:text-base lg:text-lg xl:text-xl"
-                style={{ backgroundColor: textColor, color: backgroundColor }}
+              <div
+                className="relative"
+                onMouseEnter={() => setShowShortcutHint(true)}
+                onMouseLeave={() => setShowShortcutHint(false)}
               >
-                subscribe
-              </button>
+                <button
+                  onClick={generateRandomColorsForPage}
+                  className="p-2 xl:p-4"
+                  style={{ backgroundColor: textColor, color: backgroundColor }}
+                >
+                  <Send size={24} className="xl:h-8 xl:w-8" />
+                </button>
+                {showShortcutHint && (
+                  <div
+                    className="absolute right-0 mt-2 px-2 py-1 text-xs xl:text-sm"
+                    style={{
+                      backgroundColor: textColor,
+                      color: backgroundColor,
+                    }}
+                  >
+                    Press &apos;S&apos; to shuffle
+                  </div>
+                )}
+              </div>
             </div>
           </section>
         </main>
