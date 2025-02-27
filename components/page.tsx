@@ -105,7 +105,7 @@ function PageContent() {
     {
       name: "Helper",
       url: "https://Helper.ai",
-      description: "customer support AI",
+      description: "customer support agents",
       icon: <Mail size={24} />,
     },
     {
@@ -249,7 +249,7 @@ function PageContent() {
               <a
                 href="https://Helper.ai"
                 className="hover:underline"
-                title="Helper: customer support AI"
+                title="Helper: customer support agents"
                 style={{ color: textColor }}
               >
                 customer support
