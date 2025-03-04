@@ -94,79 +94,66 @@ function PageContent() {
       name: "Flexile",
       url: "https://Flexile.com",
       description: "team and shareholder management",
-      icon: <Trophy size={24} />,
+      icon: <Trophy size={28} className="text-current" />,
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
       description: "sell your stuff. see what sticks",
-      icon: <Rocket size={24} />,
+      icon: <Rocket size={28} className="text-current" />,
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
       description: "customer support agents",
-      icon: <Mail size={24} />,
+      icon: <Mail size={28} className="text-current" />,
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
       description: "keep your product clean",
-      icon: <Hammer size={24} />,
+      icon: <Hammer size={28} className="text-current" />,
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
       description: "QA via natural language AI tests",
-      icon: <Sparkles size={24} />,
+      icon: <Sparkles size={28} className="text-current" />,
     },
   ];
 
   const values = [
     {
-      title: "make Work play",
-      icon: <Sparkles size={24} />,
+      title: "make work play",
+      icon: <Sparkles size={28} className="text-current" />,
       points: [
         "ship products that make work fun",
-        "build our office like a playground",
+        "make the office a playground",
         "celebrate wins big and small",
       ],
     },
     {
-      title: "meaning over money",
-      icon: <Heart size={24} />,
+      title: "play to win",
+      icon: <Trophy size={28} className="text-current" />,
       points: [
-        "measure success by impact",
-        "offer equity to everyone",
-        "prioritize purpose-driven projects",
+        "ship world-class software",
+        "play with the best",
+        "win as a team",
       ],
     },
     {
       title: "build for builders",
-      icon: <Hammer size={24} />,
+      icon: <Hammer size={28} className="text-current" />,
       points: [
         "open-source everything",
         "teach what we know",
-        "champion creative expression",
+        "unlock people's potential",
       ],
     },
     {
-      title: "ship world-class software",
-      icon: <Trophy size={24} />,
-      points: [
-        "craft with pride",
-        "play with the best",
-        "seek feedback on everything from everyone",
-      ],
-    },
-    {
-      title: "every day anew",
-      icon: <Rocket size={24} />,
-      points: [
-        "stay nimble and embrace change",
-        "fire yourself into new challenges",
-        "reject performative busywork",
-      ],
+      title: "time to think",
+      icon: <Rocket size={28} className="text-current" />,
+      points: ["automate busywork", "think creatively", "unlock our potential"],
     },
   ];
 
@@ -179,7 +166,7 @@ function PageContent() {
         color: textColor,
       }}
     >
-      <div className="mx-auto max-w-2xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
         <header className="flex flex-col items-start justify-between sm:flex-row sm:items-center md:mb-8 xl:mb-16">
           <div className="mb-4 flex items-center md:mb-0">
             <div className="mt-[1px] md:mt-[0px] lg:mt-[1px] xl:mt-[2px]">
@@ -269,9 +256,9 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
-              made with love
+              crafted with pride
             </h2>
-            <div className="grid grid-cols-1 gap-8 xl:gap-12">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {products.map((product) => (
                 <div key={product.name} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
@@ -299,9 +286,9 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
-              rules of the playground
+              playground rules
             </h2>
-            <div className="grid grid-cols-1 gap-8 xl:gap-12">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {values.map((value) => (
                 <div key={value.title} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
