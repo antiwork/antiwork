@@ -435,7 +435,7 @@ function PageContent() {
                       {player.url ? (
                         <a
                           href={player.url}
-                          className="hover:underline"
+                          className="underline hover:no-underline"
                           style={{ color: textColor }}
                         >
                           {player.name}
@@ -449,7 +449,7 @@ function PageContent() {
                     className="text-xs sm:text-sm xl:text-base"
                     style={{ color: textColor }}
                   >
-                    [-] {player.title}
+                    {player.title}
                   </p>
                 </div>
               ))}
