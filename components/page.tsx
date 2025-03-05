@@ -253,8 +253,8 @@ function PageContent() {
     },
     {
       name: "Raul Popadineți",
-      title:
-        "Senior Integrations Alien: Master of QuickBooks, GitHub, and IRS Chaos",
+      title: "Senior Integrations Alien",
+      titleHover: "Master of QuickBooks, GitHub, and IRS Chaos",
       url: "https://x.com/RaulOnRails",
       icon: <Puzzle size={28} className="text-current" />,
     },
@@ -448,6 +448,7 @@ function PageContent() {
                   <p
                     className="text-xs sm:text-sm xl:text-base"
                     style={{ color: textColor }}
+                    title={player.titleHover}
                   >
                     {player.title}
                   </p>
