@@ -14,7 +14,6 @@ import {
   Code,
   HardHat,
   LifeBuoy,
-  Trash2,
   Megaphone,
   Wrench,
   Headset,
@@ -24,6 +23,7 @@ import {
   Puzzle,
   FileCode,
   Brackets,
+  BugOff,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
@@ -213,7 +213,7 @@ function PageContent() {
       name: "Maya Rainer",
       title: "Chief Destroyer of Technical Debt",
       url: "https://www.twitch.tv/mayarainer",
-      icon: <Trash2 size={28} className="text-current" />,
+      icon: <BugOff size={28} className="text-current" />,
     },
     {
       name: "Madison Hill",
