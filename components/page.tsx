@@ -14,7 +14,6 @@ import {
   Code,
   HardHat,
   LifeBuoy,
-  Trash2,
   Megaphone,
   Wrench,
   Headset,
