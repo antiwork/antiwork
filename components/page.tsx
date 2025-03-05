@@ -17,7 +17,7 @@ import {
   Trash2,
   Megaphone,
   Wrench,
-  HeadsetHelp,
+  Headset,
   Palette,
   Package,
   Flame,
@@ -231,7 +231,7 @@ function PageContent() {
       name: "Andie Manning",
       title: "Forehead of Support",
       url: "",
-      icon: <HeadsetHelp size={28} className="text-current" />,
+      icon: <Headset size={28} className="text-current" />,
     },
     {
       name: "Laura García Diéguez",
