@@ -9,6 +9,7 @@ import {
   Trophy,
   Rocket,
   Mail,
+  Users,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
@@ -154,6 +155,85 @@ function PageContent() {
       title: "time to think",
       icon: <Rocket size={28} className="text-current" />,
       points: ["automate busywork", "think creatively", "unlock our potential"],
+    },
+  ];
+
+  const teamPlayers = [
+    {
+      name: "Sahil Lavingia",
+      title: "Founder & CEO",
+      url: "https://sahillavingia.com",
+    },
+    {
+      name: "Connor Mann",
+      title: "Staff Software Engineer",
+      url: "https://x.com/cnnrmnn",
+    },
+    {
+      name: "Sharang Dashputre",
+      title: "Head of Engineering",
+      url: "",
+    },
+    {
+      name: "Razvan Marescu",
+      title: "Antiworker",
+      url: "https://razvan.marescu.com",
+    },
+    {
+      name: "Vatsal Kaushik",
+      title: "Post-Helper Helper",
+      url: "http://vatsal.com",
+    },
+    {
+      name: "Ershad Kunnakkadan",
+      title: "Staff Software Engineer",
+      url: "https://x.com/ershus",
+    },
+    {
+      name: "Maya Rainer",
+      title: "Chief Destroyer of Technical Debt",
+      url: "https://www.twitch.tv/mayarainer",
+    },
+    {
+      name: "Madison Hill",
+      title: "Marketing & Events Manager",
+      url: "",
+    },
+    {
+      name: "Jono Mingard",
+      title: 'Senior "That\'ll do for now" Engineer',
+      url: "https://mingard.link",
+    },
+    {
+      name: "Andie Manning",
+      title: "Forehead of Support",
+      url: "",
+    },
+    {
+      name: "Laura García Diéguez",
+      title: "Design thinker",
+      url: "",
+    },
+    {
+      name: "Raphael Costa",
+      title: "Senior Product Engineer",
+      url: "",
+    },
+    {
+      name: "Daniel Gonzalez Reina",
+      title: "Oven Source Engineer",
+      url: "https://x.com/dgrcode",
+    },
+    {
+      name: "Raul Popadineți",
+      title:
+        "Senior Integrations Alien: Master of QuickBooks, GitHub, and IRS Chaos",
+      url: "https://x.com/RaulOnRails",
+    },
+    {
+      name: "Seth Thompson",
+      title: "Staff Software Engineer",
+      url: "https://seththompson.com/",
     },
   ];
 
@@ -308,6 +388,40 @@ function PageContent() {
                       </p>
                     ))}
                   </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-8 xl:mb-16">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+              team players
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-8">
+              {teamPlayers.map((player) => (
+                <div key={player.name} style={{ borderColor: textColor }}>
+                  <div className="mb-2 flex items-center xl:mb-4">
+                    <Users size={28} className="text-current" />
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                      {player.url ? (
+                        <a
+                          href={player.url}
+                          className="hover:underline"
+                          style={{ color: textColor }}
+                        >
+                          {player.name}
+                        </a>
+                      ) : (
+                        player.name
+                      )}
+                    </h3>
+                  </div>
+                  <p
+                    className="text-xs sm:text-sm xl:text-base"
+                    style={{ color: textColor }}
+                  >
+                    [-] {player.title}
+                  </p>
                 </div>
               ))}
             </div>
