@@ -108,7 +108,7 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "team and shareholder management",
+      description: "payroll & equity for everyone",
       icon: <Trophy size={28} className="text-current" />,
     },
     {
@@ -126,7 +126,7 @@ function PageContent() {
     {
       name: "Iffy",
       url: "https://Iffy.com",
-      description: "keep your product clean",
+      description: "intelligent content moderation",
       icon: <Hammer size={28} className="text-current" />,
     },
     {
@@ -326,7 +326,7 @@ function PageContent() {
               consider toil—whether it&apos;s{" "}
               <a
                 href="https://shortest.com"
-                className="hover:underline"
+                className="underline hover:no-underline"
                 title="Shortest: QA via natural language AI tests"
                 style={{ color: textColor }}
               >
@@ -335,8 +335,8 @@ function PageContent() {
               ,{" "}
               <a
                 href="https://Iffy.com"
-                className="hover:underline"
-                title="Iffy: keep your product clean"
+                className="underline hover:no-underline"
+                title="Iffy: intelligent content moderation"
                 style={{ color: textColor }}
               >
                 moderation
@@ -344,7 +344,7 @@ function PageContent() {
               ,{" "}
               <a
                 href="https://Helper.ai"
-                className="hover:underline"
+                className="underline hover:no-underline"
                 title="Helper: customer support agents"
                 style={{ color: textColor }}
               >
@@ -353,8 +353,8 @@ function PageContent() {
               , or{" "}
               <a
                 href="https://Flexile.com"
-                className="hover:underline"
-                title="Flexile: team and shareholder management"
+                className="underline hover:no-underline"
+                title="Flexile: payroll & equity for everyone"
                 style={{ color: textColor }}
               >
                 payroll
@@ -375,7 +375,7 @@ function PageContent() {
                     <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
                       <a
                         href={product.url}
-                        className="hover:underline"
+                        className="underline hover:no-underline"
                         style={{ color: textColor }}
                       >
                         {product.name}
