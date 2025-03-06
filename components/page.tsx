@@ -264,6 +264,12 @@ function PageContent() {
       url: "https://seththompson.com/",
       icon: <Brackets size={28} className="text-current" />,
     },
+    {
+      name: "join us",
+      title: "contribute to our open source software",
+      url: "https://github.com/anti-work",
+      icon: <Users size={28} className="text-current" />,
+    },
   ];
 
   return (
