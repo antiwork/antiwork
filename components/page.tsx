@@ -9,6 +9,7 @@ import {
   Trophy,
   Rocket,
   Mail,
+  Send,
   Users,
   Crown,
   Code,
@@ -29,12 +30,16 @@ import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
 import { useRouter, useSearchParams } from "next/navigation";
 import { generateRandomColors } from "@/utils/colors";
+import { Confetti } from "./magicui/confetti";
 
 function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
   const [showShortcutHint, setShowShortcutHint] = useState(false);
   const [logoSize, setLogoSize] = useState(32);
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscribeStatus, setSubscribeStatus] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -103,6 +108,48 @@ function PageContent() {
       window.removeEventListener("resize", updateLogoSize);
     };
   }, []);
+
+  const handleSubscribe = async () => {
+    // Reset status
+    setSubscribeStatus("");
+
+    // Validate email
+    if (!email || !email.includes("@")) {
+      setSubscribeStatus("please enter a valid email");
+      return;
+    }
+
+    // Set submitting state
+    setIsSubmitting(true);
+
+    try {
+      // Call the API endpoint
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "something went wrong");
+      }
+
+      // Success
+      setEmail("");
+      setSubscribeStatus("you're in the loop!");
+    } catch (error) {
+      // Handle error
+      setSubscribeStatus(
+        `error: ${error instanceof Error ? error.message : "something went wrong"}`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const products = [
     {
@@ -461,6 +508,71 @@ function PageContent() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className="mb-8 xl:mb-16">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+              stay in the loop
+            </h2>
+            <div
+              className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+              style={{ border: `2px solid ${textColor}` }}
+            >
+              <input
+                type="email"
+                placeholder="your email"
+                className="flex-1 bg-transparent px-4 py-2 text-sm placeholder-current sm:text-base lg:text-lg xl:text-xl"
+                style={{
+                  color: textColor,
+                }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <div
+                className="relative"
+                onMouseEnter={() => setShowShortcutHint(true)}
+                onMouseLeave={() => setShowShortcutHint(false)}
+              >
+                <Confetti
+                  options={{
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.7 },
+                    shapes: ["triangle"],
+                    colors: ["#26ccff", "#a25afd", "#ff5e7e"],
+                  }}
+                  manualstart={true}
+                >
+                  <button
+                    onClick={handleSubscribe}
+                    className="p-2 xl:p-4"
+                    style={{
+                      backgroundColor: textColor,
+                      color: backgroundColor,
+                    }}
+                    disabled={isSubmitting}
+                  >
+                    <Send size={24} className="xl:h-8 xl:w-8" />
+                  </button>
+                </Confetti>
+                {showShortcutHint && (
+                  <div
+                    className="absolute right-0 mt-2 px-2 py-1 text-xs xl:text-sm"
+                    style={{
+                      backgroundColor: textColor,
+                      color: backgroundColor,
+                    }}
+                  >
+                    Press &apos;S&apos; to shuffle
+                  </div>
+                )}
+              </div>
+            </div>
+            {subscribeStatus && (
+              <p className="mt-2 text-sm" style={{ color: textColor }}>
+                {subscribeStatus}
+              </p>
+            )}
           </section>
         </main>
       </div>
