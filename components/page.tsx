@@ -10,6 +10,21 @@ import {
   Rocket,
   Mail,
   Send,
+  Users,
+  Crown,
+  Code,
+  HardHat,
+  LifeBuoy,
+  Megaphone,
+  Wrench,
+  Headset,
+  Palette,
+  Package,
+  Flame,
+  Puzzle,
+  FileCode,
+  Brackets,
+  BugOff,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense } from "react";
 import { Logo } from "@/app/components/Logo";
@@ -95,80 +110,167 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "team and shareholder management",
-      icon: <Trophy size={24} />,
+      description: "payroll & equity for everyone",
+      icon: <Trophy size={28} className="text-current" />,
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
       description: "sell your stuff. see what sticks",
-      icon: <Rocket size={24} />,
+      icon: <Rocket size={28} className="text-current" />,
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
-      description: "customer support AI",
-      icon: <Mail size={24} />,
+      description: "customer support agents",
+      icon: <Mail size={28} className="text-current" />,
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
-      description: "keep your product clean",
-      icon: <Hammer size={24} />,
+      description: "intelligent content moderation",
+      icon: <Hammer size={28} className="text-current" />,
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
       description: "QA via natural language AI tests",
-      icon: <Sparkles size={24} />,
+      icon: <Sparkles size={28} className="text-current" />,
     },
   ];
 
   const values = [
     {
-      title: "make Work play",
-      icon: <Sparkles size={24} />,
+      title: "make work play",
+      icon: <Sparkles size={28} className="text-current" />,
       points: [
         "ship products that make work fun",
-        "build our office like a playground",
+        "make the office a playground",
         "celebrate wins big and small",
       ],
     },
     {
-      title: "meaning over money",
-      icon: <Heart size={24} />,
+      title: "play to win",
+      icon: <Trophy size={28} className="text-current" />,
       points: [
-        "measure success by impact",
-        "offer equity to everyone",
-        "prioritize purpose-driven projects",
+        "ship world-class software",
+        "play with the best",
+        "win as a team",
       ],
     },
     {
       title: "build for builders",
-      icon: <Hammer size={24} />,
+      icon: <Hammer size={28} className="text-current" />,
       points: [
         "open-source everything",
         "teach what we know",
-        "champion creative expression",
+        "unlock people's potential",
       ],
     },
     {
-      title: "ship world-class software",
-      icon: <Trophy size={24} />,
-      points: [
-        "craft with pride",
-        "play with the best",
-        "seek feedback on everything from everyone",
-      ],
+      title: "time to think",
+      icon: <Rocket size={28} className="text-current" />,
+      points: ["automate busywork", "think creatively", "unlock our potential"],
+    },
+  ];
+
+  const teamPlayers = [
+    {
+      name: "Sahil Lavingia",
+      title: "founder & ceo",
+      url: "https://sahillavingia.com",
+      icon: <Crown size={28} className="text-current" />,
     },
     {
-      title: "every day anew",
-      icon: <Rocket size={24} />,
-      points: [
-        "stay nimble and embrace change",
-        "fire yourself into new challenges",
-        "reject performative busywork",
-      ],
+      name: "Connor Mann",
+      title: "staff software engineer",
+      url: "https://x.com/cnnrmnn",
+      icon: <Code size={28} className="text-current" />,
+    },
+    {
+      name: "Sharang Dashputre",
+      title: "head of engineering",
+      url: "",
+      icon: <HardHat size={28} className="text-current" />,
+    },
+    {
+      name: "Razvan Marescu",
+      title: "antiworker",
+      url: "https://razvan.marescu.com",
+      icon: <Rocket size={28} className="text-current" />,
+    },
+    {
+      name: "Vatsal Kaushik",
+      title: "post-helper helper",
+      url: "http://vatsal.com",
+      icon: <LifeBuoy size={28} className="text-current" />,
+    },
+    {
+      name: "Ershad Kunnakkadan",
+      title: "staff software engineer",
+      url: "https://x.com/ershus",
+      icon: <FileCode size={28} className="text-current" />,
+    },
+    {
+      name: "Maya Rainer",
+      title: "chief destroyer of technical debt",
+      url: "https://www.twitch.tv/mayarainer",
+      icon: <BugOff size={28} className="text-current" />,
+    },
+    {
+      name: "Madison Hill",
+      title: "marketing & events manager",
+      url: "",
+      icon: <Megaphone size={28} className="text-current" />,
+    },
+    {
+      name: "Jono Mingard",
+      title: 'senior "that\'ll do for now" engineer',
+      url: "https://mingard.link",
+      icon: <Wrench size={28} className="text-current" />,
+    },
+    {
+      name: "Andie Manning",
+      title: "forehead of support",
+      url: "",
+      icon: <Headset size={28} className="text-current" />,
+    },
+    {
+      name: "Laura García Diéguez",
+      title: "design thinker",
+      url: "",
+      icon: <Palette size={28} className="text-current" />,
+    },
+    {
+      name: "Raphael Costa",
+      title: "senior product engineer",
+      url: "",
+      icon: <Package size={28} className="text-current" />,
+    },
+    {
+      name: "Daniel Gonzalez Reina",
+      title: "oven source engineer",
+      url: "https://x.com/dgrcode",
+      icon: <Flame size={28} className="text-current" />,
+    },
+    {
+      name: "Raul Popadineți",
+      title: "senior integrations alien",
+      titleHover: "master of quickbooks, github, and irs chaos",
+      url: "https://x.com/RaulOnRails",
+      icon: <Puzzle size={28} className="text-current" />,
+    },
+    {
+      name: "Seth Thompson",
+      title: "staff software engineer",
+      url: "https://seththompson.com/",
+      icon: <Brackets size={28} className="text-current" />,
+    },
+    {
+      name: "join us",
+      title: "contribute to our open source software",
+      url: "https://github.com/anti-work",
+      icon: <Users size={28} className="text-current" />,
     },
   ];
 
@@ -181,7 +283,7 @@ function PageContent() {
         color: textColor,
       }}
     >
-      <div className="mx-auto max-w-2xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
         <header className="flex flex-col items-start justify-between sm:flex-row sm:items-center md:mb-8 xl:mb-16">
           <div className="mb-4 flex items-center md:mb-0">
             <div className="mt-[1px] md:mt-[0px] lg:mt-[1px] xl:mt-[2px]">
@@ -232,7 +334,7 @@ function PageContent() {
               consider toil—whether it&apos;s{" "}
               <a
                 href="https://shortest.com"
-                className="hover:underline"
+                className="underline hover:no-underline"
                 title="Shortest: QA via natural language AI tests"
                 style={{ color: textColor }}
               >
@@ -241,8 +343,8 @@ function PageContent() {
               ,{" "}
               <a
                 href="https://Iffy.com"
-                className="hover:underline"
-                title="Iffy: keep your product clean"
+                className="underline hover:no-underline"
+                title="Iffy: intelligent content moderation"
                 style={{ color: textColor }}
               >
                 moderation
@@ -250,8 +352,8 @@ function PageContent() {
               ,{" "}
               <a
                 href="https://Helper.ai"
-                className="hover:underline"
-                title="Helper: customer support AI"
+                className="underline hover:no-underline"
+                title="Helper: customer support agents"
                 style={{ color: textColor }}
               >
                 customer support
@@ -259,8 +361,8 @@ function PageContent() {
               , or{" "}
               <a
                 href="https://Flexile.com"
-                className="hover:underline"
-                title="Flexile: team and shareholder management"
+                className="underline hover:no-underline"
+                title="Flexile: payroll & equity for everyone"
                 style={{ color: textColor }}
               >
                 payroll
@@ -271,9 +373,9 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
-              made with love
+              crafted with pride
             </h2>
-            <div className="grid grid-cols-1 gap-8 xl:gap-12">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {products.map((product) => (
                 <div key={product.name} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
@@ -281,7 +383,7 @@ function PageContent() {
                     <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
                       <a
                         href={product.url}
-                        className="hover:underline"
+                        className="underline hover:no-underline"
                         style={{ color: textColor }}
                       >
                         {product.name}
@@ -301,9 +403,9 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
-              rules of the playground
+              playground rules
             </h2>
-            <div className="grid grid-cols-1 gap-8 xl:gap-12">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {values.map((value) => (
                 <div key={value.title} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
@@ -323,6 +425,41 @@ function PageContent() {
                       </p>
                     ))}
                   </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-8 xl:mb-16">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+              team players
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-8">
+              {teamPlayers.map((player) => (
+                <div key={player.name} style={{ borderColor: textColor }}>
+                  <div className="mb-2 flex items-center xl:mb-4">
+                    {player.icon}
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                      {player.url ? (
+                        <a
+                          href={player.url}
+                          className="underline hover:no-underline"
+                          style={{ color: textColor }}
+                        >
+                          {player.name}
+                        </a>
+                      ) : (
+                        player.name
+                      )}
+                    </h3>
+                  </div>
+                  <p
+                    className="text-xs sm:text-sm xl:text-base"
+                    style={{ color: textColor }}
+                    title={player.titleHover}
+                  >
+                    {player.title}
+                  </p>
                 </div>
               ))}
             </div>
