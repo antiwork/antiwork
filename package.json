@@ -23,6 +23,7 @@
     "react-dom": "^18.3.1",
     "react-tweet": "^3.2.1",
     "recharts": "^2.13.3",
+    "resend": "^4.1.2",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
