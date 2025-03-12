@@ -34,7 +34,6 @@ import { generateRandomColors } from "@/utils/colors";
 function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
-  const [showShortcutHint, setShowShortcutHint] = useState(false);
   const [logoSize, setLogoSize] = useState(32);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -75,9 +74,7 @@ function PageContent() {
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === "s" || event.key === "S") {
-        generateRandomColorsForPage();
-      }
+      generateRandomColorsForPage();
     };
 
     window.addEventListener("keydown", handleKeyPress);
@@ -341,11 +338,7 @@ function PageContent() {
               Antiwork
             </h1>
           </div>
-          <div
-            className="relative hidden sm:block"
-            onMouseEnter={() => setShowShortcutHint(true)}
-            onMouseLeave={() => setShowShortcutHint(false)}
-          >
+          <div className="relative hidden sm:block">
             <button
               onClick={generateRandomColorsForPage}
               className="rounded p-2 xl:p-4"
@@ -353,14 +346,6 @@ function PageContent() {
             >
               <Shuffle size={24} className="xl:h-8 xl:w-8" />
             </button>
-            {showShortcutHint && (
-              <div
-                className="absolute right-0 mt-2 rounded px-2 py-1 text-xs xl:text-sm"
-                style={{ backgroundColor: textColor, color: backgroundColor }}
-              >
-                Press &apos;S&apos; to shuffle
-              </div>
-            )}
           </div>
         </header>
         <p
@@ -420,7 +405,7 @@ function PageContent() {
               stay in the loop
             </h2>
             <div
-              className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+              className="flex flex-col space-y-4 sm:flex-row sm:space-y-0"
               style={{ border: `2px solid ${textColor}` }}
             >
               <input
