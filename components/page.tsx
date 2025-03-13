@@ -184,22 +184,37 @@ function PageContent() {
     {
       title: "make work play",
       icon: <Sparkles size={28} className="text-current" />,
-      points: ["make the office a playground", "celebrate wins big and small"],
+      points: [
+        "make the office a playground, a place to socialize and strategize, not just get work done",
+        "celebrate wins big and small, taking breaks to keep energy and happiness levels high",
+        "throw parties, host hackathons, and reward people for a job well done early and often",
+      ],
     },
     {
       title: "play to win",
       icon: <Trophy size={28} className="text-current" />,
-      points: ["ship world-class software", "win as a team"],
+      points: [
+        "ship world-class software that's pretty, efficient, and easy to use",
+        "win as a team—use each other's strengths",
+        "be reliable and put your best foot forward so others will trust you to score",
+      ],
     },
     {
       title: "build for builders",
       icon: <Hammer size={28} className="text-current" />,
-      points: ["open-source everything", "teach what we know"],
+      points: [
+        "open-source everything to maximize our impact",
+        "teach what we know as a recruiting strategy and to hold ourselves to a high standard",
+      ],
     },
     {
       title: "time to think",
       icon: <Rocket size={28} className="text-current" />,
-      points: ["automate busywork", "think creatively"],
+      points: [
+        "automate busywork so we have time to think",
+        "spend that time thinking creatively to come up with better ideas",
+        "look at things from new angles",
+      ],
     },
   ];
 
