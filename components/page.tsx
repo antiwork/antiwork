@@ -184,34 +184,22 @@ function PageContent() {
     {
       title: "make work play",
       icon: <Sparkles size={28} className="text-current" />,
-      points: [
-        "ship products that make work fun",
-        "make the office a playground",
-        "celebrate wins big and small",
-      ],
+      points: ["make the office a playground", "celebrate wins big and small"],
     },
     {
       title: "play to win",
       icon: <Trophy size={28} className="text-current" />,
-      points: [
-        "ship world-class software",
-        "play with the best",
-        "win as a team",
-      ],
+      points: ["ship world-class software", "win as a team"],
     },
     {
       title: "build for builders",
       icon: <Hammer size={28} className="text-current" />,
-      points: [
-        "open-source everything",
-        "teach what we know",
-        "unlock people's potential",
-      ],
+      points: ["open-source everything", "teach what we know"],
     },
     {
       title: "time to think",
       icon: <Rocket size={28} className="text-current" />,
-      points: ["automate busywork", "think creatively", "unlock our potential"],
+      points: ["automate busywork", "think creatively"],
     },
   ];
 
