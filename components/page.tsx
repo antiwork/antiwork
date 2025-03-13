@@ -348,43 +348,7 @@ function PageContent() {
           <section className="mb-8 xl:mb-16">
             <p className="text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl">
               we build software that liberates creative builders from what they
-              consider toil—whether it&apos;s{" "}
-              <a
-                href="https://shortest.com"
-                className="underline hover:no-underline"
-                title="Shortest: QA via natural language AI tests"
-                style={{ color: textColor }}
-              >
-                QA
-              </a>
-              ,{" "}
-              <a
-                href="https://Iffy.com"
-                className="underline hover:no-underline"
-                title="Iffy: intelligent content moderation"
-                style={{ color: textColor }}
-              >
-                moderation
-              </a>
-              ,{" "}
-              <a
-                href="https://Helper.ai"
-                className="underline hover:no-underline"
-                title="Helper: customer support agents"
-                style={{ color: textColor }}
-              >
-                customer support
-              </a>
-              , or{" "}
-              <a
-                href="https://Flexile.com"
-                className="underline hover:no-underline"
-                title="Flexile: payroll & equity for everyone"
-                style={{ color: textColor }}
-              >
-                payroll
-              </a>
-              .
+              consider toil.
             </p>
           </section>
 
