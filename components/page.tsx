@@ -298,7 +298,7 @@ function PageContent() {
     {
       name: "join us",
       title: "contribute to our open source software",
-      url: "https://github.com/anti-work",
+      url: "https://github.com/antiwork",
       icon: <Users size={28} className="text-current" />,
     },
   ];
