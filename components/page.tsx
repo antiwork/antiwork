@@ -184,22 +184,26 @@ function PageContent() {
     {
       title: "make work play",
       icon: <Sparkles size={28} className="text-current" />,
-      content: "*Make the office a playground*, a place to socialize and strategize, not just get work done. Make it a fun place to spend time in. *Celebrate wins big and small*, taking breaks to keep energy and happiness levels high in the short- and long-term. Throw parties, host hackathons, and reward people for a job well done early and often.",
+      content:
+        "*Make the office a playground*, a place to socialize and strategize, not just get work done. Make it a fun place to spend time in. *Celebrate wins big and small*, taking breaks to keep energy and happiness levels high in the short- and long-term. Throw parties, host hackathons, and reward people for a job well done early and often.",
     },
     {
       title: "play to win",
       icon: <Trophy size={28} className="text-current" />,
-      content: "*Ship world-class software* that's pretty, efficient, and easy to use. *Win as a team*—use each other's strengths. Being reliable and putting your best foot forward so that others will trust you to score.",
+      content:
+        "*Ship world-class software* that's pretty, efficient, and easy to use. *Win as a team*—use each other's strengths. Being reliable and putting your best foot forward so that others will trust you to score.",
     },
     {
       title: "build for builders",
       icon: <Hammer size={28} className="text-current" />,
-      content: "*Open-source everything* to maximize our impact and the number of people who can help make our software better. *Teach what we know* as a recruiting strategy and to hold ourselves to a high standard.",
+      content:
+        "*Open-source everything* to maximize our impact and the number of people who can help make our software better. *Teach what we know* as a recruiting strategy and to hold ourselves to a high standard.",
     },
     {
       title: "time to think",
       icon: <Rocket size={28} className="text-current" />,
-      content: "*Automate busywork* so we have time to think. Spend that time thinking creatively to come up with better and better ideas. Look at things from new angles.",
+      content:
+        "*Automate busywork* so we have time to think. Spend that time thinking creatively to come up with better and better ideas. Look at things from new angles.",
     },
   ];
 
