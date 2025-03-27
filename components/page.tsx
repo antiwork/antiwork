@@ -273,7 +273,7 @@ function PageContent() {
     {
       name: "Raphael Costa",
       title: "senior product engineer",
-      url: "",
+      url: "https://x.com/raphaelwcosta",
       icon: <Package size={28} className="text-current" />,
     },
     {
