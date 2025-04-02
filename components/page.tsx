@@ -201,6 +201,16 @@ function PageContent() {
       icon: <Rocket size={28} className="text-current" />,
       points: ["automate busywork", "think creatively"],
     },
+    {
+      title: "love what you do",
+      icon: <Heart size={28} className="text-current" />,
+      points: ["pursue your passion", "find joy in challenges"],
+    },
+    {
+      title: "solve together",
+      icon: <Puzzle size={28} className="text-current" />,
+      points: ["embrace collaboration", "combine diverse perspectives"],
+    },
   ];
 
   const teamPlayers = [
