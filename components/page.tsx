@@ -297,13 +297,13 @@ function PageContent() {
     },
     {
       name: "devin",
-      title: "ai coding assistant",
+      title: "robot that steals your job but not your lunch",
       url: "https://app.devin.ai/",
       icon: <FileCode size={28} className="text-current" />,
     },
     {
       name: "cursor",
-      title: "ai-powered code editor",
+      title: "text editor with opinions (very strong ones)",
       url: "https://cursor.sh/",
       icon: <Code size={28} className="text-current" />,
     },
