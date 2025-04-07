@@ -296,6 +296,18 @@ function PageContent() {
       icon: <Brackets size={28} className="text-current" />,
     },
     {
+      name: "devin",
+      title: "ai coding assistant",
+      url: "https://app.devin.ai/",
+      icon: <FileCode size={28} className="text-current" />,
+    },
+    {
+      name: "cursor",
+      title: "ai-powered code editor",
+      url: "https://cursor.sh/",
+      icon: <Code size={28} className="text-current" />,
+    },
+    {
       name: "join us",
       title: "contribute to our open source software",
       url: "https://github.com/antiwork",
