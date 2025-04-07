@@ -1,6 +1,7 @@
 # Gumroad Community
 
 In this article:
+
 - [What is Gumroad Community?](#what-is-gumroad-community)
 - [Enabling Community for your product](#enabling-community-for-your-product)
 - [Managing your Community](#managing-your-community)
