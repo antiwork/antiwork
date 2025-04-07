@@ -93,7 +93,7 @@ Keep track of community discussions with optional recap emails:
 
 To build an engaging and valuable community:
 
-- **Welcome new members**: Create a pinned welcome post with community guidelines
+- **Welcome new members**: Create a pinned welcome post with community guidelines (coming soon!)
 - **Regular engagement**: Check in daily to answer questions and acknowledge comments
 - **Value-added content**: Share exclusive tips, updates, and behind-the-scenes information
 - **Encourage participation**: Ask questions and create discussion topics
