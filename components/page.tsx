@@ -271,6 +271,12 @@ function PageContent() {
       icon: <Palette size={28} className="text-current" />,
     },
     {
+      name: "Jason Chang",
+      title: "design engineer",
+      url: "",
+      icon: <Palette size={28} className="text-current" />,
+    },
+    {
       name: "Raphael Costa",
       title: "senior product engineer",
       url: "https://x.com/raphaelwcosta",
