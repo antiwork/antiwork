@@ -1,5 +1,9 @@
 # Antiwork
 
+## Contributing
+
+If you're working on a task that requires significant effort, feel free to ask for a bounty increase by commenting "could you increase the bounty on this because it would be a big lift" on the issue or pull request.
+
 ## Getting Started
 
 First, install dependencies:
