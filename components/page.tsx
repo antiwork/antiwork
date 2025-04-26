@@ -211,18 +211,6 @@ function PageContent() {
       icon: <Crown size={28} className="text-current" />,
     },
     {
-      name: "Connor Mann",
-      title: "staff software engineer",
-      url: "https://x.com/cnnrmnn",
-      icon: <Code size={28} className="text-current" />,
-    },
-    {
-      name: "Sharang Dashputre",
-      title: "head of engineering",
-      url: "",
-      icon: <HardHat size={28} className="text-current" />,
-    },
-    {
       name: "Razvan Marescu",
       title: "antiworker",
       url: "https://razvan.marescu.com",
@@ -275,12 +263,6 @@ function PageContent() {
       title: "senior product engineer",
       url: "https://x.com/raphaelwcosta",
       icon: <Package size={28} className="text-current" />,
-    },
-    {
-      name: "Daniel Gonzalez Reina",
-      title: "oven source engineer",
-      url: "https://x.com/dgrcode",
-      icon: <Flame size={28} className="text-current" />,
     },
     {
       name: "Raul Popadineți",
