@@ -151,30 +151,35 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
+      githubUrl: "https://github.com/anti-work/flexile",
       description: "payroll & equity for everyone",
       icon: <Trophy size={28} className="text-current" />,
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
+      githubUrl: "https://github.com/anti-work/gumroad",
       description: "sell your stuff. see what sticks",
       icon: <Rocket size={28} className="text-current" />,
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
+      githubUrl: "https://github.com/anti-work/helper",
       description: "customer support agents",
       icon: <Mail size={28} className="text-current" />,
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
+      githubUrl: "https://github.com/anti-work/iffy",
       description: "intelligent content moderation",
       icon: <Hammer size={28} className="text-current" />,
     },
     {
       name: "Shortest",
       url: "https://shortest.com",
+      githubUrl: "https://github.com/anti-work/shortest",
       description: "QA via natural language AI tests",
       icon: <Sparkles size={28} className="text-current" />,
     },
@@ -390,6 +395,16 @@ function PageContent() {
                       >
                         {product.name}
                       </a>
+                      {product.githubUrl && (
+                        <a
+                          href={product.githubUrl}
+                          className="ml-2 inline-flex hover:opacity-80"
+                          style={{ color: textColor }}
+                          aria-label={`${product.name} github repository`}
+                        >
+                          <Code size={16} className="text-current" />
+                        </a>
+                      )}
                     </h3>
                   </div>
                   <p
