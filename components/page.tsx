@@ -280,7 +280,7 @@ function PageContent() {
           <Font text="ANTIWORK" color={textColor} size={logoSize} />
         </header>
         <p
-          className="mb-8 text-sm font-bold sm:text-base lg:text-lg xl:mb-16 xl:text-4xl"
+          className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-5xl"
           style={{ color: textColor }}
         >
           on a mission to make <span title="boring, rote">work</span>{" "}
@@ -289,7 +289,7 @@ function PageContent() {
 
         <main>
           <section className="mb-8 xl:mb-16">
-            <p className="text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl">
+            <p className="text-sm sm:text-base lg:text-xl xl:mb-16 xl:text-3xl">
               we build software that liberates creative builders from what they
               consider toil—whether it&apos;s{" "}
               <a
@@ -332,7 +332,7 @@ function PageContent() {
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
               stay in the loop
             </h2>
             <div
@@ -342,7 +342,7 @@ function PageContent() {
               <input
                 type="email"
                 placeholder="your email"
-                className="flex-1 bg-transparent px-4 py-2 text-sm placeholder-current sm:text-base lg:text-lg xl:text-xl"
+                className="flex-1 bg-transparent px-4 py-2 text-sm placeholder-current sm:text-base lg:text-xl xl:text-2xl"
                 style={{
                   color: textColor,
                 }}
@@ -359,19 +359,22 @@ function PageContent() {
                   }}
                   disabled={isSubmitting}
                 >
-                  <Send size={24} className="xl:h-8 xl:w-8" />
+                  <Send size={24} className="xl:h-10 xl:w-10" />
                 </button>
               </div>
             </div>
             {subscribeStatus && (
-              <p className="mt-2 text-sm" style={{ color: textColor }}>
+              <p
+                className="mt-2 text-sm lg:text-base xl:text-xl"
+                style={{ color: textColor }}
+              >
                 {subscribeStatus}
               </p>
             )}
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
               crafted with pride
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
@@ -379,7 +382,7 @@ function PageContent() {
                 <div key={product.name} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
                     {product.icon}
-                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl">
                       <a
                         href={product.url}
                         className="underline hover:no-underline"
@@ -390,7 +393,7 @@ function PageContent() {
                     </h3>
                   </div>
                   <p
-                    className="text-xs sm:text-sm xl:text-base"
+                    className="text-xs sm:text-sm lg:text-base xl:text-xl"
                     style={{ color: textColor }}
                   >
                     {product.description}
@@ -401,7 +404,7 @@ function PageContent() {
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
               playground rules
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
@@ -409,7 +412,7 @@ function PageContent() {
                 <div key={value.title} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
                     {value.icon}
-                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl">
                       {value.title}
                     </h3>
                   </div>
@@ -417,7 +420,7 @@ function PageContent() {
                     {value.points.map((point, pointIndex) => (
                       <p
                         key={pointIndex}
-                        className="text-xs sm:text-sm xl:text-base"
+                        className="text-xs sm:text-sm lg:text-base xl:text-xl"
                         style={{ color: textColor }}
                       >
                         {point}
@@ -430,11 +433,11 @@ function PageContent() {
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
               team players
             </h2>
             <button
-              className="mt-4 px-4 py-2 text-sm font-bold sm:text-base"
+              className="mt-4 px-4 py-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
               style={{
                 backgroundColor: textColor,
                 color: backgroundColor,
@@ -456,7 +459,9 @@ function PageContent() {
           <div className="credits-container h-full w-full overflow-hidden">
             {/* Header */}
             <div className="absolute left-0 top-8 w-full text-center">
-              <h2 className="mb-8 text-4xl font-bold text-white">CAST</h2>
+              <h2 className="mb-8 text-4xl font-bold text-white lg:text-5xl xl:text-6xl">
+                CAST
+              </h2>
             </div>
 
             {/* Movie-style credits */}
@@ -464,7 +469,7 @@ function PageContent() {
               <div className="grid grid-cols-2 gap-1">
                 {teamPlayers.map((player) => (
                   <React.Fragment key={player.name}>
-                    <div className="mb-6 pr-4 text-right text-xl">
+                    <div className="mb-6 pr-4 text-right text-xl lg:text-2xl xl:text-3xl">
                       {player.url ? (
                         <a
                           href={player.url}
@@ -476,7 +481,7 @@ function PageContent() {
                         player.name
                       )}
                     </div>
-                    <div className="mb-6 pl-4 text-left text-xl uppercase">
+                    <div className="mb-6 pl-4 text-left text-xl uppercase lg:text-2xl xl:text-3xl">
                       {player.title}
                     </div>
                   </React.Fragment>
@@ -484,17 +489,17 @@ function PageContent() {
               </div>
 
               <div className="mt-12 pt-12 text-center">
-                <h3 className="mb-6 text-2xl font-bold uppercase text-white">
+                <h3 className="mb-6 text-2xl font-bold uppercase text-white lg:text-3xl xl:text-4xl">
                   ANTIWORK
                 </h3>
-                <p className="text-xl text-white">
+                <p className="text-xl text-white lg:text-2xl xl:text-3xl">
                   on a mission to make work play
                 </p>
               </div>
             </div>
 
             {/* Exit instructions */}
-            <div className="absolute bottom-4 left-0 w-full text-center text-sm text-white opacity-70">
+            <div className="absolute bottom-4 left-0 w-full text-center text-sm text-white opacity-70 lg:text-base xl:text-xl">
               Click anywhere to return
             </div>
           </div>
