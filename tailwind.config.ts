@@ -7,7 +7,17 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        starwars: {
+          "0%": { transform: "translateY(100vh)" },
+          "100%": { transform: "translateY(-100vh)" },
+        },
+      },
+      animation: {
+        starwars: "starwars 30s linear forwards",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

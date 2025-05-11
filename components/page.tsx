@@ -1,43 +1,36 @@
 "use client";
 
 import {
-  ArrowUpRight,
-  Shuffle,
   Sparkles,
-  Heart,
   Hammer,
   Trophy,
   Rocket,
   Mail,
   Send,
   Users,
-  Crown,
-  Code,
-  HardHat,
+  ChefHat,
   LifeBuoy,
   Megaphone,
   Wrench,
   Headset,
   Palette,
-  Package,
-  Flame,
-  Puzzle,
   FileCode,
-  Brackets,
-  BugOff,
 } from "lucide-react";
-import { useState, useEffect, useCallback, Suspense } from "react";
-import { Logo } from "@/app/components/Logo";
+import { useState, useEffect, useCallback, Suspense, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { generateRandomColors } from "@/utils/colors";
+import { Font } from "@/app/components/Font";
+import React from "react";
 
 function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
-  const [logoSize, setLogoSize] = useState(32);
+  const [logoSize, setLogoSize] = useState(100);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [subscribeStatus, setSubscribeStatus] = useState("");
+  const [colorsSetByUrl, setColorsSetByUrl] = useState(false);
+  const [showCredits, setShowCredits] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -61,8 +54,10 @@ function PageContent() {
     if (bgColor && txtColor) {
       setBackgroundColor(`#${bgColor}`);
       setTextColor(`#${txtColor}`);
+      setColorsSetByUrl(true);
     } else {
       setInitialColorsForPage();
+      setColorsSetByUrl(false);
     }
   }, [searchParams, setInitialColorsForPage]);
 
@@ -72,28 +67,30 @@ function PageContent() {
     document.body.style.backgroundColor = backgroundColor;
   }, [backgroundColor]);
 
+  // Add automatic color shuffling every 5 seconds
   useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      generateRandomColorsForPage();
-    };
+    // Only start the interval if colors were not set by URL
+    if (colorsSetByUrl) return;
 
-    window.addEventListener("keydown", handleKeyPress);
+    const colorShuffleInterval = setInterval(() => {
+      generateRandomColorsForPage();
+    }, 1000);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyPress);
+      clearInterval(colorShuffleInterval);
     };
-  }, [generateRandomColorsForPage]);
+  }, [generateRandomColorsForPage, colorsSetByUrl]);
 
   useEffect(() => {
     const updateLogoSize = () => {
-      if (window.innerWidth >= 1280) {
-        setLogoSize(64);
+      if (window.innerWidth >= 1920) {
+        setLogoSize(200);
+      } else if (window.innerWidth >= 1280) {
+        setLogoSize(100);
       } else if (window.innerWidth >= 1024) {
-        setLogoSize(40);
+        setLogoSize(80);
       } else if (window.innerWidth >= 640) {
-        setLogoSize(34);
-      } else {
-        setLogoSize(28);
+        setLogoSize(60);
       }
     };
 
@@ -151,7 +148,7 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "payroll & equity for everyone",
+      description: "equity for everyone",
       icon: <Trophy size={28} className="text-current" />,
     },
     {
@@ -218,27 +215,9 @@ function PageContent() {
   const teamPlayers = [
     {
       name: "Sahil Lavingia",
-      title: "founder & ceo",
+      title: "head chef",
       url: "https://sahillavingia.com",
-      icon: <Crown size={28} className="text-current" />,
-    },
-    {
-      name: "Connor Mann",
-      title: "staff software engineer",
-      url: "https://x.com/cnnrmnn",
-      icon: <Code size={28} className="text-current" />,
-    },
-    {
-      name: "Sharang Dashputre",
-      title: "head of engineering",
-      url: "",
-      icon: <HardHat size={28} className="text-current" />,
-    },
-    {
-      name: "Razvan Marescu",
-      title: "antiworker",
-      url: "https://razvan.marescu.com",
-      icon: <Rocket size={28} className="text-current" />,
+      icon: <ChefHat size={28} className="text-current" />,
     },
     {
       name: "Vatsal Kaushik",
@@ -251,12 +230,6 @@ function PageContent() {
       title: "staff software engineer",
       url: "https://x.com/ershus",
       icon: <FileCode size={28} className="text-current" />,
-    },
-    {
-      name: "Maya Rainer",
-      title: "chief destroyer of technical debt",
-      url: "https://www.twitch.tv/mayarainer",
-      icon: <BugOff size={28} className="text-current" />,
     },
     {
       name: "Madison Hill",
@@ -272,7 +245,7 @@ function PageContent() {
     },
     {
       name: "Andie Manning",
-      title: "forehead of support",
+      title: "customer supporter",
       url: "",
       icon: <Headset size={28} className="text-current" />,
     },
@@ -281,31 +254,6 @@ function PageContent() {
       title: "design thinker",
       url: "",
       icon: <Palette size={28} className="text-current" />,
-    },
-    {
-      name: "Raphael Costa",
-      title: "senior product engineer",
-      url: "",
-      icon: <Package size={28} className="text-current" />,
-    },
-    {
-      name: "Daniel Gonzalez Reina",
-      title: "oven source engineer",
-      url: "https://x.com/dgrcode",
-      icon: <Flame size={28} className="text-current" />,
-    },
-    {
-      name: "Raul Popadineți",
-      title: "senior integrations alien",
-      titleHover: "master of quickbooks, github, and irs chaos",
-      url: "https://x.com/RaulOnRails",
-      icon: <Puzzle size={28} className="text-current" />,
-    },
-    {
-      name: "Seth Thompson",
-      title: "staff software engineer",
-      url: "https://seththompson.com/",
-      icon: <Brackets size={28} className="text-current" />,
     },
     {
       name: "join us",
@@ -324,35 +272,18 @@ function PageContent() {
         color: textColor,
       }}
     >
-      <div className="mx-auto max-w-4xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
-        <header className="flex flex-col items-start justify-between sm:flex-row sm:items-center md:mb-8 xl:mb-16">
-          <div className="mb-4 flex items-center md:mb-0">
-            <div className="mt-[1px] md:mt-[0px] lg:mt-[1px] xl:mt-[2px]">
-              <Logo
-                size={logoSize}
-                color={textColor}
-                background="transparent"
-              />
-            </div>
-            <h1 className="ml-3 text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-6xl">
-              Antiwork
-            </h1>
-          </div>
-          <div className="relative hidden sm:block">
-            <button
-              onClick={generateRandomColorsForPage}
-              className="rounded p-2 xl:p-4"
-              style={{ backgroundColor: textColor, color: backgroundColor }}
-            >
-              <Shuffle size={24} className="xl:h-8 xl:w-8" />
-            </button>
-          </div>
+      <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
+        <header
+          className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16"
+          style={{ marginLeft: "-10px" }}
+        >
+          <Font text="ANTIWORK" color={textColor} size={logoSize} />
         </header>
         <p
           className="mb-8 text-sm font-bold sm:text-base lg:text-lg xl:mb-16 xl:text-4xl"
           style={{ color: textColor }}
         >
-          on a mission to make <span title="boring, rote">Work</span>{" "}
+          on a mission to make <span title="boring, rote">work</span>{" "}
           <span title="fun, creative">play</span>.
         </p>
 
@@ -391,10 +322,10 @@ function PageContent() {
               <a
                 href="https://Flexile.com"
                 className="underline hover:no-underline"
-                title="Flexile: payroll & equity for everyone"
+                title="Flexile: equity for everyone"
                 style={{ color: textColor }}
               >
-                payroll
+                equity ownership
               </a>
               .
             </p>
@@ -421,7 +352,7 @@ function PageContent() {
               <div className="relative">
                 <button
                   onClick={handleSubscribe}
-                  className="p-2 xl:p-4"
+                  className="p-4"
                   style={{
                     backgroundColor: textColor,
                     color: backgroundColor,
@@ -502,38 +433,73 @@ function PageContent() {
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
               team players
             </h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-8">
-              {teamPlayers.map((player) => (
-                <div key={player.name} style={{ borderColor: textColor }}>
-                  <div className="mb-2 flex items-center xl:mb-4">
-                    {player.icon}
-                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+            <button
+              className="mt-4 px-4 py-2 text-sm font-bold sm:text-base"
+              style={{
+                backgroundColor: textColor,
+                color: backgroundColor,
+              }}
+              onClick={() => setShowCredits(true)}
+            >
+              Roll the credits
+            </button>
+          </section>
+        </main>
+      </div>
+
+      {/* Star Wars Style Credits */}
+      {showCredits && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black"
+          onClick={() => setShowCredits(false)}
+        >
+          <div className="credits-container h-full w-full overflow-hidden">
+            {/* Header */}
+            <div className="absolute left-0 top-8 w-full text-center">
+              <h2 className="mb-8 text-4xl font-bold text-white">CAST</h2>
+            </div>
+
+            {/* Movie-style credits */}
+            <div className="animate-starwars relative mx-auto w-full max-w-lg pt-24 text-center text-white">
+              <div className="grid grid-cols-2 gap-1">
+                {teamPlayers.map((player) => (
+                  <React.Fragment key={player.name}>
+                    <div className="mb-6 pr-4 text-right text-xl">
                       {player.url ? (
                         <a
                           href={player.url}
                           className="underline hover:no-underline"
-                          style={{ color: textColor }}
                         >
                           {player.name}
                         </a>
                       ) : (
                         player.name
                       )}
-                    </h3>
-                  </div>
-                  <p
-                    className="text-xs sm:text-sm xl:text-base"
-                    style={{ color: textColor }}
-                    title={player.titleHover}
-                  >
-                    {player.title}
-                  </p>
-                </div>
-              ))}
+                    </div>
+                    <div className="mb-6 pl-4 text-left text-xl uppercase">
+                      {player.title}
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+
+              <div className="mt-12 pt-12 text-center">
+                <h3 className="mb-6 text-2xl font-bold uppercase text-white">
+                  ANTIWORK
+                </h3>
+                <p className="text-xl text-white">
+                  on a mission to make work play
+                </p>
+              </div>
             </div>
-          </section>
-        </main>
-      </div>
+
+            {/* Exit instructions */}
+            <div className="absolute bottom-4 left-0 w-full text-center text-sm text-white opacity-70">
+              Click anywhere to return
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
