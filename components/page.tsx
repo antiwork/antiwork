@@ -38,8 +38,7 @@ function PageContent() {
     const { backgroundColor, textColor } = generateRandomColors();
     setBackgroundColor(backgroundColor);
     setTextColor(textColor);
-    router.push(`?bg=${backgroundColor.slice(1)}&txt=${textColor.slice(1)}`);
-  }, [router]);
+  }, []);
 
   const setInitialColorsForPage = useCallback(() => {
     const { backgroundColor, textColor } = generateRandomColors();
