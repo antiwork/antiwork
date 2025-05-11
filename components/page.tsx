@@ -453,7 +453,7 @@ function PageContent() {
             </div>
 
             {/* Movie-style credits */}
-            <div className="animate-starwars relative mx-auto w-full max-w-lg pt-24 text-center text-white">
+            <div className="relative mx-auto w-full max-w-lg animate-starwars pt-24 text-center text-white">
               <div className="grid grid-cols-2 gap-1">
                 {teamPlayers.map((player) => (
                   <React.Fragment key={player.name}>
