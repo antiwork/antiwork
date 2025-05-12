@@ -15,6 +15,7 @@ import {
   Headset,
   Palette,
   FileCode,
+  Shuffle,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -66,19 +67,17 @@ function PageContent() {
     document.body.style.backgroundColor = backgroundColor;
   }, [backgroundColor]);
 
-  // Add automatic color shuffling every 5 seconds
   useEffect(() => {
-    // Only start the interval if colors were not set by URL
-    if (colorsSetByUrl) return;
-
-    const colorShuffleInterval = setInterval(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
       generateRandomColorsForPage();
-    }, 1000);
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
 
     return () => {
-      clearInterval(colorShuffleInterval);
+      window.removeEventListener("keydown", handleKeyPress);
     };
-  }, [generateRandomColorsForPage, colorsSetByUrl]);
+  }, [generateRandomColorsForPage]);
 
   useEffect(() => {
     const updateLogoSize = () => {
@@ -260,11 +259,19 @@ function PageContent() {
       }}
     >
       <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
-        <header
-          className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16"
-          style={{ marginLeft: "-10px" }}
-        >
-          <Font text="ANTIWORK" color={textColor} size={logoSize} />
+        <header className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16">
+          <div className="mb-4 flex items-center md:mb-0" style={{ marginLeft: "-10px" }}>
+            <Font text="ANTIWORK" color={textColor} size={logoSize} />
+          </div>
+          <div className="relative hidden sm:block">
+            <button
+              onClick={generateRandomColorsForPage}
+              className="rounded p-2 xl:p-4"
+              style={{ backgroundColor: textColor, color: backgroundColor }}
+            >
+              <Shuffle size={24} className="xl:h-8 xl:w-8" />
+            </button>
+          </div>
         </header>
         <p
           className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-5xl"
