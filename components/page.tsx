@@ -260,7 +260,10 @@ function PageContent() {
     >
       <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
         <header className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16">
-          <div className="mb-4 flex items-center md:mb-0" style={{ marginLeft: "-10px" }}>
+          <div
+            className="mb-4 flex items-center md:mb-0"
+            style={{ marginLeft: "-10px" }}
+          >
             <Font text="ANTIWORK" color={textColor} size={logoSize} />
           </div>
           <div className="relative hidden sm:block">
