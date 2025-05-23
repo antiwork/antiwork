@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Font } from "../components/Font";
-import { Slider } from "@/components/ui/slider";
 
 export default function GeometricFont() {
   const [text, setText] = useState("ANTIWORK");
