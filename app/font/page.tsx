@@ -6,6 +6,7 @@ import { Font } from "../components/Font";
 export default function GeometricFont() {
   const [text, setText] = useState("ANTIWORK");
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [fontSize, setFontSize] = useState(176); // Default size from Font component
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -30,6 +31,12 @@ export default function GeometricFont() {
       if (savedText) {
         setText(savedText);
       }
+
+      // Load saved font size
+      const savedFontSize = localStorage.getItem("geometricFontSize");
+      if (savedFontSize) {
+        setFontSize(parseInt(savedFontSize, 10));
+      }
     } catch (e) {
       console.error("Failed to load from localStorage:", e);
     }
@@ -44,6 +51,16 @@ export default function GeometricFont() {
   useEffect(() => {
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
+
+  // Save font size preference
+  const isInitialized = useRef(false);
+  useEffect(() => {
+    if (isInitialized.current) {
+      localStorage.setItem("geometricFontSize", fontSize.toString());
+    } else {
+      isInitialized.current = true;
+    }
+  }, [fontSize]);
 
   const adjustTextareaHeight = (element: HTMLTextAreaElement) => {
     // Reset height to allow proper scrollHeight calculation
@@ -95,7 +112,7 @@ export default function GeometricFont() {
 
     return lines.map((line, lineIndex) => (
       <div className="text-row" key={`line-${lineIndex}`}>
-        <Font text={line} color={color} />
+        <Font text={line} color={color} size={fontSize} />
       </div>
     ));
   };
@@ -183,6 +200,11 @@ export default function GeometricFont() {
           margin-top: 10px;
           padding: 0 10px;
         }
+        .font-size-control {
+          width: 100%;
+          padding: 10px;
+          margin-top: 10px;
+        }
         h1 {
           margin: 10px 0;
         }
@@ -201,6 +223,35 @@ export default function GeometricFont() {
           <button id="darkModeToggle" onClick={toggleDarkMode}>
             {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
+        </div>
+
+        <div className="font-size-control">
+          <div className="mb-2 flex justify-between">
+            <span>Font size: {fontSize}</span>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setFontSize(Math.max(50, fontSize - 10))}
+              className="rounded bg-green-500 px-3 py-1 text-white"
+            >
+              Smaller
+            </button>
+            <input
+              type="range"
+              min={50}
+              max={300}
+              step={1}
+              value={fontSize}
+              onChange={(e) => setFontSize(parseInt(e.target.value, 10))}
+              className="h-2 flex-grow cursor-pointer appearance-none rounded-full bg-black/10"
+            />
+            <button
+              onClick={() => setFontSize(Math.min(300, fontSize + 10))}
+              className="rounded bg-green-500 px-3 py-1 text-white"
+            >
+              Larger
+            </button>
+          </div>
         </div>
       </div>
 
