@@ -32,7 +32,7 @@ export default function GeometricFont() {
       if (savedText) {
         setText(savedText);
       }
-      
+
       // Load saved font size
       const savedFontSize = localStorage.getItem("geometricFontSize");
       if (savedFontSize) {
@@ -52,7 +52,7 @@ export default function GeometricFont() {
   useEffect(() => {
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
-  
+
   // Save font size preference
   useEffect(() => {
     localStorage.setItem("geometricFontSize", fontSize.toString());
@@ -220,7 +220,7 @@ export default function GeometricFont() {
             {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
         </div>
-        
+
         <div className="font-size-control">
           <div className="mb-2 flex justify-between">
             <span>Font size: {fontSize}</span>
@@ -228,7 +228,7 @@ export default function GeometricFont() {
           <div className="flex gap-2">
             <button
               onClick={() => setFontSize(Math.max(50, fontSize - 10))}
-              className="px-3 py-1 bg-green-500 text-white rounded"
+              className="rounded bg-green-500 px-3 py-1 text-white"
             >
               Smaller
             </button>
@@ -239,11 +239,11 @@ export default function GeometricFont() {
               step={1}
               value={fontSize}
               onChange={(e) => setFontSize(parseInt(e.target.value, 10))}
-              className="flex-grow h-2 bg-black/10 rounded-full appearance-none cursor-pointer"
+              className="h-2 flex-grow cursor-pointer appearance-none rounded-full bg-black/10"
             />
             <button
               onClick={() => setFontSize(Math.min(300, fontSize + 10))}
-              className="px-3 py-1 bg-green-500 text-white rounded"
+              className="rounded bg-green-500 px-3 py-1 text-white"
             >
               Larger
             </button>
