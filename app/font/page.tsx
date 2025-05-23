@@ -53,8 +53,13 @@ export default function GeometricFont() {
   }, [isDarkMode]);
 
   // Save font size preference
+  const isInitialized = useRef(false);
   useEffect(() => {
-    localStorage.setItem("geometricFontSize", fontSize.toString());
+    if (isInitialized.current) {
+      localStorage.setItem("geometricFontSize", fontSize.toString());
+    } else {
+      isInitialized.current = true;
+    }
   }, [fontSize]);
 
   const adjustTextareaHeight = (element: HTMLTextAreaElement) => {
