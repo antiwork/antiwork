@@ -25,22 +25,35 @@ interface ProcessedIssue extends GitHubIssue {
 const BOUNTY_LABELS = ["$1K", "$2.5K", "$5K", "$10K"];
 const REPOSITORIES = ["antiwork/gumroad", "antiwork/flexile"];
 
+const CACHE_TTL_MS = 5 * 60 * 1000;
+let cachedData: { issues: ProcessedIssue[]; total: number; errors?: string[] } | null = null;
+let cacheTimestamp: number = 0;
+
 async function fetchIssuesForRepo(
   repo: string,
   label: string
 ): Promise<GitHubIssue[]> {
   const url = `https://api.github.com/repos/${repo}/issues?labels=${encodeURIComponent(label)}&state=open&per_page=100`;
 
+  const headers: Record<string, string> = {
+    Accept: "application/vnd.github.v3+json",
+    "User-Agent": "Antiwork-Bounties-App",
+  };
+
+  if (process.env.flexile_devin_github_pat) {
+    headers.Authorization = `token ${process.env.flexile_devin_github_pat}`;
+  }
+
   const response = await fetch(url, {
-    headers: {
-      Accept: "application/vnd.github.v3+json",
-      "User-Agent": "Antiwork-Bounties-App",
-    },
+    headers,
   });
 
   if (!response.ok) {
     if (response.status === 404) {
       return [];
+    }
+    if (response.status === 403 || response.status === 429) {
+      throw new Error(`GitHub API rate limit exceeded for ${repo}`);
     }
     throw new Error(
       `GitHub API error for ${repo}: ${response.status} ${response.statusText}`
@@ -52,6 +65,13 @@ async function fetchIssuesForRepo(
 
 export async function GET() {
   try {
+    const now = Date.now();
+    if (cachedData && (now - cacheTimestamp) < CACHE_TTL_MS) {
+      console.log('Serving cached bounties data');
+      return NextResponse.json(cachedData);
+    }
+
+    console.log('Fetching fresh bounties data from GitHub API');
     const allIssues: ProcessedIssue[] = [];
     const errors: string[] = [];
 
@@ -97,11 +117,16 @@ export async function GET() {
       return valueB - valueA;
     });
 
-    return NextResponse.json({
+    const response = {
       issues: uniqueIssues,
       total: uniqueIssues.length,
       errors: errors.length > 0 ? errors : undefined,
-    });
+    };
+
+    cachedData = response;
+    cacheTimestamp = now;
+
+    return NextResponse.json(response);
   } catch (error) {
     console.error("Error fetching bounties:", error);
     return NextResponse.json(
