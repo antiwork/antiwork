@@ -348,21 +348,16 @@ function BountiesContent() {
           {!bountiesData.loading && !bountiesData.error && (
             <>
               <div className="mb-8 flex items-center justify-between">
-                <div>
-                  <h2 className="text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-2xl">
-                    {filteredAndSortedIssues.length} bounties available
-                  </h2>
-                  <p className="text-xs opacity-75 sm:text-sm">
-                    Total value: $
-                    {filteredAndSortedIssues
-                      .reduce(
-                        (total, issue) =>
-                          total + getBountyValue(getBountyAmount(issue.labels)),
-                        0
-                      )
-                      .toLocaleString()}
-                  </p>
-                </div>
+                <h2 className="text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-2xl">
+                  {filteredAndSortedIssues.length} bounties available totaling $
+                  {filteredAndSortedIssues
+                    .reduce(
+                      (total, issue) =>
+                        total + getBountyValue(getBountyAmount(issue.labels)),
+                      0
+                    )
+                    .toLocaleString()}
+                </h2>
               </div>
 
               {filteredAndSortedIssues.length === 0 ? (
