@@ -353,7 +353,8 @@ function BountiesContent() {
                     {filteredAndSortedIssues.length} bounties available
                   </h2>
                   <p className="text-xs opacity-75 sm:text-sm">
-                    Total value: ${filteredAndSortedIssues
+                    Total value: $
+                    {filteredAndSortedIssues
                       .reduce(
                         (total, issue) =>
                           total + getBountyValue(getBountyAmount(issue.labels)),
