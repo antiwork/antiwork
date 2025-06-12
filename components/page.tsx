@@ -433,16 +433,28 @@ function PageContent() {
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
               team players
             </h2>
-            <button
-              className="mt-4 px-4 py-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
-              style={{
-                backgroundColor: textColor,
-                color: backgroundColor,
-              }}
-              onClick={() => setShowCredits(true)}
-            >
-              Roll the credits
-            </button>
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+              <button
+                className="px-4 py-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
+                style={{
+                  backgroundColor: textColor,
+                  color: backgroundColor,
+                }}
+                onClick={() => setShowCredits(true)}
+              >
+                Roll the credits
+              </button>
+              <a
+                href="/bounties"
+                className="inline-block px-4 py-2 text-center text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
+                style={{
+                  backgroundColor: textColor,
+                  color: backgroundColor,
+                }}
+              >
+                Join us
+              </a>
+            </div>
           </section>
         </main>
       </div>
