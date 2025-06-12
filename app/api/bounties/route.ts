@@ -26,7 +26,11 @@ const BOUNTY_LABELS = ["$1K", "$2.5K", "$5K", "$10K"];
 const REPOSITORIES = ["antiwork/gumroad", "antiwork/flexile"];
 
 const CACHE_TTL_MS = 5 * 60 * 1000;
-let cachedData: { issues: ProcessedIssue[]; total: number; errors?: string[] } | null = null;
+let cachedData: {
+  issues: ProcessedIssue[];
+  total: number;
+  errors?: string[];
+} | null = null;
 let cacheTimestamp: number = 0;
 
 async function fetchIssuesForRepo(
@@ -66,12 +70,12 @@ async function fetchIssuesForRepo(
 export async function GET() {
   try {
     const now = Date.now();
-    if (cachedData && (now - cacheTimestamp) < CACHE_TTL_MS) {
-      console.log('Serving cached bounties data');
+    if (cachedData && now - cacheTimestamp < CACHE_TTL_MS) {
+      console.log("Serving cached bounties data");
       return NextResponse.json(cachedData);
     }
 
-    console.log('Fetching fresh bounties data from GitHub API');
+    console.log("Fetching fresh bounties data from GitHub API");
     const allIssues: ProcessedIssue[] = [];
     const errors: string[] = [];
 
