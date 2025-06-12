@@ -349,7 +349,14 @@ function BountiesContent() {
             <>
               <div className="mb-8 flex items-center justify-between">
                 <h2 className="text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-2xl">
-                  {filteredAndSortedIssues.length} bounties available
+                  {filteredAndSortedIssues.length} bounties available totaling $
+                  {filteredAndSortedIssues
+                    .reduce(
+                      (total, issue) =>
+                        total + getBountyValue(getBountyAmount(issue.labels)),
+                      0
+                    )
+                    .toLocaleString()}
                 </h2>
               </div>
 
