@@ -242,14 +242,22 @@ function BountiesContent() {
             style={{ color: textColor }}
           >
             Gumroad
-          </a>{" "}
-          and{" "}
+          </a>
+          ,{" "}
           <a
             href="https://github.com/antiwork/flexile"
             className="underline hover:no-underline"
             style={{ color: textColor }}
           >
             Flexile
+          </a>
+          , and{" "}
+          <a
+            href="https://github.com/antiwork/helper"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Helper
           </a>
           .
         </p>
@@ -292,6 +300,7 @@ function BountiesContent() {
               <option value="All">All repositories</option>
               <option value="antiwork/gumroad">antiwork/gumroad</option>
               <option value="antiwork/flexile">antiwork/flexile</option>
+              <option value="antiwork/helper">antiwork/helper</option>
             </select>
           </div>
 
