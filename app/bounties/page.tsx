@@ -292,6 +292,7 @@ function BountiesContent() {
               <option value="All">All repositories</option>
               <option value="antiwork/gumroad">antiwork/gumroad</option>
               <option value="antiwork/flexile">antiwork/flexile</option>
+              <option value="antiwork/helper">antiwork/helper</option>
             </select>
           </div>
 
