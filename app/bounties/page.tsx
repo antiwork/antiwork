@@ -242,14 +242,22 @@ function BountiesContent() {
             style={{ color: textColor }}
           >
             Gumroad
-          </a>{" "}
-          and{" "}
+          </a>
+          ,{" "}
           <a
             href="https://github.com/antiwork/flexile"
             className="underline hover:no-underline"
             style={{ color: textColor }}
           >
             Flexile
+          </a>
+          , and{" "}
+          <a
+            href="https://github.com/antiwork/helper"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Helper
           </a>
           .
         </p>
