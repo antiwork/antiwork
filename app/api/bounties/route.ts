@@ -23,7 +23,11 @@ interface ProcessedIssue extends GitHubIssue {
 }
 
 const BOUNTY_LABELS = ["$1K", "$2.5K", "$5K", "$10K"];
-const REPOSITORIES = ["antiwork/gumroad", "antiwork/flexile", "antiwork/helper"];
+const REPOSITORIES = [
+  "antiwork/gumroad",
+  "antiwork/flexile",
+  "antiwork/helper",
+];
 
 const CACHE_TTL_MS = 5 * 60 * 1000;
 let cachedData: {
