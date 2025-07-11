@@ -49,11 +49,19 @@ A GitHub Personal Access Token is required to prevent API rate limiting issues.
 GITHUB_TOKEN=ghp_your_token_here
 ```
 
+**Important:** After updating your `.env.local` file, restart your development server for the changes to take effect:
+```bash
+# Stop the current server (Ctrl+C)
+# Then restart it
+npm run dev
+```
+
 ## Troubleshooting
 
 ### Blank Screen Issue
 If the bounties page goes blank:
 1. Check that `GITHUB_TOKEN` is set in your `.env.local` file
 2. Verify your token has the correct permissions
-3. Wait a few minutes if you've hit rate limits
-4. Check the browser console for error messages
+3. **Restart your development server** after making changes to `.env.local`
+4. Wait a few minutes if you've hit rate limits
+5. Check the browser console for error messages
