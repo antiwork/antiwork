@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# testing artifacts
+bounties-monitor-*.log
+screenshots-*/
+simple-test-screenshot.png
+bounties-test-report-*.json
