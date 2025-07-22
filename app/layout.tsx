@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: "Antiwork",
   description:
-    "on a mission to make Work play. we build software that liberates creative builders from what they consider toil",
+    "On a mission to make work play. We build software that liberates creative builders from what they consider toil",
 };
 
 export default function RootLayout({

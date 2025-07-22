@@ -106,7 +106,7 @@ function PageContent() {
 
     // Validate email
     if (!email || !email.includes("@")) {
-      setSubscribeStatus("please enter a valid email");
+      setSubscribeStatus("Please enter a valid email");
       return;
     }
 
@@ -131,11 +131,11 @@ function PageContent() {
 
       // Success
       setEmail("");
-      setSubscribeStatus("you're in the loop!");
+      setSubscribeStatus("You're in the loop!");
     } catch (error) {
       // Handle error
       setSubscribeStatus(
-        `error: ${error instanceof Error ? error.message : "something went wrong"}`
+        `Error: ${error instanceof Error ? error.message : "Something went wrong"}`
       );
     } finally {
       setIsSubmitting(false);
@@ -146,25 +146,25 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "equity for everyone",
+      description: "Equity for everyone",
       icon: <Trophy size={28} className="text-current" />,
     },
     {
       name: "Gumroad",
       url: "https://Gumroad.com",
-      description: "sell your stuff. see what sticks",
+      description: "Sell your stuff. See what sticks",
       icon: <Rocket size={28} className="text-current" />,
     },
     {
       name: "Helper",
       url: "https://Helper.ai",
-      description: "customer support agents",
+      description: "Customer support agents",
       icon: <Mail size={28} className="text-current" />,
     },
     {
       name: "Iffy",
       url: "https://Iffy.com",
-      description: "intelligent content moderation",
+      description: "Intelligent content moderation",
       icon: <Hammer size={28} className="text-current" />,
     },
     {
@@ -177,24 +177,24 @@ function PageContent() {
 
   const values = [
     {
-      title: "make work play",
+      title: "Make work play",
       icon: <Sparkles size={28} className="text-current" />,
-      points: ["make the office a playground", "celebrate wins big and small"],
+      points: ["Make the office a playground", "Celebrate wins big and small"],
     },
     {
-      title: "play to win",
+      title: "Play to win",
       icon: <Trophy size={28} className="text-current" />,
-      points: ["ship world-class software", "win as a team"],
+      points: ["Ship world-class software", "Win as a team"],
     },
     {
-      title: "build for builders",
+      title: "Build for builders",
       icon: <Hammer size={28} className="text-current" />,
-      points: ["open-source everything", "teach what we know"],
+      points: ["Open-source everything", "Teach what we know"],
     },
     {
-      title: "time to think",
+      title: "Time to think",
       icon: <Rocket size={28} className="text-current" />,
-      points: ["automate busywork", "think creatively"],
+      points: ["Automate busywork", "Think creatively"],
     },
   ];
 
@@ -280,14 +280,14 @@ function PageContent() {
           className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-5xl"
           style={{ color: textColor }}
         >
-          on a mission to make <span title="boring, rote">work</span>{" "}
+          On a mission to make <span title="boring, rote">work</span>{" "}
           <span title="fun, creative">play</span>.
         </p>
 
         <main>
           <section className="mb-8 xl:mb-16">
             <p className="text-sm sm:text-base lg:text-xl xl:mb-16 xl:text-3xl">
-              we build software that liberates creative builders from what they
+              We build software that liberates creative builders from what they
               consider toil—whether it&apos;s{" "}
               <a
                 href="https://shortest.com"
@@ -330,7 +330,7 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
-              stay in the loop
+              Stay in the loop
             </h2>
             <div
               className="flex flex-col space-y-4 sm:flex-row sm:space-y-0"
@@ -338,7 +338,7 @@ function PageContent() {
             >
               <input
                 type="email"
-                placeholder="your email"
+                placeholder="Your email"
                 className="flex-1 bg-transparent px-4 py-2 text-sm placeholder-current sm:text-base lg:text-xl xl:text-2xl"
                 style={{
                   color: textColor,
@@ -372,7 +372,7 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
-              crafted with pride
+              Crafted with pride
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {products.map((product) => (
@@ -402,7 +402,7 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
-              playground rules
+              Playground rules
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {values.map((value) => (
@@ -431,7 +431,7 @@ function PageContent() {
 
           <section className="mb-8 xl:mb-16">
             <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
-              team players
+              Team players
             </h2>
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
               <button
@@ -502,7 +502,7 @@ function PageContent() {
                   ANTIWORK
                 </h3>
                 <p className="text-xl text-white lg:text-2xl xl:text-3xl">
-                  on a mission to make work play
+                  On a mission to make work play
                 </p>
               </div>
             </div>
