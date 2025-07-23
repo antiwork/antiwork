@@ -16,6 +16,7 @@ import {
   Palette,
   FileCode,
   Shuffle,
+  Shield,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -166,6 +167,12 @@ function PageContent() {
       url: "https://Iffy.com",
       description: "Intelligent content moderation",
       icon: <Hammer size={28} className="text-current" />,
+    },
+    {
+      name: "Jacquez",
+      url: "https://jacquez.com",
+      description: "A friendly moderator for OSS repos",
+      icon: <Shield size={28} className="text-current" />,
     },
     {
       name: "Shortest",
