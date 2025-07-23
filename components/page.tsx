@@ -271,7 +271,13 @@ function PageContent() {
             className="mb-4 flex items-center md:mb-0"
             style={{ marginLeft: "-10px" }}
           >
-            <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            <Font
+              text="ANTIWORK"
+              color={textColor}
+              size={logoSize}
+              splitOnMobile={true}
+              mobileBreakText="ANTI"
+            />
           </div>
           <div className="relative hidden sm:block">
             <button

@@ -4,12 +4,16 @@ interface FontProps {
   text?: string;
   color?: string;
   size?: number;
+  splitOnMobile?: boolean;
+  mobileBreakText?: string;
 }
 
 export function Font({
   text = "ANTIWORK",
   color = "#000000",
   size = 176,
+  splitOnMobile = false,
+  mobileBreakText = "ANTI",
 }: FontProps) {
   // Character definitions using SVG and width
   const charDefinitions: any = {
@@ -449,6 +453,114 @@ export function Font({
       </div>
     );
   };
+
+  if (splitOnMobile) {
+    const splitIndex =
+      text.toUpperCase().indexOf(mobileBreakText.toUpperCase()) +
+      mobileBreakText.length;
+    const firstPart = text.substring(0, splitIndex);
+    const secondPart = text.substring(splitIndex);
+
+    return (
+      <div className="font-container">
+        <div className="block sm:hidden">
+          <div className="flex flex-col items-center justify-center space-y-1">
+            <div className="flex justify-center">
+              <div
+                className="text-row"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                }}
+              >
+                {Array.from(firstPart.toUpperCase()).map((char, charIndex) => {
+                  const charDef = charDefinitions[char] || charDefinitions[" "];
+                  let prevChar =
+                    charIndex > 0 ? firstPart.toUpperCase()[charIndex - 1] : "";
+
+                  const charStyles: React.CSSProperties = {
+                    width: `${(charDef.width * size) / 176}px`,
+                    height: `${size}px`,
+                    position: "relative",
+                    margin: "0",
+                    padding: "0",
+                    marginRight: `${(10 * size) / 176}px`,
+                    marginLeft:
+                      (char === "O" &&
+                        (prevChar === "W" ||
+                          prevChar === "V" ||
+                          prevChar === "L" ||
+                          prevChar === "O")) ||
+                      (char === "V" && prevChar === "L")
+                        ? `${(-20 * size) / 176}px`
+                        : "",
+                  };
+
+                  return (
+                    <div
+                      className="char"
+                      style={charStyles}
+                      key={`char-${charIndex}`}
+                    >
+                      {charDef.render(color)}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div
+                className="text-row"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                }}
+              >
+                {Array.from(secondPart.toUpperCase()).map((char, charIndex) => {
+                  const charDef = charDefinitions[char] || charDefinitions[" "];
+                  let prevChar =
+                    charIndex > 0
+                      ? secondPart.toUpperCase()[charIndex - 1]
+                      : "";
+
+                  const charStyles: React.CSSProperties = {
+                    width: `${(charDef.width * size) / 176}px`,
+                    height: `${size}px`,
+                    position: "relative",
+                    margin: "0",
+                    padding: "0",
+                    marginRight: `${(10 * size) / 176}px`,
+                    marginLeft:
+                      (char === "O" &&
+                        (prevChar === "W" ||
+                          prevChar === "V" ||
+                          prevChar === "L" ||
+                          prevChar === "O")) ||
+                      (char === "V" && prevChar === "L")
+                        ? `${(-20 * size) / 176}px`
+                        : "",
+                  };
+
+                  return (
+                    <div
+                      className="char"
+                      style={charStyles}
+                      key={`char-${charIndex}`}
+                    >
+                      {charDef.render(color)}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="hidden sm:block">{renderText()}</div>
+      </div>
+    );
+  }
 
   return <div className="font-container">{renderText()}</div>;
 }
