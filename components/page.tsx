@@ -147,7 +147,7 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "contractor payments as easy as 1-2-3",
+      description: "Contractor payments as easy as 1-2-3",
       icon: <Trophy size={28} className="text-current" />,
     },
     {
