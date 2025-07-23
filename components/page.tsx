@@ -280,9 +280,13 @@ function PageContent() {
 
             {/* Mobile: Split into ANTI and WORK on separate lines */}
             <div className="block sm:hidden">
-              <div className="flex flex-col items-center justify-center space-y-1">
-                <Font text="ANTI" color={textColor} size={logoSize} />
-                <Font text="WORK" color={textColor} size={logoSize} />
+              <div className="flex w-full flex-col items-center justify-center space-y-1 text-center">
+                <div className="flex w-full justify-center">
+                  <Font text="ANTI" color={textColor} size={logoSize} />
+                </div>
+                <div className="flex w-full justify-center">
+                  <Font text="WORK" color={textColor} size={logoSize} />
+                </div>
               </div>
             </div>
           </div>
