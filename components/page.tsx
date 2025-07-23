@@ -15,7 +15,6 @@ import {
   Headset,
   Palette,
   FileCode,
-  Shuffle,
   Shield,
 } from "lucide-react";
 import { useState, useEffect, useCallback, Suspense, useRef } from "react";
@@ -33,6 +32,7 @@ function PageContent() {
   const [subscribeStatus, setSubscribeStatus] = useState("");
   const [colorsSetByUrl, setColorsSetByUrl] = useState(false);
   const [showCredits, setShowCredits] = useState(false);
+  const [oRotation, setORotation] = useState(0);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -47,6 +47,11 @@ function PageContent() {
     setBackgroundColor(backgroundColor);
     setTextColor(textColor);
   }, []);
+
+  const handleOClick = useCallback(() => {
+    setORotation((prev) => prev + 90);
+    generateRandomColorsForPage();
+  }, [generateRandomColorsForPage]);
 
   useEffect(() => {
     const bgColor = searchParams.get("bg");
@@ -91,7 +96,7 @@ function PageContent() {
       } else if (window.innerWidth >= 640) {
         setLogoSize(60);
       } else {
-        setLogoSize(60);
+        setLogoSize(36);
       }
     };
 
@@ -179,7 +184,7 @@ function PageContent() {
     {
       name: "Shortest",
       url: "https://shortest.com",
-      description: "QA via natural language AI tests",
+      description: "QA via natural language",
       icon: <Sparkles size={28} className="text-current" />,
     },
   ];
@@ -268,37 +273,14 @@ function PageContent() {
       }}
     >
       <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
-        <header className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16">
-          <div
-            className="mb-4 flex items-center md:mb-0"
-            style={{ marginLeft: "-10px" }}
-          >
-            {/* Desktop: Single line ANTIWORK */}
-            <div className="hidden sm:block">
-              <Font text="ANTIWORK" color={textColor} size={logoSize} />
-            </div>
-
-            {/* Mobile: Split into ANTI and WORK on separate lines */}
-            <div className="block sm:hidden">
-              <div className="flex w-full flex-col items-center justify-center space-y-1 text-center">
-                <div className="flex w-full justify-center">
-                  <Font text="ANTI" color={textColor} size={logoSize} />
-                </div>
-                <div className="flex w-full justify-center">
-                  <Font text="WORK" color={textColor} size={logoSize} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="relative hidden sm:block">
-            <button
-              onClick={generateRandomColorsForPage}
-              className="rounded p-2 xl:p-4"
-              style={{ backgroundColor: textColor, color: backgroundColor }}
-            >
-              <Shuffle size={24} className="xl:h-8 xl:w-8" />
-            </button>
-          </div>
+        <header className="mb-8 flex flex-row items-start xl:mb-16">
+          <Font
+            text="ANTIWORK"
+            color={textColor}
+            size={logoSize}
+            onOClick={handleOClick}
+            oRotation={oRotation}
+          />
         </header>
         <p
           className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-5xl"
@@ -357,7 +339,7 @@ function PageContent() {
               Stay in the loop
             </h2>
             <div
-              className="flex flex-col space-y-4 sm:flex-row sm:space-y-0"
+              className="flex flex-row space-y-0"
               style={{ border: `2px solid ${textColor}` }}
             >
               <input

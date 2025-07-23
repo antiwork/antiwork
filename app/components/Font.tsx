@@ -4,12 +4,16 @@ interface FontProps {
   text?: string;
   color?: string;
   size?: number;
+  onOClick?: () => void;
+  oRotation?: number;
 }
 
 export function Font({
   text = "ANTIWORK",
   color = "#000000",
   size = 176,
+  onOClick,
+  oRotation = 0,
 }: FontProps) {
   // Character definitions using SVG and width
   const charDefinitions: any = {
@@ -437,9 +441,30 @@ export function Font({
                 : "",
           };
 
+          const isClickableO = char === "O" && onOClick;
+
           const result = (
-            <div className="char" style={charStyles} key={`char-${charIndex}`}>
-              {charDef.render(color)}
+            <div
+              className={`char ${isClickableO ? "cursor-pointer" : ""}`}
+              style={charStyles}
+              key={`char-${charIndex}`}
+              onClick={isClickableO ? onOClick : undefined}
+            >
+              <div
+                style={{
+                  transform: isClickableO
+                    ? `rotate(${oRotation}deg)`
+                    : undefined,
+                  transition: isClickableO
+                    ? "transform 0.3s ease, opacity 0.2s ease"
+                    : undefined,
+                  opacity: 1,
+                  transformOrigin: isClickableO ? "42% center" : undefined,
+                }}
+                className={isClickableO ? "hover:opacity-80" : ""}
+              >
+                {charDef.render(color)}
+              </div>
             </div>
           );
 
