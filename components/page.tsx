@@ -90,6 +90,8 @@ function PageContent() {
         setLogoSize(80);
       } else if (window.innerWidth >= 640) {
         setLogoSize(60);
+      } else {
+        setLogoSize(40);
       }
     };
 
