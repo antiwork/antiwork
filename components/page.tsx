@@ -271,13 +271,18 @@ function PageContent() {
             className="mb-4 flex items-center md:mb-0"
             style={{ marginLeft: "-10px" }}
           >
-            <Font
-              text="ANTIWORK"
-              color={textColor}
-              size={logoSize}
-              splitOnMobile={true}
-              mobileBreakText="ANTI"
-            />
+            {/* Desktop: Single line ANTIWORK */}
+            <div className="hidden sm:block">
+              <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            </div>
+
+            {/* Mobile: Split into ANTI and WORK on separate lines */}
+            <div className="block sm:hidden">
+              <div className="flex flex-col items-center justify-center space-y-1">
+                <Font text="ANTI" color={textColor} size={logoSize} />
+                <Font text="WORK" color={textColor} size={logoSize} />
+              </div>
+            </div>
           </div>
           <div className="relative hidden sm:block">
             <button
