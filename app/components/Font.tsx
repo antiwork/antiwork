@@ -213,7 +213,7 @@ export function Font({
           viewBox={`0 0 212 176`}
           preserveAspectRatio="xMidYMid meet"
         >
-          <circle cx="100" cy="88" r="88" fill={color} />
+          <polygon points="88,0 176,88 88,176 0,88" fill={color} />
         </svg>
       ),
     },
