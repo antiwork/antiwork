@@ -147,7 +147,7 @@ function PageContent() {
     {
       name: "Flexile",
       url: "https://Flexile.com",
-      description: "Equity for everyone",
+      description: "Contractor payments as easy as 1-2-3",
       icon: <Trophy size={28} className="text-current" />,
     },
     {
@@ -326,10 +326,10 @@ function PageContent() {
               <a
                 href="https://Flexile.com"
                 className="underline hover:no-underline"
-                title="Flexile: equity for everyone"
+                title="Flexile: contractor payments as easy as 1-2-3"
                 style={{ color: textColor }}
               >
-                equity ownership
+                contractor management
               </a>
               .
             </p>
