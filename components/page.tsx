@@ -91,7 +91,7 @@ function PageContent() {
       } else if (window.innerWidth >= 640) {
         setLogoSize(60);
       } else {
-        setLogoSize(40);
+        setLogoSize(60);
       }
     };
 
