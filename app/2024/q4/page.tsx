@@ -348,7 +348,7 @@ export default function QuarterlyAllHands() {
               <ul className="space-y-3 text-sm text-gray-600">
                 <li>Flexible roles with options</li>
                 <li>Bounties & challenges</li>
-                <li>Self-serve equity distribution</li>
+                <li>Self-serve contractor management</li>
                 <li>Product-market fit validation</li>
               </ul>
             </div>
