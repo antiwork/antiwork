@@ -90,6 +90,8 @@ function PageContent() {
         setLogoSize(80);
       } else if (window.innerWidth >= 640) {
         setLogoSize(60);
+      } else {
+        setLogoSize(60);
       }
     };
 
@@ -271,7 +273,22 @@ function PageContent() {
             className="mb-4 flex items-center md:mb-0"
             style={{ marginLeft: "-10px" }}
           >
-            <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            {/* Desktop: Single line ANTIWORK */}
+            <div className="hidden sm:block">
+              <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            </div>
+
+            {/* Mobile: Split into ANTI and WORK on separate lines */}
+            <div className="block sm:hidden">
+              <div className="flex w-full flex-col items-center justify-center space-y-1 text-center">
+                <div className="flex w-full justify-center">
+                  <Font text="ANTI" color={textColor} size={logoSize} />
+                </div>
+                <div className="flex w-full justify-center">
+                  <Font text="WORK" color={textColor} size={logoSize} />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="relative hidden sm:block">
             <button
