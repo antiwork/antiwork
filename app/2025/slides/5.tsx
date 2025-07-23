@@ -80,7 +80,9 @@ export default function Slide5() {
                 height={48}
               />
             </div>
-            <span className="text-lg text-gray-600">payroll & contractor management</span>
+            <span className="text-lg text-gray-600">
+              payroll & contractor management
+            </span>
           </div>
         </div>
 
