@@ -253,14 +253,14 @@ export default function GeometricFont() {
           </div>
           <div className="flex gap-2">
             <button
-              onClick={() => setFontSize(Math.max(50, fontSize - 10))}
+              onClick={() => setFontSize(Math.max(16, fontSize - 10))}
               className="rounded bg-green-500 px-3 py-1 text-white"
             >
               Smaller
             </button>
             <input
               type="range"
-              min={50}
+              min={16}
               max={300}
               step={1}
               value={fontSize}
