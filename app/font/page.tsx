@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Font } from "../components/Font";
+import { products } from "../../components/page";
 
 export default function GeometricFont() {
   const [text, setText] = useState("ANTIWORK");
@@ -98,6 +99,26 @@ export default function GeometricFont() {
     // Adjust textarea height
     if (textareaRef.current) {
       textareaRef.current.value = alphabet;
+      adjustTextareaHeight(textareaRef.current);
+    }
+  };
+
+  const fillProductNames = () => {
+    const productNames = products
+      .map((product: { name: string }) => product.name)
+      .join("\n");
+    setText(productNames);
+
+    // Save to localStorage
+    try {
+      localStorage.setItem("geometricFontText", productNames);
+    } catch (e) {
+      console.error("Failed to save to localStorage:", e);
+    }
+
+    // Adjust textarea height
+    if (textareaRef.current) {
+      textareaRef.current.value = productNames;
       adjustTextareaHeight(textareaRef.current);
     }
   };
@@ -219,7 +240,8 @@ export default function GeometricFont() {
           onChange={handleTextChange}
         />
         <div className="button-group">
-          <button onClick={fillAlphabet}>Fill with Alphabet</button>
+          <button onClick={fillAlphabet}>Fill with alphabet</button>
+          <button onClick={fillProductNames}>Product names</button>
           <button id="darkModeToggle" onClick={toggleDarkMode}>
             {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
