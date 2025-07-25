@@ -23,6 +23,45 @@ import { generateRandomColors } from "@/utils/colors";
 import { Font } from "@/app/components/Font";
 import React from "react";
 
+export const products = [
+  {
+    name: "Flexile",
+    url: "https://Flexile.com",
+    description: "Contractor payments as easy as 1-2-3",
+    icon: <Trophy size={28} className="text-current" />,
+  },
+  {
+    name: "Gumroad",
+    url: "https://Gumroad.com",
+    description: "Sell your stuff. See what sticks",
+    icon: <Rocket size={28} className="text-current" />,
+  },
+  {
+    name: "Helper",
+    url: "https://Helper.ai",
+    description: "Customer support agents",
+    icon: <Mail size={28} className="text-current" />,
+  },
+  {
+    name: "Iffy",
+    url: "https://Iffy.com",
+    description: "Intelligent content moderation",
+    icon: <Hammer size={28} className="text-current" />,
+  },
+  {
+    name: "Jacquez",
+    url: "https://jacquez.com",
+    description: "A friendly moderator for OSS repos",
+    icon: <Shield size={28} className="text-current" />,
+  },
+  {
+    name: "Shortest",
+    url: "https://shortest.com",
+    description: "QA via natural language",
+    icon: <Sparkles size={28} className="text-current" />,
+  },
+];
+
 function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
@@ -149,45 +188,6 @@ function PageContent() {
       setIsSubmitting(false);
     }
   };
-
-  const products = [
-    {
-      name: "Flexile",
-      url: "https://Flexile.com",
-      description: "Contractor payments as easy as 1-2-3",
-      icon: <Trophy size={28} className="text-current" />,
-    },
-    {
-      name: "Gumroad",
-      url: "https://Gumroad.com",
-      description: "Sell your stuff. See what sticks",
-      icon: <Rocket size={28} className="text-current" />,
-    },
-    {
-      name: "Helper",
-      url: "https://Helper.ai",
-      description: "Customer support agents",
-      icon: <Mail size={28} className="text-current" />,
-    },
-    {
-      name: "Iffy",
-      url: "https://Iffy.com",
-      description: "Intelligent content moderation",
-      icon: <Hammer size={28} className="text-current" />,
-    },
-    {
-      name: "Jacquez",
-      url: "https://jacquez.com",
-      description: "A friendly moderator for OSS repos",
-      icon: <Shield size={28} className="text-current" />,
-    },
-    {
-      name: "Shortest",
-      url: "https://shortest.com",
-      description: "QA via natural language",
-      icon: <Sparkles size={28} className="text-current" />,
-    },
-  ];
 
   const values = [
     {

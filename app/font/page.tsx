@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Font } from "../components/Font";
+import { products } from "../../components/page";
 
 export default function GeometricFont() {
   const [text, setText] = useState("ANTIWORK");
@@ -98,6 +99,26 @@ export default function GeometricFont() {
     // Adjust textarea height
     if (textareaRef.current) {
       textareaRef.current.value = alphabet;
+      adjustTextareaHeight(textareaRef.current);
+    }
+  };
+
+  const fillProductNames = () => {
+    const productNames = products
+      .map((product: { name: string }) => product.name)
+      .join("\n");
+    setText(productNames);
+
+    // Save to localStorage
+    try {
+      localStorage.setItem("geometricFontText", productNames);
+    } catch (e) {
+      console.error("Failed to save to localStorage:", e);
+    }
+
+    // Adjust textarea height
+    if (textareaRef.current) {
+      textareaRef.current.value = productNames;
       adjustTextareaHeight(textareaRef.current);
     }
   };
@@ -219,7 +240,8 @@ export default function GeometricFont() {
           onChange={handleTextChange}
         />
         <div className="button-group">
-          <button onClick={fillAlphabet}>Fill with Alphabet</button>
+          <button onClick={fillAlphabet}>Fill with alphabet</button>
+          <button onClick={fillProductNames}>Product names</button>
           <button id="darkModeToggle" onClick={toggleDarkMode}>
             {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
@@ -231,14 +253,14 @@ export default function GeometricFont() {
           </div>
           <div className="flex gap-2">
             <button
-              onClick={() => setFontSize(Math.max(50, fontSize - 10))}
+              onClick={() => setFontSize(Math.max(16, fontSize - 10))}
               className="rounded bg-green-500 px-3 py-1 text-white"
             >
               Smaller
             </button>
             <input
               type="range"
-              min={50}
+              min={16}
               max={300}
               step={1}
               value={fontSize}
