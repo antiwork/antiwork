@@ -31,6 +31,12 @@ export const products = [
     icon: <Trophy size={28} className="text-current" />,
   },
   {
+    name: "Gumboard",
+    url: "https://gumboard.com",
+    description: "Stay on top of your team's to-dos",
+    icon: <Users size={28} className="text-current" />,
+  },
+  {
     name: "Gumroad",
     url: "https://Gumroad.com",
     description: "Sell your stuff. See what sticks",
