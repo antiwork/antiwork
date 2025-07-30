@@ -70,7 +70,7 @@ export default function NotFound() {
             </h1>
           </div>
         </header>
-        
+
         <main className="flex flex-col items-center justify-center text-center">
           <h2 className="mb-8 text-4xl font-bold sm:text-6xl lg:text-8xl xl:text-9xl">
             Four
@@ -81,17 +81,17 @@ export default function NotFound() {
           <h2 className="mb-12 text-4xl font-bold sm:text-6xl lg:text-8xl xl:text-9xl">
             Four
           </h2>
-          
+
           <p className="mb-8 text-sm sm:text-base lg:text-lg xl:text-2xl">
-            this page doesn't exist, but our work does.
+            this page doesn&apos;t exist, but our work does.
           </p>
-          
+
           <Link
             href="/"
             className="rounded px-6 py-3 text-sm font-bold transition-colors duration-300 hover:opacity-80 sm:text-base lg:text-lg xl:px-8 xl:py-4 xl:text-xl"
-            style={{ 
-              backgroundColor: textColor, 
-              color: backgroundColor 
+            style={{
+              backgroundColor: textColor,
+              color: backgroundColor,
             }}
           >
             go home
