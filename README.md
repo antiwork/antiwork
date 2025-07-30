@@ -2,10 +2,21 @@
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
 
 ```bash
-npm i next
+npm install
+```
+
+Then, get the env variables:
+
+```bash
+vercel env pull
+```
+
+Finally, run the development server:
+
+```bash
 npm run dev
 ```
 

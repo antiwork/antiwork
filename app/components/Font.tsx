@@ -15,6 +15,7 @@ export function Font({
   onOClick,
   oRotation = 0,
 }: FontProps) {
+  // Character definitions using SVG and width
   const charDefinitions: any = {
     A: {
       width: 212,
@@ -467,7 +468,7 @@ export function Font({
             </div>
           );
 
-          prevChar = char;
+          prevChar = char; // Remember current character for next iteration
           return result;
         })}
       </div>

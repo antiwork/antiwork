@@ -1,40 +1,83 @@
 "use client";
 
 import {
-  ArrowUpRight,
-  Shuffle,
   Sparkles,
-  Heart,
   Hammer,
   Trophy,
   Rocket,
   Mail,
+  Send,
   Users,
-  Crown,
-  Code,
-  HardHat,
+  ChefHat,
   LifeBuoy,
   Megaphone,
   Wrench,
   Headset,
   Palette,
-  Package,
-  Flame,
-  Puzzle,
   FileCode,
-  Brackets,
-  BugOff,
+  Shield,
 } from "lucide-react";
-import { useState, useEffect, useCallback, Suspense } from "react";
-import { Logo } from "@/app/components/Logo";
+import { useState, useEffect, useCallback, Suspense, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { generateRandomColors } from "@/utils/colors";
+import { Font } from "@/app/components/Font";
+import React from "react";
+
+export const products = [
+  {
+    name: "Flexile",
+    url: "https://Flexile.com",
+    description: "Contractor payments as easy as 1-2-3",
+    icon: <Trophy size={28} className="text-current" />,
+  },
+  {
+    name: "Gumboard",
+    url: "https://gumboard.com",
+    description: "Stay on top of your team's to-dos",
+    icon: <Users size={28} className="text-current" />,
+  },
+  {
+    name: "Gumroad",
+    url: "https://Gumroad.com",
+    description: "Sell your stuff. See what sticks",
+    icon: <Rocket size={28} className="text-current" />,
+  },
+  {
+    name: "Helper",
+    url: "https://Helper.ai",
+    description: "Customer support agents",
+    icon: <Mail size={28} className="text-current" />,
+  },
+  {
+    name: "Iffy",
+    url: "https://Iffy.com",
+    description: "Intelligent content moderation",
+    icon: <Hammer size={28} className="text-current" />,
+  },
+  {
+    name: "Jacquez",
+    url: "https://jacquez.com",
+    description: "A friendly moderator for OSS repos",
+    icon: <Shield size={28} className="text-current" />,
+  },
+  {
+    name: "Shortest",
+    url: "https://shortest.com",
+    description: "QA via natural language",
+    icon: <Sparkles size={28} className="text-current" />,
+  },
+];
 
 function PageContent() {
   const [backgroundColor, setBackgroundColor] = useState("");
   const [textColor, setTextColor] = useState("");
-  const [showShortcutHint, setShowShortcutHint] = useState(false);
-  const [logoSize, setLogoSize] = useState(32);
+  const [logoSize, setLogoSize] = useState(100);
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscribeStatus, setSubscribeStatus] = useState("");
+  const [colorsSetByUrl, setColorsSetByUrl] = useState(false);
+  const [showCredits, setShowCredits] = useState(false);
+  const [oRotation, setORotation] = useState(0);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -42,14 +85,18 @@ function PageContent() {
     const { backgroundColor, textColor } = generateRandomColors();
     setBackgroundColor(backgroundColor);
     setTextColor(textColor);
-    router.push(`?bg=${backgroundColor.slice(1)}&txt=${textColor.slice(1)}`);
-  }, [router]);
+  }, []);
 
   const setInitialColorsForPage = useCallback(() => {
     const { backgroundColor, textColor } = generateRandomColors();
     setBackgroundColor(backgroundColor);
     setTextColor(textColor);
   }, []);
+
+  const handleOClick = useCallback(() => {
+    setORotation((prev) => prev + 90);
+    generateRandomColorsForPage();
+  }, [generateRandomColorsForPage]);
 
   useEffect(() => {
     const bgColor = searchParams.get("bg");
@@ -58,8 +105,10 @@ function PageContent() {
     if (bgColor && txtColor) {
       setBackgroundColor(`#${bgColor}`);
       setTextColor(`#${txtColor}`);
+      setColorsSetByUrl(true);
     } else {
       setInitialColorsForPage();
+      setColorsSetByUrl(false);
     }
   }, [searchParams, setInitialColorsForPage]);
 
@@ -71,9 +120,7 @@ function PageContent() {
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === "s" || event.key === "S") {
-        generateRandomColorsForPage();
-      }
+      generateRandomColorsForPage();
     };
 
     window.addEventListener("keydown", handleKeyPress);
@@ -85,14 +132,16 @@ function PageContent() {
 
   useEffect(() => {
     const updateLogoSize = () => {
-      if (window.innerWidth >= 1280) {
-        setLogoSize(64);
+      if (window.innerWidth >= 1920) {
+        setLogoSize(200);
+      } else if (window.innerWidth >= 1280) {
+        setLogoSize(100);
       } else if (window.innerWidth >= 1024) {
-        setLogoSize(40);
+        setLogoSize(80);
       } else if (window.innerWidth >= 640) {
-        setLogoSize(34);
+        setLogoSize(60);
       } else {
-        setLogoSize(28);
+        setLogoSize(36);
       }
     };
 
@@ -104,98 +153,77 @@ function PageContent() {
     };
   }, []);
 
-  const products = [
-    {
-      name: "Flexile",
-      url: "https://Flexile.com",
-      description: "payroll & equity for everyone",
-      icon: <Trophy size={28} className="text-current" />,
-    },
-    {
-      name: "Gumroad",
-      url: "https://Gumroad.com",
-      description: "sell your stuff. see what sticks",
-      icon: <Rocket size={28} className="text-current" />,
-    },
-    {
-      name: "Helper",
-      url: "https://Helper.ai",
-      description: "customer support agents",
-      icon: <Mail size={28} className="text-current" />,
-    },
-    {
-      name: "Iffy",
-      url: "https://Iffy.com",
-      description: "intelligent content moderation",
-      icon: <Hammer size={28} className="text-current" />,
-    },
-    {
-      name: "Shortest",
-      url: "https://shortest.com",
-      description: "QA via natural language AI tests",
-      icon: <Sparkles size={28} className="text-current" />,
-    },
-  ];
+  const handleSubscribe = async () => {
+    // Reset status
+    setSubscribeStatus("");
+
+    // Validate email
+    if (!email || !email.includes("@")) {
+      setSubscribeStatus("Please enter a valid email");
+      return;
+    }
+
+    // Set submitting state
+    setIsSubmitting(true);
+
+    try {
+      // Call the API endpoint
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "something went wrong");
+      }
+
+      // Success
+      setEmail("");
+      setSubscribeStatus("You're in the loop!");
+    } catch (error) {
+      // Handle error
+      setSubscribeStatus(
+        `Error: ${error instanceof Error ? error.message : "Something went wrong"}`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const values = [
     {
-      title: "make work play",
+      title: "Make work play",
       icon: <Sparkles size={28} className="text-current" />,
-      points: [
-        "ship products that make work fun",
-        "make the office a playground",
-        "celebrate wins big and small",
-      ],
+      points: ["Make the office a playground", "Celebrate wins big and small"],
     },
     {
-      title: "play to win",
+      title: "Play to win",
       icon: <Trophy size={28} className="text-current" />,
-      points: [
-        "ship world-class software",
-        "play with the best",
-        "win as a team",
-      ],
+      points: ["Ship world-class software", "Win as a team"],
     },
     {
-      title: "build for builders",
+      title: "Build for builders",
       icon: <Hammer size={28} className="text-current" />,
-      points: [
-        "open-source everything",
-        "teach what we know",
-        "unlock people's potential",
-      ],
+      points: ["Open-source everything", "Teach what we know"],
     },
     {
-      title: "time to think",
+      title: "Time to think",
       icon: <Rocket size={28} className="text-current" />,
-      points: ["automate busywork", "think creatively", "unlock our potential"],
+      points: ["Automate busywork", "Think creatively"],
     },
   ];
 
   const teamPlayers = [
     {
       name: "Sahil Lavingia",
-      title: "founder & ceo",
+      title: "head chef",
       url: "https://sahillavingia.com",
-      icon: <Crown size={28} className="text-current" />,
-    },
-    {
-      name: "Connor Mann",
-      title: "staff software engineer",
-      url: "https://x.com/cnnrmnn",
-      icon: <Code size={28} className="text-current" />,
-    },
-    {
-      name: "Sharang Dashputre",
-      title: "head of engineering",
-      url: "",
-      icon: <HardHat size={28} className="text-current" />,
-    },
-    {
-      name: "Razvan Marescu",
-      title: "antiworker",
-      url: "https://razvan.marescu.com",
-      icon: <Rocket size={28} className="text-current" />,
+      icon: <ChefHat size={28} className="text-current" />,
     },
     {
       name: "Vatsal Kaushik",
@@ -208,12 +236,6 @@ function PageContent() {
       title: "staff software engineer",
       url: "https://x.com/ershus",
       icon: <FileCode size={28} className="text-current" />,
-    },
-    {
-      name: "Maya Rainer",
-      title: "chief destroyer of technical debt",
-      url: "https://www.twitch.tv/mayarainer",
-      icon: <BugOff size={28} className="text-current" />,
     },
     {
       name: "Madison Hill",
@@ -229,7 +251,7 @@ function PageContent() {
     },
     {
       name: "Andie Manning",
-      title: "forehead of support",
+      title: "customer supporter",
       url: "",
       icon: <Headset size={28} className="text-current" />,
     },
@@ -240,34 +262,9 @@ function PageContent() {
       icon: <Palette size={28} className="text-current" />,
     },
     {
-      name: "Raphael Costa",
-      title: "senior product engineer",
-      url: "",
-      icon: <Package size={28} className="text-current" />,
-    },
-    {
-      name: "Daniel Gonzalez Reina",
-      title: "oven source engineer",
-      url: "https://x.com/dgrcode",
-      icon: <Flame size={28} className="text-current" />,
-    },
-    {
-      name: "Raul Popadineți",
-      title: "senior integrations alien",
-      titleHover: "master of quickbooks, github, and irs chaos",
-      url: "https://x.com/RaulOnRails",
-      icon: <Puzzle size={28} className="text-current" />,
-    },
-    {
-      name: "Seth Thompson",
-      title: "staff software engineer",
-      url: "https://seththompson.com/",
-      icon: <Brackets size={28} className="text-current" />,
-    },
-    {
       name: "join us",
       title: "contribute to our open source software",
-      url: "https://github.com/anti-work",
+      url: "https://github.com/antiwork",
       icon: <Users size={28} className="text-current" />,
     },
   ];
@@ -281,54 +278,28 @@ function PageContent() {
         color: textColor,
       }}
     >
-      <div className="mx-auto max-w-4xl px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16 xl:py-24">
-        <header className="flex flex-col items-start justify-between sm:flex-row sm:items-center md:mb-8 xl:mb-16">
-          <div className="mb-4 flex items-center md:mb-0">
-            <div className="mt-[1px] md:mt-[0px] lg:mt-[1px] xl:mt-[2px]">
-              <Logo
-                size={logoSize}
-                color={textColor}
-                background="transparent"
-              />
-            </div>
-            <h1 className="ml-3 text-2xl font-bold sm:text-3xl lg:text-4xl xl:text-6xl">
-              Antiwork
-            </h1>
-          </div>
-          <div
-            className="relative hidden sm:block"
-            onMouseEnter={() => setShowShortcutHint(true)}
-            onMouseLeave={() => setShowShortcutHint(false)}
-          >
-            <button
-              onClick={generateRandomColorsForPage}
-              className="rounded p-2 xl:p-4"
-              style={{ backgroundColor: textColor, color: backgroundColor }}
-            >
-              <Shuffle size={24} className="xl:h-8 xl:w-8" />
-            </button>
-            {showShortcutHint && (
-              <div
-                className="absolute right-0 mt-2 rounded px-2 py-1 text-xs xl:text-sm"
-                style={{ backgroundColor: textColor, color: backgroundColor }}
-              >
-                Press &apos;S&apos; to shuffle
-              </div>
-            )}
-          </div>
+      <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
+        <header className="mb-8 flex flex-row items-start xl:mb-16">
+          <Font
+            text="ANTIWORK"
+            color={textColor}
+            size={logoSize}
+            onOClick={handleOClick}
+            oRotation={oRotation}
+          />
         </header>
         <p
-          className="mb-8 text-sm font-bold sm:text-base lg:text-lg xl:mb-16 xl:text-4xl"
+          className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-5xl"
           style={{ color: textColor }}
         >
-          on a mission to make <span title="boring, rote">Work</span>{" "}
+          On a mission to make <span title="boring, rote">work</span>{" "}
           <span title="fun, creative">play</span>.
         </p>
 
         <main>
           <section className="mb-8 xl:mb-16">
-            <p className="text-sm sm:text-base lg:text-lg xl:mb-16 xl:text-2xl">
-              we build software that liberates creative builders from what they
+            <p className="text-sm sm:text-base lg:text-xl xl:mb-16 xl:text-3xl">
+              We build software that liberates creative builders from what they
               consider toil—whether it&apos;s{" "}
               <a
                 href="https://shortest.com"
@@ -360,25 +331,67 @@ function PageContent() {
               <a
                 href="https://Flexile.com"
                 className="underline hover:no-underline"
-                title="Flexile: payroll & equity for everyone"
+                title="Flexile: contractor payments as easy as 1-2-3"
                 style={{ color: textColor }}
               >
-                payroll
+                contractor management
               </a>
               .
             </p>
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
-              crafted with pride
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
+              Stay in the loop
+            </h2>
+            <div
+              className="flex flex-row space-y-0"
+              style={{ border: `2px solid ${textColor}` }}
+            >
+              <input
+                type="email"
+                placeholder="Your email"
+                className="flex-1 bg-transparent px-4 py-2 text-sm placeholder-current sm:text-base lg:text-xl xl:text-2xl"
+                style={{
+                  color: textColor,
+                }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <div className="relative">
+                <button
+                  onClick={handleSubscribe}
+                  className="p-4"
+                  style={{
+                    backgroundColor: textColor,
+                    color: backgroundColor,
+                  }}
+                  disabled={isSubmitting}
+                >
+                  <Send size={24} className="xl:h-10 xl:w-10" />
+                </button>
+              </div>
+            </div>
+            {subscribeStatus && (
+              <p
+                className="mt-2 text-sm lg:text-base xl:text-xl"
+                style={{ color: textColor }}
+              >
+                {subscribeStatus}
+              </p>
+            )}
+          </section>
+
+          <section className="mb-8 xl:mb-16">
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
+              Crafted with pride
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {products.map((product) => (
                 <div key={product.name} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
                     {product.icon}
-                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl">
                       <a
                         href={product.url}
                         className="underline hover:no-underline"
@@ -389,7 +402,7 @@ function PageContent() {
                     </h3>
                   </div>
                   <p
-                    className="text-xs sm:text-sm xl:text-base"
+                    className="text-xs sm:text-sm lg:text-base xl:text-xl"
                     style={{ color: textColor }}
                   >
                     {product.description}
@@ -400,15 +413,15 @@ function PageContent() {
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
-              playground rules
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
+              Playground rules
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:gap-12">
               {values.map((value) => (
                 <div key={value.title} style={{ borderColor: textColor }}>
                   <div className="mb-2 flex items-center xl:mb-4">
                     {value.icon}
-                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl">
                       {value.title}
                     </h3>
                   </div>
@@ -416,7 +429,7 @@ function PageContent() {
                     {value.points.map((point, pointIndex) => (
                       <p
                         key={pointIndex}
-                        className="text-xs sm:text-sm xl:text-base"
+                        className="text-xs sm:text-sm lg:text-base xl:text-xl"
                         style={{ color: textColor }}
                       >
                         {point}
@@ -429,41 +442,90 @@ function PageContent() {
           </section>
 
           <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-lg xl:text-4xl">
-              team players
+            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
+              Team players
             </h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-8">
-              {teamPlayers.map((player) => (
-                <div key={player.name} style={{ borderColor: textColor }}>
-                  <div className="mb-2 flex items-center xl:mb-4">
-                    {player.icon}
-                    <h3 className="ml-2 text-sm font-bold sm:text-base lg:text-lg xl:text-xl">
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+              <button
+                className="px-4 py-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
+                style={{
+                  backgroundColor: textColor,
+                  color: backgroundColor,
+                }}
+                onClick={() => setShowCredits(true)}
+              >
+                Roll the credits
+              </button>
+              <a
+                href="/bounties"
+                className="inline-block px-4 py-2 text-center text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
+                style={{
+                  backgroundColor: textColor,
+                  color: backgroundColor,
+                }}
+              >
+                Join us
+              </a>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      {/* Star Wars Style Credits */}
+      {showCredits && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black"
+          onClick={() => setShowCredits(false)}
+        >
+          <div className="credits-container h-full w-full overflow-hidden">
+            {/* Header */}
+            <div className="absolute left-0 top-8 w-full text-center">
+              <h2 className="mb-8 text-4xl font-bold text-white lg:text-5xl xl:text-6xl">
+                CAST
+              </h2>
+            </div>
+
+            {/* Movie-style credits */}
+            <div className="relative mx-auto w-full max-w-lg animate-starwars pt-24 text-center text-white">
+              <div className="grid grid-cols-2 gap-1">
+                {teamPlayers.map((player) => (
+                  <React.Fragment key={player.name}>
+                    <div className="mb-6 pr-4 text-right text-xl lg:text-2xl xl:text-3xl">
                       {player.url ? (
                         <a
                           href={player.url}
                           className="underline hover:no-underline"
-                          style={{ color: textColor }}
                         >
                           {player.name}
                         </a>
                       ) : (
                         player.name
                       )}
-                    </h3>
-                  </div>
-                  <p
-                    className="text-xs sm:text-sm xl:text-base"
-                    style={{ color: textColor }}
-                    title={player.titleHover}
-                  >
-                    {player.title}
-                  </p>
-                </div>
-              ))}
+                    </div>
+                    <div className="mb-6 pl-4 text-left text-xl uppercase lg:text-2xl xl:text-3xl">
+                      {player.title}
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+
+              <div className="mt-12 pt-12 text-center">
+                <h3 className="mb-6 text-2xl font-bold uppercase text-white lg:text-3xl xl:text-4xl">
+                  ANTIWORK
+                </h3>
+                <p className="text-xl text-white lg:text-2xl xl:text-3xl">
+                  On a mission to make work play
+                </p>
+              </div>
             </div>
-          </section>
-        </main>
-      </div>
+
+            {/* Exit instructions */}
+            <div className="absolute bottom-4 left-0 w-full text-center text-sm text-white opacity-70 lg:text-base xl:text-xl">
+              Click anywhere to return
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
