@@ -61,7 +61,7 @@ export default function NotFound() {
             <Font text="FOUR" color={textColor} size={fontSize} />
           </div>
           <div className="mb-8">
-            <Font text="ZERO" color={textColor} size={fontSize} />
+            <Font text="OH" color={textColor} size={fontSize} />
           </div>
           <div className="mb-12">
             <Font text="FOUR" color={textColor} size={fontSize} />
