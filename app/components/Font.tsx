@@ -19,6 +19,8 @@ export function Font({
   const charDefinitions: any = {
     A: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -32,6 +34,8 @@ export function Font({
     },
     B: {
       width: 176,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(176 * size) / 176}`}
@@ -46,6 +50,8 @@ export function Font({
     },
     C: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: true,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -59,6 +65,8 @@ export function Font({
     },
     D: {
       width: 176,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(176 * size) / 176}`}
@@ -72,6 +80,8 @@ export function Font({
     },
     E: {
       width: 212,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -87,6 +97,8 @@ export function Font({
     },
     F: {
       width: 176,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -101,6 +113,8 @@ export function Font({
     },
     G: {
       width: 212,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -115,6 +129,8 @@ export function Font({
     },
     H: {
       width: 200,
+      fullHeightLeft: true,
+      fullHeightRight: true,
       render: (color: string) => (
         <svg
           width={`${(200 * size) / 176}`}
@@ -129,6 +145,8 @@ export function Font({
     },
     I: {
       width: 112,
+      fullHeightLeft: true,
+      fullHeightRight: true,
       render: (color: string) => (
         <svg
           width={`${(100 * size) / 176}`}
@@ -142,6 +160,8 @@ export function Font({
     },
     J: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: true,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -155,6 +175,8 @@ export function Font({
     },
     K: {
       width: 200,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -169,6 +191,8 @@ export function Font({
     },
     L: {
       width: 200,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -182,6 +206,8 @@ export function Font({
     },
     M: {
       width: 260,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(250 * size) / 176}`}
@@ -196,6 +222,8 @@ export function Font({
     },
     N: {
       width: 212,
+      fullHeightLeft: true,
+      fullHeightRight: true,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -209,20 +237,24 @@ export function Font({
       ),
     },
     O: {
-      width: 212,
+      width: 185,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
-          width={`${(212 * size) / 176}`}
+          width={`${(185 * size) / 176}`}
           height={size}
-          viewBox={`0 0 212 176`}
+          viewBox="0 0 185 176"
           preserveAspectRatio="xMidYMid meet"
         >
-          <polygon points="88,0 176,88 88,176 0,88" fill={color} />
+          <polygon points="92.5,0 185,88 92.5,176 0,88" fill={color} />
         </svg>
       ),
     },
     P: {
       width: 176,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -236,6 +268,8 @@ export function Font({
     },
     Q: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -250,6 +284,8 @@ export function Font({
     },
     R: {
       width: 200,
+      fullHeightLeft: true,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(176 * size) / 176}`}
@@ -264,6 +300,8 @@ export function Font({
     },
     S: {
       width: 200,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -279,6 +317,8 @@ export function Font({
     },
     T: {
       width: 185,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -292,20 +332,24 @@ export function Font({
       ),
     },
     U: {
-      width: 212,
+      width: 200,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
-          width={`${(212 * size) / 176}`}
+          width={`${(176 * size) / 176}`}
           height={size}
-          viewBox={`0 0 212 176`}
+          viewBox={`0 0 176 176`}
           preserveAspectRatio="xMidYMid meet"
         >
-          <polygon points="18,0 106,176 194,0" fill={color} />
+          <polygon points="0,0 88,176 176,0" fill={color} />
         </svg>
       ),
     },
     V: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -318,7 +362,9 @@ export function Font({
       ),
     },
     W: {
-      width: 276,
+      width: 250,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(250 * size) / 176}`}
@@ -333,6 +379,8 @@ export function Font({
     },
     X: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -347,6 +395,8 @@ export function Font({
     },
     Y: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -361,6 +411,8 @@ export function Font({
     },
     Z: {
       width: 212,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(212 * size) / 176}`}
@@ -376,6 +428,8 @@ export function Font({
     },
     "2": {
       width: 222,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(200 * size) / 176}`}
@@ -391,10 +445,14 @@ export function Font({
     },
     " ": {
       width: 90,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: () => <svg width={`${(88 * size) / 176}`} height={size}></svg>,
     },
     ".": {
       width: 70,
+      fullHeightLeft: false,
+      fullHeightRight: false,
       render: (color: string) => (
         <svg
           width={`${(70 * size) / 176}`}
@@ -409,7 +467,7 @@ export function Font({
   };
 
   const renderText = () => {
-    let prevChar = "";
+    let prevCharDef: any = null;
 
     return (
       <div
@@ -422,6 +480,15 @@ export function Font({
       >
         {Array.from(text.toUpperCase()).map((char, charIndex) => {
           const charDef = charDefinitions[char] || charDefinitions[" "];
+          let marginLeft = (10 * size) / 176;
+
+          if (
+            prevCharDef &&
+            prevCharDef.fullHeightRight &&
+            charDef.fullHeightLeft
+          ) {
+            marginLeft = (20 * size) / 176;
+          }
 
           const charStyles: React.CSSProperties = {
             width: `${(charDef.width * size) / 176}px`,
@@ -430,15 +497,7 @@ export function Font({
             margin: "0",
             padding: "0",
             marginRight: `${(10 * size) / 176}px`,
-            marginLeft:
-              (char === "O" &&
-                (prevChar === "W" ||
-                  prevChar === "V" ||
-                  prevChar === "L" ||
-                  prevChar === "O")) ||
-              (char === "V" && prevChar === "L")
-                ? `${(-20 * size) / 176}px`
-                : "",
+            marginLeft: charIndex > 0 ? `${marginLeft}px` : "",
           };
 
           const isClickableO = char === "O" && onOClick;
@@ -468,7 +527,7 @@ export function Font({
             </div>
           );
 
-          prevChar = char; // Remember current character for next iteration
+          prevCharDef = charDef; // Remember current character definition for next iteration
           return result;
         })}
       </div>
