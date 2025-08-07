@@ -22,11 +22,12 @@ interface ProcessedIssue extends GitHubIssue {
   repository: string;
 }
 
-const BOUNTY_LABELS = ["$1K", "$2.5K", "$5K", "$10K"];
+const BOUNTY_LABELS = ["$1K", "$2.5K", "$5K", "$10K", "$20K"];
 const REPOSITORIES = [
   "antiwork/gumroad",
   "antiwork/flexile",
   "antiwork/helper",
+  "antiwork/gumboard",
 ];
 
 const CACHE_TTL_MS = 5 * 60 * 1000;
@@ -116,6 +117,7 @@ export async function GET() {
           "$2.5K": 2500,
           $5K: 5000,
           $10K: 10000,
+          $20K: 20000,
         };
         return values[bountyLabel?.name || ""] || 0;
       };
