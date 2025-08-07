@@ -35,6 +35,7 @@ interface GitHubIssue {
   }>;
   comments: number;
   repository: string;
+  bounty_label?: string;
 }
 
 interface BountiesData {
@@ -149,7 +150,10 @@ function BountiesContent() {
     fetchBounties();
   }, []);
 
-  const getBountyAmount = (labels: Array<{ name: string }>) => {
+  const getBountyAmount = (labels: Array<{ name: string }>, fallback?: string) => {
+    if (fallback && ["$1K", "$2.5K", "$5K", "$10K", "$20K"].includes(fallback)) {
+      return fallback;
+    }
     const bountyLabel = labels.find((label) =>
       ["$1K", "$2.5K", "$5K", "$10K", "$20K"].includes(label.name)
     );
@@ -172,7 +176,7 @@ function BountiesContent() {
 
     if (amountFilter !== "All") {
       filtered = filtered.filter(
-        (issue) => getBountyAmount(issue.labels) === amountFilter
+        (issue) => getBountyAmount(issue.labels, issue.bounty_label) === amountFilter
       );
     }
 
@@ -182,8 +186,8 @@ function BountiesContent() {
 
     return filtered.sort((a, b) => {
       if (sortBy === "amount") {
-        const amountA = getBountyValue(getBountyAmount(a.labels));
-        const amountB = getBountyValue(getBountyAmount(b.labels));
+        const amountA = getBountyValue(getBountyAmount(a.labels, a.bounty_label));
+        const amountB = getBountyValue(getBountyAmount(b.labels, b.bounty_label));
         return amountB - amountA;
       } else if (sortBy === "date") {
         return (
@@ -391,74 +395,75 @@ function BountiesContent() {
               ) : (
                 <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8">
                   {filteredAndSortedIssues.map((issue) => (
-                    <Card
+                    <a
                       key={issue.id}
-                      className="transition-all hover:shadow-lg"
-                      style={{
-                        backgroundColor: backgroundColor,
-                        borderColor: textColor,
-                        color: textColor,
-                      }}
+                      href={issue.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block"
+                      aria-label={`Open issue ${issue.title} on GitHub`}
+                      style={{ color: textColor }}
                     >
-                      <CardHeader>
-                        <div className="flex items-start justify-between gap-4">
-                          <CardTitle className="text-sm font-bold leading-tight sm:text-base lg:text-lg">
-                            <a
-                              href={issue.html_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hover:underline"
-                              style={{ color: textColor }}
-                            >
+                      <Card
+                        className="transition-all hover:shadow-lg"
+                        style={{
+                          backgroundColor: backgroundColor,
+                          borderColor: textColor,
+                          color: textColor,
+                        }}
+                      >
+                        <CardHeader>
+                          <div className="flex items-start justify-between gap-4">
+                            <CardTitle className="text-sm font-bold leading-tight sm:text-base lg:text-lg group-hover:underline">
                               {issue.title}
-                            </a>
-                          </CardTitle>
-                          <div className="flex shrink-0 items-center gap-2">
-                            <span
-                              className="rounded px-2 py-1 text-xs font-bold"
-                              style={{
-                                backgroundColor: textColor,
-                                color: backgroundColor,
-                              }}
-                            >
-                              {getBountyAmount(issue.labels)}
-                            </span>
-                            <ExternalLink size={16} />
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-4 text-xs sm:text-sm">
-                            <div className="flex items-center gap-1">
-                              <Github size={14} />
-                              <span className="font-medium">
-                                {issue.repository}
+                            </CardTitle>
+                            <div className="flex shrink-0 items-center gap-2">
+                              <span
+                                className="rounded px-2 py-1 text-xs font-bold"
+                                style={{
+                                  backgroundColor: textColor,
+                                  color: backgroundColor,
+                                }}
+                              >
+                                {getBountyAmount(issue.labels, issue.bounty_label)}
                               </span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <span>#{issue.number}</span>
+                              <ExternalLink size={16} />
                             </div>
                           </div>
-                          <div className="flex items-center justify-between text-xs opacity-75">
-                            <div className="flex items-center gap-1">
-                              <User size={12} />
-                              <span>{issue.user.login}</span>
-                            </div>
-                            <div className="flex items-center gap-3">
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-3">
+                            <div className="flex items-center gap-4 text-xs sm:text-sm">
                               <div className="flex items-center gap-1">
-                                <MessageSquare size={12} />
-                                <span>{issue.comments}</span>
+                                <Github size={14} />
+                                <span className="font-medium">
+                                  {issue.repository}
+                                </span>
                               </div>
                               <div className="flex items-center gap-1">
-                                <Calendar size={12} />
-                                <span>{formatDate(issue.created_at)}</span>
+                                <span>#{issue.number}</span>
+                              </div>
+                            </div>
+                            <div className="flex items-center justify-between text-xs opacity-75">
+                              <div className="flex items-center gap-1">
+                                <User size={12} />
+                                <span>{issue.user.login}</span>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-1">
+                                  <MessageSquare size={12} />
+                                  <span>{issue.comments}</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <Calendar size={12} />
+                                  <span>{formatDate(issue.created_at)}</span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                        </CardContent>
+                      </Card>
+                    </a>
                   ))}
                 </div>
               )}

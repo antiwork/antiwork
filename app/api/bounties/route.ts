@@ -20,6 +20,7 @@ interface GitHubIssue {
 
 interface ProcessedIssue extends GitHubIssue {
   repository: string;
+  bounty_label?: string;
 }
 
 const BOUNTY_LABELS = ["$1K", "$2.5K", "$5K", "$10K", "$20K"];
@@ -49,8 +50,14 @@ async function fetchIssuesForRepo(
     "User-Agent": "Antiwork-Bounties-App",
   };
 
-  if (process.env.flexile_devin_github_pat) {
-    headers.Authorization = `token ${process.env.flexile_devin_github_pat}`;
+  // Prefer common env var names but keep backward compatibility with existing one
+  const token =
+    process.env.GITHUB_TOKEN ||
+    process.env.GH_TOKEN ||
+    process.env.GITHUB_PAT ||
+    process.env.flexile_devin_github_pat;
+  if (token) {
+    headers.Authorization = `token ${token}`;
   }
 
   const response = await fetch(url, {
@@ -91,6 +98,8 @@ export async function GET() {
           const processedIssues = issues.map((issue) => ({
             ...issue,
             repository: repo,
+            // Canonicalize the bounty label using the label we queried for to avoid case/format drift
+            bounty_label: label,
           }));
           allIssues.push(...processedIssues);
         } catch (error) {
