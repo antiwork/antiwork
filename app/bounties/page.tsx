@@ -111,8 +111,12 @@ function BountiesContent() {
         setLogoSize(100);
       } else if (window.innerWidth >= 1024) {
         setLogoSize(80);
-      } else if (window.innerWidth >= 640) {
+      } else if (window.innerWidth >= 590) {
         setLogoSize(60);
+      } else if (window.innerWidth >= 470) {
+        setLogoSize(48);
+      } else {
+        setLogoSize(36);
       }
     };
 
