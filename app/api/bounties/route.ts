@@ -16,6 +16,7 @@ interface GitHubIssue {
     color: string;
   }>;
   comments: number;
+  pull_request?: Record<string, unknown>;
 }
 
 interface ProcessedIssue extends GitHubIssue {
@@ -38,11 +39,8 @@ let cachedData: {
 } | null = null;
 let cacheTimestamp: number = 0;
 
-async function fetchIssuesForRepo(
-  repo: string,
-  label: string
-): Promise<GitHubIssue[]> {
-  const url = `https://api.github.com/repos/${repo}/issues?labels=${encodeURIComponent(label)}&state=open&per_page=100`;
+async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
+  const url = `https://api.github.com/repos/${repo}/issues?state=open&per_page=100`;
 
   const headers: Record<string, string> = {
     Accept: "application/vnd.github.v3+json",
@@ -81,27 +79,30 @@ export async function GET() {
     }
 
     console.log("Fetching fresh bounties data from GitHub API");
-    const allIssues: ProcessedIssue[] = [];
     const errors: string[] = [];
 
-    for (const repo of REPOSITORIES) {
-      for (const label of BOUNTY_LABELS) {
+    const repoIssueResults = await Promise.all(
+      REPOSITORIES.map(async (repo) => {
         try {
-          const issues = await fetchIssuesForRepo(repo, label);
-          const processedIssues = issues.map((issue) => ({
-            ...issue,
-            repository: repo,
-          }));
-          allIssues.push(...processedIssues);
+          const issues = await fetchIssuesForRepo(repo);
+          return { repo, issues };
         } catch (error) {
-          console.error(
-            `Error fetching issues for ${repo} with label ${label}:`,
-            error
-          );
-          errors.push(`Failed to fetch ${label} issues from ${repo}`);
+          console.error(`Error fetching issues for ${repo}:`, error);
+          errors.push(`Failed to fetch issues from ${repo}`);
+          return { repo, issues: [] as GitHubIssue[] };
         }
-      }
-    }
+      })
+    );
+
+    const allIssues: ProcessedIssue[] = repoIssueResults.flatMap(
+      ({ repo, issues }) =>
+        issues
+          .filter((issue: any) => !issue.pull_request)
+          .filter((issue) =>
+            issue.labels.some((l) => BOUNTY_LABELS.includes(l.name))
+          )
+          .map((issue) => ({ ...issue, repository: repo }))
+    );
 
     const uniqueIssues = allIssues.filter(
       (issue, index, self) => index === self.findIndex((i) => i.id === issue.id)
