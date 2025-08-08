@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const revalidate = 300; // 5 minutes
+
 interface GitHubIssue {
   id: number;
   number: number;
@@ -53,6 +55,7 @@ async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
 
   const response = await fetch(url, {
     headers,
+    next: { revalidate: Math.floor(CACHE_TTL_MS / 1000) },
   });
 
   if (!response.ok) {
