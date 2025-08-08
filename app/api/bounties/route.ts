@@ -47,8 +47,8 @@ async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
     "User-Agent": "Antiwork-Bounties-App",
   };
 
-  if (process.env.GITHUB_TOKEN) {
-    headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
+  if (process.env.GH_TOKEN) {
+    headers.Authorization = `token ${process.env.GH_TOKEN}`;
   }
 
   const response = await fetch(url, {
