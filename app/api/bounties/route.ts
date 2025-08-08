@@ -49,8 +49,8 @@ async function fetchIssuesForRepo(
     "User-Agent": "Antiwork-Bounties-App",
   };
 
-  if (process.env.flexile_devin_github_pat) {
-    headers.Authorization = `token ${process.env.flexile_devin_github_pat}`;
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
   }
 
   const response = await fetch(url, {
