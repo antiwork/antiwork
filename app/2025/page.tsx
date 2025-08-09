@@ -6,6 +6,7 @@ import Slide2 from "./slides/2";
 import Slide3 from "./slides/3";
 import Slide5 from "./slides/5";
 import Slide7 from "./slides/7";
+import Slide11 from "./slides/11";
 import Slide12 from "./slides/12";
 import Slide13 from "./slides/13";
 import Slide14 from "./slides/14";
@@ -18,6 +19,7 @@ export default function AnnualMeeting() {
     <Slide3 key={3} />,
     <Slide5 key={5} />,
     <Slide7 key={7} />,
+    <Slide11 key={11} />,
     <Slide12 key={12} />,
     <Slide13 key={13} />,
     <Slide14 key={14} />,
