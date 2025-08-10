@@ -427,7 +427,9 @@ function BountiesContent() {
                             >
                               {getBountyAmount(issue.labels)}
                             </span>
-                            <ExternalLink size={16} />
+                            <a href={issue.html_url}>
+                              <ExternalLink size={16} />
+                            </a>
                           </div>
                         </div>
                       </CardHeader>
