@@ -427,7 +427,15 @@ function BountiesContent() {
                             >
                               {getBountyAmount(issue.labels)}
                             </span>
-                            <ExternalLink size={16} />
+                            <a
+                              href={issue.html_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:opacity-75"
+                              style={{ color: textColor }}
+                            >
+                              <ExternalLink size={16} />
+                            </a>
                           </div>
                         </div>
                       </CardHeader>
