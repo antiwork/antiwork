@@ -427,7 +427,14 @@ function BountiesContent() {
                             >
                               {getBountyAmount(issue.labels)}
                             </span>
-                            <ExternalLink size={16} />
+                            <a
+                              className="hover:underline"
+                              href={issue.html_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink size={16} />
+                            </a>
                           </div>
                         </div>
                       </CardHeader>
@@ -436,18 +443,39 @@ function BountiesContent() {
                           <div className="flex items-center gap-4 text-xs sm:text-sm">
                             <div className="flex items-center gap-1">
                               <Github size={14} />
-                              <span className="font-medium">
-                                {issue.repository}
-                              </span>
+                              <a
+                                className="hover:underline"
+                                href={`https://github.com/${issue.repository}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <span className="font-medium">
+                                  {issue.repository}
+                                </span>
+                              </a>
                             </div>
                             <div className="flex items-center gap-1">
-                              <span>#{issue.number}</span>
+                              <a
+                                className="hover:underline"
+                                href={issue.html_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <span>#{issue.number}</span>
+                              </a>
                             </div>
                           </div>
                           <div className="flex items-center justify-between text-xs opacity-75">
                             <div className="flex items-center gap-1">
                               <User size={12} />
-                              <span>{issue.user.login}</span>
+                              <a
+                                className="hover:underline"
+                                href={`https://github.com/${issue.user.login}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <span>{issue.user.login}</span>
+                              </a>
                             </div>
                             <div className="flex items-center gap-3">
                               <div className="flex items-center gap-1">
