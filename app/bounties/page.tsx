@@ -275,6 +275,20 @@ function BountiesContent() {
           .
         </p>
 
+        <p
+          className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-3xl"
+          style={{ color: textColor }}
+        >
+          Looking for guidance?{" "}
+          <a
+            href="https://t.me/+vg31gHiNc3c0OThh"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Join our Antiwork OSS Telegram group
+          </a>
+        </p>
+
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center xl:mb-16">
           <div className="flex items-center gap-2">
             <Filter size={20} />
