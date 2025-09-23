@@ -155,7 +155,9 @@ function BountiesContent() {
 
   const getBountyAmount = (labels: Array<{ name: string }>) => {
     const bountyLabel = labels.find((label) =>
-      ["$100", "$1K", "$2.5K", "$5K", "$10K", "$20K"].includes(label.name)
+      ["$100", "$250", "$1K", "$2.5K", "$5K", "$10K", "$20K"].includes(
+        label.name
+      )
     );
     return bountyLabel?.name || "";
   };
@@ -163,6 +165,7 @@ function BountiesContent() {
   const getBountyValue = (amount: string) => {
     const values: { [key: string]: number } = {
       $100: 100,
+      $250: 250,
       $1K: 1000,
       "$2.5K": 2500,
       $5K: 5000,
@@ -314,6 +317,7 @@ function BountiesContent() {
             >
               <option value="All">All amounts</option>
               <option value="$100">$100</option>
+              <option value="$250">$250</option>
               <option value="$1K">$1K</option>
               <option value="$2.5K">$2.5K</option>
               <option value="$5K">$5K</option>
