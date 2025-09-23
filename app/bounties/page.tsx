@@ -162,6 +162,7 @@ function BountiesContent() {
 
   const getBountyValue = (amount: string) => {
     const values: { [key: string]: number } = {
+      $100: 100,
       $1K: 1000,
       "$2.5K": 2500,
       $5K: 5000,
@@ -264,13 +265,21 @@ function BountiesContent() {
           >
             Helper
           </a>
-          , and{" "}
+          ,{" "}
           <a
             href="https://github.com/antiwork/gumboard"
             className="underline hover:no-underline"
             style={{ color: textColor }}
           >
             Gumboard
+          </a>
+          , and{" "}
+          <a
+            href="https://github.com/antiwork/smallbets"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Smallbets
           </a>
           .
         </p>
@@ -304,6 +313,7 @@ function BountiesContent() {
               }}
             >
               <option value="All">All amounts</option>
+              <option value="$100">$100</option>
               <option value="$1K">$1K</option>
               <option value="$2.5K">$2.5K</option>
               <option value="$5K">$5K</option>
@@ -330,6 +340,7 @@ function BountiesContent() {
               <option value="antiwork/flexile">antiwork/flexile</option>
               <option value="antiwork/helper">antiwork/helper</option>
               <option value="antiwork/gumboard">antiwork/gumboard</option>
+              <option value="antiwork/smallbets">antiwork/smallbets</option>
             </select>
           </div>
 
