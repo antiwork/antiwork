@@ -279,7 +279,7 @@ function BountiesContent() {
             className="underline hover:no-underline"
             style={{ color: textColor }}
           >
-            Smallbets
+            Small Bets
           </a>
           .
         </p>
