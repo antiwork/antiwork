@@ -204,7 +204,11 @@ function PageContent() {
     {
       title: "Play to win",
       icon: <Trophy size={28} className="text-current" />,
-      points: ["Ship world-class software", "Win as a team"],
+      points: [
+        "Ship world-class software",
+        "Win as a team",
+        "Get feedback on creative decisions early and often",
+      ],
     },
     {
       title: "Build for builders",
