@@ -25,12 +25,13 @@ interface ProcessedIssue extends GitHubIssue {
   repository: string;
 }
 
-const BOUNTY_LABELS = ["$1K", "$2.5K", "$5K", "$10K", "$20K"];
+const BOUNTY_LABELS = ["$100", "$250", "$1K", "$2.5K", "$5K", "$10K", "$20K"];
 const REPOSITORIES = [
   "antiwork/gumroad",
   "antiwork/flexile",
   "antiwork/helper",
   "antiwork/gumboard",
+  "antiwork/smallbets",
 ];
 
 const CACHE_TTL_MS = 5 * 60 * 1000;
@@ -117,6 +118,8 @@ export async function GET() {
           BOUNTY_LABELS.includes(label.name)
         );
         const values: { [key: string]: number } = {
+          $100: 100,
+          $250: 250,
           $1K: 1000,
           "$2.5K": 2500,
           $5K: 5000,
