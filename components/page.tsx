@@ -206,11 +206,7 @@ function PageContent() {
     {
       title: "Play to win",
       icon: <Trophy size={28} className="text-current" />,
-      points: [
-        "Ship world-class software",
-        "Win as a team",
-        "Get feedback on creative decisions early and often",
-      ],
+      points: ["Ship world-class software", "Win as a team"],
       description:
         "We collaborate asynchronously through GitHub, Notion, and Slack with 24-hour response times, enabling deep work without meetings. Everyone on the team is a creator themselves, bringing firsthand understanding of what our users need. We share all context openly and get feedback early through clear, thoughtful communication.",
     },
