@@ -200,21 +200,29 @@ function PageContent() {
       title: "Make work play",
       icon: <Sparkles size={28} className="text-current" />,
       points: ["Make the office a playground", "Celebrate wins big and small"],
+      description:
+        "We work remotely from wherever we want, with no physical office to commute to. Through public board meetings and incremental shipping, we celebrate every improvement that helps creators earn more.",
     },
     {
       title: "Play to win",
       icon: <Trophy size={28} className="text-current" />,
       points: ["Ship world-class software", "Win as a team"],
+      description:
+        "We collaborate asynchronously through GitHub, Notion, and Slack with 24-hour response times, enabling deep work without meetings. Everyone on the team is a creator themselves, bringing firsthand understanding of what our users need. We share all context openly and get feedback early through clear, thoughtful communication.",
     },
     {
       title: "Build for builders",
       icon: <Hammer size={28} className="text-current" />,
       points: ["Open-source everything", "Teach what we know"],
+      description:
+        "We work like an open source project—just with payment and privacy. Our public quarterly board meetings and transparent documentation teach others how we build, so the creator economy can learn from our successes and failures.",
     },
     {
       title: "Time to think",
       icon: <Rocket size={28} className="text-current" />,
       points: ["Automate busywork", "Think creatively"],
+      description:
+        "With no meetings or deadlines, everyone focuses on deep work during their 10-35 hours per week. The rest of their time is spent on creative side projects, family, or whatever brings them joy—because we believe the best work comes from people who have time to think.",
     },
   ];
 
@@ -436,6 +444,14 @@ function PageContent() {
                       </p>
                     ))}
                   </div>
+                  {value.description && (
+                    <p
+                      className="mt-4 text-xs sm:text-sm lg:text-base xl:text-xl"
+                      style={{ color: textColor }}
+                    >
+                      {value.description}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
