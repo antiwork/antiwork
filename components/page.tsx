@@ -199,16 +199,16 @@ function PageContent() {
     {
       title: "Make work play",
       icon: <Sparkles size={28} className="text-current" />,
-      points: ["Make the office a playground", "Celebrate wins big and small"],
+      points: ["Family is first", "Build trust and camaraderie"],
       description:
-        "We work remotely from wherever we want, with no physical office to commute to. Through public board meetings and incremental shipping, we celebrate every improvement that helps creators earn more.",
+        "Family is first—which is why we invite +1s to our company on-sites. Nothing beats in-person time for building trust and camaraderie. We do a quarterly onsite in NYC and do a big retreat somewhere warm once a year.",
     },
     {
       title: "Play to win",
       icon: <Trophy size={28} className="text-current" />,
-      points: ["Ship world-class software", "Win as a team"],
+      points: ["Less is more", "Ship world-class software"],
       description:
-        "We collaborate asynchronously through GitHub, Notion, and Slack with 24-hour response times, enabling deep work without meetings. Everyone on the team is a creator themselves, bringing firsthand understanding of what our users need. We share all context openly and get feedback early through clear, thoughtful communication.",
+        "Less is more. Don't waste words. Save others time. Shipping world-class software is a team sport. Seek feedback on your work, and constantly raise the ceiling of your capabilities.",
     },
     {
       title: "Build for builders",
@@ -457,33 +457,6 @@ function PageContent() {
             </div>
           </section>
 
-          <section className="mb-8 xl:mb-16">
-            <h2 className="mb-8 text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-5xl">
-              Team players
-            </h2>
-            <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
-              <button
-                className="px-4 py-2 text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
-                style={{
-                  backgroundColor: textColor,
-                  color: backgroundColor,
-                }}
-                onClick={() => setShowCredits(true)}
-              >
-                Roll the credits
-              </button>
-              <a
-                href="/bounties"
-                className="inline-block px-4 py-2 text-center text-sm font-bold sm:text-base lg:text-xl xl:text-2xl"
-                style={{
-                  backgroundColor: textColor,
-                  color: backgroundColor,
-                }}
-              >
-                Join us
-              </a>
-            </div>
-          </section>
         </main>
       </div>
 
