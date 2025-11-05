@@ -237,7 +237,7 @@ export function Font({
       ),
     },
     O: {
-      width: 185,
+      width: 212,
       fullHeightLeft: false,
       fullHeightRight: false,
       render: (color: string) => (
