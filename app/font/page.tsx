@@ -104,9 +104,7 @@ export default function GeometricFont() {
   };
 
   const fillProductNames = () => {
-    const productNames = products
-      .map((product: { name: string }) => product.name)
-      .join("\n");
+    const productNames = products.join("\n");
     setText(productNames);
 
     // Save to localStorage
