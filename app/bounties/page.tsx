@@ -53,6 +53,7 @@ function BountiesContent() {
     loading: true,
     error: null,
   });
+  const [repositories, setRepositories] = useState<string[]>([]);
   const [amountFilter, setAmountFilter] = useState("All");
   const [repoFilter, setRepoFilter] = useState("All");
   const [sortBy, setSortBy] = useState("amount");
@@ -139,13 +140,25 @@ function BountiesContent() {
         throw new Error(data.error || "Failed to fetch bounties");
       }
 
-      setBountiesData({ issues: data.issues, loading: false, error: null });
+      // Extract repositories from API response or use unique repos from issues as fallback
+      const reposFromApi = data.repositories || [];
+      const uniqueReposFromIssues = Array.from(
+        new Set(data.issues?.map((issue: GitHubIssue) => issue.repository) || [])
+      );
+      const allRepos = reposFromApi.length > 0 ? reposFromApi : uniqueReposFromIssues;
+      
+      // Sort repositories alphabetically
+      allRepos.sort();
+
+      setRepositories(allRepos);
+      setBountiesData({ issues: data.issues || [], loading: false, error: null });
     } catch (error) {
       setBountiesData({
         issues: [],
         loading: false,
         error: error instanceof Error ? error.message : "Something went wrong",
       });
+      setRepositories([]);
     }
   };
 
@@ -246,43 +259,11 @@ function BountiesContent() {
         >
           Open source bounties from{" "}
           <a
-            href="https://github.com/antiwork/gumroad"
+            href="https://github.com/antiwork"
             className="underline hover:no-underline"
             style={{ color: textColor }}
           >
-            Gumroad
-          </a>
-          ,{" "}
-          <a
-            href="https://github.com/antiwork/flexile"
-            className="underline hover:no-underline"
-            style={{ color: textColor }}
-          >
-            Flexile
-          </a>
-          ,{" "}
-          <a
-            href="https://github.com/antiwork/helper"
-            className="underline hover:no-underline"
-            style={{ color: textColor }}
-          >
-            Helper
-          </a>
-          ,{" "}
-          <a
-            href="https://github.com/antiwork/gumboard"
-            className="underline hover:no-underline"
-            style={{ color: textColor }}
-          >
-            Gumboard
-          </a>
-          , and{" "}
-          <a
-            href="https://github.com/antiwork/smallbets"
-            className="underline hover:no-underline"
-            style={{ color: textColor }}
-          >
-            Small Bets
+            Antiwork repositories
           </a>
           .
         </p>
@@ -340,11 +321,11 @@ function BountiesContent() {
               }}
             >
               <option value="All">All repositories</option>
-              <option value="antiwork/gumroad">antiwork/gumroad</option>
-              <option value="antiwork/flexile">antiwork/flexile</option>
-              <option value="antiwork/helper">antiwork/helper</option>
-              <option value="antiwork/gumboard">antiwork/gumboard</option>
-              <option value="antiwork/smallbets">antiwork/smallbets</option>
+              {repositories.map((repo) => (
+                <option key={repo} value={repo}>
+                  {repo}
+                </option>
+              ))}
             </select>
           </div>
 
