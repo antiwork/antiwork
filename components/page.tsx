@@ -70,6 +70,8 @@ function PageContent() {
                     `antiwork/${product.toLowerCase()}`
                   );
                 }}
+                className="underline hover:no-underline"
+                style={{ color: textColor }}
               >
                 {product}
               </a>
