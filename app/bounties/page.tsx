@@ -285,7 +285,7 @@ function BountiesContent() {
             Small Bets
           </a>
           .
-        </p> 
+        </p>
 
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center xl:mb-16">
           <div className="flex items-center gap-2">
