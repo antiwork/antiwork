@@ -58,6 +58,14 @@ function BountiesContent() {
   const [sortBy, setSortBy] = useState("amount");
   const searchParams = useSearchParams();
 
+  useEffect(() => {
+    const savedRepo = sessionStorage.getItem("selectedRepo");
+    if (savedRepo) {
+      setRepoFilter(savedRepo);
+      sessionStorage.removeItem("selectedRepo");
+    }
+  }, []);
+
   const generateRandomColorsForPage = useCallback(() => {
     if (!colorsSetByUrl) {
       const { backgroundColor, textColor } = generateRandomColors();
@@ -331,6 +339,9 @@ function BountiesContent() {
               <option value="antiwork/helper">antiwork/helper</option>
               <option value="antiwork/gumboard">antiwork/gumboard</option>
               <option value="antiwork/smallbets">antiwork/smallbets</option>
+              <option value="antiwork/iffy">antiwork/iffy</option>
+              <option value="antiwork/jacquez">antiwork/jacquez</option>
+              <option value="antiwork/shortest">antiwork/shortest</option>
             </select>
           </div>
 
