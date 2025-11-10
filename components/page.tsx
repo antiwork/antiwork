@@ -63,9 +63,13 @@ function PageContent() {
           {products.map((product) => (
             <li key={product} className="mb-2">
               <a
-                href={`https://github.com/antiwork/${product.toLowerCase()}`}
-                className="underline hover:no-underline"
-                style={{ color: textColor }}
+                href="/bounties"
+                onClick={(e) => {
+                  sessionStorage.setItem(
+                    "selectedRepo",
+                    `antiwork/${product.toLowerCase()}`
+                  );
+                }}
               >
                 {product}
               </a>
