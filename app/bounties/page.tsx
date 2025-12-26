@@ -416,7 +416,8 @@ function BountiesContent() {
             <>
               <div className="mb-8 flex items-center justify-between">
                 <h2 className="text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-2xl">
-                  {filteredAndSortedIssues.length} bounties available totaling $
+                  {filteredAndSortedIssues.length} bounties available totaling
+                  over $
                   {filteredAndSortedIssues
                     .reduce(
                       (total, issue) =>

@@ -101,7 +101,9 @@ async function setCachedData(data: CachedData): Promise<void> {
 }
 
 async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
-  const url = `https://api.github.com/repos/${repo}/issues?state=open&per_page=100`;
+  const allIssues: GitHubIssue[] = [];
+  let page = 1;
+  const perPage = 100;
 
   const headers: Record<string, string> = {
     Accept: "application/vnd.github.v3+json",
@@ -112,24 +114,43 @@ async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
     headers.Authorization = `token ${process.env.GH_TOKEN}`;
   }
 
-  const response = await fetch(url, {
-    headers,
-    next: { revalidate: CACHE_TTL_SECONDS },
-  });
+  while (true) {
+    const url = `https://api.github.com/repos/${repo}/issues?state=open&per_page=${perPage}&page=${page}`;
 
-  if (!response.ok) {
-    if (response.status === 404) {
-      return [];
+    const response = await fetch(url, {
+      headers,
+      next: { revalidate: CACHE_TTL_SECONDS },
+    });
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        return allIssues;
+      }
+      if (response.status === 403 || response.status === 429) {
+        throw new Error(`GitHub API rate limit exceeded for ${repo}`);
+      }
+      throw new Error(
+        `GitHub API error for ${repo}: ${response.status} ${response.statusText}`
+      );
     }
-    if (response.status === 403 || response.status === 429) {
-      throw new Error(`GitHub API rate limit exceeded for ${repo}`);
+
+    const issues: GitHubIssue[] = await response.json();
+    allIssues.push(...issues);
+
+    // If we got fewer issues than perPage, we've reached the last page
+    if (issues.length < perPage) {
+      break;
     }
-    throw new Error(
-      `GitHub API error for ${repo}: ${response.status} ${response.statusText}`
-    );
+
+    page++;
+
+    // Safety limit to prevent infinite loops (max 10 pages = 1000 issues per repo)
+    if (page > 10) {
+      break;
+    }
   }
 
-  return response.json();
+  return allIssues;
 }
 
 export async function GET() {
