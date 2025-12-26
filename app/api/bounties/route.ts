@@ -25,7 +25,22 @@ interface ProcessedIssue extends GitHubIssue {
   repository: string;
 }
 
-const BOUNTY_LABELS = ["$100", "$250", "$1K", "$2.5K", "$5K", "$10K", "$20K"];
+const BOUNTY_LABELS = [
+  "$100",
+  "$200",
+  "$250",
+  "$1K",
+  "$1.5K",
+  "$2K",
+  "$2.5K",
+  "$3K",
+  "$5K",
+  "$10K",
+  "$20K",
+  "$200/subtask",
+  "$1K/subtask",
+  "$1.5K/subtask",
+];
 const REPOSITORIES = [
   "antiwork/gumroad",
   "antiwork/flexile",
@@ -119,12 +134,19 @@ export async function GET() {
         );
         const values: { [key: string]: number } = {
           $100: 100,
+          $200: 200,
           $250: 250,
           $1K: 1000,
+          "$1.5K": 1500,
+          $2K: 2000,
           "$2.5K": 2500,
+          $3K: 3000,
           $5K: 5000,
           $10K: 10000,
           $20K: 20000,
+          "$200/subtask": 200,
+          "$1K/subtask": 1000,
+          "$1.5K/subtask": 1500,
         };
         return values[bountyLabel?.name || ""] || 0;
       };

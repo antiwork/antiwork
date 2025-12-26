@@ -154,23 +154,42 @@ function BountiesContent() {
   }, []);
 
   const getBountyAmount = (labels: Array<{ name: string }>) => {
-    const bountyLabel = labels.find((label) =>
-      ["$100", "$250", "$1K", "$2.5K", "$5K", "$10K", "$20K"].includes(
-        label.name
-      )
-    );
+    const bountyLabels = [
+      "$100",
+      "$200",
+      "$250",
+      "$1K",
+      "$1.5K",
+      "$2K",
+      "$2.5K",
+      "$3K",
+      "$5K",
+      "$10K",
+      "$20K",
+      "$200/subtask",
+      "$1K/subtask",
+      "$1.5K/subtask",
+    ];
+    const bountyLabel = labels.find((label) => bountyLabels.includes(label.name));
     return bountyLabel?.name || "";
   };
 
   const getBountyValue = (amount: string) => {
     const values: { [key: string]: number } = {
       $100: 100,
+      $200: 200,
       $250: 250,
       $1K: 1000,
+      "$1.5K": 1500,
+      $2K: 2000,
       "$2.5K": 2500,
+      $3K: 3000,
       $5K: 5000,
       $10K: 10000,
       $20K: 20000,
+      "$200/subtask": 200,
+      "$1K/subtask": 1000,
+      "$1.5K/subtask": 1500,
     };
     return values[amount] || 0;
   };
@@ -303,12 +322,19 @@ function BountiesContent() {
             >
               <option value="All">All amounts</option>
               <option value="$100">$100</option>
+              <option value="$200">$200</option>
               <option value="$250">$250</option>
               <option value="$1K">$1K</option>
+              <option value="$1.5K">$1.5K</option>
+              <option value="$2K">$2K</option>
               <option value="$2.5K">$2.5K</option>
+              <option value="$3K">$3K</option>
               <option value="$5K">$5K</option>
               <option value="$10K">$10K</option>
               <option value="$20K">$20K</option>
+              <option value="$200/subtask">$200/subtask</option>
+              <option value="$1K/subtask">$1K/subtask</option>
+              <option value="$1.5K/subtask">$1.5K/subtask</option>
             </select>
           </div>
 
