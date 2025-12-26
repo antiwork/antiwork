@@ -170,7 +170,9 @@ function BountiesContent() {
       "$1K/subtask",
       "$1.5K/subtask",
     ];
-    const bountyLabel = labels.find((label) => bountyLabels.includes(label.name));
+    const bountyLabel = labels.find((label) =>
+      bountyLabels.includes(label.name)
+    );
     return bountyLabel?.name || "";
   };
 
