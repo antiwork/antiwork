@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import Redis from "ioredis";
 
-export const revalidate = 600; // 10 minutes
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 interface GitHubIssue {
   id: number;
