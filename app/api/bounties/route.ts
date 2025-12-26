@@ -100,6 +100,18 @@ async function setCachedData(data: CachedData): Promise<void> {
   }
 }
 
+async function clearCache(): Promise<void> {
+  const client = getRedis();
+  if (!client) return;
+
+  try {
+    await client.del(CACHE_KEY);
+    console.log("Redis cache cleared");
+  } catch (error) {
+    console.error("Redis delete error:", error);
+  }
+}
+
 async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
   const allIssues: GitHubIssue[] = [];
   let page = 1;
@@ -153,13 +165,21 @@ async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
   return allIssues;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    // Try to get cached data from Redis
-    const cachedData = await getCachedData();
-    if (cachedData) {
-      console.log("Serving cached bounties data from Redis");
-      return NextResponse.json(cachedData);
+    const { searchParams } = new URL(request.url);
+    const forceRefresh = searchParams.get("refresh") === "true";
+
+    // Try to get cached data from Redis (unless force refresh)
+    if (!forceRefresh) {
+      const cachedData = await getCachedData();
+      if (cachedData) {
+        console.log("Serving cached bounties data from Redis");
+        return NextResponse.json(cachedData);
+      }
+    } else {
+      console.log("Force refresh requested, clearing cache");
+      await clearCache();
     }
 
     console.log("Fetching fresh bounties data from GitHub API");
