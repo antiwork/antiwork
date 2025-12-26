@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
+import Redis from "ioredis";
 
-export const revalidate = 300; // 5 minutes
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 interface GitHubIssue {
   id: number;
@@ -25,7 +27,28 @@ interface ProcessedIssue extends GitHubIssue {
   repository: string;
 }
 
-const BOUNTY_LABELS = ["$100", "$250", "$1K", "$2.5K", "$5K", "$10K", "$20K"];
+interface CachedData {
+  issues: ProcessedIssue[];
+  total: number;
+  errors?: string[];
+}
+
+const BOUNTY_LABELS = [
+  "$100",
+  "$200",
+  "$250",
+  "$1K",
+  "$1.5K",
+  "$2K",
+  "$2.5K",
+  "$3K",
+  "$5K",
+  "$10K",
+  "$20K",
+  "$200/subtask",
+  "$1K/subtask",
+  "$1.5K/subtask",
+];
 const REPOSITORIES = [
   "antiwork/gumroad",
   "antiwork/flexile",
@@ -34,16 +57,66 @@ const REPOSITORIES = [
   "antiwork/smallbets",
 ];
 
-const CACHE_TTL_MS = 5 * 60 * 1000;
-let cachedData: {
-  issues: ProcessedIssue[];
-  total: number;
-  errors?: string[];
-} | null = null;
-let cacheTimestamp: number = 0;
+const CACHE_KEY = "bounties:data";
+const CACHE_TTL_SECONDS = 10 * 60; // 10 minutes
+
+let redis: Redis | null = null;
+
+function getRedis(): Redis | null {
+  if (!process.env.REDIS_URL) {
+    return null;
+  }
+  if (!redis) {
+    redis = new Redis(process.env.REDIS_URL, {
+      maxRetriesPerRequest: 3,
+      lazyConnect: true,
+    });
+  }
+  return redis;
+}
+
+async function getCachedData(): Promise<CachedData | null> {
+  const client = getRedis();
+  if (!client) return null;
+
+  try {
+    const data = await client.get(CACHE_KEY);
+    if (data) {
+      return JSON.parse(data) as CachedData;
+    }
+  } catch (error) {
+    console.error("Redis get error:", error);
+  }
+  return null;
+}
+
+async function setCachedData(data: CachedData): Promise<void> {
+  const client = getRedis();
+  if (!client) return;
+
+  try {
+    await client.setex(CACHE_KEY, CACHE_TTL_SECONDS, JSON.stringify(data));
+  } catch (error) {
+    console.error("Redis set error:", error);
+  }
+}
+
+async function clearCache(): Promise<void> {
+  const client = getRedis();
+  if (!client) return;
+
+  try {
+    await client.del(CACHE_KEY);
+    console.log("Redis cache cleared");
+  } catch (error) {
+    console.error("Redis delete error:", error);
+  }
+}
 
 async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
-  const url = `https://api.github.com/repos/${repo}/issues?state=open&per_page=100`;
+  const allIssues: GitHubIssue[] = [];
+  let page = 1;
+  const perPage = 100;
 
   const headers: Record<string, string> = {
     Accept: "application/vnd.github.v3+json",
@@ -54,32 +127,60 @@ async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
     headers.Authorization = `token ${process.env.GH_TOKEN}`;
   }
 
-  const response = await fetch(url, {
-    headers,
-    next: { revalidate: Math.floor(CACHE_TTL_MS / 1000) },
-  });
+  while (true) {
+    const url = `https://api.github.com/repos/${repo}/issues?state=open&per_page=${perPage}&page=${page}`;
 
-  if (!response.ok) {
-    if (response.status === 404) {
-      return [];
+    const response = await fetch(url, {
+      headers,
+      next: { revalidate: CACHE_TTL_SECONDS },
+    });
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        return allIssues;
+      }
+      if (response.status === 403 || response.status === 429) {
+        throw new Error(`GitHub API rate limit exceeded for ${repo}`);
+      }
+      throw new Error(
+        `GitHub API error for ${repo}: ${response.status} ${response.statusText}`
+      );
     }
-    if (response.status === 403 || response.status === 429) {
-      throw new Error(`GitHub API rate limit exceeded for ${repo}`);
+
+    const issues: GitHubIssue[] = await response.json();
+    allIssues.push(...issues);
+
+    // If we got fewer issues than perPage, we've reached the last page
+    if (issues.length < perPage) {
+      break;
     }
-    throw new Error(
-      `GitHub API error for ${repo}: ${response.status} ${response.statusText}`
-    );
+
+    page++;
+
+    // Safety limit to prevent infinite loops (max 10 pages = 1000 issues per repo)
+    if (page > 10) {
+      break;
+    }
   }
 
-  return response.json();
+  return allIssues;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    const now = Date.now();
-    if (cachedData && now - cacheTimestamp < CACHE_TTL_MS) {
-      console.log("Serving cached bounties data");
-      return NextResponse.json(cachedData);
+    const { searchParams } = new URL(request.url);
+    const forceRefresh = searchParams.get("refresh") === "true";
+
+    // Try to get cached data from Redis (unless force refresh)
+    if (!forceRefresh) {
+      const cachedData = await getCachedData();
+      if (cachedData) {
+        console.log("Serving cached bounties data from Redis");
+        return NextResponse.json(cachedData);
+      }
+    } else {
+      console.log("Force refresh requested, clearing cache");
+      await clearCache();
     }
 
     console.log("Fetching fresh bounties data from GitHub API");
@@ -119,12 +220,19 @@ export async function GET() {
         );
         const values: { [key: string]: number } = {
           $100: 100,
+          $200: 200,
           $250: 250,
           $1K: 1000,
+          "$1.5K": 1500,
+          $2K: 2000,
           "$2.5K": 2500,
+          $3K: 3000,
           $5K: 5000,
           $10K: 10000,
           $20K: 20000,
+          "$200/subtask": 200,
+          "$1K/subtask": 1000,
+          "$1.5K/subtask": 1500,
         };
         return values[bountyLabel?.name || ""] || 0;
       };
@@ -134,16 +242,16 @@ export async function GET() {
       return valueB - valueA;
     });
 
-    const response = {
+    const responseData: CachedData = {
       issues: uniqueIssues,
       total: uniqueIssues.length,
       errors: errors.length > 0 ? errors : undefined,
     };
 
-    cachedData = response;
-    cacheTimestamp = now;
+    // Cache the data in Redis
+    await setCachedData(responseData);
 
-    return NextResponse.json(response);
+    return NextResponse.json(responseData);
   } catch (error) {
     console.error("Error fetching bounties:", error);
     return NextResponse.json(

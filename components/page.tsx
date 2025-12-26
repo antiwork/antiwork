@@ -75,12 +75,20 @@ function PageContent() {
 
         <a
           href="https://github.com/antiwork"
-          className="mb-8 text-2xl underline hover:no-underline"
+          className="text-2xl underline hover:no-underline"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: textColor }}
         >
           github.com/antiwork
+        </a>
+
+        <a
+          href="/bounties"
+          className="mb-8 text-2xl underline hover:no-underline"
+          style={{ color: textColor }}
+        >
+          Bounties
         </a>
       </div>
     </div>
