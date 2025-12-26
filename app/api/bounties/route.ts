@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import Redis from "ioredis";
 
-export const revalidate = 300; // 5 minutes
+export const revalidate = 600; // 10 minutes
 
 interface GitHubIssue {
   id: number;
@@ -23,6 +24,12 @@ interface GitHubIssue {
 
 interface ProcessedIssue extends GitHubIssue {
   repository: string;
+}
+
+interface CachedData {
+  issues: ProcessedIssue[];
+  total: number;
+  errors?: string[];
 }
 
 const BOUNTY_LABELS = [
@@ -49,13 +56,49 @@ const REPOSITORIES = [
   "antiwork/smallbets",
 ];
 
-const CACHE_TTL_MS = 5 * 60 * 1000;
-let cachedData: {
-  issues: ProcessedIssue[];
-  total: number;
-  errors?: string[];
-} | null = null;
-let cacheTimestamp: number = 0;
+const CACHE_KEY = "bounties:data";
+const CACHE_TTL_SECONDS = 10 * 60; // 10 minutes
+
+let redis: Redis | null = null;
+
+function getRedis(): Redis | null {
+  if (!process.env.REDIS_URL) {
+    return null;
+  }
+  if (!redis) {
+    redis = new Redis(process.env.REDIS_URL, {
+      maxRetriesPerRequest: 3,
+      lazyConnect: true,
+    });
+  }
+  return redis;
+}
+
+async function getCachedData(): Promise<CachedData | null> {
+  const client = getRedis();
+  if (!client) return null;
+
+  try {
+    const data = await client.get(CACHE_KEY);
+    if (data) {
+      return JSON.parse(data) as CachedData;
+    }
+  } catch (error) {
+    console.error("Redis get error:", error);
+  }
+  return null;
+}
+
+async function setCachedData(data: CachedData): Promise<void> {
+  const client = getRedis();
+  if (!client) return;
+
+  try {
+    await client.setex(CACHE_KEY, CACHE_TTL_SECONDS, JSON.stringify(data));
+  } catch (error) {
+    console.error("Redis set error:", error);
+  }
+}
 
 async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
   const url = `https://api.github.com/repos/${repo}/issues?state=open&per_page=100`;
@@ -71,7 +114,7 @@ async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
 
   const response = await fetch(url, {
     headers,
-    next: { revalidate: Math.floor(CACHE_TTL_MS / 1000) },
+    next: { revalidate: CACHE_TTL_SECONDS },
   });
 
   if (!response.ok) {
@@ -91,9 +134,10 @@ async function fetchIssuesForRepo(repo: string): Promise<GitHubIssue[]> {
 
 export async function GET() {
   try {
-    const now = Date.now();
-    if (cachedData && now - cacheTimestamp < CACHE_TTL_MS) {
-      console.log("Serving cached bounties data");
+    // Try to get cached data from Redis
+    const cachedData = await getCachedData();
+    if (cachedData) {
+      console.log("Serving cached bounties data from Redis");
       return NextResponse.json(cachedData);
     }
 
@@ -156,16 +200,16 @@ export async function GET() {
       return valueB - valueA;
     });
 
-    const response = {
+    const responseData: CachedData = {
       issues: uniqueIssues,
       total: uniqueIssues.length,
       errors: errors.length > 0 ? errors : undefined,
     };
 
-    cachedData = response;
-    cacheTimestamp = now;
+    // Cache the data in Redis
+    await setCachedData(responseData);
 
-    return NextResponse.json(response);
+    return NextResponse.json(responseData);
   } catch (error) {
     console.error("Error fetching bounties:", error);
     return NextResponse.json(
