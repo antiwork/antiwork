@@ -438,7 +438,7 @@ function BountiesContent() {
                       0
                     );
                     return total > 0
-                      ? ` totaling $${total.toLocaleString()}+`
+                      ? ` totaling $${total.toLocaleString()}`
                       : "";
                   })()}
                 </h2>
