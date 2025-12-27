@@ -9,6 +9,7 @@ interface GitHubIssue {
   number: number;
   title: string;
   html_url: string;
+  body: string | null;
   created_at: string;
   updated_at: string;
   user: {
@@ -25,6 +26,15 @@ interface GitHubIssue {
 
 interface ProcessedIssue extends GitHubIssue {
   repository: string;
+  subtaskCount: number;
+}
+
+function countSubtasks(body: string | null): number {
+  if (!body) return 0;
+  // Only match unchecked task items: - [ ] or * [ ]
+  const uncheckedTaskRegex = /^[\s]*[-*]\s+\[\s\]/gm;
+  const matches = body.match(uncheckedTaskRegex);
+  return matches ? matches.length : 0;
 }
 
 interface CachedData {
@@ -206,7 +216,11 @@ export async function GET(request: Request) {
           .filter((issue) =>
             issue.labels.some((l) => BOUNTY_LABELS.includes(l.name))
           )
-          .map((issue) => ({ ...issue, repository: repo }))
+          .map((issue) => ({
+            ...issue,
+            repository: repo,
+            subtaskCount: countSubtasks(issue.body),
+          }))
     );
 
     const uniqueIssues = allIssues.filter(

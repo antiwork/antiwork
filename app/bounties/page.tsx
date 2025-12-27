@@ -35,6 +35,7 @@ interface GitHubIssue {
   }>;
   comments: number;
   repository: string;
+  subtaskCount: number;
 }
 
 interface BountiesData {
@@ -194,6 +195,20 @@ function BountiesContent() {
       "$1.5K/subtask": 1500,
     };
     return values[amount] || 0;
+  };
+
+  const isSubtaskBounty = (amount: string) => {
+    return amount.includes("/subtask");
+  };
+
+  const getIssueTotalValue = (issue: GitHubIssue) => {
+    const amount = getBountyAmount(issue.labels);
+    const baseValue = getBountyValue(amount);
+    if (isSubtaskBounty(amount)) {
+      // For subtask bounties, multiply by the number of subtasks (minimum 1)
+      return baseValue * Math.max(issue.subtaskCount, 1);
+    }
+    return baseValue;
   };
 
   const filteredAndSortedIssues = React.useMemo(() => {
@@ -419,8 +434,7 @@ function BountiesContent() {
                   {filteredAndSortedIssues.length} bounties available
                   {(() => {
                     const total = filteredAndSortedIssues.reduce(
-                      (sum, issue) =>
-                        sum + getBountyValue(getBountyAmount(issue.labels)),
+                      (sum, issue) => sum + getIssueTotalValue(issue),
                       0
                     );
                     return total > 0
