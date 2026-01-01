@@ -167,6 +167,7 @@ function BountiesContent() {
       "$5K",
       "$10K",
       "$20K",
+      "$100/subtask",
       "$200/subtask",
       "$1K/subtask",
       "$1.5K/subtask",
@@ -190,6 +191,7 @@ function BountiesContent() {
       $5K: 5000,
       $10K: 10000,
       $20K: 20000,
+      "$100/subtask": 100,
       "$200/subtask": 200,
       "$1K/subtask": 1000,
       "$1.5K/subtask": 1500,
@@ -349,6 +351,7 @@ function BountiesContent() {
               <option value="$5K">$5K</option>
               <option value="$10K">$10K</option>
               <option value="$20K">$20K</option>
+              <option value="$100/subtask">$100/subtask</option>
               <option value="$200/subtask">$200/subtask</option>
               <option value="$1K/subtask">$1K/subtask</option>
               <option value="$1.5K/subtask">$1.5K/subtask</option>
