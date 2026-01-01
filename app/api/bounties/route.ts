@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
 import Redis from "ioredis";
+import {
+  REPOSITORIES,
+  getBountyValue,
+  getBountyLabel,
+  isBountyLabel,
+} from "@/lib/bounties";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -42,31 +48,6 @@ interface CachedData {
   total: number;
   errors?: string[];
 }
-
-const BOUNTY_LABELS = [
-  "$100",
-  "$200",
-  "$250",
-  "$1K",
-  "$1.5K",
-  "$2K",
-  "$2.5K",
-  "$3K",
-  "$5K",
-  "$10K",
-  "$20K",
-  "$100/subtask",
-  "$200/subtask",
-  "$1K/subtask",
-  "$1.5K/subtask",
-];
-const REPOSITORIES = [
-  "antiwork/gumroad",
-  "antiwork/flexile",
-  "antiwork/helper",
-  "antiwork/gumboard",
-  "antiwork/smallbets",
-];
 
 const CACHE_KEY = "bounties:data";
 const CACHE_TTL_SECONDS = 10 * 60; // 10 minutes
@@ -214,9 +195,7 @@ export async function GET(request: Request) {
       ({ repo, issues }) =>
         issues
           .filter((issue: any) => !issue.pull_request)
-          .filter((issue) =>
-            issue.labels.some((l) => BOUNTY_LABELS.includes(l.name))
-          )
+          .filter((issue) => issue.labels.some((l) => isBountyLabel(l.name)))
           .map((issue) => ({
             ...issue,
             repository: repo,
@@ -229,32 +208,8 @@ export async function GET(request: Request) {
     );
 
     uniqueIssues.sort((a, b) => {
-      const getBountyValue = (labels: Array<{ name: string }>) => {
-        const bountyLabel = labels.find((label) =>
-          BOUNTY_LABELS.includes(label.name)
-        );
-        const values: { [key: string]: number } = {
-          $100: 100,
-          $200: 200,
-          $250: 250,
-          $1K: 1000,
-          "$1.5K": 1500,
-          $2K: 2000,
-          "$2.5K": 2500,
-          $3K: 3000,
-          $5K: 5000,
-          $10K: 10000,
-          $20K: 20000,
-          "$100/subtask": 100,
-          "$200/subtask": 200,
-          "$1K/subtask": 1000,
-          "$1.5K/subtask": 1500,
-        };
-        return values[bountyLabel?.name || ""] || 0;
-      };
-
-      const valueA = getBountyValue(a.labels);
-      const valueB = getBountyValue(b.labels);
+      const valueA = getBountyValue(getBountyLabel(a.labels));
+      const valueB = getBountyValue(getBountyLabel(b.labels));
       return valueB - valueA;
     });
 

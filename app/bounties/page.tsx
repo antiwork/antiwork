@@ -17,6 +17,11 @@ import { generateRandomColors } from "@/utils/colors";
 import { Font } from "@/app/components/Font";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
+import {
+  getBountyValue,
+  getBountyLabel,
+  isSubtaskBounty,
+} from "@/lib/bounties";
 
 interface GitHubIssue {
   id: number;
@@ -154,57 +159,8 @@ function BountiesContent() {
     fetchBounties();
   }, []);
 
-  const getBountyAmount = (labels: Array<{ name: string }>) => {
-    const bountyLabels = [
-      "$100",
-      "$200",
-      "$250",
-      "$1K",
-      "$1.5K",
-      "$2K",
-      "$2.5K",
-      "$3K",
-      "$5K",
-      "$10K",
-      "$20K",
-      "$100/subtask",
-      "$200/subtask",
-      "$1K/subtask",
-      "$1.5K/subtask",
-    ];
-    const bountyLabel = labels.find((label) =>
-      bountyLabels.includes(label.name)
-    );
-    return bountyLabel?.name || "";
-  };
-
-  const getBountyValue = (amount: string) => {
-    const values: { [key: string]: number } = {
-      $100: 100,
-      $200: 200,
-      $250: 250,
-      $1K: 1000,
-      "$1.5K": 1500,
-      $2K: 2000,
-      "$2.5K": 2500,
-      $3K: 3000,
-      $5K: 5000,
-      $10K: 10000,
-      $20K: 20000,
-      "$100/subtask": 100,
-      "$200/subtask": 200,
-      "$1K/subtask": 1000,
-      "$1.5K/subtask": 1500,
-    };
-    return values[amount] || 0;
-  };
-
-  const isSubtaskBounty = (amount: string) => {
-    return amount.includes("/subtask");
-  };
-
   const getIssueTotalValue = (issue: GitHubIssue) => {
-    const amount = getBountyAmount(issue.labels);
+    const amount = getBountyLabel(issue.labels);
     const baseValue = getBountyValue(amount);
     if (isSubtaskBounty(amount)) {
       // For subtask bounties, multiply by the number of subtasks (minimum 1)
@@ -213,12 +169,36 @@ function BountiesContent() {
     return baseValue;
   };
 
+  const availableBounties = React.useMemo(() => {
+    const labels = new Set<string>();
+    bountiesData.issues.forEach((issue) => {
+      const label = getBountyLabel(issue.labels);
+      if (label) labels.add(label);
+    });
+    return Array.from(labels).sort((a, b) => {
+      const aIsSubtask = isSubtaskBounty(a);
+      const bIsSubtask = isSubtaskBounty(b);
+      if (aIsSubtask !== bIsSubtask) {
+        return aIsSubtask ? 1 : -1;
+      }
+      return getBountyValue(a) - getBountyValue(b);
+    });
+  }, [bountiesData.issues]);
+
+  const availableRepositories = React.useMemo(() => {
+    const repos = new Set<string>();
+    bountiesData.issues.forEach((issue) => {
+      repos.add(issue.repository);
+    });
+    return Array.from(repos).sort();
+  }, [bountiesData.issues]);
+
   const filteredAndSortedIssues = React.useMemo(() => {
     let filtered = bountiesData.issues;
 
     if (amountFilter !== "All") {
       filtered = filtered.filter(
-        (issue) => getBountyAmount(issue.labels) === amountFilter
+        (issue) => getBountyLabel(issue.labels) === amountFilter
       );
     }
 
@@ -228,8 +208,8 @@ function BountiesContent() {
 
     return filtered.sort((a, b) => {
       if (sortBy === "amount") {
-        const amountA = getBountyValue(getBountyAmount(a.labels));
-        const amountB = getBountyValue(getBountyAmount(b.labels));
+        const amountA = getBountyValue(getBountyLabel(a.labels));
+        const amountB = getBountyValue(getBountyLabel(b.labels));
         return amountB - amountA;
       } else if (sortBy === "date") {
         return (
@@ -340,21 +320,11 @@ function BountiesContent() {
               }}
             >
               <option value="All">All amounts</option>
-              <option value="$100">$100</option>
-              <option value="$200">$200</option>
-              <option value="$250">$250</option>
-              <option value="$1K">$1K</option>
-              <option value="$1.5K">$1.5K</option>
-              <option value="$2K">$2K</option>
-              <option value="$2.5K">$2.5K</option>
-              <option value="$3K">$3K</option>
-              <option value="$5K">$5K</option>
-              <option value="$10K">$10K</option>
-              <option value="$20K">$20K</option>
-              <option value="$100/subtask">$100/subtask</option>
-              <option value="$200/subtask">$200/subtask</option>
-              <option value="$1K/subtask">$1K/subtask</option>
-              <option value="$1.5K/subtask">$1.5K/subtask</option>
+              {availableBounties.map((label) => (
+                <option key={label} value={label}>
+                  {label}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -372,11 +342,11 @@ function BountiesContent() {
               }}
             >
               <option value="All">All repositories</option>
-              <option value="antiwork/gumroad">antiwork/gumroad</option>
-              <option value="antiwork/flexile">antiwork/flexile</option>
-              <option value="antiwork/helper">antiwork/helper</option>
-              <option value="antiwork/gumboard">antiwork/gumboard</option>
-              <option value="antiwork/smallbets">antiwork/smallbets</option>
+              {availableRepositories.map((repo) => (
+                <option key={repo} value={repo}>
+                  {repo}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -488,7 +458,7 @@ function BountiesContent() {
                                 color: backgroundColor,
                               }}
                             >
-                              {getBountyAmount(issue.labels)}
+                              {getBountyLabel(issue.labels)}
                             </span>
                             <a
                               className="hover:underline"
