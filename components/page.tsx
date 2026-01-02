@@ -65,6 +65,8 @@ function PageContent() {
               <a
                 href={`https://github.com/antiwork/${product.toLowerCase()}`}
                 className="underline hover:no-underline"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ color: textColor }}
               >
                 {product}
