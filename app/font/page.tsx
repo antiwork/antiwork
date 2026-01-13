@@ -2,7 +2,16 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Font } from "../components/Font";
-import { products } from "../../components/page";
+
+const products = [
+  "Flexile",
+  "Gumboard",
+  "Gumroad",
+  "Helper",
+  "Iffy",
+  "Jacquez",
+  "Shortest",
+];
 
 export default function GeometricFont() {
   const [text, setText] = useState("ANTIWORK");
