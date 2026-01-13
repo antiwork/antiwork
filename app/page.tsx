@@ -280,11 +280,27 @@ function HomeContent() {
           </a>
           ,{" "}
           <a
+            href="https://github.com/antiwork/smallbets"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Small Bets
+          </a>
+          ,{" "}
+          <a
             href="https://github.com/antiwork/helper"
             className="underline hover:no-underline"
             style={{ color: textColor }}
           >
             Helper
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/iffy"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Iffy
           </a>
           ,{" "}
           <a
@@ -294,13 +310,21 @@ function HomeContent() {
           >
             Gumboard
           </a>
-          , and{" "}
+          ,{" "}
           <a
-            href="https://github.com/antiwork/smallbets"
+            href="https://github.com/antiwork/jacquez"
             className="underline hover:no-underline"
             style={{ color: textColor }}
           >
-            Small Bets
+            Jacquez
+          </a>
+          , and{" "}
+          <a
+            href="https://github.com/antiwork/shortest"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Shortest
           </a>
           .
         </p>
