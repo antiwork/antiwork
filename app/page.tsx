@@ -232,20 +232,27 @@ function HomeContent() {
 
   return (
     <div
-      className="min-h-screen font-sans transition-colors duration-300"
+      className="min-h-screen font-sans transition-colors duration-300 overflow-x-hidden"
       style={{
         fontFamily: "Helvetica Neue, sans-serif",
         backgroundColor: backgroundColor,
         color: textColor,
       }}
     >
-      <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
+      <div className="mx-auto w-full max-w-full overflow-x-hidden px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
         <header className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16">
           <div
-            className="mb-4 flex items-center md:mb-0"
+            className="mb-4 flex items-center md:mb-0 overflow-hidden"
             style={{ marginLeft: "-10px" }}
           >
-            <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            <div
+              className="scale-[0.65] sm:scale-75 md:scale-90 lg:scale-100"
+              style={{
+                transformOrigin: "left center"
+              }}
+            >
+              <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            </div>
           </div>
           <div className="relative hidden sm:block">
             <button
@@ -323,7 +330,7 @@ function HomeContent() {
           </div>
         </div>
 
-        <main>
+        <main className="w-full overflow-x-hidden">
           {bountiesData.loading && (
             <div className="flex items-center justify-center py-16">
               <div className="text-center">
@@ -379,11 +386,11 @@ function HomeContent() {
                   </p>
                 </div>
               ) : (
-                <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8">
+                <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8 overflow-x-hidden w-full">
                   {filteredAndSortedIssues.map((issue) => (
                     <Card
                       key={issue.id}
-                      className="transition-all hover:shadow-lg"
+                      className="transition-all hover:shadow-lg overflow-x-hidden"
                       style={{
                         backgroundColor: backgroundColor,
                         borderColor: textColor,
