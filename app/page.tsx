@@ -265,6 +265,77 @@ function HomeContent() {
           </div>
         </header>
 
+
+        <p
+          className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-3xl"
+          style={{ color: textColor }}
+        >
+          Open source bounties from{" "}
+          <a
+            href="https://github.com/antiwork/gumroad"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Gumroad
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/flexile"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Flexile
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/smallbets"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Small Bets
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/helper"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Helper
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/iffy"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Iffy
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/gumboard"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Gumboard
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/jacquez"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Jacquez
+          </a>
+          , and{" "}
+          <a
+            href="https://github.com/antiwork/shortest"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Shortest
+          </a>
+          .
+        </p>
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center xl:mb-16">
           <div className="flex items-center gap-2">
             <Filter size={20} />
