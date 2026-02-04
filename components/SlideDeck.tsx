@@ -37,8 +37,19 @@ export function SlideDeck({ slides }: SlideDeckProps) {
       router.replace(`?${params.toString()}`, { scroll: false });
     };
 
+    const toggleFullscreen = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    };
+
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      if ((e.metaKey || e.ctrlKey) && e.key === "f") {
+        e.preventDefault();
+        toggleFullscreen();
+      } else if (e.key === "ArrowRight" && currentSlide < totalSlides) {
         updateSlide(currentSlide + 1);
       } else if (e.key === "ArrowLeft" && currentSlide > 1) {
         updateSlide(currentSlide - 1);
