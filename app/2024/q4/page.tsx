@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Logo } from "@/app/components/Logo";
 import Image from "next/image";
@@ -653,40 +653,43 @@ export default function QuarterlyAllHands() {
   );
   const totalSlides = slides.length;
 
-  const handleKeyPress = (e: KeyboardEvent) => {
-    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
-      setCurrentSlide(currentSlide + 1);
-    } else if (e.key === "ArrowLeft" && currentSlide > 1) {
-      setCurrentSlide(currentSlide - 1);
-    } else if (/^[0-9]$/.test(e.key)) {
-      if (typingTimeout) {
-        clearTimeout(typingTimeout);
-      }
-
-      const newTypedNumber = typedNumber + e.key;
-      setTypedNumber(newTypedNumber);
-      const timeout = setTimeout(() => {
-        const slideNumber = parseInt(newTypedNumber);
-        if (slideNumber > 0 && slideNumber <= totalSlides) {
-          setCurrentSlide(slideNumber);
+  const handleKeyPress = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+        setCurrentSlide(currentSlide + 1);
+      } else if (e.key === "ArrowLeft" && currentSlide > 1) {
+        setCurrentSlide(currentSlide - 1);
+      } else if (/^[0-9]$/.test(e.key)) {
+        if (typingTimeout) {
+          clearTimeout(typingTimeout);
         }
-        setTypedNumber("");
-      }, 750);
 
-      setTypingTimeout(timeout);
-    }
-  };
+        const newTypedNumber = typedNumber + e.key;
+        setTypedNumber(newTypedNumber);
+        const timeout = setTimeout(() => {
+          const slideNumber = parseInt(newTypedNumber);
+          if (slideNumber > 0 && slideNumber <= totalSlides) {
+            setCurrentSlide(slideNumber);
+          }
+          setTypedNumber("");
+        }, 750);
+
+        setTypingTimeout(timeout);
+      }
+    },
+    [currentSlide, totalSlides, typedNumber, typingTimeout]
+  );
 
   // Handle touch events for swipe navigation
-  const handleTouchStart = (e: TouchEvent) => {
+  const handleTouchStart = useCallback((e: TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
-  };
+  }, []);
 
-  const handleTouchMove = (e: TouchEvent) => {
+  const handleTouchMove = useCallback((e: TouchEvent) => {
     setTouchEnd(e.touches[0].clientX);
-  };
+  }, []);
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = useCallback(() => {
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
@@ -703,7 +706,7 @@ export default function QuarterlyAllHands() {
 
     setTouchEnd(null);
     setTouchStart(null);
-  };
+  }, [touchStart, touchEnd, currentSlide, totalSlides]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
@@ -721,12 +724,8 @@ export default function QuarterlyAllHands() {
       }
     };
   }, [
-    currentSlide,
-    typedNumber,
     typingTimeout,
     handleKeyPress,
-    touchStart,
-    touchEnd,
     handleTouchEnd,
     handleTouchMove,
     handleTouchStart,

@@ -232,20 +232,27 @@ function HomeContent() {
 
   return (
     <div
-      className="min-h-screen font-sans transition-colors duration-300"
+      className="min-h-screen overflow-x-hidden font-sans transition-colors duration-300"
       style={{
         fontFamily: "Helvetica Neue, sans-serif",
         backgroundColor: backgroundColor,
         color: textColor,
       }}
     >
-      <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
+      <div className="mx-auto w-full max-w-full overflow-x-hidden px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
         <header className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16">
           <div
-            className="mb-4 flex items-center md:mb-0"
+            className="mb-4 flex items-center overflow-hidden md:mb-0"
             style={{ marginLeft: "-10px" }}
           >
-            <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            <div
+              className="scale-[0.65] sm:scale-75 md:scale-90 lg:scale-100"
+              style={{
+                transformOrigin: "left center",
+              }}
+            >
+              <Font text="ANTIWORK" color={textColor} size={logoSize} />
+            </div>
           </div>
           <div className="relative hidden sm:block">
             <button
@@ -258,6 +265,76 @@ function HomeContent() {
           </div>
         </header>
 
+        <p
+          className="mb-8 text-sm font-bold sm:text-base lg:text-xl xl:mb-16 xl:text-3xl"
+          style={{ color: textColor }}
+        >
+          Open source bounties from{" "}
+          <a
+            href="https://github.com/antiwork/gumroad"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Gumroad
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/flexile"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Flexile
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/smallbets"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Small Bets
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/helper"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Helper
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/iffy"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Iffy
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/gumboard"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Gumboard
+          </a>
+          ,{" "}
+          <a
+            href="https://github.com/antiwork/jacquez"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Jacquez
+          </a>
+          , and{" "}
+          <a
+            href="https://github.com/antiwork/shortest"
+            className="underline hover:no-underline"
+            style={{ color: textColor }}
+          >
+            Shortest
+          </a>
+          .
+        </p>
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center xl:mb-16">
           <div className="flex items-center gap-2">
             <Filter size={20} />
@@ -323,7 +400,7 @@ function HomeContent() {
           </div>
         </div>
 
-        <main>
+        <main className="w-full overflow-x-hidden">
           {bountiesData.loading && (
             <div className="flex items-center justify-center py-16">
               <div className="text-center">
@@ -357,7 +434,8 @@ function HomeContent() {
             <>
               <div className="mb-8 flex items-center justify-between">
                 <h2 className="text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-2xl">
-                  {filteredAndSortedIssues.length} open source bounties available
+                  {filteredAndSortedIssues.length} open source bounties
+                  available{" "}
                   {(() => {
                     const total = filteredAndSortedIssues.reduce(
                       (sum, issue) => sum + getIssueTotalValue(issue),
@@ -379,11 +457,11 @@ function HomeContent() {
                   </p>
                 </div>
               ) : (
-                <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8">
+                <div className="grid w-full gap-6 overflow-x-hidden sm:grid-cols-1 lg:grid-cols-2 xl:gap-8">
                   {filteredAndSortedIssues.map((issue) => (
                     <Card
                       key={issue.id}
-                      className="transition-all hover:shadow-lg"
+                      className="overflow-x-hidden transition-all hover:shadow-lg"
                       style={{
                         backgroundColor: backgroundColor,
                         borderColor: textColor,

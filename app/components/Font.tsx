@@ -474,7 +474,7 @@ export function Font({
         className="text-row"
         style={{
           display: "flex",
-          flexWrap: "wrap",
+          flexWrap: "nowrap",
           justifyContent: "flex-start",
         }}
       >
