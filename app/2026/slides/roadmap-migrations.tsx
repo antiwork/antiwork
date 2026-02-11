@@ -10,7 +10,12 @@ export default function SlideRoadmapMigrations() {
       <div className="grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
         <div className="rounded-xl border border-gray-200 p-5 md:p-6 lg:p-8 dark:border-gray-700">
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
-            <a href="https://github.com/antiwork/gumroad/issues/3028" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+            <a
+              href="https://github.com/antiwork/gumroad/issues/3028"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-inherit hover:underline"
+            >
               Inertia
             </a>
           </h2>
@@ -25,33 +30,56 @@ export default function SlideRoadmapMigrations() {
           </p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3061" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3061"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Product pages
               </a>
             </li>
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3047" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3047"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Discover page
               </a>
             </li>
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3030" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3030"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Edit product page
               </a>
             </li>
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3045" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3045"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Communities
               </a>
             </li>
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3146" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3146"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 User page & follow
               </a>
             </li>
-            <li className="text-gray-400 dark:text-gray-500">
-              + 4 more pages
-            </li>
+            <li className="text-gray-400 dark:text-gray-500">+ 4 more pages</li>
           </ul>
         </div>
         <div className="rounded-xl border border-gray-200 p-5 md:p-6 lg:p-8 dark:border-gray-700">
@@ -69,22 +97,42 @@ export default function SlideRoadmapMigrations() {
           </p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3008" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3008"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Global & legacy styles
               </a>
             </li>
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3009" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3009"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Email styles
               </a>
             </li>
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3010" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3010"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Rich text editor
               </a>
             </li>
             <li>
-              <a href="https://github.com/antiwork/gumroad/issues/3011" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+              <a
+                href="https://github.com/antiwork/gumroad/issues/3011"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:underline"
+              >
                 Icons
               </a>
             </li>
@@ -106,7 +154,6 @@ export default function SlideRoadmapMigrations() {
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <li>Native iOS & Android</li>
             <li>Built with React Native</li>
-
           </ul>
         </div>
       </div>

@@ -108,8 +108,27 @@ export default function SlideCodeActivity() {
               textAnchor="end"
               height={60}
             />
-            <YAxis yAxisId="left" stroke="currentColor" label={{ value: 'Lines (K)', angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } }} />
-            <YAxis yAxisId="right" orientation="right" stroke="#22c55e" label={{ value: 'PRs', angle: 90, position: 'insideRight', style: { textAnchor: 'middle' } }} />
+            <YAxis
+              yAxisId="left"
+              stroke="currentColor"
+              label={{
+                value: "Lines (K)",
+                angle: -90,
+                position: "insideLeft",
+                style: { textAnchor: "middle" },
+              }}
+            />
+            <YAxis
+              yAxisId="right"
+              orientation="right"
+              stroke="#22c55e"
+              label={{
+                value: "PRs",
+                angle: 90,
+                position: "insideRight",
+                style: { textAnchor: "middle" },
+              }}
+            />
             <ChartTooltip
               content={
                 <ChartTooltipContent
@@ -150,7 +169,11 @@ export default function SlideCodeActivity() {
               strokeWidth={2}
               name="Lines Changed (K)"
               yAxisId="left"
-              dot={{ fill: codeConfig.linesChanged.color, strokeWidth: 2, r: 2 }}
+              dot={{
+                fill: codeConfig.linesChanged.color,
+                strokeWidth: 2,
+                r: 2,
+              }}
             />
             <Line
               type="monotone"

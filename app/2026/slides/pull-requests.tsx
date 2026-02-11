@@ -113,7 +113,12 @@ export default function SlidePullRequests() {
               height={60}
             />
             <YAxis yAxisId="left" stroke="currentColor" />
-            <YAxis yAxisId="right" orientation="right" stroke="#a855f7" domain={[0, 50]} />
+            <YAxis
+              yAxisId="right"
+              orientation="right"
+              stroke="#a855f7"
+              domain={[0, 50]}
+            />
             <ChartTooltip
               content={
                 <ChartTooltipContent

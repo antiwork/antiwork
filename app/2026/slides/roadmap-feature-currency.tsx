@@ -5,7 +5,12 @@ export default function SlideRoadmapFeatureCurrency() {
         Features
       </p>
       <h1 className="mb-1 text-3xl font-bold tracking-tighter text-gray-900 md:mb-3 md:text-5xl lg:text-6xl xl:text-7xl dark:text-white">
-        <a href="https://github.com/antiwork/gumroad/issues/3036" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+        <a
+          href="https://github.com/antiwork/gumroad/issues/3036"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-inherit hover:underline"
+        >
           Dynamic Currency Minimums
         </a>
       </h1>
@@ -17,14 +22,16 @@ export default function SlideRoadmapFeatureCurrency() {
           <li className="flex items-start gap-3">
             <span className="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-pink-500 md:mt-2.5" />
             <span>
-              Products at currency minimums can have fees that exceed the price, blocking purchases
+              Products at currency minimums can have fees that exceed the price,
+              blocking purchases
             </span>
           </li>
 
           <li className="flex items-start gap-3">
             <span className="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-pink-500 md:mt-2.5" />
             <span>
-              Cap fees at checkout so the seller always nets at least 1 cent instead of failing
+              Cap fees at checkout so the seller always nets at least 1 cent
+              instead of failing
             </span>
           </li>
         </ul>

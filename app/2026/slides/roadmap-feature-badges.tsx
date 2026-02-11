@@ -7,7 +7,12 @@ export default function SlideRoadmapFeatureBadges() {
         Features
       </p>
       <h1 className="mb-1 text-3xl font-bold tracking-tighter text-gray-900 md:mb-3 md:text-5xl lg:text-6xl xl:text-7xl dark:text-white">
-        <a href="https://github.com/antiwork/gumroad/issues/2859" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+        <a
+          href="https://github.com/antiwork/gumroad/issues/2859"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-inherit hover:underline"
+        >
           Badges & Honors
         </a>
       </h1>

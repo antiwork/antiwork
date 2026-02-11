@@ -357,7 +357,8 @@ function HomeContent() {
             <>
               <div className="mb-8 flex items-center justify-between">
                 <h2 className="text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-2xl">
-                  {filteredAndSortedIssues.length} open source bounties available
+                  {filteredAndSortedIssues.length} open source bounties
+                  available
                   {(() => {
                     const total = filteredAndSortedIssues.reduce(
                       (sum, issue) => sum + getIssueTotalValue(issue),

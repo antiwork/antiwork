@@ -27,10 +27,26 @@ interface Paddle {
 
 function BreakoutGame() {
   const [bricks, setBricks] = useState<Brick[]>([]);
-  const [ball, setBall] = useState<Ball>({ x: 0, y: 0, vx: 2.2, vy: -2.2, radius: 10 });
+  const [ball, setBall] = useState<Ball>({
+    x: 0,
+    y: 0,
+    vx: 2.2,
+    vy: -2.2,
+    radius: 10,
+  });
   const ballRef = useRef<Ball>({ x: 0, y: 0, vx: 2.2, vy: -2.2, radius: 10 });
-  const [paddle, setPaddle] = useState<Paddle>({ x: 0, width: 200, height: 15, direction: 1 });
-  const paddleRef = useRef<Paddle>({ x: 0, width: 200, height: 15, direction: 1 });
+  const [paddle, setPaddle] = useState<Paddle>({
+    x: 0,
+    width: 200,
+    height: 15,
+    direction: 1,
+  });
+  const paddleRef = useRef<Paddle>({
+    x: 0,
+    width: 200,
+    height: 15,
+    direction: 1,
+  });
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [gameStarted, setGameStarted] = useState(false);
   const [windowHeight, setWindowHeight] = useState(0);
@@ -43,7 +59,7 @@ function BreakoutGame() {
       const width = window.innerWidth;
       const height = window.innerHeight;
       setWindowHeight(height);
-      
+
       // Create 2 rows of bricks
       const newBricks: Brick[] = [];
       const brickWidth = 30;
@@ -51,8 +67,10 @@ function BreakoutGame() {
       const rows = 2;
       const padding = 8;
       const topOffset = 0;
-      
-      const bricksPerRow = Math.floor((width - padding * 2) / (brickWidth + padding));
+
+      const bricksPerRow = Math.floor(
+        (width - padding * 2) / (brickWidth + padding)
+      );
       const totalBricksWidth = bricksPerRow * (brickWidth + padding) - padding;
       const startX = (width - totalBricksWidth) / 2;
 
@@ -117,7 +135,10 @@ function BreakoutGame() {
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
-      if (!isAutoPlay && (e.key === "a" || e.key === "A" || e.key === "d" || e.key === "D")) {
+      if (
+        !isAutoPlay &&
+        (e.key === "a" || e.key === "A" || e.key === "d" || e.key === "D")
+      ) {
         setPaddle((prev) => {
           const newPaddle = { ...prev, direction: 0 };
           paddleRef.current = newPaddle;
@@ -158,25 +179,26 @@ function BreakoutGame() {
         const ballState = ballRef.current;
         const paddleTop = height - 50;
         const distanceTopaddle = paddleTop - ballState.y;
-        
+
         // Only move if ball is moving down (vy > 0) and getting close
         if (ballState.vy > 0 && distanceTopaddle < 300) {
           // Add significant offset so ball hits edge of paddle for angled bounce
           // Offset direction alternates to create varied angles
           const offsetDirection = Math.sin(Date.now() / 500) > 0 ? 1 : -1;
-          const significantOffset = offsetDirection * (prev.width * 0.3 + Math.random() * 20);
-          
+          const significantOffset =
+            offsetDirection * (prev.width * 0.3 + Math.random() * 20);
+
           // Target position with offset - ball will hit off-center
           const targetX = ballState.x + significantOffset - prev.width / 2;
-          
+
           // Urgency increases as ball gets closer
           const urgency = Math.max(0.5, 1 - distanceTopaddle / 300);
           const baseSpeed = (6 + Math.random() * 6) * urgency;
-          
+
           const paddleCenter = prev.x + prev.width / 2;
           const distance = Math.abs(ballState.x - paddleCenter);
           const speed = Math.min(baseSpeed, distance * 0.3 + 3);
-          
+
           // Move toward offset target position
           if (targetX > prev.x + 5) {
             newX = prev.x + speed;
@@ -242,14 +264,21 @@ function BreakoutGame() {
         const overlapRight = logoRight - (x - radius);
         const overlapTop = y + radius - logoTop;
         const overlapBottom = logoBottom - (y - radius);
-        const minOverlap = Math.min(overlapLeft, overlapRight, overlapTop, overlapBottom);
+        const minOverlap = Math.min(
+          overlapLeft,
+          overlapRight,
+          overlapTop,
+          overlapBottom
+        );
 
         if (minOverlap === overlapLeft || minOverlap === overlapRight) {
           vx = -vx;
-          x = minOverlap === overlapLeft ? logoLeft - radius : logoRight + radius;
+          x =
+            minOverlap === overlapLeft ? logoLeft - radius : logoRight + radius;
         } else {
           vy = -vy;
-          y = minOverlap === overlapTop ? logoTop - radius : logoBottom + radius;
+          y =
+            minOverlap === overlapTop ? logoTop - radius : logoBottom + radius;
         }
       }
 
@@ -294,7 +323,12 @@ function BreakoutGame() {
             const overlapRight = brick.x + brick.width - (x - radius);
             const overlapTop = y + radius - brick.y;
             const overlapBottom = brick.y + brick.height - (y - radius);
-            const minOverlap = Math.min(overlapLeft, overlapRight, overlapTop, overlapBottom);
+            const minOverlap = Math.min(
+              overlapLeft,
+              overlapRight,
+              overlapTop,
+              overlapBottom
+            );
 
             if (minOverlap === overlapLeft) {
               vx = -Math.abs(vx);
@@ -387,7 +421,11 @@ function BreakoutGame() {
               height: brick.height,
             }}
           >
-            <Logo size={brick.width} color="currentColor" background="transparent" />
+            <Logo
+              size={brick.width}
+              color="currentColor"
+              background="transparent"
+            />
           </div>
         ) : null
       )}

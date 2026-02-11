@@ -7,7 +7,12 @@ export default function SlideRoadmapAdminProduct() {
         Creator Admin
       </p>
       <h1 className="mb-6 text-3xl font-bold tracking-tighter text-gray-900 md:mb-8 md:text-5xl lg:text-6xl xl:text-7xl dark:text-white">
-        <a href="https://github.com/antiwork/gumroad/issues/1837" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">
+        <a
+          href="https://github.com/antiwork/gumroad/issues/1837"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-inherit hover:underline"
+        >
           Rethink Product Creation & Edit
         </a>
       </h1>

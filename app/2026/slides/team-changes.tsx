@@ -23,7 +23,10 @@ export default function SlideTeamChanges() {
       </h1>
       <div className="grid w-full max-w-4xl grid-cols-1 gap-x-8 gap-y-2 md:grid-cols-2 md:gap-y-3">
         {team.map((member) => (
-          <div key={member.name} className="flex items-baseline justify-between border-b border-gray-100 py-1.5 md:py-2 dark:border-gray-800">
+          <div
+            key={member.name}
+            className="flex items-baseline justify-between border-b border-gray-100 py-1.5 md:py-2 dark:border-gray-800"
+          >
             <span className="text-base font-medium text-gray-900 md:text-lg lg:text-xl dark:text-white">
               {member.name}
             </span>
@@ -36,19 +39,27 @@ export default function SlideTeamChanges() {
       <div className="mt-6 flex w-full max-w-4xl gap-4 md:mt-10 md:gap-6">
         <div className="flex-1 rounded-xl border border-gray-200 p-3 text-center md:p-4 dark:border-gray-700">
           <div className="text-2xl font-bold text-pink-500 md:text-3xl">5</div>
-          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">Support</div>
+          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">
+            Support
+          </div>
         </div>
         <div className="flex-1 rounded-xl border border-gray-200 p-3 text-center md:p-4 dark:border-gray-700">
           <div className="text-2xl font-bold text-pink-500 md:text-3xl">1</div>
-          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">Design</div>
+          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">
+            Design
+          </div>
         </div>
         <div className="flex-1 rounded-xl border border-gray-200 p-3 text-center md:p-4 dark:border-gray-700">
           <div className="text-2xl font-bold text-pink-500 md:text-3xl">1</div>
-          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">Product</div>
+          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">
+            Product
+          </div>
         </div>
         <div className="flex-1 rounded-xl border border-gray-200 p-3 text-center md:p-4 dark:border-gray-700">
           <div className="text-2xl font-bold text-pink-500 md:text-3xl">5</div>
-          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">Engineering</div>
+          <div className="text-sm text-gray-500 md:text-base dark:text-gray-400">
+            Engineering
+          </div>
         </div>
       </div>
     </div>

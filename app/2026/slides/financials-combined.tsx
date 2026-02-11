@@ -23,19 +23,84 @@ const combinedConfig = {
 
 const combinedData = [
   { year: 2012, creatorEarnings: 600945, netRevenue: 48705, ebitda: -820278 },
-  { year: 2013, creatorEarnings: 4940038, netRevenue: 442765, ebitda: -1888615 },
-  { year: 2014, creatorEarnings: 13775340, netRevenue: 915373, ebitda: -3357889 },
-  { year: 2015, creatorEarnings: 21046470, netRevenue: 1318055, ebitda: -3749698 },
-  { year: 2016, creatorEarnings: 36251075, netRevenue: 2274023, ebitda: -170539 },
-  { year: 2017, creatorEarnings: 41463817, netRevenue: 2691894, ebitda: 228494 },
-  { year: 2018, creatorEarnings: 52395391, netRevenue: 3387321, ebitda: 452080 },
-  { year: 2019, creatorEarnings: 73105515, netRevenue: 4923912, ebitda: 745065 },
-  { year: 2020, creatorEarnings: 142301488, netRevenue: 9210794, ebitda: 902649 },
-  { year: 2021, creatorEarnings: 185482505, netRevenue: 10973980, ebitda: 336053 },
-  { year: 2022, creatorEarnings: 185824553, netRevenue: 10562409, ebitda: 432294 },
-  { year: 2023, creatorEarnings: 170717933, netRevenue: 20738507, ebitda: 11039452 },
-  { year: 2024, creatorEarnings: 145334418, netRevenue: 18951309, ebitda: 7219527 },
-  { year: 2025, creatorEarnings: 108129029, netRevenue: 17785731, ebitda: 5026388 },
+  {
+    year: 2013,
+    creatorEarnings: 4940038,
+    netRevenue: 442765,
+    ebitda: -1888615,
+  },
+  {
+    year: 2014,
+    creatorEarnings: 13775340,
+    netRevenue: 915373,
+    ebitda: -3357889,
+  },
+  {
+    year: 2015,
+    creatorEarnings: 21046470,
+    netRevenue: 1318055,
+    ebitda: -3749698,
+  },
+  {
+    year: 2016,
+    creatorEarnings: 36251075,
+    netRevenue: 2274023,
+    ebitda: -170539,
+  },
+  {
+    year: 2017,
+    creatorEarnings: 41463817,
+    netRevenue: 2691894,
+    ebitda: 228494,
+  },
+  {
+    year: 2018,
+    creatorEarnings: 52395391,
+    netRevenue: 3387321,
+    ebitda: 452080,
+  },
+  {
+    year: 2019,
+    creatorEarnings: 73105515,
+    netRevenue: 4923912,
+    ebitda: 745065,
+  },
+  {
+    year: 2020,
+    creatorEarnings: 142301488,
+    netRevenue: 9210794,
+    ebitda: 902649,
+  },
+  {
+    year: 2021,
+    creatorEarnings: 185482505,
+    netRevenue: 10973980,
+    ebitda: 336053,
+  },
+  {
+    year: 2022,
+    creatorEarnings: 185824553,
+    netRevenue: 10562409,
+    ebitda: 432294,
+  },
+  {
+    year: 2023,
+    creatorEarnings: 170717933,
+    netRevenue: 20738507,
+    ebitda: 11039452,
+  },
+  {
+    year: 2024,
+    creatorEarnings: 145334418,
+    netRevenue: 18951309,
+    ebitda: 7219527,
+  },
+  {
+    year: 2025,
+    creatorEarnings: 108129029,
+    netRevenue: 17785731,
+    ebitda: 5026388,
+  },
 ];
 
 export default function SlideFinancialsCombined() {
@@ -47,7 +112,10 @@ export default function SlideFinancialsCombined() {
         </h1>
       </div>
       <div className="flex min-h-0 w-full flex-1 items-center justify-center">
-        <ChartContainer config={combinedConfig} className="h-4/5 w-full md:w-4/5">
+        <ChartContainer
+          config={combinedConfig}
+          className="h-4/5 w-full md:w-4/5"
+        >
           <BarChart
             data={combinedData}
             margin={{ top: 20, right: 20, left: 40, bottom: 40 }}

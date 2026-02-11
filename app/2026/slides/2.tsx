@@ -202,7 +202,15 @@ export default function Slide2() {
               stroke="currentColor"
               opacity={0.1}
             />
-            <XAxis dataKey="month" stroke="currentColor" interval="preserveStartEnd" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 10 }} />
+            <XAxis
+              dataKey="month"
+              stroke="currentColor"
+              interval="preserveStartEnd"
+              angle={-45}
+              textAnchor="end"
+              height={60}
+              tick={{ fontSize: 10 }}
+            />
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"

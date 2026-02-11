@@ -12,7 +12,9 @@ export default function Slide12() {
           >
             Gumroad
           </a>{" "}
-          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">⭐️ 8,368</span>
+          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">
+            ⭐️ 8,368
+          </span>
         </li>
         <li>
           <a
@@ -21,7 +23,9 @@ export default function Slide12() {
           >
             Shortest
           </a>{" "}
-          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">⭐️ 5,510</span>
+          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">
+            ⭐️ 5,510
+          </span>
         </li>
         <li>
           <a
@@ -30,7 +34,9 @@ export default function Slide12() {
           >
             Flexile
           </a>{" "}
-          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">⭐️ 775</span>
+          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">
+            ⭐️ 775
+          </span>
         </li>
         <li>
           <a
@@ -39,7 +45,9 @@ export default function Slide12() {
           >
             Helper
           </a>{" "}
-          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">⭐️ 655</span>
+          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">
+            ⭐️ 655
+          </span>
         </li>
         <li>
           <a
@@ -48,7 +56,9 @@ export default function Slide12() {
           >
             Iffy
           </a>{" "}
-          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">⭐️ 440</span>
+          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">
+            ⭐️ 440
+          </span>
         </li>
         <li>
           <a
@@ -57,7 +67,9 @@ export default function Slide12() {
           >
             Small Bets
           </a>{" "}
-          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">⭐️ 190</span>
+          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">
+            ⭐️ 190
+          </span>
         </li>
         <li>
           <a
@@ -66,7 +78,9 @@ export default function Slide12() {
           >
             Gumboard
           </a>{" "}
-          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">⭐️ 165</span>
+          <span className="text-sm text-gray-500 md:text-xl lg:text-2xl">
+            ⭐️ 165
+          </span>
         </li>
       </ul>
     </div>

@@ -38,7 +38,61 @@ const rawData = [
   { bucket: "21-22h", ai_assistant: 47, staff: 1008 },
   { bucket: "22-23h", ai_assistant: 45, staff: 992 },
   { bucket: "23-24h", ai_assistant: 46, staff: 1016 },
-  { bucket: "24+h", ai_assistant: 44 + 22 + 27 + 25 + 19 + 16 + 13 + 13 + 6 + 8 + 6 + 5 + 12 + 13 + 11 + 11 + 6 + 5 + 14 + 10 + 13 + 10 + 13 + 11 + 744, staff: 914 + 796 + 671 + 663 + 569 + 639 + 582 + 567 + 549 + 540 + 513 + 563 + 556 + 517 + 436 + 380 + 343 + 367 + 392 + 349 + 377 + 341 + 338 + 345 + 14042 },
+  {
+    bucket: "24+h",
+    ai_assistant:
+      44 +
+      22 +
+      27 +
+      25 +
+      19 +
+      16 +
+      13 +
+      13 +
+      6 +
+      8 +
+      6 +
+      5 +
+      12 +
+      13 +
+      11 +
+      11 +
+      6 +
+      5 +
+      14 +
+      10 +
+      13 +
+      10 +
+      13 +
+      11 +
+      744,
+    staff:
+      914 +
+      796 +
+      671 +
+      663 +
+      569 +
+      639 +
+      582 +
+      567 +
+      549 +
+      540 +
+      513 +
+      563 +
+      556 +
+      517 +
+      436 +
+      380 +
+      343 +
+      367 +
+      392 +
+      349 +
+      377 +
+      341 +
+      338 +
+      345 +
+      14042,
+  },
 ];
 
 const typeLabels: Record<ViewType, string> = {
@@ -56,35 +110,36 @@ const typeColors: Record<ViewType, string> = {
 export default function SlideSupportHistogram() {
   const [selectedType, setSelectedType] = useState<ViewType>("all");
 
-  const { chartData, totalResponses, within1Hour, within1HourPercent } = useMemo(() => {
-    const data = rawData.map((d) => {
-      let count: number;
-      if (selectedType === "all") {
-        count = d.ai_assistant + d.staff;
-      } else if (selectedType === "ai_assistant") {
-        count = d.ai_assistant;
-      } else {
-        count = d.staff;
-      }
-      return { bucket: d.bucket, count };
-    });
+  const { chartData, totalResponses, within1Hour, within1HourPercent } =
+    useMemo(() => {
+      const data = rawData.map((d) => {
+        let count: number;
+        if (selectedType === "all") {
+          count = d.ai_assistant + d.staff;
+        } else if (selectedType === "ai_assistant") {
+          count = d.ai_assistant;
+        } else {
+          count = d.staff;
+        }
+        return { bucket: d.bucket, count };
+      });
 
-    const total = data.reduce((sum, d) => sum + d.count, 0);
-    const first = data[0].count;
-    const firstPercent = ((first / total) * 100).toFixed(1);
+      const total = data.reduce((sum, d) => sum + d.count, 0);
+      const first = data[0].count;
+      const firstPercent = ((first / total) * 100).toFixed(1);
 
-    const withPercentage = data.map((d) => ({
-      ...d,
-      percentage: (d.count / total) * 100,
-    }));
+      const withPercentage = data.map((d) => ({
+        ...d,
+        percentage: (d.count / total) * 100,
+      }));
 
-    return {
-      chartData: withPercentage,
-      totalResponses: total,
-      within1Hour: first,
-      within1HourPercent: firstPercent,
-    };
-  }, [selectedType]);
+      return {
+        chartData: withPercentage,
+        totalResponses: total,
+        within1Hour: first,
+        within1HourPercent: firstPercent,
+      };
+    }, [selectedType]);
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -132,7 +187,11 @@ export default function SlideSupportHistogram() {
                 value: "Percentage of Responses",
                 angle: -90,
                 position: "insideLeft",
-                style: { textAnchor: "middle", fill: typeColors[selectedType], fontSize: 12 },
+                style: {
+                  textAnchor: "middle",
+                  fill: typeColors[selectedType],
+                  fontSize: 12,
+                },
               }}
             />
             <Tooltip
@@ -141,9 +200,13 @@ export default function SlideSupportHistogram() {
                 border: "1px solid #ccc",
                 borderRadius: "8px",
               }}
-              formatter={(value: number, name: string, props: { payload: { count: number; percentage: number } }) => {
-                const count = props.payload.count;
-                const pct = props.payload.percentage;
+              formatter={(
+                value: number,
+                name: string,
+                props: { payload?: { count: number; percentage: number } }
+              ) => {
+                const count = props.payload?.count ?? 0;
+                const pct = props.payload?.percentage ?? 0;
                 return [
                   `${pct.toFixed(2)}% (${count.toLocaleString()} responses)`,
                   "Percentage",
