@@ -65,7 +65,7 @@ function CustomTooltip({
 
   const formatValue = (val: number) => {
     const prefix = val < 0 ? "-" : "";
-    return `${prefix}$${(Math.abs(val) / 1000000).toFixed(2)}M`;
+    return `${prefix}$${Math.abs(val).toLocaleString()}`;
   };
 
   return (
