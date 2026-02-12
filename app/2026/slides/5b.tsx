@@ -43,24 +43,11 @@ function CustomTooltip({
   const previousEbitda = ebitdaByYear.get(label - 1);
 
   let changeText = "";
-  if (previousEbitda !== undefined) {
-    if (previousEbitda === 0) {
-      changeText =
-        currentEbitda > 0
-          ? "↑ from $0"
-          : currentEbitda < 0
-            ? "↓ from $0"
-            : "No change";
-    } else if (previousEbitda < 0 && currentEbitda > 0) {
-      changeText = "↑ Turned profitable";
-    } else if (previousEbitda > 0 && currentEbitda < 0) {
-      changeText = "↓ Turned negative";
-    } else {
-      const change =
-        ((currentEbitda - previousEbitda) / Math.abs(previousEbitda)) * 100;
-      const sign = change >= 0 ? "↑" : "↓";
-      changeText = `${sign} ${Math.abs(change).toFixed(1)}% YoY`;
-    }
+  if (previousEbitda !== undefined && previousEbitda !== 0) {
+    const change =
+      ((currentEbitda - previousEbitda) / Math.abs(previousEbitda)) * 100;
+    const sign = change >= 0 ? "↑" : "↓";
+    changeText = `${sign} ${Math.abs(change).toFixed(1)}% YoY`;
   }
 
   const formatValue = (val: number) => {
