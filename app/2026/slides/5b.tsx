@@ -1,10 +1,5 @@
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
+import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 
 const ebitdaConfig = {
   ebitda: {
@@ -14,21 +9,68 @@ const ebitdaConfig = {
 } satisfies ChartConfig;
 
 const ebitdaData = [
-  { year: 2012, ebitda: -820278 },
-  { year: 2013, ebitda: -1888615 },
-  { year: 2014, ebitda: -3357889 },
-  { year: 2015, ebitda: -3749698 },
-  { year: 2016, ebitda: -170539 },
-  { year: 2017, ebitda: 228494 },
-  { year: 2018, ebitda: 452080 },
-  { year: 2019, ebitda: 745065 },
-  { year: 2020, ebitda: 902649 },
-  { year: 2021, ebitda: 336053 },
-  { year: 2022, ebitda: 432294 },
-  { year: 2023, ebitda: 11039452 },
-  { year: 2024, ebitda: 7219527 },
-  { year: 2025, ebitda: 5026388 },
+  { year: 2012, ebitda: -857776 },
+  { year: 2013, ebitda: -1888616 },
+  { year: 2014, ebitda: -3357890 },
+  { year: 2015, ebitda: -3724157 },
+  { year: 2016, ebitda: -165763 },
+  { year: 2017, ebitda: -88657 },
+  { year: 2018, ebitda: 6595 },
+  { year: 2019, ebitda: -219739 },
+  { year: 2020, ebitda: -14580 },
+  { year: 2021, ebitda: -1707180 },
+  { year: 2022, ebitda: -1301719 },
+  { year: 2023, ebitda: 9812816 },
+  { year: 2024, ebitda: 5566088 },
+  { year: 2025, ebitda: 5850931 },
 ];
+
+// Create a map for quick lookup of previous year's EBITDA
+const ebitdaByYear = new Map(ebitdaData.map((d) => [d.year, d.ebitda]));
+
+function CustomTooltip({
+  active,
+  payload,
+  label,
+}: {
+  active?: boolean;
+  payload?: Array<{ value: number }>;
+  label?: number;
+}) {
+  if (!active || !payload || !payload.length || !label) return null;
+
+  const currentEbitda = payload[0].value;
+  const previousEbitda = ebitdaByYear.get(label - 1);
+
+  let changeText = "";
+  if (previousEbitda !== undefined && previousEbitda !== 0) {
+    const change =
+      ((currentEbitda - previousEbitda) / Math.abs(previousEbitda)) * 100;
+    const sign = change >= 0 ? "↑" : "↓";
+    changeText = `${sign} ${Math.abs(change).toFixed(1)}% YoY`;
+  }
+
+  const formatValue = (val: number) => {
+    const prefix = val < 0 ? "-" : "";
+    return `${prefix}$${Math.abs(val).toLocaleString()}`;
+  };
+
+  return (
+    <div className="rounded-lg border bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+      <p className="font-semibold text-gray-900 dark:text-white">{label}</p>
+      <p className="text-blue-600 dark:text-blue-400">
+        EBITDA: {formatValue(currentEbitda)}
+      </p>
+      {changeText && (
+        <p
+          className={`text-sm ${currentEbitda >= (previousEbitda ?? 0) ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}
+        >
+          {changeText}
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function Slide5b() {
   return (
@@ -55,9 +97,7 @@ export default function Slide5b() {
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"
             />
-            <ChartTooltip
-              content={<ChartTooltipContent labelKey="year" prefix="$" />}
-            />
+            <Tooltip content={<CustomTooltip />} />
             <Bar
               dataKey="ebitda"
               fill={ebitdaConfig.ebitda.color}
