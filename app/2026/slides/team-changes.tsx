@@ -53,8 +53,18 @@ export default function SlideTeamChanges() {
             <Legend
               formatter={(value) => (value === "y2025" ? "2025" : "2026")}
             />
-            <Bar dataKey="y2025" fill="#94a3b8" name="y2025" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="y2026" fill="#ec4899" name="y2026" radius={[4, 4, 0, 0]} />
+            <Bar
+              dataKey="y2025"
+              fill="#94a3b8"
+              name="y2025"
+              radius={[4, 4, 0, 0]}
+            />
+            <Bar
+              dataKey="y2026"
+              fill="#ec4899"
+              name="y2026"
+              radius={[4, 4, 0, 0]}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>
