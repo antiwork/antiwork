@@ -22,84 +22,84 @@ const combinedConfig = {
 } satisfies ChartConfig;
 
 const combinedData = [
-  { year: 2012, creatorEarnings: 600945, netRevenue: 48705, ebitda: -820278 },
+  { year: 2012, creatorEarnings: 600945, netRevenue: 48705, ebitda: -857776 },
   {
     year: 2013,
     creatorEarnings: 4940038,
     netRevenue: 442765,
-    ebitda: -1888615,
+    ebitda: -1888616,
   },
   {
     year: 2014,
     creatorEarnings: 13775340,
     netRevenue: 915373,
-    ebitda: -3357889,
+    ebitda: -3357890,
   },
   {
     year: 2015,
     creatorEarnings: 21046470,
     netRevenue: 1318055,
-    ebitda: -3749698,
+    ebitda: -3724157,
   },
   {
     year: 2016,
     creatorEarnings: 36251075,
     netRevenue: 2274023,
-    ebitda: -170539,
+    ebitda: -165763,
   },
   {
     year: 2017,
     creatorEarnings: 41463817,
     netRevenue: 2691894,
-    ebitda: 228494,
+    ebitda: -88657,
   },
   {
     year: 2018,
     creatorEarnings: 52395391,
     netRevenue: 3387321,
-    ebitda: 452080,
+    ebitda: 6595,
   },
   {
     year: 2019,
     creatorEarnings: 73105515,
     netRevenue: 4923912,
-    ebitda: 745065,
+    ebitda: -219739,
   },
   {
     year: 2020,
     creatorEarnings: 142301488,
     netRevenue: 9210794,
-    ebitda: 902649,
+    ebitda: -14580,
   },
   {
     year: 2021,
     creatorEarnings: 185482505,
     netRevenue: 10973980,
-    ebitda: 336053,
+    ebitda: -1707180,
   },
   {
     year: 2022,
     creatorEarnings: 185824553,
     netRevenue: 10562409,
-    ebitda: 432294,
+    ebitda: -1301719,
   },
   {
     year: 2023,
     creatorEarnings: 170717933,
     netRevenue: 20738507,
-    ebitda: 11039452,
+    ebitda: 9812816,
   },
   {
     year: 2024,
     creatorEarnings: 145334418,
     netRevenue: 18951309,
-    ebitda: 7219527,
+    ebitda: 5566088,
   },
   {
     year: 2025,
     creatorEarnings: 108129029,
     netRevenue: 17785731,
-    ebitda: 5026388,
+    ebitda: 5850931,
   },
 ];
 

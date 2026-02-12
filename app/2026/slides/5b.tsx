@@ -14,20 +14,20 @@ const ebitdaConfig = {
 } satisfies ChartConfig;
 
 const ebitdaData = [
-  { year: 2012, ebitda: -820278 },
-  { year: 2013, ebitda: -1888615 },
-  { year: 2014, ebitda: -3357889 },
-  { year: 2015, ebitda: -3749698 },
-  { year: 2016, ebitda: -170539 },
-  { year: 2017, ebitda: 228494 },
-  { year: 2018, ebitda: 452080 },
-  { year: 2019, ebitda: 745065 },
-  { year: 2020, ebitda: 902649 },
-  { year: 2021, ebitda: 336053 },
-  { year: 2022, ebitda: 432294 },
-  { year: 2023, ebitda: 11039452 },
-  { year: 2024, ebitda: 7219527 },
-  { year: 2025, ebitda: 5026388 },
+  { year: 2012, ebitda: -857776 },
+  { year: 2013, ebitda: -1888616 },
+  { year: 2014, ebitda: -3357890 },
+  { year: 2015, ebitda: -3724157 },
+  { year: 2016, ebitda: -165763 },
+  { year: 2017, ebitda: -88657 },
+  { year: 2018, ebitda: 6595 },
+  { year: 2019, ebitda: -219739 },
+  { year: 2020, ebitda: -14580 },
+  { year: 2021, ebitda: -1707180 },
+  { year: 2022, ebitda: -1301719 },
+  { year: 2023, ebitda: 9812816 },
+  { year: 2024, ebitda: 5566088 },
+  { year: 2025, ebitda: 5850931 },
 ];
 
 export default function Slide5b() {
