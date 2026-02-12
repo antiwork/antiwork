@@ -77,7 +77,7 @@ export default function Slide5b() {
     <div className="flex h-full w-full flex-col">
       <div className="mt-12 flex h-24 items-center justify-center">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-          EBITDA
+          EBITDA*
         </h1>
       </div>
       <div className="flex w-full flex-1 items-center justify-center">
@@ -106,6 +106,13 @@ export default function Slide5b() {
             />
           </BarChart>
         </ChartContainer>
+      </div>
+      <div className="shrink-0 px-8 pb-4 text-center">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          * EBITDA is adjusted to add back capitalized software development and
+          one-time uncollected sales tax paid on retroactive registrations, to
+          better reflect operating cash flows.
+        </p>
       </div>
     </div>
   );
