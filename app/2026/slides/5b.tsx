@@ -1,8 +1,5 @@
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
-import {
-  ChartConfig,
-  ChartContainer,
-} from "@/components/ui/chart";
+import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 
 const ebitdaConfig = {
   ebitda: {
@@ -31,22 +28,36 @@ const ebitdaData = [
 // Create a map for quick lookup of previous year's EBITDA
 const ebitdaByYear = new Map(ebitdaData.map((d) => [d.year, d.ebitda]));
 
-function CustomTooltip({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: number }) {
+function CustomTooltip({
+  active,
+  payload,
+  label,
+}: {
+  active?: boolean;
+  payload?: Array<{ value: number }>;
+  label?: number;
+}) {
   if (!active || !payload || !payload.length || !label) return null;
 
   const currentEbitda = payload[0].value;
   const previousEbitda = ebitdaByYear.get(label - 1);
-  
+
   let changeText = "";
   if (previousEbitda !== undefined) {
     if (previousEbitda === 0) {
-      changeText = currentEbitda > 0 ? "↑ from $0" : currentEbitda < 0 ? "↓ from $0" : "No change";
+      changeText =
+        currentEbitda > 0
+          ? "↑ from $0"
+          : currentEbitda < 0
+            ? "↓ from $0"
+            : "No change";
     } else if (previousEbitda < 0 && currentEbitda > 0) {
       changeText = "↑ Turned profitable";
     } else if (previousEbitda > 0 && currentEbitda < 0) {
       changeText = "↓ Turned negative";
     } else {
-      const change = ((currentEbitda - previousEbitda) / Math.abs(previousEbitda)) * 100;
+      const change =
+        ((currentEbitda - previousEbitda) / Math.abs(previousEbitda)) * 100;
       const sign = change >= 0 ? "↑" : "↓";
       changeText = `${sign} ${Math.abs(change).toFixed(1)}% YoY`;
     }
@@ -58,13 +69,15 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
   };
 
   return (
-    <div className="rounded-lg border bg-white p-3 shadow-lg dark:bg-gray-800 dark:border-gray-700">
+    <div className="rounded-lg border bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
       <p className="font-semibold text-gray-900 dark:text-white">{label}</p>
       <p className="text-blue-600 dark:text-blue-400">
         EBITDA: {formatValue(currentEbitda)}
       </p>
       {changeText && (
-        <p className={`text-sm ${currentEbitda >= (previousEbitda ?? 0) ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
+        <p
+          className={`text-sm ${currentEbitda >= (previousEbitda ?? 0) ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}
+        >
           {changeText}
         </p>
       )}
