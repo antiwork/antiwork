@@ -1,9 +1,7 @@
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 const ebitdaConfig = {
@@ -30,6 +28,50 @@ const ebitdaData = [
   { year: 2025, ebitda: 5850931 },
 ];
 
+// Create a map for quick lookup of previous year's EBITDA
+const ebitdaByYear = new Map(ebitdaData.map((d) => [d.year, d.ebitda]));
+
+function CustomTooltip({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: number }) {
+  if (!active || !payload || !payload.length || !label) return null;
+
+  const currentEbitda = payload[0].value;
+  const previousEbitda = ebitdaByYear.get(label - 1);
+  
+  let changeText = "";
+  if (previousEbitda !== undefined) {
+    if (previousEbitda === 0) {
+      changeText = currentEbitda > 0 ? "↑ from $0" : currentEbitda < 0 ? "↓ from $0" : "No change";
+    } else if (previousEbitda < 0 && currentEbitda > 0) {
+      changeText = "↑ Turned profitable";
+    } else if (previousEbitda > 0 && currentEbitda < 0) {
+      changeText = "↓ Turned negative";
+    } else {
+      const change = ((currentEbitda - previousEbitda) / Math.abs(previousEbitda)) * 100;
+      const sign = change >= 0 ? "↑" : "↓";
+      changeText = `${sign} ${Math.abs(change).toFixed(1)}% YoY`;
+    }
+  }
+
+  const formatValue = (val: number) => {
+    const prefix = val < 0 ? "-" : "";
+    return `${prefix}$${(Math.abs(val) / 1000000).toFixed(2)}M`;
+  };
+
+  return (
+    <div className="rounded-lg border bg-white p-3 shadow-lg dark:bg-gray-800 dark:border-gray-700">
+      <p className="font-semibold text-gray-900 dark:text-white">{label}</p>
+      <p className="text-blue-600 dark:text-blue-400">
+        EBITDA: {formatValue(currentEbitda)}
+      </p>
+      {changeText && (
+        <p className={`text-sm ${currentEbitda >= (previousEbitda ?? 0) ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
+          {changeText}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function Slide5b() {
   return (
     <div className="flex h-full w-full flex-col">
@@ -55,9 +97,7 @@ export default function Slide5b() {
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"
             />
-            <ChartTooltip
-              content={<ChartTooltipContent labelKey="year" prefix="$" />}
-            />
+            <Tooltip content={<CustomTooltip />} />
             <Bar
               dataKey="ebitda"
               fill={ebitdaConfig.ebitda.color}
