@@ -16,57 +16,56 @@ import {
 
 const codeConfig = {
   linesChanged: {
-    label: "Lines Changed (K)",
+    label: "Lines Changed* (K)",
     color: "#3b82f6",
   },
-  prs: {
-    label: "PRs Merged",
+  commits: {
+    label: "Commits",
     color: "#22c55e",
   },
 } satisfies ChartConfig;
 
-// Lines changed estimated from commits * avg ~150 lines per commit
 const codeData = [
-  // 2023 data (commits * 150 / 1000 for K)
-  { month: "Jan '23", linesChanged: 57, prs: 352 },
-  { month: "Feb '23", linesChanged: 50, prs: 269 },
-  { month: "Mar '23", linesChanged: 76, prs: 327 },
-  { month: "Apr '23", linesChanged: 37, prs: 241 },
-  { month: "May '23", linesChanged: 42, prs: 278 },
-  { month: "Jun '23", linesChanged: 48, prs: 302 },
-  { month: "Jul '23", linesChanged: 46, prs: 259 },
-  { month: "Aug '23", linesChanged: 41, prs: 254 },
-  { month: "Sep '23", linesChanged: 37, prs: 214 },
-  { month: "Oct '23", linesChanged: 48, prs: 253 },
-  { month: "Nov '23", linesChanged: 44, prs: 242 },
-  { month: "Dec '23", linesChanged: 50, prs: 288 },
+  // 2023 data
+  { month: "Feb '23", linesChanged: 57, commits: 136 },
+  { month: "Mar '23", linesChanged: 162, commits: 376 },
+  { month: "Apr '23", linesChanged: 91, commits: 219 },
+  { month: "May '23", linesChanged: 93, commits: 269 },
+  { month: "Jun '23", linesChanged: 97, commits: 275 },
+  { month: "Jul '23", linesChanged: 93, commits: 234 },
+  { month: "Aug '23", linesChanged: 50, commits: 238 },
+  { month: "Sep '23", linesChanged: 79, commits: 195 },
+  { month: "Oct '23", linesChanged: 124, commits: 222 },
+  { month: "Nov '23", linesChanged: 120, commits: 223 },
+  { month: "Dec '23", linesChanged: 267, commits: 261 },
   // 2024 data
-  { month: "Jan '24", linesChanged: 54, prs: 308 },
-  { month: "Feb '24", linesChanged: 59, prs: 327 },
-  { month: "Mar '24", linesChanged: 59, prs: 329 },
-  { month: "Apr '24", linesChanged: 59, prs: 333 },
-  { month: "May '24", linesChanged: 70, prs: 349 },
-  { month: "Jun '24", linesChanged: 80, prs: 452 },
-  { month: "Jul '24", linesChanged: 138, prs: 632 },
-  { month: "Aug '24", linesChanged: 96, prs: 607 },
-  { month: "Sep '24", linesChanged: 133, prs: 519 },
-  { month: "Oct '24", linesChanged: 153, prs: 652 },
-  { month: "Nov '24", linesChanged: 93, prs: 320 },
-  { month: "Dec '24", linesChanged: 107, prs: 508 },
+  { month: "Jan '24", linesChanged: 165, commits: 276 },
+  { month: "Feb '24", linesChanged: 531, commits: 347 },
+  { month: "Mar '24", linesChanged: 161, commits: 314 },
+  { month: "Apr '24", linesChanged: 217, commits: 328 },
+  { month: "May '24", linesChanged: 170, commits: 367 },
+  { month: "Jun '24", linesChanged: 434, commits: 422 },
+  { month: "Jul '24", linesChanged: 297, commits: 568 },
+  { month: "Aug '24", linesChanged: 300, commits: 588 },
+  { month: "Sep '24", linesChanged: 282, commits: 444 },
+  { month: "Oct '24", linesChanged: 363, commits: 535 },
+  { month: "Nov '24", linesChanged: 226, commits: 311 },
+  { month: "Dec '24", linesChanged: 438, commits: 451 },
   // 2025-2026 data
-  { month: "Jan '25", linesChanged: 84, prs: 471 },
-  { month: "Feb '25", linesChanged: 114, prs: 611 },
-  { month: "Mar '25", linesChanged: 132, prs: 603 },
-  { month: "Apr '25", linesChanged: 115, prs: 455 },
-  { month: "May '25", linesChanged: 64, prs: 255 },
-  { month: "Jun '25", linesChanged: 99, prs: 297 },
-  { month: "Jul '25", linesChanged: 136, prs: 457 },
-  { month: "Aug '25", linesChanged: 166, prs: 697 },
-  { month: "Sep '25", linesChanged: 113, prs: 450 },
-  { month: "Oct '25", linesChanged: 63, prs: 216 },
-  { month: "Nov '25", linesChanged: 31, prs: 106 },
-  { month: "Dec '25", linesChanged: 43, prs: 149 },
-  { month: "Jan '26", linesChanged: 60, prs: 239 },
+  { month: "Jan '25", linesChanged: 344, commits: 409 },
+  { month: "Feb '25", linesChanged: 382, commits: 570 },
+  { month: "Mar '25", linesChanged: 267, commits: 649 },
+  { month: "Apr '25", linesChanged: 262, commits: 425 },
+  { month: "May '25", linesChanged: 232, commits: 260 },
+  { month: "Jun '25", linesChanged: 143, commits: 349 },
+  { month: "Jul '25", linesChanged: 143, commits: 478 },
+  { month: "Aug '25", linesChanged: 188, commits: 704 },
+  { month: "Sep '25", linesChanged: 116, commits: 459 },
+  { month: "Oct '25", linesChanged: 54, commits: 242 },
+  { month: "Nov '25", linesChanged: 113, commits: 111 },
+  { month: "Dec '25", linesChanged: 75, commits: 136 },
+  { month: "Jan '26", linesChanged: 96, commits: 220 },
+  { month: "Feb '26", linesChanged: 55, commits: 89 },
 ];
 
 // Major AI model launches
@@ -112,7 +111,7 @@ export default function SlideCodeActivity() {
               yAxisId="left"
               stroke="currentColor"
               label={{
-                value: "Lines (K)",
+                value: "Lines* (K)",
                 angle: -90,
                 position: "insideLeft",
                 style: { textAnchor: "middle" },
@@ -123,7 +122,7 @@ export default function SlideCodeActivity() {
               orientation="right"
               stroke="#22c55e"
               label={{
-                value: "PRs",
+                value: "Commits",
                 angle: 90,
                 position: "insideRight",
                 style: { textAnchor: "middle" },
@@ -167,7 +166,7 @@ export default function SlideCodeActivity() {
               dataKey="linesChanged"
               stroke={codeConfig.linesChanged.color}
               strokeWidth={2}
-              name="Lines Changed (K)"
+              name="Lines Changed* (K)"
               yAxisId="left"
               dot={{
                 fill: codeConfig.linesChanged.color,
@@ -177,15 +176,20 @@ export default function SlideCodeActivity() {
             />
             <Line
               type="monotone"
-              dataKey="prs"
-              stroke={codeConfig.prs.color}
+              dataKey="commits"
+              stroke={codeConfig.commits.color}
               strokeWidth={2}
-              name="PRs Merged"
+              name="Commits"
               yAxisId="right"
-              dot={{ fill: codeConfig.prs.color, strokeWidth: 2, r: 2 }}
+              dot={{ fill: codeConfig.commits.color, strokeWidth: 2, r: 2 }}
             />
           </LineChart>
         </ChartContainer>
+      </div>
+      <div className="shrink-0 px-8 pb-4 text-center">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          * Excluding major rewrites and framework changes
+        </p>
       </div>
     </div>
   );
