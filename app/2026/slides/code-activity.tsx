@@ -16,7 +16,7 @@ import {
 
 const codeConfig = {
   linesChanged: {
-    label: "Lines Changed (K)",
+    label: "Lines Changed* (K)",
     color: "#3b82f6",
   },
   commits: {
@@ -48,8 +48,8 @@ const codeData = [
   { month: "Jul '24", linesChanged: 297, commits: 568 },
   { month: "Aug '24", linesChanged: 300, commits: 588 },
   { month: "Sep '24", linesChanged: 282, commits: 444 },
-  { month: "Oct '24", linesChanged: 879, commits: 540 },
-  { month: "Nov '24", linesChanged: 448, commits: 313 },
+  { month: "Oct '24", linesChanged: 363, commits: 535 },
+  { month: "Nov '24", linesChanged: 226, commits: 311 },
   { month: "Dec '24", linesChanged: 438, commits: 451 },
   // 2025-2026 data
   { month: "Jan '25", linesChanged: 344, commits: 409 },
@@ -111,7 +111,7 @@ export default function SlideCodeActivity() {
               yAxisId="left"
               stroke="currentColor"
               label={{
-                value: "Lines (K)",
+                value: "Lines* (K)",
                 angle: -90,
                 position: "insideLeft",
                 style: { textAnchor: "middle" },
@@ -166,7 +166,7 @@ export default function SlideCodeActivity() {
               dataKey="linesChanged"
               stroke={codeConfig.linesChanged.color}
               strokeWidth={2}
-              name="Lines Changed (K)"
+              name="Lines Changed* (K)"
               yAxisId="left"
               dot={{
                 fill: codeConfig.linesChanged.color,
@@ -185,6 +185,11 @@ export default function SlideCodeActivity() {
             />
           </LineChart>
         </ChartContainer>
+      </div>
+      <div className="shrink-0 px-8 pb-4 text-center">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          * Excluding major rewrites and framework changes
+        </p>
       </div>
     </div>
   );
