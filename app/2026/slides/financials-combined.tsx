@@ -150,11 +150,18 @@ export default function SlideFinancialsCombined() {
             <Bar
               dataKey="ebitda"
               fill={combinedConfig.ebitda.color}
-              name="EBITDA"
+              name="EBITDA*"
               radius={[4, 4, 0, 0]}
             />
           </BarChart>
         </ChartContainer>
+      </div>
+      <div className="shrink-0 px-8 pb-4 text-center">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          * EBITDA is adjusted to add back capitalized software development and
+          one-time uncollected sales tax paid on retroactive registrations, to
+          better reflect operating cash flows.
+        </p>
       </div>
     </div>
   );
