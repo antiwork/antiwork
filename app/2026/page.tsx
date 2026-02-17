@@ -41,12 +41,12 @@ import SlideCodeActivity from "./slides/code-activity";
 export default function AnnualMeeting() {
   const slides = [
     <Slide1 key={1} />,
+    <SlideCeoTransition key="ceo-transition" />,
     <Slide2 key={2} />,
     <Slide3 key={3} />,
     <Slide5b key="5b" />,
     <SlideFinancialsCombined key="financials-combined" />,
     <SlideBalanceSheet key="balance-sheet" />,
-    <SlideCeoTransition key="ceo-transition" />,
     <SlideTeamChanges key="team-changes" />,
     <SlideBounties key="bounties" />,
     <SlidePullRequests key="pull-requests" />,

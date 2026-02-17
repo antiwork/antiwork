@@ -7,13 +7,9 @@ import {
 } from "@/components/ui/chart";
 
 const combinedConfig = {
-  creatorEarnings: {
-    label: "Creator Earnings",
-    color: "#3b82f6",
-  },
   cogs: {
     label: "COGS",
-    color: "#ef4444",
+    color: "#6b7280",
   },
   revenue: {
     label: "Revenue",
@@ -21,105 +17,91 @@ const combinedConfig = {
   },
   ebitda: {
     label: "EBITDA",
-    color: "#f59e0b",
+    color: "#ef4444",
   },
 } satisfies ChartConfig;
 
 const combinedData = [
   {
     year: 2012,
-    creatorEarnings: 600945,
     cogs: 82923,
     revenue: 48705,
     ebitda: -857776,
   },
   {
     year: 2013,
-    creatorEarnings: 4940038,
     cogs: 503625,
     revenue: 442765,
     ebitda: -1888616,
   },
   {
     year: 2014,
-    creatorEarnings: 13775340,
     cogs: 930540,
     revenue: 915373,
     ebitda: -3357890,
   },
   {
     year: 2015,
-    creatorEarnings: 21046470,
     cogs: 1229759,
     revenue: 1318055,
     ebitda: -3724157,
   },
   {
     year: 2016,
-    creatorEarnings: 36251075,
     cogs: 1886772,
     revenue: 2274023,
     ebitda: -165763,
   },
   {
     year: 2017,
-    creatorEarnings: 41463817,
     cogs: 2105608,
     revenue: 2691894,
     ebitda: -88657,
   },
   {
     year: 2018,
-    creatorEarnings: 52395391,
     cogs: 2600949,
     revenue: 3387321,
     ebitda: 6595,
   },
   {
     year: 2019,
-    creatorEarnings: 73105515,
     cogs: 3615674,
     revenue: 4923912,
     ebitda: -219739,
   },
   {
     year: 2020,
-    creatorEarnings: 142301488,
     cogs: 6565827,
     revenue: 9210794,
     ebitda: -14580,
   },
   {
     year: 2021,
-    creatorEarnings: 185482505,
     cogs: 6947156,
     revenue: 10973980,
     ebitda: -1707180,
   },
   {
     year: 2022,
-    creatorEarnings: 185824553,
     cogs: 6785049,
     revenue: 10562409,
     ebitda: -1301719,
   },
   {
     year: 2023,
-    creatorEarnings: 170717933,
     cogs: 6498316,
     revenue: 20738507,
     ebitda: 9812816,
   },
   {
     year: 2024,
-    creatorEarnings: 145334418,
     cogs: 5923421,
     revenue: 18951309,
     ebitda: 5566088,
   },
   {
     year: 2025,
-    creatorEarnings: 108129029,
     cogs: 6078821,
     revenue: 17785731,
     ebitda: 5850931,
@@ -164,12 +146,6 @@ export default function SlideFinancialsCombined() {
               content={<ChartTooltipContent labelKey="year" prefix="$" />}
             />
             <Legend wrapperStyle={{ paddingTop: 10 }} />
-            <Bar
-              dataKey="creatorEarnings"
-              fill={combinedConfig.creatorEarnings.color}
-              name="Creator Earnings"
-              radius={[4, 4, 0, 0]}
-            />
             <Bar
               dataKey="revenue"
               fill={combinedConfig.revenue.color}
