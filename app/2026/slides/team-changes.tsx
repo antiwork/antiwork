@@ -25,7 +25,7 @@ export default function SlideTeamChanges() {
         <h1 className="text-2xl font-bold text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
           Team Changes
         </h1>
-        <p className="mt-2 text-sm text-gray-500 md:text-base dark:text-gray-400">
+        <p className="mt-2 text-base text-gray-500 md:text-lg dark:text-gray-400">
           32 people (2025) → 14 people (2026)
         </p>
       </div>
@@ -44,6 +44,7 @@ export default function SlideTeamChanges() {
                 backgroundColor: "rgba(255, 255, 255, 0.95)",
                 border: "1px solid #ccc",
                 borderRadius: "8px",
+                fontSize: "16px",
               }}
               formatter={(value: number, name: string) => {
                 const label = name === "y2025" ? "2025" : "2026";

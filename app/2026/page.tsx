@@ -4,7 +4,6 @@ import { SlideDeck } from "@/components/SlideDeck";
 import Slide1 from "./slides/1";
 import Slide2 from "./slides/2";
 import Slide3 from "./slides/3";
-import Slide4 from "./slides/4";
 import Slide5b from "./slides/5b";
 import SlideFinancialsCombined from "./slides/financials-combined";
 import SlideCeoTransition from "./slides/ceo-transition";
@@ -44,7 +43,6 @@ export default function AnnualMeeting() {
     <Slide1 key={1} />,
     <Slide2 key={2} />,
     <Slide3 key={3} />,
-    <Slide4 key={4} />,
     <Slide5b key="5b" />,
     <SlideFinancialsCombined key="financials-combined" />,
     <SlideBalanceSheet key="balance-sheet" />,

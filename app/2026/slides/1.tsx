@@ -476,7 +476,7 @@ function BreakoutGame() {
       </div>
 
       {/* Instructions */}
-      <div className="absolute bottom-4 left-4 text-xs text-gray-400">
+      <div className="absolute bottom-4 left-4 text-sm text-gray-400 md:text-base">
         {isAutoPlay ? "Auto-playing" : "Manual control"} • A/D to control
       </div>
     </div>

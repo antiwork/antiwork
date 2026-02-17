@@ -19,7 +19,7 @@ export default function SlideRoadmapMigrations() {
               Inertia
             </a>
           </h2>
-          <p className="mb-4 text-sm text-gray-500 md:text-base dark:text-gray-400">
+          <p className="mb-4 text-base text-gray-500 md:text-lg dark:text-gray-400">
             React on Rails → Single Page App
           </p>
           <div className="mb-1 text-4xl font-bold text-pink-500 md:text-5xl">
@@ -28,7 +28,7 @@ export default function SlideRoadmapMigrations() {
           <p className="mb-4 text-base text-gray-500 md:text-lg dark:text-gray-400">
             pages remaining
           </p>
-          <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
+          <ul className="space-y-1 text-base text-gray-600 md:text-lg dark:text-gray-400">
             <li>
               <a
                 href="https://github.com/antiwork/gumroad/issues/3061"
@@ -86,7 +86,7 @@ export default function SlideRoadmapMigrations() {
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
             Tailwind
           </h2>
-          <p className="mb-4 text-sm text-gray-500 md:text-base dark:text-gray-400">
+          <p className="mb-4 text-base text-gray-500 md:text-lg dark:text-gray-400">
             SCSS → Tailwind
           </p>
           <div className="mb-1 text-4xl font-bold text-pink-500 md:text-5xl">
@@ -95,7 +95,7 @@ export default function SlideRoadmapMigrations() {
           <p className="mb-4 text-base text-gray-500 md:text-lg dark:text-gray-400">
             files remaining
           </p>
-          <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
+          <ul className="space-y-1 text-base text-gray-600 md:text-lg dark:text-gray-400">
             <li>
               <a
                 href="https://github.com/antiwork/gumroad/issues/3008"
@@ -142,7 +142,7 @@ export default function SlideRoadmapMigrations() {
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
             Expo
           </h2>
-          <p className="mb-4 text-sm text-gray-500 md:text-base dark:text-gray-400">
+          <p className="mb-4 text-base text-gray-500 md:text-lg dark:text-gray-400">
             Brand new mobile apps
           </p>
           <div className="mb-1 text-4xl font-bold text-pink-500 md:text-5xl">
@@ -151,7 +151,7 @@ export default function SlideRoadmapMigrations() {
           <p className="mb-4 text-base text-gray-500 md:text-lg dark:text-gray-400">
             mobile-first experience
           </p>
-          <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
+          <ul className="space-y-1 text-base text-gray-600 md:text-lg dark:text-gray-400">
             <li>Native iOS & Android</li>
             <li>Built with React Native</li>
           </ul>

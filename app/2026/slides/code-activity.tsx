@@ -187,7 +187,7 @@ export default function SlideCodeActivity() {
         </ChartContainer>
       </div>
       <div className="shrink-0 px-8 pb-4 text-center">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-gray-500 md:text-base dark:text-gray-400">
           * Excluding major rewrites and framework changes
         </p>
       </div>

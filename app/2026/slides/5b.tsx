@@ -56,14 +56,16 @@ function CustomTooltip({
   };
 
   return (
-    <div className="rounded-lg border bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
-      <p className="font-semibold text-gray-900 dark:text-white">{label}</p>
-      <p className="text-blue-600 dark:text-blue-400">
+    <div className="rounded-lg border bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+      <p className="text-lg font-semibold text-gray-900 dark:text-white">
+        {label}
+      </p>
+      <p className="text-lg text-blue-600 dark:text-blue-400">
         EBITDA: {formatValue(currentEbitda)}
       </p>
       {changeText && (
         <p
-          className={`text-sm ${currentEbitda >= (previousEbitda ?? 0) ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}
+          className={`text-base ${currentEbitda >= (previousEbitda ?? 0) ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}
         >
           {changeText}
         </p>
@@ -108,7 +110,7 @@ export default function Slide5b() {
         </ChartContainer>
       </div>
       <div className="shrink-0 px-8 pb-4 text-center">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-gray-500 md:text-base dark:text-gray-400">
           * EBITDA is adjusted to add back capitalized software development and
           one-time uncollected sales tax paid on retroactive registrations, to
           better reflect operating cash flows.

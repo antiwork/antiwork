@@ -49,6 +49,17 @@ export default function SlideBalanceSheet() {
             </li>
           </ul>
         </div>
+
+        <hr className="my-8 border-gray-300 dark:border-gray-600" />
+
+        <div className="rounded-xl bg-green-50 p-6 dark:bg-green-950">
+          <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+            2026 Goal
+          </p>
+          <p className="mt-2 text-3xl font-bold text-green-600 md:text-4xl dark:text-green-400">
+            $10M EBITDA
+          </p>
+        </div>
       </div>
     </div>
   );
