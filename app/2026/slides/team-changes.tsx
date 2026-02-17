@@ -37,8 +37,16 @@ export default function SlideTeamChanges() {
             margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
             barCategoryGap="20%"
           >
-            <XAxis dataKey="category" stroke="currentColor" />
-            <YAxis stroke="currentColor" allowDecimals={false} />
+            <XAxis
+              dataKey="category"
+              stroke="currentColor"
+              tick={{ fontSize: 14 }}
+            />
+            <YAxis
+              stroke="currentColor"
+              allowDecimals={false}
+              tick={{ fontSize: 14 }}
+            />
             <Tooltip
               contentStyle={{
                 backgroundColor: "rgba(255, 255, 255, 0.95)",

@@ -209,11 +209,12 @@ export default function Slide3() {
               angle={-45}
               textAnchor="end"
               height={60}
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 14 }}
             />
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               stroke="currentColor"
+              tick={{ fontSize: 14 }}
             />
             <ChartTooltip
               content={<ChartTooltipContent labelKey="month" prefix="$" />}

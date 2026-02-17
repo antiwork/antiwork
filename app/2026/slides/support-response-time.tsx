@@ -276,13 +276,14 @@ export default function SlideSupportResponseTime() {
             <XAxis
               dataKey="month"
               stroke="currentColor"
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 14 }}
               angle={-45}
               textAnchor="end"
               height={60}
             />
             <YAxis
               stroke={typeColors[selectedType]}
+              tick={{ fontSize: 14 }}
               tickFormatter={(value) => {
                 if (value >= 1) return `${value.toFixed(0)}h`;
                 return `${(value * 60).toFixed(0)}m`;

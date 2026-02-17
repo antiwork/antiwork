@@ -102,7 +102,7 @@ export default function SlideCodeActivity() {
             <XAxis
               dataKey="month"
               stroke="currentColor"
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 14 }}
               angle={-45}
               textAnchor="end"
               height={60}
@@ -110,6 +110,7 @@ export default function SlideCodeActivity() {
             <YAxis
               yAxisId="left"
               stroke="currentColor"
+              tick={{ fontSize: 14 }}
               label={{
                 value: "Lines* (K)",
                 angle: -90,
@@ -121,6 +122,7 @@ export default function SlideCodeActivity() {
               yAxisId="right"
               orientation="right"
               stroke="#22c55e"
+              tick={{ fontSize: 14 }}
               label={{
                 value: "Commits",
                 angle: 90,

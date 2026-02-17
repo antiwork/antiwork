@@ -107,16 +107,21 @@ export default function SlidePullRequests() {
             <XAxis
               dataKey="month"
               stroke="currentColor"
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 14 }}
               angle={-45}
               textAnchor="end"
               height={60}
             />
-            <YAxis yAxisId="left" stroke="currentColor" />
+            <YAxis
+              yAxisId="left"
+              stroke="currentColor"
+              tick={{ fontSize: 14 }}
+            />
             <YAxis
               yAxisId="right"
               orientation="right"
               stroke="#a855f7"
+              tick={{ fontSize: 14 }}
               domain={[0, 50]}
             />
             <ChartTooltip

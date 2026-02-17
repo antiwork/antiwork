@@ -149,10 +149,16 @@ export default function SlideFinancialsCombined() {
               stroke="currentColor"
               opacity={0.1}
             />
-            <XAxis dataKey="year" stroke="currentColor" />
+            <XAxis
+              dataKey="year"
+              stroke="currentColor"
+              tick={{ fontSize: 14 }}
+            />
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(0)}M`}
               stroke="currentColor"
+              tick={{ fontSize: 14 }}
+              domain={[-4000000, "dataMax"]}
             />
             <ChartTooltip
               content={<ChartTooltipContent labelKey="year" prefix="$" />}

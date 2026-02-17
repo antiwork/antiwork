@@ -173,7 +173,7 @@ export default function SlideSupportHistogram() {
             <XAxis
               dataKey="bucket"
               stroke="currentColor"
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 14 }}
               angle={-45}
               textAnchor="end"
               height={60}
@@ -181,6 +181,7 @@ export default function SlideSupportHistogram() {
             />
             <YAxis
               stroke={typeColors[selectedType]}
+              tick={{ fontSize: 14 }}
               domain={[0, 100]}
               tickFormatter={(value) => `${value}%`}
               label={{

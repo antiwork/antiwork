@@ -94,9 +94,14 @@ export default function Slide5b() {
               stroke="currentColor"
               opacity={0.1}
             />
-            <XAxis dataKey="year" stroke="currentColor" />
+            <XAxis
+              dataKey="year"
+              stroke="currentColor"
+              tick={{ fontSize: 14 }}
+            />
             <YAxis
               tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
+              tick={{ fontSize: 14 }}
               stroke="currentColor"
             />
             <Tooltip content={<CustomTooltip />} />
