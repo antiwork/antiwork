@@ -17,8 +17,7 @@ export default function SlideBuyback() {
             Cash Dividend
           </h2>
           <p className="text-lg text-gray-600 md:text-xl lg:text-2xl dark:text-gray-400">
-            We plan to distribute <strong>$3M in dividends</strong> pro rata to
-            all shareholders.
+            We plan to distribute dividends pro rata to all shareholders.
           </p>
         </div>
 
@@ -27,8 +26,7 @@ export default function SlideBuyback() {
             Share Buyback
           </h2>
           <p className="text-lg text-gray-600 md:text-xl lg:text-2xl dark:text-gray-400">
-            We plan to repurchase up to <strong>$1M in shares</strong> via a
-            reverse Dutch auction.
+            We plan to repurchase shares via a reverse Dutch auction.
           </p>
         </div>
       </div>
@@ -53,6 +51,12 @@ export default function SlideBuyback() {
           </a>
         </p>
       </div>
+
+      <p className="mt-8 max-w-4xl text-center text-sm text-gray-400 dark:text-gray-500">
+        Subject to board approval and applicable legal requirements. This does
+        not constitute an offer to purchase securities. Details will be provided
+        separately.
+      </p>
     </div>
   );
 }

@@ -1,20 +1,11 @@
-import Image from "next/image";
-
 export default function SlideBounties() {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center p-4 md:p-8 lg:p-12">
-      <h1 className="mb-4 text-2xl font-bold tracking-tighter text-gray-900 hover:opacity-80 md:mb-8 md:text-4xl lg:mb-12 lg:text-5xl xl:text-6xl dark:text-white">
-        Open Source Bounties
-      </h1>
-      <div className="relative max-h-[70vh] w-full max-w-5xl">
-        <Image
-          src="/2025/bounties.png"
-          alt="Open Source Bounties"
-          width={1280}
-          height={720}
-          className="h-auto max-h-[70vh] w-full rounded-lg object-contain shadow-lg"
-        />
-      </div>
+    <div className="h-full w-full">
+      <iframe
+        src="/"
+        className="h-full w-full border-0"
+        title="Open Source Bounties"
+      />
     </div>
   );
 }

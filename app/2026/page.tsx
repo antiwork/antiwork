@@ -10,7 +10,6 @@ import SlideCeoTransition from "./slides/ceo-transition";
 import SlideTeamChanges from "./slides/team-changes";
 import SlideBounties from "./slides/bounties";
 import Slide7 from "./slides/7";
-import Slide12 from "./slides/12";
 import SlideHighlights from "./slides/shipped/highlights";
 import SlideReviews from "./slides/shipped/reviews";
 import SlideInstallments from "./slides/shipped/installments";
@@ -24,7 +23,6 @@ import SlideSmallBets from "./slides/small-bets";
 import SlideRoadmap from "./slides/roadmap";
 import SlideRoadmapMigrations from "./slides/roadmap-migrations";
 import SlideRoadmapFeatureBadges from "./slides/roadmap-feature-badges";
-import SlideRoadmapFeatureAnalytics from "./slides/roadmap-feature-analytics";
 import SlideRoadmapFeatureDiscounts from "./slides/roadmap-feature-discounts";
 import SlideRoadmapFeatureCurrency from "./slides/roadmap-feature-currency";
 import SlideRoadmapFeatures from "./slides/roadmap-features";
@@ -54,7 +52,6 @@ export default function AnnualMeeting() {
     <SlideSupportResponseTime key="support-response-time" />,
     <SlideSupportHistogram key="support-histogram" />,
     <SlideHighlights key="highlights" />,
-    <Slide12 key={12} />,
     <SlideReviews key="reviews" />,
     <SlideInstallments key="installments" />,
     <SlideDiscountCode key="discount-code" />,
@@ -67,7 +64,6 @@ export default function AnnualMeeting() {
     <SlideRoadmap key="roadmap" />,
     <SlideRoadmapMigrations key="roadmap-migrations" />,
     <SlideRoadmapFeatureBadges key="roadmap-feature-badges" />,
-    <SlideRoadmapFeatureAnalytics key="roadmap-feature-analytics" />,
     <SlideRoadmapFeatureDiscounts key="roadmap-feature-discounts" />,
     <SlideRoadmapFeatureCurrency key="roadmap-feature-currency" />,
     <SlideRoadmapFeatures key="roadmap-features" />,

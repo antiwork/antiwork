@@ -16,16 +16,58 @@ import {
 
 const codeConfig = {
   linesChanged: {
-    label: "Lines Changed* (K)",
+    label: "Lines Changed*/Person (K)",
     color: "#3b82f6",
   },
   commits: {
-    label: "Commits",
+    label: "Commits/Person",
     color: "#22c55e",
   },
 } satisfies ChartConfig;
 
-const codeData = [
+// Team members by month (from pull-requests slide)
+const teamMembersByMonth: Record<string, number> = {
+  "Jan '23": 18,
+  "Feb '23": 20,
+  "Mar '23": 21,
+  "Apr '23": 22,
+  "May '23": 18,
+  "Jun '23": 24,
+  "Jul '23": 22,
+  "Aug '23": 21,
+  "Sep '23": 22,
+  "Oct '23": 24,
+  "Nov '23": 30,
+  "Dec '23": 29,
+  "Jan '24": 31,
+  "Feb '24": 31,
+  "Mar '24": 30,
+  "Apr '24": 33,
+  "May '24": 33,
+  "Jun '24": 40,
+  "Jul '24": 44,
+  "Aug '24": 41,
+  "Sep '24": 33,
+  "Oct '24": 33,
+  "Nov '24": 29,
+  "Dec '24": 24,
+  "Jan '25": 20,
+  "Feb '25": 31,
+  "Mar '25": 26,
+  "Apr '25": 17,
+  "May '25": 11,
+  "Jun '25": 12,
+  "Jul '25": 12,
+  "Aug '25": 15,
+  "Sep '25": 12,
+  "Oct '25": 12,
+  "Nov '25": 13,
+  "Dec '25": 14,
+  "Jan '26": 15,
+  "Feb '26": 15,
+};
+
+const rawCodeData = [
   // 2023 data
   { month: "Feb '23", linesChanged: 57, commits: 136 },
   { month: "Mar '23", linesChanged: 162, commits: 376 },
@@ -67,6 +109,16 @@ const codeData = [
   { month: "Jan '26", linesChanged: 96, commits: 220 },
   { month: "Feb '26", linesChanged: 55, commits: 89 },
 ];
+
+// Calculate per-person metrics
+const codeData = rawCodeData.map((d) => {
+  const teamSize = teamMembersByMonth[d.month] || 1;
+  return {
+    month: d.month,
+    linesChanged: Math.round((d.linesChanged / teamSize) * 10) / 10,
+    commits: Math.round((d.commits / teamSize) * 10) / 10,
+  };
+});
 
 // Major AI model launches
 const modelLaunches = [
@@ -112,7 +164,7 @@ export default function SlideCodeActivity() {
               stroke="currentColor"
               tick={{ fontSize: 14 }}
               label={{
-                value: "Lines* (K)",
+                value: "Lines*/Person (K)",
                 angle: -90,
                 position: "insideLeft",
                 style: { textAnchor: "middle" },
@@ -124,7 +176,7 @@ export default function SlideCodeActivity() {
               stroke="#22c55e"
               tick={{ fontSize: 14 }}
               label={{
-                value: "Commits",
+                value: "Commits/Person",
                 angle: 90,
                 position: "insideRight",
                 style: { textAnchor: "middle" },
@@ -168,7 +220,7 @@ export default function SlideCodeActivity() {
               dataKey="linesChanged"
               stroke={codeConfig.linesChanged.color}
               strokeWidth={2}
-              name="Lines Changed* (K)"
+              name="Lines Changed*/Person (K)"
               yAxisId="left"
               dot={{
                 fill: codeConfig.linesChanged.color,
@@ -181,7 +233,7 @@ export default function SlideCodeActivity() {
               dataKey="commits"
               stroke={codeConfig.commits.color}
               strokeWidth={2}
-              name="Commits"
+              name="Commits/Person"
               yAxisId="right"
               dot={{ fill: codeConfig.commits.color, strokeWidth: 2, r: 2 }}
             />
