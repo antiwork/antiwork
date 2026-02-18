@@ -21,14 +21,6 @@ import SlideTaxCenter from "./slides/shipped/tax-center";
 import SlideFlexileGitHub from "./slides/shipped/flexile-github";
 import SlideSmallBets from "./slides/small-bets";
 import SlideRoadmap from "./slides/roadmap";
-import SlideRoadmapMigrations from "./slides/roadmap-migrations";
-import SlideRoadmapFeatureBadges from "./slides/roadmap-feature-badges";
-import SlideRoadmapFeatureDiscounts from "./slides/roadmap-feature-discounts";
-import SlideRoadmapFeatureCurrency from "./slides/roadmap-feature-currency";
-import SlideRoadmapFeatures from "./slides/roadmap-features";
-import SlideRoadmapAdminProduct from "./slides/roadmap-admin-product";
-import SlideRoadmapAdmin from "./slides/roadmap-admin";
-import SlideRoadmapBugs from "./slides/roadmap-bugs";
 import SlidePullRequests from "./slides/pull-requests";
 import SlideSupportResponseTime from "./slides/support-response-time";
 import SlideSupportHistogram from "./slides/support-histogram";
@@ -62,14 +54,6 @@ export default function AnnualMeeting() {
     <SlideFlexileGitHub key="flexile-github" />,
     <SlideSmallBets key="small-bets" />,
     <SlideRoadmap key="roadmap" />,
-    <SlideRoadmapMigrations key="roadmap-migrations" />,
-    <SlideRoadmapFeatureBadges key="roadmap-feature-badges" />,
-    <SlideRoadmapFeatureDiscounts key="roadmap-feature-discounts" />,
-    <SlideRoadmapFeatureCurrency key="roadmap-feature-currency" />,
-    <SlideRoadmapFeatures key="roadmap-features" />,
-    <SlideRoadmapAdminProduct key="roadmap-admin-product" />,
-    <SlideRoadmapAdmin key="roadmap-admin" />,
-    <SlideRoadmapBugs key="roadmap-bugs" />,
     <SlideBuyback key="buyback" />,
     <Slide7 key={7} />,
   ];
