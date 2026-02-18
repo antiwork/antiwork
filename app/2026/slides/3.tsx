@@ -180,6 +180,7 @@ const companyRevenueData = [
   { month: "Oct '25", companyRevenue: 1428642 },
   { month: "Nov '25", companyRevenue: 1459911 },
   { month: "Dec '25", companyRevenue: 1363596 },
+  { month: "Jan '26", companyRevenue: 1537940 },
 ];
 
 export default function Slide3() {

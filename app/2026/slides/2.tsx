@@ -180,6 +180,7 @@ const creatorEarningsData = [
   { month: "Oct '25", creatorEarnings: 8522753 },
   { month: "Nov '25", creatorEarnings: 9011573 },
   { month: "Dec '25", creatorEarnings: 9003189 },
+  { month: "Jan '26", creatorEarnings: 9440148 },
 ];
 
 export default function Slide2() {
