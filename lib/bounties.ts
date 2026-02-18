@@ -43,6 +43,7 @@ export const REPOSITORIES = [
   "antiwork/helper",
   "antiwork/gumboard",
   "antiwork/smallbets",
+  "antiwork/gumroad-mobile",
 ] as const;
 
 export type Repository = (typeof REPOSITORIES)[number];
