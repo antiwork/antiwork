@@ -49,7 +49,6 @@ export default function SlideBalanceSheet() {
             </li>
           </ul>
         </div>
-
       </div>
     </div>
   );
