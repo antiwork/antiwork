@@ -75,7 +75,7 @@ export default function SlideRoadmap() {
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <RoadmapItem
               href="https://github.com/antiwork/gumroad/issues/2859"
-              label="Badges & Honors"
+              label="Top Creator Badge"
               description="Show badges and awards on product and creator pages"
             />
             <RoadmapItem

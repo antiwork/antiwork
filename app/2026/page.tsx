@@ -6,6 +6,7 @@ import Slide2 from "./slides/2";
 import Slide3 from "./slides/3";
 import Slide5b from "./slides/5b";
 import SlideFinancialsCombined from "./slides/financials-combined";
+import SlideQ1Projection from "./slides/q1-projection";
 import SlideCeoTransition from "./slides/ceo-transition";
 import SlideTeamChanges from "./slides/team-changes";
 import SlideTeamCompensation from "./slides/team-compensation";
@@ -37,6 +38,7 @@ export default function AnnualMeeting() {
     <Slide3 key={3} />,
     <Slide5b key="5b" />,
     <SlideFinancialsCombined key="financials-combined" />,
+    <SlideQ1Projection key="q1-projection" />,
     <SlideBalanceSheet key="balance-sheet" />,
     <SlideTeamChanges key="team-changes" />,
     <SlideTeamCompensation key="team-compensation" />,
