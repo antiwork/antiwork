@@ -8,6 +8,7 @@ import Slide5b from "./slides/5b";
 import SlideFinancialsCombined from "./slides/financials-combined";
 import SlideCeoTransition from "./slides/ceo-transition";
 import SlideTeamChanges from "./slides/team-changes";
+import SlideTeamCompensation from "./slides/team-compensation";
 import SlideBounties from "./slides/bounties";
 import Slide7 from "./slides/7";
 import SlideHighlights from "./slides/shipped/highlights";
@@ -38,6 +39,7 @@ export default function AnnualMeeting() {
     <SlideFinancialsCombined key="financials-combined" />,
     <SlideBalanceSheet key="balance-sheet" />,
     <SlideTeamChanges key="team-changes" />,
+    <SlideTeamCompensation key="team-compensation" />,
     <SlideBounties key="bounties" />,
     <SlidePullRequests key="pull-requests" />,
     <SlideCodeActivity key="code-activity" />,
