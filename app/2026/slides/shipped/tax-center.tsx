@@ -8,7 +8,7 @@ export default function SlideTaxCenter() {
       </h1>
       <div className="relative max-h-[70vh] w-full max-w-5xl">
         <Image
-          src="/2025/shipped_features/tax center.jpeg"
+          src="/2026/tax-center-v2.png"
           alt="Tax Center"
           width={1280}
           height={720}
