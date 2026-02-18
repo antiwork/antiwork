@@ -89,7 +89,7 @@ export default function SlideCodeActivity() {
     <div className="flex h-full w-full flex-col">
       <div className="mt-8 flex h-16 shrink-0 items-center justify-center md:mt-12 md:h-24">
         <h1 className="text-2xl font-bold text-gray-900 md:text-4xl dark:text-white">
-          Code Activity per Team Member
+          Code Activity per Engineer
         </h1>
       </div>
       <div className="flex min-h-0 w-full flex-1 items-center justify-center">
