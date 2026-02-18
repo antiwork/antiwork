@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Tooltip,
   Legend,
+  LabelList,
 } from "recharts";
 
 // Monthly compensation rates (approximate, assuming 50/50 senior/non-senior split):
@@ -49,17 +50,37 @@ const compensationData = teamData.map((item) => {
     rate2025 = rates2025.product;
     rate2026 = rates2026.product;
   }
+  const val2025 = item.y2025 * rate2025;
+  const val2026 = item.y2026 * rate2026;
+  const changePercent =
+    val2025 === 0
+      ? val2026 > 0
+        ? 100
+        : 0
+      : ((val2026 - val2025) / val2025) * 100;
   return {
     category: item.category,
-    y2025: item.y2025 * rate2025,
-    y2026: item.y2026 * rate2026,
+    y2025: val2025,
+    y2026: val2026,
+    changeLabel:
+      changePercent > 0
+        ? `+${changePercent.toFixed(0)}%`
+        : `${changePercent.toFixed(0)}%`,
   };
 });
 
 const total2025 = compensationData.reduce((sum, item) => sum + item.y2025, 0);
 const total2026 = compensationData.reduce((sum, item) => sum + item.y2026, 0);
 
-const totalData = [{ category: "Total", y2025: total2025, y2026: total2026 }];
+const totalChangePercent = ((total2026 - total2025) / total2025) * 100;
+const totalData = [
+  {
+    category: "Total",
+    y2025: total2025,
+    y2026: total2026,
+    changeLabel: `${totalChangePercent.toFixed(0)}%`,
+  },
+];
 
 export default function SlideTeamCompensation() {
   const [showTotal, setShowTotal] = useState(false);
@@ -121,7 +142,13 @@ export default function SlideTeamCompensation() {
               fill="#ec4899"
               name="y2026"
               radius={[4, 4, 0, 0]}
-            />
+            >
+              <LabelList
+                dataKey="changeLabel"
+                position="top"
+                style={{ fontSize: 14, fontWeight: "bold", fill: "#ec4899" }}
+              />
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
