@@ -8,9 +8,7 @@ export default function SlideSmallBets() {
         <br />
         is now a part of
         <br />
-        <span className="inline-flex items-center">
-          Antiwork
-        </span>
+        <span className="inline-flex items-center">Antiwork</span>
       </h1>
     </div>
   );
