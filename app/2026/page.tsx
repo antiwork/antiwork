@@ -6,6 +6,8 @@ import Slide2 from "./slides/2";
 import Slide3 from "./slides/3";
 import Slide5b from "./slides/5b";
 import SlideCeoTransition from "./slides/ceo-transition";
+import SlideNewTeamMembers from "./slides/new-team-members";
+import SlideHiringNyc from "./slides/hiring-nyc";
 import SlideTeamChanges from "./slides/team-changes";
 import SlideTeamCompensation from "./slides/team-compensation";
 import SlideBounties from "./slides/bounties";
@@ -28,11 +30,17 @@ import SlideSupportHistogram from "./slides/support-histogram";
 import SlideBuyback from "./slides/buyback";
 import SlideBalanceSheet from "./slides/balance-sheet";
 import SlideCodeActivity from "./slides/code-activity";
+import SlideOfficeRendering from "./slides/office-rendering";
+import SlideOfficeCompleted from "./slides/office-completed";
 
 export default function AnnualMeeting() {
   const slides = [
     <Slide1 key={1} />,
+    <SlideOfficeRendering key="office-rendering" />,
+    <SlideOfficeCompleted key="office-completed" />,
     <SlideCeoTransition key="ceo-transition" />,
+    <SlideNewTeamMembers key="new-team-members" />,
+    <SlideHiringNyc key="hiring-nyc" />,
     <Slide2 key={2} />,
     <Slide3 key={3} />,
     <Slide5b key="5b" />,

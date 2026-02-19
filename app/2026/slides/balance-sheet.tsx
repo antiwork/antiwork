@@ -33,7 +33,7 @@ export default function SlideBalanceSheet() {
     <div className="flex h-full w-full flex-col">
       <div className="mt-8 flex h-16 shrink-0 flex-col items-center justify-center md:mt-12 md:h-24">
         <h1 className="text-2xl font-bold text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-          Balance Sheet
+          Cash on Hand
         </h1>
       </div>
 
