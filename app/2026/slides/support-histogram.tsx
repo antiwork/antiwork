@@ -221,6 +221,16 @@ export default function SlideSupportHistogram() {
                   opacity={index === 0 ? 1 : 0.7}
                 />
               ))}
+              <LabelList
+                dataKey="percentage"
+                position="top"
+                formatter={(value: number) => `${value.toFixed(1)}%`}
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  fill: typeColors[selectedType],
+                }}
+              />
             </Bar>
           </BarChart>
         </ResponsiveContainer>
