@@ -71,9 +71,9 @@ export default function SlideRoadmap() {
           <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
           </p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
-            <li>Mobile</li>
-            <li>Product edit rethink</li>
-            <li>Landing pages</li>
+            <li>• Mobile</li>
+            <li>• Product edit rethink</li>
+            <li>• Landing pages</li>
           </ul>
         </div>
         <div className="rounded-xl border border-gray-200 p-5 md:p-6 lg:p-8 dark:border-gray-700">
@@ -93,7 +93,11 @@ export default function SlideRoadmap() {
               label="Bulk version transfer"
               description="Move customers between product versions in bulk"
             />
-            add an item from github
+            <RoadmapItem
+              href="https://github.com/antiwork/gumroad/issues/3644"
+              label="Membership cancellation tracking"
+              description="Cancellation timestamps in admin and sales CSV export"
+            />
           </ul>
         </div>
         <div className="rounded-xl border border-gray-200 p-5 md:p-6 lg:p-8 dark:border-gray-700">
@@ -102,7 +106,9 @@ export default function SlideRoadmap() {
           </h2>
           <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
           </p>
-          <li> 🤭 </li>
+          <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
+            <li>• 🤭</li>
+          </ul>
         </div>
       </div>
     </div>
