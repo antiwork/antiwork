@@ -107,7 +107,6 @@ export default function SlideRoadmap() {
           <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
           </p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
-            <li>• 🤭</li>
           </ul>
         </div>
       </div>
