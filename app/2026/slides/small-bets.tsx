@@ -9,8 +9,7 @@ export default function SlideSmallBets() {
         is now a part of
         <br />
         <span className="inline-flex items-center">
-          <Logo size={48} color="currentColor" background="transparent" />
-          <span className="ml-2 md:ml-4">Antiwork</span>
+          Antiwork
         </span>
       </h1>
     </div>
