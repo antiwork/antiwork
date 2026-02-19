@@ -45,7 +45,6 @@ export default function SlideRoadmap() {
             Migrations
           </h2>
           <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-            To speed up shipping
           </p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <RoadmapItem
@@ -70,39 +69,20 @@ export default function SlideRoadmap() {
             Features
           </h2>
           <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-            New use cases
           </p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/2859"
-              label="Top Creator Badge"
-              description="Show badges and awards on product and creator pages"
-            />
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/1838"
-              label="Conditional Discounts"
-              description="Limit discount codes to owners of another product"
-            />
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/3036"
-              label="Dynamic Currency Minimums"
-              description="Calculate minimum prices based on fees + exchange rates"
-            />
+            <li>Mobile</li>
+            <li>Product edit rethink</li>
+            <li>Landing pages</li>
           </ul>
         </div>
         <div className="rounded-xl border border-gray-200 p-5 md:p-6 lg:p-8 dark:border-gray-700">
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
-            Creator Admin
+            Creator Adminstration
           </h2>
           <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-            For existing power users
           </p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/1837"
-              label="Rethink Product Creation & Edit"
-              description="Redesign product creation and editing experience"
-            />
             <RoadmapItem
               href="https://github.com/antiwork/gumroad/issues/2371"
               label="Autosave in product editor"
@@ -113,6 +93,7 @@ export default function SlideRoadmap() {
               label="Bulk version transfer"
               description="Move customers between product versions in bulk"
             />
+            add an item from github
           </ul>
         </div>
         <div className="rounded-xl border border-gray-200 p-5 md:p-6 lg:p-8 dark:border-gray-700">
@@ -120,25 +101,8 @@ export default function SlideRoadmap() {
             Bugs & Performance
           </h2>
           <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-            Reliability for everyone
           </p>
-          <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/2042"
-              label="Content page crashes for large products"
-              description="Content page crashes for products with many files"
-            />
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/3134"
-              label="Product page 60s+ load times"
-              description="Product page loads 60s+ across browsers, broken on older Safari"
-            />
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/3262"
-              label="Email audience size takes minutes to update for large audiences"
-              description="Email audience size takes minutes to update for large audiences"
-            />
-          </ul>
+          <li> 🤭 </li>
         </div>
       </div>
     </div>

@@ -35,9 +35,6 @@ export default function SlideBalanceSheet() {
         <h1 className="text-2xl font-bold text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
           Balance Sheet
         </h1>
-        <p className="mt-2 text-base text-gray-500 md:text-lg dark:text-gray-400">
-          Cash at year end
-        </p>
       </div>
 
       <div className="flex min-h-0 w-full flex-1 px-4">
