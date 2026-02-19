@@ -6,6 +6,7 @@ import Slide2 from "./slides/2";
 import Slide3 from "./slides/3";
 import Slide5b from "./slides/5b";
 import SlideCeoTransition from "./slides/ceo-transition";
+import SlideNewTeamMembers from "./slides/new-team-members";
 import SlideTeamChanges from "./slides/team-changes";
 import SlideTeamCompensation from "./slides/team-compensation";
 import SlideBounties from "./slides/bounties";
@@ -33,6 +34,7 @@ export default function AnnualMeeting() {
   const slides = [
     <Slide1 key={1} />,
     <SlideCeoTransition key="ceo-transition" />,
+    <SlideNewTeamMembers key="new-team-members" />,
     <Slide2 key={2} />,
     <Slide3 key={3} />,
     <Slide5b key="5b" />,
