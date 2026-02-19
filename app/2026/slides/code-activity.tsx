@@ -16,7 +16,7 @@ import {
 
 const codeConfig = {
   commitsPerPerson: {
-    label: "Commits/Person",
+    label: "Commits/Engineer",
     color: "#22c55e",
   },
   teamSize: {
@@ -150,7 +150,7 @@ export default function SlideCodeActivity() {
               dataKey="commitsPerPerson"
               stroke={codeConfig.commitsPerPerson.color}
               strokeWidth={2}
-              name="Commits/Person"
+              name="Commits/Engineer"
               dot={{
                 fill: codeConfig.commitsPerPerson.color,
                 strokeWidth: 2,
