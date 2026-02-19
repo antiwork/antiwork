@@ -26,10 +26,7 @@ export default function SlideNewTeamMembers() {
       </h1>
       <div className="flex flex-wrap items-start justify-center gap-8 px-4 md:gap-12 lg:gap-16">
         {teamMembers.map((member) => (
-          <div
-            key={member.name}
-            className="flex flex-col items-center gap-4"
-          >
+          <div key={member.name} className="flex flex-col items-center gap-4">
             <div className="relative h-40 w-40 overflow-hidden rounded-full md:h-52 md:w-52 lg:h-64 lg:w-64">
               <Image
                 src={member.image}
