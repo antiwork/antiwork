@@ -90,11 +90,16 @@ export default function SlideRoadmap() {
               label="Bulk version transfer"
               description="Move customers between product versions in bulk"
             />
-            <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/1838"
-              label="Limit discounts to owners of another product"
-              description="Restrict discount codes to customers who own a specific product"
-            />
+            <li>
+              <a
+                href="https://github.com/antiwork/gumroad/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                + 50 more
+              </a>
+            </li>
           </ul>
         </div>
         <div className="rounded-xl border border-gray-200 p-5 md:p-6 lg:p-8 dark:border-gray-700">
