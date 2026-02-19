@@ -94,9 +94,9 @@ export default function SlideRoadmap() {
               description="Move customers between product versions in bulk"
             />
             <RoadmapItem
-              href="https://github.com/antiwork/gumroad/issues/3644"
-              label="Membership cancellation tracking"
-              description="Cancellation timestamps in admin and sales CSV export"
+              href="https://github.com/antiwork/gumroad/issues/1838"
+              label="Limit discounts to owners of another product"
+              description="Restrict discount codes to customers who own a specific product"
             />
           </ul>
         </div>
