@@ -20,6 +20,7 @@ import SlideCommunity from "./slides/shipped/community";
 import SlideTaxCenter from "./slides/shipped/tax-center";
 import SlideFlexileGitHub from "./slides/shipped/flexile-github";
 import SlideSmallBets from "./slides/small-bets";
+import SlideSmallBetsDetails from "./slides/small-bets-details";
 import SlideRoadmap from "./slides/roadmap";
 import SlidePullRequests from "./slides/pull-requests";
 import SlideSupportResponseTime from "./slides/support-response-time";
@@ -53,6 +54,7 @@ export default function AnnualMeeting() {
     <SlideTaxCenter key="tax-center" />,
     <SlideFlexileGitHub key="flexile-github" />,
     <SlideSmallBets key="small-bets" />,
+    <SlideSmallBetsDetails key="small-bets-details" />,
     <SlideRoadmap key="roadmap" />,
     <SlideBuyback key="buyback" />,
     <Slide7 key={7} />,
