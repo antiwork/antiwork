@@ -93,14 +93,11 @@ export default function SlideTeamCompensation() {
         <h1 className="text-2xl font-bold text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
           Team Compensation
         </h1>
-        <p className="mt-2 text-base text-gray-500 md:text-lg dark:text-gray-400">
-          ${(total2025 / 1000).toFixed(0)}K/month (2025) → $
-          {(total2026 / 1000).toFixed(0)}K/month (2026)*
-        </p>
       </div>
 
-      <div className="flex min-h-0 w-full flex-1 items-center justify-center px-4">
-        <ResponsiveContainer width="100%" height="70%">
+      <div className="flex min-h-0 w-full flex-1 px-4">
+        <div className="flex w-3/4 items-center justify-center">
+          <ResponsiveContainer width="100%" height="70%">
           <BarChart
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
@@ -159,6 +156,20 @@ export default function SlideTeamCompensation() {
             </Bar>
           </BarChart>
         </ResponsiveContainer>
+        </div>
+
+        <div className="flex w-1/4 flex-col justify-center border-l border-gray-200 pl-6 dark:border-gray-700">
+          <div className="rounded-xl bg-gray-50 p-5 dark:bg-gray-800">
+            <p className="text-3xl font-bold md:text-4xl">
+              <span style={{ color: "#94a3b8" }}>${(total2025 / 1000).toFixed(0)}K</span>
+              <span className="text-gray-400"> → </span>
+              <span style={{ color: "#ec4899" }}>${(total2026 / 1000).toFixed(0)}K</span>
+            </p>
+            <p className="mt-2 text-base text-gray-600 md:text-lg dark:text-gray-400">
+              per month*
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="flex shrink-0 flex-col items-center justify-center gap-3 pb-4">
