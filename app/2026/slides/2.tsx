@@ -206,7 +206,10 @@ export default function Slide2() {
       <div className="flex min-h-0 w-full flex-1 px-4">
         {/* Left side - Chart (3/4) */}
         <div className="flex w-3/4 items-center justify-center">
-          <ChartContainer config={creatorEarningsConfig} className="h-4/5 w-full">
+          <ChartContainer
+            config={creatorEarningsConfig}
+            className="h-4/5 w-full"
+          >
             <BarChart
               data={creatorEarningsData}
               margin={{ top: 40, right: 30, left: 40, bottom: 40 }}

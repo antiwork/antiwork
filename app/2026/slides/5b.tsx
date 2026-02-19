@@ -121,7 +121,11 @@ export default function Slide5b() {
         <div className="flex w-1/4 flex-col justify-center border-l border-gray-200 pl-6 dark:border-gray-700">
           <div className="rounded-xl bg-blue-50 p-5 dark:bg-blue-950">
             <p className="text-3xl font-bold text-blue-600 md:text-4xl dark:text-blue-400">
-              ${(ebitdaData.find((d) => d.year === 2025)!.ebitda / 1_000_000).toFixed(1)}M
+              $
+              {(
+                ebitdaData.find((d) => d.year === 2025)!.ebitda / 1_000_000
+              ).toFixed(1)}
+              M
             </p>
             <p className="mt-2 text-base text-gray-600 md:text-lg dark:text-gray-400">
               2025 EBITDA

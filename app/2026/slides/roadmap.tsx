@@ -44,8 +44,7 @@ export default function SlideRoadmap() {
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
             Migrations
           </h2>
-          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-          </p>
+          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400"></p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <RoadmapItem
               href="https://github.com/antiwork/gumroad/issues/3028"
@@ -68,8 +67,7 @@ export default function SlideRoadmap() {
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
             Features
           </h2>
-          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-          </p>
+          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400"></p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <li>• Mobile</li>
             <li>• Product edit rethink</li>
@@ -80,8 +78,7 @@ export default function SlideRoadmap() {
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
             Creator Adminstration
           </h2>
-          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-          </p>
+          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400"></p>
           <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
             <RoadmapItem
               href="https://github.com/antiwork/gumroad/issues/2371"
@@ -104,10 +101,8 @@ export default function SlideRoadmap() {
           <h2 className="text-xl font-bold text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
             Bugs & Performance
           </h2>
-          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400">
-          </p>
-          <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400">
-          </ul>
+          <p className="mb-3 text-base text-gray-500 md:text-lg dark:text-gray-400"></p>
+          <ul className="space-y-1 text-sm text-gray-600 md:text-base dark:text-gray-400"></ul>
         </div>
       </div>
     </div>
