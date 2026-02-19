@@ -328,8 +328,10 @@ function HomeContent() {
             <div className="flex items-center justify-center py-16">
               <div className="text-center">
                 <div
-                  className="mb-4 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent"
-                  style={{ borderColor: textColor }}
+                  className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-4 border-solid border-r-transparent"
+                  style={{
+                    borderColor: `${textColor} transparent ${textColor} ${textColor}`,
+                  }}
                 ></div>
                 <p className="text-sm sm:text-base">Loading bounties...</p>
               </div>
