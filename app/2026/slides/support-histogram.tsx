@@ -147,9 +147,6 @@ export default function SlideSupportHistogram() {
         <h1 className="text-xl font-bold text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
           Support Response Time Distribution
         </h1>
-        <p className="mt-2 text-base text-gray-600 md:text-lg dark:text-gray-400">
-          {totalResponses.toLocaleString()} total responses
-        </p>
       </div>
 
       {/* Key stat callout */}

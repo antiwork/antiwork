@@ -183,6 +183,16 @@ const companyRevenueData = [
   { month: "Jan '26", companyRevenue: 1544444 },
 ];
 
+const revenue2025 = companyRevenueData
+  .filter((d) => d.month.endsWith("'25"))
+  .reduce((sum, d) => sum + d.companyRevenue, 0);
+
+const formatCurrency = (value: number) => {
+  if (value >= 1_000_000_000) return `$${(value / 1_000_000_000).toFixed(2)}B`;
+  if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`;
+  return `$${(value / 1_000).toFixed(0)}K`;
+};
+
 export default function Slide3() {
   return (
     <div className="flex h-full w-full flex-col">
@@ -191,43 +201,59 @@ export default function Slide3() {
           Company Revenue
         </h1>
       </div>
-      <div className="flex w-full flex-1 items-center justify-center">
-        <ChartContainer config={companyRevenueConfig} className="h-4/5 w-4/5">
-          <BarChart
-            data={companyRevenueData}
-            margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
-            accessibilityLayer
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="currentColor"
-              opacity={0.1}
-            />
-            <XAxis
-              dataKey="month"
-              stroke="currentColor"
-              interval="preserveStartEnd"
-              angle={-45}
-              textAnchor="end"
-              height={60}
-              tick={{ fontSize: 14 }}
-            />
-            <YAxis
-              tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
-              stroke="currentColor"
-              tick={{ fontSize: 14 }}
-            />
-            <ChartTooltip
-              content={<ChartTooltipContent labelKey="month" prefix="$" />}
-            />
-            <Bar
-              dataKey="companyRevenue"
-              fill={companyRevenueConfig.companyRevenue.color}
-              name="Company Revenue"
-              radius={4}
-            />
-          </BarChart>
-        </ChartContainer>
+
+      <div className="flex min-h-0 w-full flex-1 px-4">
+        {/* Left side - Chart (3/4) */}
+        <div className="flex w-3/4 items-center justify-center">
+          <ChartContainer config={companyRevenueConfig} className="h-4/5 w-full">
+            <BarChart
+              data={companyRevenueData}
+              margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
+              accessibilityLayer
+            >
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="currentColor"
+                opacity={0.1}
+              />
+              <XAxis
+                dataKey="month"
+                stroke="currentColor"
+                interval="preserveStartEnd"
+                angle={-45}
+                textAnchor="end"
+                height={60}
+                tick={{ fontSize: 14 }}
+              />
+              <YAxis
+                tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
+                stroke="currentColor"
+                tick={{ fontSize: 14 }}
+              />
+              <ChartTooltip
+                content={<ChartTooltipContent labelKey="month" prefix="$" />}
+              />
+              <Bar
+                dataKey="companyRevenue"
+                fill={companyRevenueConfig.companyRevenue.color}
+                name="Company Revenue"
+                radius={4}
+              />
+            </BarChart>
+          </ChartContainer>
+        </div>
+
+        {/* Right side - Total (1/4) */}
+        <div className="flex w-1/4 flex-col justify-center border-l border-gray-200 pl-6 dark:border-gray-700">
+          <div className="rounded-xl bg-blue-50 p-5 dark:bg-blue-950">
+            <p className="text-3xl font-bold text-blue-600 md:text-4xl dark:text-blue-400">
+              {formatCurrency(revenue2025)}
+            </p>
+            <p className="mt-2 text-base text-gray-600 md:text-lg dark:text-gray-400">
+              2025 Revenue
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -131,22 +131,12 @@ export function SlideDeck({ slides }: SlideDeckProps) {
             {slides[currentSlide - 1]}
           </Slide>
         </div>
-        <div
-          className={`fixed bottom-2 right-2 flex items-center gap-1 rounded px-2 py-1 text-sm ${
-            typedNumber
-              ? "bg-black text-white opacity-100 dark:bg-white dark:text-black"
-              : "bg-white text-black opacity-50 dark:bg-gray-800 dark:text-white"
-          }`}
-        >
-          {typedNumber ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              <span>Jumping to {typedNumber}</span>
-            </>
-          ) : (
-            `${currentSlide} / ${totalSlides}`
-          )}
-        </div>
+        {typedNumber && (
+          <div className="fixed bottom-2 right-2 flex items-center gap-1 rounded bg-black px-2 py-1 text-sm text-white dark:bg-white dark:text-black">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            <span>Jumping to {typedNumber}</span>
+          </div>
+        )}
       </div>
     </Suspense>
   );
