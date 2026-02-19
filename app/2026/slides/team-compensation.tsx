@@ -98,72 +98,80 @@ export default function SlideTeamCompensation() {
       <div className="flex min-h-0 w-full flex-1 px-4">
         <div className="flex w-3/4 items-center justify-center">
           <ResponsiveContainer width="100%" height="70%">
-          <BarChart
-            data={chartData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
-            barCategoryGap="20%"
-          >
-            <XAxis
-              dataKey="category"
-              stroke="currentColor"
-              tick={{ fontSize: 14 }}
-            />
-            <YAxis
-              stroke="currentColor"
-              tickFormatter={(value) => `$${(value / 1000).toFixed(0)}K`}
-              tick={{ fontSize: 14 }}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "rgba(255, 255, 255, 0.95)",
-                border: "1px solid #ccc",
-                borderRadius: "8px",
-                fontSize: "16px",
-              }}
-              formatter={(value: number, name: string) => {
-                const label = name === "y2025" ? "2025" : "2026";
-                return [`$${(value / 1000).toFixed(0)}K/month`, label];
-              }}
-            />
-            <Legend
-              formatter={(value) => (value === "y2025" ? "2025" : "2026")}
-            />
-            <Bar
-              dataKey="y2025"
-              fill="#94a3b8"
-              name="y2025"
-              radius={[4, 4, 0, 0]}
+            <BarChart
+              data={chartData}
+              margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+              barCategoryGap="20%"
             >
-              <LabelList
+              <XAxis
+                dataKey="category"
+                stroke="currentColor"
+                tick={{ fontSize: 14 }}
+              />
+              <YAxis
+                stroke="currentColor"
+                tickFormatter={(value) => `$${(value / 1000).toFixed(0)}K`}
+                tick={{ fontSize: 14 }}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "rgba(255, 255, 255, 0.95)",
+                  border: "1px solid #ccc",
+                  borderRadius: "8px",
+                  fontSize: "16px",
+                }}
+                formatter={(value: number, name: string) => {
+                  const label = name === "y2025" ? "2025" : "2026";
+                  return [`$${(value / 1000).toFixed(0)}K/month`, label];
+                }}
+              />
+              <Legend
+                formatter={(value) => (value === "y2025" ? "2025" : "2026")}
+              />
+              <Bar
                 dataKey="y2025"
-                position="top"
-                formatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
-                style={{ fontSize: 14, fontWeight: 600, fill: "#94a3b8" }}
-              />
-            </Bar>
-            <Bar
-              dataKey="y2026"
-              fill="#ec4899"
-              name="y2026"
-              radius={[4, 4, 0, 0]}
-            >
-              <LabelList
+                fill="#94a3b8"
+                name="y2025"
+                radius={[4, 4, 0, 0]}
+              >
+                <LabelList
+                  dataKey="y2025"
+                  position="top"
+                  formatter={(value: number) =>
+                    `$${(value / 1000).toFixed(0)}K`
+                  }
+                  style={{ fontSize: 14, fontWeight: 600, fill: "#94a3b8" }}
+                />
+              </Bar>
+              <Bar
                 dataKey="y2026"
-                position="top"
-                formatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
-                style={{ fontSize: 14, fontWeight: 600, fill: "#ec4899" }}
-              />
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+                fill="#ec4899"
+                name="y2026"
+                radius={[4, 4, 0, 0]}
+              >
+                <LabelList
+                  dataKey="y2026"
+                  position="top"
+                  formatter={(value: number) =>
+                    `$${(value / 1000).toFixed(0)}K`
+                  }
+                  style={{ fontSize: 14, fontWeight: 600, fill: "#ec4899" }}
+                />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="flex w-1/4 flex-col justify-center border-l border-gray-200 pl-6 dark:border-gray-700">
           <div className="rounded-xl bg-gray-50 p-5 dark:bg-gray-800">
             <p className="text-3xl font-bold md:text-4xl">
-              <span style={{ color: "#94a3b8" }}>${(total2025 / 1000).toFixed(0)}K</span>
+              <span style={{ color: "#94a3b8" }}>
+                ${(total2025 / 1000).toFixed(0)}K
+              </span>
               <span className="text-gray-400"> → </span>
-              <span style={{ color: "#ec4899" }}>${(total2026 / 1000).toFixed(0)}K</span>
+              <span style={{ color: "#ec4899" }}>
+                ${(total2026 / 1000).toFixed(0)}K
+              </span>
             </p>
             <p className="mt-2 text-base text-gray-600 md:text-lg dark:text-gray-400">
               per month*
