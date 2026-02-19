@@ -13,6 +13,12 @@ const creatorEarningsConfig = {
   },
 } satisfies ChartConfig;
 
+const formatCurrency = (value: number) => {
+  if (value >= 1_000_000_000) return `$${(value / 1_000_000_000).toFixed(2)}B`;
+  if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`;
+  return `$${(value / 1_000).toFixed(0)}K`;
+};
+
 const creatorEarningsData = [
   { month: "Mar '12", creatorEarnings: 12315 },
   { month: "Apr '12", creatorEarnings: 12100 },
@@ -183,6 +189,11 @@ const creatorEarningsData = [
   { month: "Jan '26", creatorEarnings: 9440148 },
 ];
 
+const totalCreatorEarnings = creatorEarningsData.reduce(
+  (sum, d) => sum + d.creatorEarnings,
+  0
+);
+
 export default function Slide2() {
   return (
     <div className="flex h-full w-full flex-col">
@@ -191,43 +202,59 @@ export default function Slide2() {
           Creator Earnings
         </h1>
       </div>
-      <div className="flex w-full flex-1 items-center justify-center">
-        <ChartContainer config={creatorEarningsConfig} className="h-4/5 w-4/5">
-          <BarChart
-            data={creatorEarningsData}
-            margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
-            accessibilityLayer
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="currentColor"
-              opacity={0.1}
-            />
-            <XAxis
-              dataKey="month"
-              stroke="currentColor"
-              interval="preserveStartEnd"
-              angle={-45}
-              textAnchor="end"
-              height={60}
-              tick={{ fontSize: 14 }}
-            />
-            <YAxis
-              tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
-              stroke="currentColor"
-              tick={{ fontSize: 14 }}
-            />
-            <ChartTooltip
-              content={<ChartTooltipContent labelKey="month" prefix="$" />}
-            />
-            <Bar
-              dataKey="creatorEarnings"
-              fill={creatorEarningsConfig.creatorEarnings.color}
-              name="Creator Earnings"
-              radius={4}
-            />
-          </BarChart>
-        </ChartContainer>
+
+      <div className="flex min-h-0 w-full flex-1 px-4">
+        {/* Left side - Chart (3/4) */}
+        <div className="flex w-3/4 items-center justify-center">
+          <ChartContainer config={creatorEarningsConfig} className="h-4/5 w-full">
+            <BarChart
+              data={creatorEarningsData}
+              margin={{ top: 40, right: 30, left: 40, bottom: 40 }}
+              accessibilityLayer
+            >
+              <CartesianGrid
+                strokeDasharray="3 3"
+                stroke="currentColor"
+                opacity={0.1}
+              />
+              <XAxis
+                dataKey="month"
+                stroke="currentColor"
+                interval="preserveStartEnd"
+                angle={-45}
+                textAnchor="end"
+                height={60}
+                tick={{ fontSize: 14 }}
+              />
+              <YAxis
+                tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
+                stroke="currentColor"
+                tick={{ fontSize: 14 }}
+              />
+              <ChartTooltip
+                content={<ChartTooltipContent labelKey="month" prefix="$" />}
+              />
+              <Bar
+                dataKey="creatorEarnings"
+                fill={creatorEarningsConfig.creatorEarnings.color}
+                name="Creator Earnings"
+                radius={4}
+              />
+            </BarChart>
+          </ChartContainer>
+        </div>
+
+        {/* Right side - Total (1/4) */}
+        <div className="flex w-1/4 flex-col justify-center border-l border-gray-200 pl-6 dark:border-gray-700">
+          <div className="rounded-xl bg-blue-50 p-5 dark:bg-blue-950">
+            <p className="text-3xl font-bold text-blue-600 md:text-4xl dark:text-blue-400">
+              {formatCurrency(totalCreatorEarnings)}
+            </p>
+            <p className="mt-2 text-base text-gray-600 md:text-lg dark:text-gray-400">
+              Total Creator Earnings
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
