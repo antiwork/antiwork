@@ -50,6 +50,8 @@ function BreakoutGame() {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [gameStarted, setGameStarted] = useState(false);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [difficulty, setDifficulty] = useState(1);
+  const difficultyRef = useRef(1);
   const animationRef = useRef<number>();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -130,6 +132,20 @@ function BreakoutGame() {
           };
           paddleRef.current = newPaddle;
           return newPaddle;
+        });
+      }
+      if (e.key === "w" || e.key === "W") {
+        setDifficulty((prev) => {
+          const next = Math.min(prev + 0.25, 3);
+          difficultyRef.current = next;
+          return next;
+        });
+      }
+      if (e.key === "s" || e.key === "S") {
+        setDifficulty((prev) => {
+          const next = Math.max(prev - 0.25, 0.25);
+          difficultyRef.current = next;
+          return next;
         });
       }
     };
@@ -223,9 +239,10 @@ function BreakoutGame() {
     setBall((prev) => {
       let { x, y, vx, vy } = prev;
       const { radius } = prev;
+      const speed = difficultyRef.current;
 
-      x += vx;
-      y += vy;
+      x += vx * speed;
+      y += vy * speed;
 
       // Bounce off walls
       if (x - radius <= 0 || x + radius >= width) {
@@ -477,7 +494,7 @@ function BreakoutGame() {
 
       {/* Instructions */}
       <div className="absolute bottom-4 left-4 text-sm text-gray-400 md:text-base">
-        {isAutoPlay ? "Auto-playing" : "Manual control"} • A/D to control
+        {isAutoPlay ? "Auto-playing" : "Manual control"} • A/D to control • W/S difficulty: {difficulty}x
       </div>
     </div>
   );
