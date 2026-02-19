@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Tooltip,
   Cell,
+  LabelList,
 } from "recharts";
 
 type ViewType = "all" | "ai_assistant" | "staff";

@@ -136,7 +136,14 @@ export default function SlideTeamCompensation() {
               fill="#94a3b8"
               name="y2025"
               radius={[4, 4, 0, 0]}
-            />
+            >
+              <LabelList
+                dataKey="y2025"
+                position="top"
+                formatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
+                style={{ fontSize: 14, fontWeight: 600, fill: "#94a3b8" }}
+              />
+            </Bar>
             <Bar
               dataKey="y2026"
               fill="#ec4899"
@@ -144,9 +151,10 @@ export default function SlideTeamCompensation() {
               radius={[4, 4, 0, 0]}
             >
               <LabelList
-                dataKey="changeLabel"
+                dataKey="y2026"
                 position="top"
-                style={{ fontSize: 14, fontWeight: "bold", fill: "#ec4899" }}
+                formatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
+                style={{ fontSize: 14, fontWeight: 600, fill: "#ec4899" }}
               />
             </Bar>
           </BarChart>

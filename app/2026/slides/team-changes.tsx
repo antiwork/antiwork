@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
   Cell,
+  LabelList,
 } from "recharts";
 
 const teamData = [
@@ -67,13 +68,25 @@ export default function SlideTeamChanges() {
               fill="#94a3b8"
               name="y2025"
               radius={[4, 4, 0, 0]}
-            />
+            >
+              <LabelList
+                dataKey="y2025"
+                position="top"
+                style={{ fontSize: 14, fontWeight: 600, fill: "#94a3b8" }}
+              />
+            </Bar>
             <Bar
               dataKey="y2026"
               fill="#ec4899"
               name="y2026"
               radius={[4, 4, 0, 0]}
-            />
+            >
+              <LabelList
+                dataKey="y2026"
+                position="top"
+                style={{ fontSize: 14, fontWeight: 600, fill: "#ec4899" }}
+              />
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -9,6 +9,7 @@ import {
   YAxis,
   ResponsiveContainer,
   Tooltip,
+  LabelList,
 } from "recharts";
 
 type ResponseType = "all" | "ai_assistant" | "staff";
@@ -319,7 +320,21 @@ export default function SlideSupportResponseTime() {
               name={metricLabel}
               radius={[2, 2, 0, 0]}
               opacity={0.8}
-            />
+            >
+              <LabelList
+                dataKey="value"
+                position="top"
+                formatter={(value: number) => {
+                  if (value >= 1) return `${value.toFixed(1)}h`;
+                  return `${(value * 60).toFixed(0)}m`;
+                }}
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  fill: typeColors[selectedType],
+                }}
+              />
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
