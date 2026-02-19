@@ -16,6 +16,16 @@ const teamMembers = [
     role: "Engineer",
     image: "/2026/nyoman-jyotisa.png",
   },
+  {
+    name: "Sriram Krishnan",
+    role: "Customer Support",
+    image: "/2026/sriram-krishnan.jpeg",
+  },
+  {
+    name: "Sherry Ning",
+    role: "Customer Support",
+    image: "/2026/sherry-ning.jpeg",
+  },
 ];
 
 export default function SlideNewTeamMembers() {
