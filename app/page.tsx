@@ -98,11 +98,53 @@ export default function Home() {
       <ul style={{ marginTop: 8, paddingLeft: 20 }}>
         <li>~98.5% of support tickets auto-resolved (17.3 days → 51 min)</li>
         <li>
+          ~$35M in creator earnings handled per support person (5 of them)
+        </li>
+        <li>
           ~99% of standard fraud/risk cases handled with no human in the loop
         </li>
         <li>idea → shipped in about half an hour, down from a ~99h peak</li>
         <li>82× revenue per employee since 2014</li>
       </ul>
+
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
+          viewBox="0 0 420 96"
+          width="100%"
+          height="96"
+          role="img"
+          aria-label="Pull requests merged per engineer per month, indexed to 2025 = 100: 2023 was 50, 2024 was 54, 2025 is 100. Output per engineer doubled."
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            2023
+          </text>
+          <rect x="48" y="8" width="160" height="14" fill="#ccc" />
+          <text x="214" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            50
+          </text>
+
+          <text x="0" y="50" fontSize="12" fill="#888" fontFamily="monospace">
+            2024
+          </text>
+          <rect x="48" y="40" width="171.5" height="14" fill="#ccc" />
+          <text x="226" y="50" fontSize="12" fill="#888" fontFamily="monospace">
+            54
+          </text>
+
+          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
+            2025
+          </text>
+          <rect x="48" y="72" width="320" height="14" fill="#ec4899" />
+          <text x="374" y="82" fontSize="12" fill="#111" fontFamily="monospace">
+            100
+          </text>
+        </svg>
+        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+          Pull requests merged per engineer, indexed to 2025. Same people, twice
+          the output — the agent does the rest.
+        </figcaption>
+      </figure>
 
       <p style={{ marginTop: 32 }}>
         →{" "}
