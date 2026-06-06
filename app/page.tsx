@@ -35,6 +35,44 @@ export default function Home() {
         company.
       </p>
 
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
+          viewBox="0 0 520 64"
+          width="100%"
+          height="64"
+          preserveAspectRatio="none"
+          role="img"
+          aria-label="Engineering headcount, February 2023 to January 2026: peak of 27, down to 8."
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <path
+            d="M 4.0 28.2 L 18.6 33.3 L 33.3 38.3 L 47.9 20.6 L 62.5 25.7 L 77.1 30.7 L 91.8 33.3 L 106.4 38.3 L 121.0 40.8 L 135.7 25.7 L 150.3 28.2 L 164.9 30.7 L 179.5 33.3 L 194.2 23.2 L 208.8 30.7 L 223.4 20.6 L 238.1 20.6 L 252.7 23.2 L 267.3 8.0 L 281.9 18.1 L 296.6 25.7 L 311.2 33.3 L 325.8 28.2 L 340.5 45.9 L 355.1 35.8 L 369.7 33.3 L 384.3 33.3 L 399.0 40.8 L 413.6 40.8 L 428.2 40.8 L 442.9 38.3 L 457.5 45.9 L 472.1 48.4 L 486.7 45.9 L 501.4 53.5 L 516.0 56.0"
+            fill="none"
+            stroke="#111"
+            strokeWidth={1}
+            vectorEffect="non-scaling-stroke"
+          />
+          <circle cx="267.3" cy="8.0" r="2.5" fill="#ec4899" />
+          <circle cx="516.0" cy="56.0" r="2.5" fill="#111" />
+        </svg>
+        <figcaption
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: 6,
+            color: "#888",
+            fontSize: 13,
+          }}
+        >
+          <span>27 engineers · Aug 2024</span>
+          <span style={{ color: "#111" }}>8 · Jan 2026</span>
+        </figcaption>
+        <figcaption style={{ marginTop: 4, color: "#888", fontSize: 13 }}>
+          Engineering headcount. The work didn&apos;t shrink — it moved to the
+          agent.
+        </figcaption>
+      </figure>
+
       <p style={{ marginTop: 24 }}>
         The software that does it is free and open-source — OpenClaw, Hermes,
         the entire skill library. Download it, run it, owe us nothing. We want
