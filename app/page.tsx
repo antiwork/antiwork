@@ -1,515 +1,327 @@
-"use client";
+import type { Metadata } from "next";
 
-import {
-  DollarSign,
-  Filter,
-  SortAsc,
-  ExternalLink,
-  Github,
-  Calendar,
-  User,
-  MessageSquare,
-  Shuffle,
-} from "lucide-react";
-import { useState, useEffect, useCallback, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import { generateRandomColors } from "@/utils/colors";
-import { Font } from "@/app/components/Font";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import React from "react";
-import {
-  getBountyValue,
-  getBountyLabel,
-  isSubtaskBounty,
-} from "@/lib/bounties";
+export const metadata: Metadata = {
+  title: "Antiwork — We automated ourselves out of the work.",
+  description:
+    "Gumroad runs support, fraud & risk, engineering, and finance through a single AI agent on a 6-person team. The software is free. The only thing we sell is how we did it.",
+};
 
-interface GitHubIssue {
-  id: number;
-  number: number;
-  title: string;
-  html_url: string;
-  created_at: string;
-  updated_at: string;
-  user: {
-    login: string;
-    avatar_url: string;
-  };
-  labels: Array<{
-    name: string;
-    color: string;
-  }>;
-  comments: number;
-  repository: string;
-  subtaskCount: number;
-}
+const css = `
+  :root{
+    --bg:#0a0a0f;--panel:#13131c;--panel2:#191924;--ink:#f4f4f8;--mut:#9a9ab0;
+    --line:#262633;--pink:#ff90e8;--pink2:#ff6fdf;--grn:#3ddc84;--blu:#6fa8ff;--amb:#ffc14d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.55}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,10,15,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;letter-spacing:-.01em;font-size:18px}
+  .brand .dot{color:var(--pink)}
+  .nav-cta{font-size:14px;font-weight:700;background:var(--pink);color:#0a0a0f;padding:9px 16px;border-radius:999px;text-decoration:none;transition:.15s}
+  .nav-cta:hover{background:var(--pink2)}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--mut)}
+  .nav-links a{text-decoration:none}
+  @media(max-width:720px){.nav-links a:not(.nav-cta){display:none}}
+  .hero{padding:96px 0 72px;text-align:center;position:relative;overflow:hidden}
+  .glow{position:absolute;width:680px;height:680px;border-radius:50%;filter:blur(140px);opacity:.14;background:var(--pink);top:-260px;left:50%;transform:translateX(-50%);z-index:-1}
+  .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);font-weight:700;border:1px solid #3a2740;background:var(--panel2);padding:7px 15px;border-radius:999px;margin-bottom:28px}
+  h1{font-size:clamp(42px,7.5vw,88px);line-height:1.0;font-weight:800;letter-spacing:-.03em}
+  h1 .grad{background:linear-gradient(120deg,var(--pink),#ff6fdf 60%,var(--amb));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:clamp(18px,2.3vw,23px);color:var(--mut);max-width:680px;margin:28px auto 0;font-weight:400}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+  .btn{font-size:16px;font-weight:700;padding:15px 28px;border-radius:999px;text-decoration:none;transition:.15s;display:inline-flex;align-items:center;gap:9px}
+  .btn-primary{background:var(--pink);color:#0a0a0f}
+  .btn-primary:hover{background:var(--pink2);transform:translateY(-1px)}
+  .btn-ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--pink);background:var(--panel2)}
+  .hero-note{font-size:13.5px;color:#62627a;margin-top:18px}
+  .premise{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel);padding:54px 0}
+  .premise .wrap{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+  @media(max-width:760px){.premise .wrap{grid-template-columns:1fr;gap:22px}}
+  .premise h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
+  .premise p{color:var(--mut);font-size:17px;margin-top:14px}
+  .premise .free{display:inline-block;margin-top:16px;font-size:14px;font-weight:700;color:var(--grn);border:1px solid #244031;background:#0e1a13;padding:8px 14px;border-radius:999px}
+  .section{padding:74px 0}
+  .section-head{text-align:center;margin-bottom:44px}
+  .section-head .k{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);font-weight:700}
+  .section-head h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.02em;margin-top:12px}
+  .section-head p{color:var(--mut);font-size:17px;max-width:620px;margin:14px auto 0}
+  .grid{display:grid;gap:16px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:880px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.g4,.g3{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 22px}
+  .stat{font-size:clamp(32px,4.4vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1}
+  .stat.p{color:var(--pink)}.stat.g{color:var(--grn)}.stat.b{color:var(--blu)}.stat.a{color:var(--amb)}
+  .stat small{font-size:.42em;font-weight:700;color:var(--mut)}
+  .clbl{font-size:14.5px;color:var(--mut);margin-top:12px}
+  .csub{font-size:13px;color:#6b6b80;margin-top:5px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 24px;position:relative}
+  .step .n{font-size:13px;font-weight:800;color:var(--pink);letter-spacing:.1em}
+  .step h3{font-size:20px;font-weight:800;margin:12px 0 8px;letter-spacing:-.01em}
+  .step p{color:var(--mut);font-size:15.5px}
+  .step .price{font-size:15px;font-weight:800;color:var(--amb);margin-top:12px}
+  .offer{background:linear-gradient(160deg,#1c1426,#13131c);border:1px solid #3a2740;border-radius:24px;padding:56px 40px;text-align:center;margin-top:20px}
+  .offer h2{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
+  .offer .price-line{font-size:clamp(20px,3vw,26px);color:var(--ink);margin-top:18px;font-weight:600}
+  .offer .price-line b{color:var(--pink)}
+  .offer p{color:var(--mut);font-size:16px;max-width:560px;margin:14px auto 0}
+  .offer .btn{margin-top:30px}
+  footer{border-top:1px solid var(--line);padding:44px 0;color:#62627a;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer .tag{font-style:italic;color:var(--mut)}
+  .openbadge{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+`;
 
-interface BountiesData {
-  issues: GitHubIssue[];
-  loading: boolean;
-  error: string | null;
-}
-
-function HomeContent() {
-  const [backgroundColor, setBackgroundColor] = useState("");
-  const [textColor, setTextColor] = useState("");
-  const [logoSize, setLogoSize] = useState(100);
-  const [colorsSetByUrl, setColorsSetByUrl] = useState(false);
-  const [bountiesData, setBountiesData] = useState<BountiesData>({
-    issues: [],
-    loading: true,
-    error: null,
-  });
-  const [amountFilter, setAmountFilter] = useState("All");
-  const [repoFilter, setRepoFilter] = useState("All");
-  const [sortBy, setSortBy] = useState("amount");
-  const searchParams = useSearchParams();
-
-  const generateRandomColorsForPage = useCallback(() => {
-    if (!colorsSetByUrl) {
-      const { backgroundColor, textColor } = generateRandomColors();
-      setBackgroundColor(backgroundColor);
-      setTextColor(textColor);
-    }
-  }, [colorsSetByUrl]);
-
-  const setInitialColorsForPage = useCallback(() => {
-    const { backgroundColor, textColor } = generateRandomColors();
-    setBackgroundColor(backgroundColor);
-    setTextColor(textColor);
-  }, []);
-
-  useEffect(() => {
-    const bgColor = searchParams.get("bg");
-    const txtColor = searchParams.get("txt");
-
-    if (bgColor && txtColor) {
-      setBackgroundColor(`#${bgColor}`);
-      setTextColor(`#${txtColor}`);
-      setColorsSetByUrl(true);
-    } else {
-      setInitialColorsForPage();
-      setColorsSetByUrl(false);
-    }
-  }, [searchParams, setInitialColorsForPage]);
-
-  useEffect(() => {
-    document.documentElement.style.backgroundColor = backgroundColor;
-    document.body.style.backgroundColor = backgroundColor;
-  }, [backgroundColor]);
-
-  useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      generateRandomColorsForPage();
-    };
-
-    window.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [generateRandomColorsForPage]);
-
-  useEffect(() => {
-    const updateLogoSize = () => {
-      if (window.innerWidth >= 1920) {
-        setLogoSize(200);
-      } else if (window.innerWidth >= 1280) {
-        setLogoSize(100);
-      } else if (window.innerWidth >= 1024) {
-        setLogoSize(80);
-      } else if (window.innerWidth >= 590) {
-        setLogoSize(60);
-      } else if (window.innerWidth >= 470) {
-        setLogoSize(48);
-      } else {
-        setLogoSize(36);
-      }
-    };
-
-    updateLogoSize();
-    window.addEventListener("resize", updateLogoSize);
-
-    return () => {
-      window.removeEventListener("resize", updateLogoSize);
-    };
-  }, []);
-
-  const fetchBounties = async () => {
-    setBountiesData({ issues: [], loading: true, error: null });
-
-    try {
-      const response = await fetch("/api/bounties");
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to fetch bounties");
-      }
-
-      setBountiesData({ issues: data.issues, loading: false, error: null });
-    } catch (error) {
-      setBountiesData({
-        issues: [],
-        loading: false,
-        error: error instanceof Error ? error.message : "Something went wrong",
-      });
-    }
-  };
-
-  useEffect(() => {
-    fetchBounties();
-  }, []);
-
-  const getIssueTotalValue = (issue: GitHubIssue) => {
-    const amount = getBountyLabel(issue.labels);
-    const baseValue = getBountyValue(amount);
-    if (isSubtaskBounty(amount)) {
-      // For subtask bounties, multiply by the number of subtasks (minimum 1)
-      return baseValue * Math.max(issue.subtaskCount, 1);
-    }
-    return baseValue;
-  };
-
-  const availableBounties = React.useMemo(() => {
-    const labels = new Set<string>();
-    bountiesData.issues.forEach((issue) => {
-      const label = getBountyLabel(issue.labels);
-      if (label) labels.add(label);
-    });
-    return Array.from(labels).sort((a, b) => {
-      const aIsSubtask = isSubtaskBounty(a);
-      const bIsSubtask = isSubtaskBounty(b);
-      if (aIsSubtask !== bIsSubtask) {
-        return aIsSubtask ? 1 : -1;
-      }
-      return getBountyValue(a) - getBountyValue(b);
-    });
-  }, [bountiesData.issues]);
-
-  const availableRepositories = React.useMemo(() => {
-    const repos = new Set<string>();
-    bountiesData.issues.forEach((issue) => {
-      repos.add(issue.repository);
-    });
-    return Array.from(repos).sort();
-  }, [bountiesData.issues]);
-
-  const filteredAndSortedIssues = React.useMemo(() => {
-    let filtered = bountiesData.issues;
-
-    if (amountFilter !== "All") {
-      filtered = filtered.filter(
-        (issue) => getBountyLabel(issue.labels) === amountFilter
-      );
-    }
-
-    if (repoFilter !== "All") {
-      filtered = filtered.filter((issue) => issue.repository === repoFilter);
-    }
-
-    return filtered.sort((a, b) => {
-      if (sortBy === "amount") {
-        const amountA = getBountyValue(getBountyLabel(a.labels));
-        const amountB = getBountyValue(getBountyLabel(b.labels));
-        return amountB - amountA;
-      } else if (sortBy === "date") {
-        return (
-          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        );
-      } else if (sortBy === "repository") {
-        return a.repository.localeCompare(b.repository);
-      }
-      return 0;
-    });
-  }, [bountiesData.issues, amountFilter, repoFilter, sortBy]);
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
-
-  return (
-    <div
-      className="min-h-screen font-sans transition-colors duration-300"
-      style={{
-        fontFamily: "Helvetica Neue, sans-serif",
-        backgroundColor: backgroundColor,
-        color: textColor,
-      }}
-    >
-      <div className="mx-auto px-4 py-8 sm:py-12 md:px-6 lg:px-8 lg:py-16">
-        <header className="mb-8 flex flex-col items-start justify-between sm:flex-row sm:items-center xl:mb-16">
-          <div
-            className="mb-4 flex items-center md:mb-0"
-            style={{ marginLeft: "-10px" }}
-          >
-            <Font text="ANTIWORK" color={textColor} size={logoSize} />
-          </div>
-          <div className="relative hidden sm:block">
-            <button
-              onClick={generateRandomColorsForPage}
-              className="rounded p-2 xl:p-4"
-              style={{ backgroundColor: textColor, color: backgroundColor }}
-            >
-              <Shuffle size={24} className="xl:h-8 xl:w-8" />
-            </button>
-          </div>
-        </header>
-
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center xl:mb-16">
-          <div className="flex items-center gap-2">
-            <Filter size={20} />
-            <span className="text-sm font-bold sm:text-base">Amount:</span>
-            <select
-              value={amountFilter}
-              onChange={(e) => setAmountFilter(e.target.value)}
-              className="rounded border px-3 py-1 text-sm"
-              style={{
-                backgroundColor: backgroundColor,
-                color: textColor,
-                borderColor: textColor,
-              }}
-            >
-              <option value="All">All amounts</option>
-              {availableBounties.map((label) => (
-                <option key={label} value={label}>
-                  {label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Github size={20} />
-            <span className="text-sm font-bold sm:text-base">Repository:</span>
-            <select
-              value={repoFilter}
-              onChange={(e) => setRepoFilter(e.target.value)}
-              className="rounded border px-3 py-1 text-sm"
-              style={{
-                backgroundColor: backgroundColor,
-                color: textColor,
-                borderColor: textColor,
-              }}
-            >
-              <option value="All">All repositories</option>
-              {availableRepositories.map((repo) => (
-                <option key={repo} value={repo}>
-                  {repo}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <SortAsc size={20} />
-            <span className="text-sm font-bold sm:text-base">Sort by:</span>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="rounded border px-3 py-1 text-sm"
-              style={{
-                backgroundColor: backgroundColor,
-                color: textColor,
-                borderColor: textColor,
-              }}
-            >
-              <option value="amount">Amount</option>
-              <option value="date">Date created</option>
-              <option value="repository">Repository</option>
-            </select>
-          </div>
-        </div>
-
-        <main>
-          {bountiesData.loading && (
-            <div className="flex items-center justify-center py-16">
-              <div className="text-center">
-                <div
-                  className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-4 border-solid border-r-transparent"
-                  style={{
-                    borderColor: `${textColor} transparent ${textColor} ${textColor}`,
-                  }}
-                ></div>
-                <p className="text-sm sm:text-base">Loading bounties...</p>
-              </div>
-            </div>
-          )}
-
-          {bountiesData.error && (
-            <div className="rounded border p-8 text-center">
-              <p className="mb-4 text-lg font-bold">Error loading bounties</p>
-              <p className="mb-4 text-sm">{bountiesData.error}</p>
-              <button
-                onClick={fetchBounties}
-                className="rounded px-4 py-2 text-sm font-bold"
-                style={{
-                  backgroundColor: textColor,
-                  color: backgroundColor,
-                }}
-              >
-                Try again
-              </button>
-            </div>
-          )}
-
-          {!bountiesData.loading && !bountiesData.error && (
-            <>
-              <div className="mb-8 flex items-center justify-between">
-                <h2 className="text-sm font-bold tracking-wide sm:text-base lg:text-xl xl:text-2xl">
-                  {filteredAndSortedIssues.length} open source bounties
-                  available
-                  {(() => {
-                    const total = filteredAndSortedIssues.reduce(
-                      (sum, issue) => sum + getIssueTotalValue(issue),
-                      0
-                    );
-                    return total > 0
-                      ? ` totaling $${total.toLocaleString()}`
-                      : "";
-                  })()}
-                </h2>
-              </div>
-
-              {filteredAndSortedIssues.length === 0 ? (
-                <div className="py-16 text-center">
-                  <DollarSign size={48} className="mx-auto mb-4 opacity-50" />
-                  <p className="mb-2 text-lg font-bold">No bounties found</p>
-                  <p className="text-sm opacity-75">
-                    Try adjusting your filters to see more results.
-                  </p>
-                </div>
-              ) : (
-                <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8">
-                  {filteredAndSortedIssues.map((issue) => (
-                    <Card
-                      key={issue.id}
-                      className="transition-all hover:shadow-lg"
-                      style={{
-                        backgroundColor: backgroundColor,
-                        borderColor: textColor,
-                        color: textColor,
-                      }}
-                    >
-                      <CardHeader>
-                        <div className="flex items-start justify-between gap-4">
-                          <CardTitle className="text-sm font-bold leading-tight sm:text-base lg:text-lg">
-                            <a
-                              href={issue.html_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hover:underline"
-                              style={{ color: textColor }}
-                            >
-                              {issue.title}
-                            </a>
-                          </CardTitle>
-                          <div className="flex shrink-0 items-center gap-2">
-                            <span
-                              className="rounded px-2 py-1 text-xs font-bold"
-                              style={{
-                                backgroundColor: textColor,
-                                color: backgroundColor,
-                              }}
-                            >
-                              {getBountyLabel(issue.labels)}
-                            </span>
-                            <a
-                              className="hover:underline"
-                              href={issue.html_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <ExternalLink size={16} />
-                            </a>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-4 text-xs sm:text-sm">
-                            <div className="flex items-center gap-1">
-                              <Github size={14} />
-                              <a
-                                className="hover:underline"
-                                href={`https://github.com/${issue.repository}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <span className="font-medium">
-                                  {issue.repository}
-                                </span>
-                              </a>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <a
-                                className="hover:underline"
-                                href={issue.html_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <span>#{issue.number}</span>
-                              </a>
-                            </div>
-                          </div>
-                          <div className="flex items-center justify-between text-xs opacity-75">
-                            <div className="flex items-center gap-1">
-                              <User size={12} />
-                              <a
-                                className="hover:underline"
-                                href={`https://github.com/${issue.user.login}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <span>{issue.user.login}</span>
-                              </a>
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <div className="flex items-center gap-1">
-                                <MessageSquare size={12} />
-                                <span>{issue.comments}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <Calendar size={12} />
-                                <span>{formatDate(issue.created_at)}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              )}
-            </>
-          )}
-        </main>
-      </div>
-    </div>
-  );
-}
+const BOOK_URL = "https://gumclaw.gumroad.com/l/gzhptn";
 
 export default function Home() {
   return (
-    <Suspense
-      fallback={
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
-          ▼▼
+    <>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
+
+      <nav>
+        <div className="wrap">
+          <div className="brand">
+            Antiwork<span className="dot">.</span>
+          </div>
+          <div className="nav-links">
+            <a href="#proof">Proof</a>
+            <a href="#how">How it works</a>
+            <a href="#stack">The stack</a>
+            <a className="nav-cta" href={BOOK_URL}>
+              Book the call
+            </a>
+          </div>
         </div>
-      }
-    >
-      <HomeContent />
-    </Suspense>
+      </nav>
+
+      <header className="hero">
+        <div className="glow" />
+        <div className="wrap">
+          <span className="eyebrow">Gumroad · runs on one AI agent</span>
+          <h1>
+            We automated ourselves
+            <br />
+            out of the <span className="grad">work.</span>
+          </h1>
+          <p className="sub">
+            Gumroad runs support, fraud &amp; risk, engineering, and finance
+            through a single AI agent on a 6-person team. The software that does
+            it is free. The only thing we sell is how we did it.
+          </p>
+          <div className="hero-ctas">
+            <a className="btn btn-primary" href={BOOK_URL}>
+              Book a $10K call →
+            </a>
+            <a className="btn btn-ghost" href="#how">
+              Take the software, free
+            </a>
+          </div>
+          <p className="hero-note">
+            Open-source agent stack · no platform fee · no lock-in
+          </p>
+        </div>
+      </header>
+
+      <section className="premise">
+        <div className="wrap">
+          <div>
+            <h2>
+              The software is free.
+              <br />
+              The knowledge isn&apos;t.
+            </h2>
+            <p>
+              Everything Gumroad&apos;s agent runs on — OpenClaw, Hermes, the
+              entire skill library — is open-source. Download it, run it, owe us
+              nothing. We want you to.
+            </p>
+            <span className="free">↓ Free &amp; open-source</span>
+          </div>
+          <div>
+            <h2>So what do you actually sell?</h2>
+            <p>
+              The year of operating knowledge that makes a free framework run a
+              real company without falling over. What to automate first, what to
+              keep human, where an agent earns trust. That&apos;s the call —
+              $10,000, with the people who built it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="proof">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="k">The proof</div>
+            <h2>A 6-person team plus one agent.</h2>
+            <p>
+              Every number is real and from production — the reason a call is
+              worth booking.
+            </p>
+          </div>
+          <div className="g4 grid">
+            <div className="card">
+              <div className="stat p">
+                ~98.5<small>%</small>
+              </div>
+              <div className="clbl">Support tickets auto-resolved</div>
+              <div className="csub">
+                median human resolution 17.3 days → 51 min
+              </div>
+            </div>
+            <div className="card">
+              <div className="stat g">
+                ~99<small>%</small>
+              </div>
+              <div className="clbl">Fraud/risk standard cases autonomous</div>
+              <div className="csub">
+                suspend &amp; reinstate, no human in loop
+              </div>
+            </div>
+            <div className="card">
+              <div className="stat b">
+                ~0.5<small>hr</small>
+              </div>
+              <div className="clbl">Idea → shipped cycle time</div>
+              <div className="csub">
+                down from a ~99h peak; all-time-high throughput
+              </div>
+            </div>
+            <div className="card">
+              <div className="stat a">82×</div>
+              <div className="clbl">Revenue per employee</div>
+              <div className="csub">$46K (2014) → $3.8M (2026)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="how" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="section-head">
+            <div className="k">How it works</div>
+            <h2>Take the software. Book the call if you want the shortcut.</h2>
+          </div>
+          <div className="steps">
+            <div className="step">
+              <div className="n">01</div>
+              <h3>Take the software</h3>
+              <p>
+                OpenClaw, Hermes, and the architecture are open and downloadable
+                today. Stand up your own agent without paying us a cent.
+              </p>
+              <div className="price" style={{ color: "var(--grn)" }}>
+                Free
+              </div>
+            </div>
+            <div className="step">
+              <div className="n">02</div>
+              <h3>Book the call</h3>
+              <p>
+                90 minutes with the people who built and run it. Your stack,
+                your bottleneck, what to automate first — and the mistakes to
+                skip.
+              </p>
+              <div className="price">$10,000 · book one or several</div>
+            </div>
+            <div className="step">
+              <div className="n">03</div>
+              <h3>Run it yourself</h3>
+              <p>
+                You own the deployment, on your infrastructure. Book another
+                call if it&apos;s worth it. No retainer, no lock-in, no SOW.
+              </p>
+              <div className="price" style={{ color: "var(--blu)" }}>
+                Your infra, your call
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="stack" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="section-head">
+            <div className="k">The stack</div>
+            <h2>Not a model. An operating system for an agent.</h2>
+            <p>
+              Open-source runtimes, judgment codified as versioned skills, the
+              company&apos;s own APIs as the agent&apos;s hands.
+            </p>
+          </div>
+          <div className="g3 grid">
+            <div className="card">
+              <div className="stat" style={{ fontSize: 30 }}>
+                1,225
+              </div>
+              <div className="clbl">Codified skills</div>
+              <div className="csub">
+                runbooks with triggers, commands, verification
+              </div>
+            </div>
+            <div className="card">
+              <div className="stat" style={{ fontSize: 30 }}>
+                49
+              </div>
+              <div className="clbl">Autonomous cron jobs</div>
+              <div className="csub">
+                support, risk, eng review, finance — on a schedule
+              </div>
+            </div>
+            <div className="card">
+              <div className="stat" style={{ fontSize: 30 }}>
+                377K★
+              </div>
+              <div className="clbl">OpenClaw + Hermes runtimes</div>
+              <div className="csub">free, swappable, no vendor lock-in</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="offer">
+            <h2>
+              How we built a company
+              <br />
+              that runs itself.
+            </h2>
+            <div className="price-line">
+              <b>$10,000.</b> One call. Book several at today&apos;s price if
+              you want — it may go up later, or not.
+            </div>
+            <p>
+              The frameworks are free. The shortcut is ten grand — 90 minutes
+              with the team that automated Gumroad. Whatever you book now is
+              locked in.
+            </p>
+            <a className="btn btn-primary" href={BOOK_URL}>
+              Book the call →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="wrap">
+          <div className="tag">
+            We automated ourselves out of the work. The software&apos;s on us —
+            the shortcut is ten grand.
+          </div>
+          <span className="openbadge">
+            🦞 Built on OpenClaw + Hermes · open-source
+          </span>
+        </div>
+      </footer>
+    </>
   );
 }
