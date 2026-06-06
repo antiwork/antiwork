@@ -98,7 +98,7 @@ export default function Home() {
       <ul style={{ marginTop: 8, paddingLeft: 20 }}>
         <li>~98.5% of support tickets auto-resolved (17.3 days → 51 min)</li>
         <li>
-          ~$35M in creator earnings handled per support person (5 of them)
+          ~$117M in creator earnings handled per support person (1.5 of them)
         </li>
         <li>
           ~99% of standard fraud/risk cases handled with no human in the loop
