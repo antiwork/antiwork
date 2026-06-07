@@ -43,7 +43,7 @@ export default function Home() {
           title="Reflecting on My Failure to Build a Billion-Dollar Company"
           description="In 2011, I left my job as the second employee at Pinterest — before I vested any of my stock — to work on what I thought would be my life's work…"
           source="sahillavingia.com"
-          image="https://sahillavingia.com/gr.png"
+          image="/cards/reflecting.jpg"
         >
           nearly died
         </LinkCard>
@@ -164,7 +164,7 @@ export default function Home() {
           title="No Meetings, No Deadlines, No Full-Time Employees"
           description="I started Gumroad in 2011. In 2015, we reached a peak of 23 full-time employees. In 2016, after failing to raise more money, I ended up back where I began: a one-person company."
           source="sahillavingia.com"
-          image="https://sahillavingia.com/gumroadians.png"
+          image="/cards/work.jpg"
         >
           three engineers and two in support
         </LinkCard>
@@ -274,6 +274,97 @@ export default function Home() {
           dashboard, Q1 → Q2 2026.
         </p>
       </section>
+
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 16,
+          marginTop: 24,
+        }}
+      >
+        <section
+          style={{
+            flex: "1 1 220px",
+            padding: "28px 24px",
+            border: "1px solid #eee",
+            borderRadius: 14,
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+              fontSize: 11,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "#888",
+            }}
+          >
+            Fraud &amp; risk
+          </p>
+          <p
+            style={{
+              margin: "10px 0 0",
+              fontSize: "clamp(52px, 12vw, 76px)",
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: "-0.03em",
+              color: "#111",
+            }}
+          >
+            ~99%
+          </p>
+          <p style={{ margin: "6px 0 0", fontSize: 15, color: "#111" }}>
+            handled with no human
+          </p>
+          <p style={{ margin: "18px 0 0", fontSize: 12.5, color: "#888" }}>
+            Standard fraud/risk cases reviewed and actioned autonomously by the
+            agent.
+          </p>
+        </section>
+
+        <section
+          style={{
+            flex: "1 1 220px",
+            padding: "28px 24px",
+            border: "1px solid #eee",
+            borderRadius: 14,
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+              fontSize: 11,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "#888",
+            }}
+          >
+            Idea → shipped
+          </p>
+          <p
+            style={{
+              margin: "10px 0 0",
+              fontSize: "clamp(52px, 12vw, 76px)",
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: "-0.03em",
+              color: "#111",
+            }}
+          >
+            26<span style={{ fontSize: "0.42em", fontWeight: 400 }}> min</span>
+          </p>
+          <p style={{ margin: "6px 0 0", fontSize: 15, color: "#111" }}>
+            median, open to merged
+          </p>
+          <p style={{ margin: "18px 0 0", fontSize: 12.5, color: "#888" }}>
+            Median pull-request open-to-merge time on the main codebase, Q2
+            2026.
+          </p>
+        </section>
+      </div>
 
       <figure style={{ margin: "32px 0 0" }}>
         <svg

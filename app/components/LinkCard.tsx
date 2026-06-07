@@ -47,10 +47,29 @@ export function LinkCard({
   }, [open, coarse]);
 
   const handleClick = (e: React.MouseEvent) => {
-    // On touch: first tap opens the card instead of navigating.
-    if (coarse && !open) {
+    // On touch: if a long-press just opened the card, swallow the click that
+    // follows so the first long-press reveals rather than navigates.
+    if (coarse && suppressClickRef.current) {
       e.preventDefault();
+      suppressClickRef.current = false;
+    }
+  };
+
+  // Long-press (touch) reveals the card; a normal tap follows the link.
+  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const suppressClickRef = useRef(false);
+
+  const onTouchStart = () => {
+    if (!coarse) return;
+    pressTimer.current = setTimeout(() => {
       setOpen(true);
+      suppressClickRef.current = true;
+    }, 350);
+  };
+  const clearPress = () => {
+    if (pressTimer.current) {
+      clearTimeout(pressTimer.current);
+      pressTimer.current = null;
     }
   };
 
@@ -66,6 +85,10 @@ export function LinkCard({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
+        onTouchStart={onTouchStart}
+        onTouchEnd={clearPress}
+        onTouchMove={clearPress}
+        onContextMenu={(e) => coarse && e.preventDefault()}
         style={{
           color: "#111",
           textDecoration: "underline",
