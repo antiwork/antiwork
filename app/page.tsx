@@ -167,13 +167,46 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 24, color: "#888" }}>
-        Here is what it runs today — engineering, support, fraud &amp; risk,
-        finance, and investor relations — with more on the way.
+        Here is what it runs today — with more on the way.
       </p>
 
+      <nav
+        style={{
+          marginTop: 16,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+        }}
+      >
+        {[
+          ["Engineering", "engineering"],
+          ["Support", "support"],
+          ["Fraud & risk", "fraud"],
+          ["Finance", "finance"],
+          ["Investor relations", "investors"],
+        ].map(([label, id]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            style={{
+              fontSize: 13,
+              color: "#111",
+              textDecoration: "none",
+              padding: "6px 12px",
+              border: "1px solid #e5e5e5",
+              borderRadius: 999,
+            }}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
       <p
+        id="engineering"
         style={{
           marginTop: 40,
+          scrollMarginTop: 24,
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
@@ -310,8 +343,10 @@ export default function Home() {
       </figure>
 
       <p
+        id="support"
         style={{
           marginTop: 56,
+          scrollMarginTop: 24,
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
@@ -321,113 +356,86 @@ export default function Home() {
         Customer support
       </p>
 
-      <section
-        style={{
-          margin: "20px 0 0",
-          padding: "44px 28px",
-          border: "1px solid #eee",
-          borderRadius: 14,
-          textAlign: "center",
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 12,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "#888",
-          }}
-        >
-          Support resolution time
-        </p>
-        <p
-          style={{
-            margin: "14px 0 0",
-            fontSize: "clamp(72px, 17vw, 120px)",
-            fontWeight: 700,
-            lineHeight: 1,
-            letterSpacing: "-0.04em",
-            color: "#111",
-          }}
-        >
-          489×
-        </p>
-        <p style={{ margin: "6px 0 0", fontSize: 22, color: "#111" }}>faster</p>
+      <p style={{ marginTop: 20 }}>
+        Support used to mean waiting. A ticket sat in a queue until a human got
+        to it — sometimes the same hour, often the next day. The agent answers
+        the moment a message lands. Across 3.2 million support responses,{" "}
+        <strong>97.7% went out within the first hour</strong> — and the agent
+        itself, which now handles 84% of everything, answers 99.9% of its
+        tickets inside that hour.
+      </p>
 
-        <div
-          style={{ margin: "36px auto 0", maxWidth: 420, textAlign: "left" }}
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
+          viewBox="0 0 520 180"
+          width="100%"
+          height="180"
+          role="img"
+          aria-label="Distribution of 3.2 million support responses by time to first reply: 97.7% within an hour, 0.4% in 1 to 4 hours, 0.5% in 4 to 12 hours, 0.5% in 12 to 24 hours, and 0.9% after 24 hours."
+          style={{ display: "block", overflow: "visible" }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              fontSize: 13,
-              color: "#888",
-            }}
-          >
-            <span>Before</span>
-            <span>17.3 days</span>
-          </div>
-          <div
-            style={{
-              marginTop: 6,
-              height: 10,
-              background: "#eee",
-              borderRadius: 999,
-            }}
-          >
-            <div
-              style={{
-                width: "100%",
-                height: 10,
-                background: "#ccc",
-                borderRadius: 999,
-              }}
-            />
-          </div>
+          {[
+            ["<1 hr", 97.68, "#ec4899"],
+            ["1–4 hr", 0.42, "#ccc"],
+            ["4–12 hr", 0.54, "#ccc"],
+            ["12–24 hr", 0.5, "#ccc"],
+            ["24 hr+", 0.85, "#ccc"],
+          ].map(([label, pct, color], i) => {
+            const x = 8 + i * 104;
+            const barW = 72;
+            const fullH = 120;
+            const h = Math.max(2, ((pct as number) / 100) * fullH);
+            const y = 130 - h;
+            return (
+              <g key={label as string}>
+                <rect
+                  x={x}
+                  y={y}
+                  width={barW}
+                  height={h}
+                  fill={color as string}
+                />
+                <text
+                  x={x + barW / 2}
+                  y={y - 6}
+                  fontSize="11"
+                  fill={color === "#ec4899" ? "#ec4899" : "#888"}
+                  fontFamily="monospace"
+                  textAnchor="middle"
+                >
+                  {pct}%
+                </text>
+                <text
+                  x={x + barW / 2}
+                  y={148}
+                  fontSize="9"
+                  fill="#bbb"
+                  fontFamily="monospace"
+                  textAnchor="middle"
+                >
+                  {label}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+          Time to first response across 3.2M support replies, Jan 2024 – Feb
+          2026. Nearly everything is answered within the hour.
+        </figcaption>
+      </figure>
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              fontSize: 13,
-              color: "#111",
-              marginTop: 20,
-            }}
-          >
-            <span>After</span>
-            <span>51 minutes</span>
-          </div>
-          <div
-            style={{
-              marginTop: 6,
-              height: 10,
-              background: "#eee",
-              borderRadius: 999,
-            }}
-          >
-            <div
-              style={{
-                width: "0.2%",
-                minWidth: 4,
-                height: 10,
-                background: "#ec4899",
-                borderRadius: 999,
-              }}
-            />
-          </div>
-        </div>
-
-        <p style={{ margin: "30px 0 0", fontSize: 13, color: "#888" }}>
-          Median resolution time for human-handled tickets. Internal support
-          dashboard, Q1 → Q2 2026.
-        </p>
-      </section>
+      <p style={{ marginTop: 24 }}>
+        And the answers don&apos;t just come faster — they come from the agent.
+        It handled 2.7 million of those 3.2 million responses, leaving the
+        humans free for the cases that genuinely need them.
+      </p>
 
       <p
+        id="fraud"
         style={{
           marginTop: 56,
+          scrollMarginTop: 24,
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
@@ -468,8 +476,10 @@ export default function Home() {
       </section>
 
       <p
+        id="finance"
         style={{
           marginTop: 56,
+          scrollMarginTop: 24,
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
@@ -582,8 +592,10 @@ export default function Home() {
       </section>
 
       <p
+        id="investors"
         style={{
           marginTop: 56,
+          scrollMarginTop: 24,
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
@@ -602,8 +614,8 @@ export default function Home() {
         }}
       >
         <p style={{ margin: 0, fontSize: 18, color: "#111" }}>
-          Once a year, Gumroad returns money to the people who backed it — a
-          dividend to shareholders and a buyback of community-round shares.
+          Once a year, Gumroad returns money to its investors — a dividend to
+          shareholders and a buyback of their shares.
         </p>
 
         <div style={{ textAlign: "center", margin: "36px 0 8px" }}>
@@ -681,7 +693,7 @@ export default function Home() {
               $3.0M
             </p>
             <p style={{ margin: "6px 0 0", fontSize: 13, color: "#888" }}>
-              buying back community-round shares across three tender offers.
+              buying back investor shares across three tender offers.
             </p>
           </div>
         </div>
@@ -696,8 +708,7 @@ export default function Home() {
         </p>
 
         <p style={{ margin: "20px 0 0", fontSize: 13, color: "#888" }}>
-          Dividends and community-round buybacks paid through Flexile,
-          2023–2026.
+          Dividends and share buybacks paid through Flexile, 2023–2026.
         </p>
       </section>
 
