@@ -32,7 +32,11 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         Gumroad started in 2011 as a weekend project — a single link that let
-        anyone sell anything.
+        anyone sell anything. Launched on Hacker News one Monday morning, it
+        drew 52,000 visitors on day one. Sahil left his job as the second
+        employee at Pinterest — before vesting any stock — raised millions from
+        top-tier investors, and at nineteen was on top of the world. The numbers
+        climbed. Then they stalled.
       </p>
 
       <p style={{ marginTop: 24 }}>
@@ -149,46 +153,104 @@ export default function Home() {
         </figcaption>
       </figure>
 
-      <p style={{ marginTop: 24 }}>
-        Then 2026 hit an inflection — the agent took over the work, and the
-        numbers bent up while the team kept shrinking.
-      </p>
-
       <figure style={{ margin: "32px 0 0" }}>
         <svg
-          viewBox="0 0 520 64"
+          viewBox="0 0 520 132"
           width="100%"
-          height="64"
-          preserveAspectRatio="none"
+          height="132"
           role="img"
-          aria-label="Engineering headcount, February 2023 to January 2026: peak of 27, down to 8."
+          aria-label="Company headcount: 48 people at the COVID peak, down to 25 after, 14 when Ershad became CEO, and just 5 humans today."
           style={{ display: "block", overflow: "visible" }}
         >
-          <path
-            d="M 4.0 28.2 L 18.6 33.3 L 33.3 38.3 L 47.9 20.6 L 62.5 25.7 L 77.1 30.7 L 91.8 33.3 L 106.4 38.3 L 121.0 40.8 L 135.7 25.7 L 150.3 28.2 L 164.9 30.7 L 179.5 33.3 L 194.2 23.2 L 208.8 30.7 L 223.4 20.6 L 238.1 20.6 L 252.7 23.2 L 267.3 8.0 L 281.9 18.1 L 296.6 25.7 L 311.2 33.3 L 325.8 28.2 L 340.5 45.9 L 355.1 35.8 L 369.7 33.3 L 384.3 33.3 L 399.0 40.8 L 413.6 40.8 L 428.2 40.8 L 442.9 38.3 L 457.5 45.9 L 472.1 48.4 L 486.7 45.9 L 501.4 53.5 L 516.0 56.0"
-            fill="none"
-            stroke="#111"
-            strokeWidth={1}
-            vectorEffect="non-scaling-stroke"
-          />
-          <circle cx="267.3" cy="8.0" r="2.5" fill="#ec4899" />
-          <circle cx="516.0" cy="56.0" r="2.5" fill="#111" />
+          <text
+            x="120"
+            y="22"
+            fontSize="11"
+            fill="#888"
+            fontFamily="monospace"
+            textAnchor="end"
+          >
+            Peak
+          </text>
+          <rect x="130" y="10" width="380.0" height="16" fill="#ccc" />
+          <text
+            x="516.0"
+            y="22"
+            fontSize="11"
+            fill="#888"
+            fontFamily="monospace"
+            textAnchor="end"
+          >
+            48
+          </text>
+
+          <text
+            x="120"
+            y="56"
+            fontSize="11"
+            fill="#888"
+            fontFamily="monospace"
+            textAnchor="end"
+          >
+            After
+          </text>
+          <rect x="130" y="44" width="197.9" height="16" fill="#ccc" />
+          <text
+            x="333.9"
+            y="56"
+            fontSize="11"
+            fill="#888"
+            fontFamily="monospace"
+          >
+            25
+          </text>
+
+          <text
+            x="120"
+            y="90"
+            fontSize="11"
+            fill="#888"
+            fontFamily="monospace"
+            textAnchor="end"
+          >
+            New CEO
+          </text>
+          <rect x="130" y="78" width="110.8" height="16" fill="#ccc" />
+          <text
+            x="246.8"
+            y="90"
+            fontSize="11"
+            fill="#888"
+            fontFamily="monospace"
+          >
+            14
+          </text>
+
+          <text
+            x="120"
+            y="124"
+            fontSize="11"
+            fill="#111"
+            fontFamily="monospace"
+            textAnchor="end"
+          >
+            Today
+          </text>
+          <rect x="130" y="112" width="39.6" height="16" fill="#ec4899" />
+          <text
+            x="175.6"
+            y="124"
+            fontSize="11"
+            fill="#111"
+            fontFamily="monospace"
+          >
+            5
+          </text>
         </svg>
-        <figcaption
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginTop: 6,
-            color: "#888",
-            fontSize: 13,
-          }}
-        >
-          <span>27 engineers · Aug 2024</span>
-          <span style={{ color: "#111" }}>8 · Jan 2026</span>
-        </figcaption>
-        <figcaption style={{ marginTop: 4, color: "#888", fontSize: 13 }}>
-          Engineering headcount. The work didn&apos;t shrink — it moved to the
-          agent.
+        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+          Company headcount — 48 at the COVID peak, to 25, to 14 when Ershad
+          became CEO, to 5 humans today. The work didn&apos;t leave. It moved to
+          the agent.
         </figcaption>
       </figure>
 
@@ -197,285 +259,31 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 24 }}>
-        We call it Gumclaw. It runs support, fraud &amp; risk, engineering, and
-        finance.
+        We call it Gumclaw. In 2026 it took over the work — and the numbers bent
+        up while the team kept shrinking. A lean team and a tireless agent turn
+        out to be the best thing that ever happened to the customer: faster
+        answers, faster fixes, faster everything. The ceiling on how good the
+        experience can get keeps rising.
       </p>
 
-      <section
+      <p style={{ marginTop: 24, color: "#888" }}>
+        Here is what it runs today — engineering, support, fraud &amp; risk, and
+        finance — with more on the way.
+      </p>
+
+      <p
         style={{
-          margin: "40px 0 0",
-          padding: "44px 28px",
-          border: "1px solid #eee",
-          borderRadius: 14,
-          textAlign: "center",
+          marginTop: 40,
+          fontSize: 13,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#888",
         }}
       >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 12,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "#888",
-          }}
-        >
-          Support resolution time
-        </p>
-        <p
-          style={{
-            margin: "14px 0 0",
-            fontSize: "clamp(72px, 17vw, 120px)",
-            fontWeight: 700,
-            lineHeight: 1,
-            letterSpacing: "-0.04em",
-            color: "#111",
-          }}
-        >
-          489×
-        </p>
-        <p style={{ margin: "6px 0 0", fontSize: 22, color: "#111" }}>faster</p>
+        Engineering
+      </p>
 
-        <div
-          style={{ margin: "36px auto 0", maxWidth: 420, textAlign: "left" }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              fontSize: 13,
-              color: "#888",
-            }}
-          >
-            <span>Before</span>
-            <span>17.3 days</span>
-          </div>
-          <div
-            style={{
-              marginTop: 6,
-              height: 10,
-              background: "#eee",
-              borderRadius: 999,
-            }}
-          >
-            <div
-              style={{
-                width: "100%",
-                height: 10,
-                background: "#ccc",
-                borderRadius: 999,
-              }}
-            />
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              fontSize: 13,
-              color: "#111",
-              marginTop: 20,
-            }}
-          >
-            <span>After</span>
-            <span>51 minutes</span>
-          </div>
-          <div
-            style={{
-              marginTop: 6,
-              height: 10,
-              background: "#eee",
-              borderRadius: 999,
-            }}
-          >
-            <div
-              style={{
-                width: "0.2%",
-                minWidth: 4,
-                height: 10,
-                background: "#ec4899",
-                borderRadius: 999,
-              }}
-            />
-          </div>
-        </div>
-
-        <p style={{ margin: "30px 0 0", fontSize: 13, color: "#888" }}>
-          Median resolution time for human-handled tickets. Internal support
-          dashboard, Q1 → Q2 2026.
-        </p>
-      </section>
-
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 16,
-          marginTop: 24,
-        }}
-      >
-        <section
-          style={{
-            flex: "1 1 220px",
-            padding: "28px 24px",
-            border: "1px solid #eee",
-            borderRadius: 14,
-            textAlign: "center",
-          }}
-        >
-          <p
-            style={{
-              margin: 0,
-              fontSize: 11,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "#888",
-            }}
-          >
-            Fraud &amp; risk
-          </p>
-          <p
-            style={{
-              margin: "10px 0 0",
-              fontSize: "clamp(52px, 12vw, 76px)",
-              fontWeight: 700,
-              lineHeight: 1,
-              letterSpacing: "-0.03em",
-              color: "#111",
-            }}
-          >
-            ~99%
-          </p>
-          <p style={{ margin: "6px 0 0", fontSize: 15, color: "#111" }}>
-            handled with no human
-          </p>
-          <p style={{ margin: "18px 0 0", fontSize: 12.5, color: "#888" }}>
-            Standard fraud/risk cases reviewed and actioned autonomously by the
-            agent.
-          </p>
-        </section>
-
-        <section
-          style={{
-            flex: "1 1 220px",
-            padding: "28px 24px",
-            border: "1px solid #eee",
-            borderRadius: 14,
-            textAlign: "center",
-          }}
-        >
-          <p
-            style={{
-              margin: 0,
-              fontSize: 11,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "#888",
-            }}
-          >
-            Idea → shipped
-          </p>
-          <p
-            style={{
-              margin: "10px 0 0",
-              fontSize: "clamp(52px, 12vw, 76px)",
-              fontWeight: 700,
-              lineHeight: 1,
-              letterSpacing: "-0.03em",
-              color: "#111",
-            }}
-          >
-            26<span style={{ fontSize: "0.42em", fontWeight: 400 }}> min</span>
-          </p>
-          <p style={{ margin: "6px 0 0", fontSize: 15, color: "#111" }}>
-            median, open to merged
-          </p>
-          <p style={{ margin: "18px 0 0", fontSize: 12.5, color: "#888" }}>
-            Median pull-request open-to-merge time on the main codebase, Q2
-            2026.
-          </p>
-        </section>
-      </div>
-
-      <section
-        style={{
-          marginTop: 16,
-          padding: "24px",
-          border: "1px solid #eee",
-          borderRadius: 14,
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 11,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "#888",
-            textAlign: "center",
-          }}
-        >
-          The monthly financial close
-        </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 16,
-            marginTop: 18,
-          }}
-        >
-          <div
-            style={{
-              flex: "1 1 200px",
-              padding: "16px 18px",
-              border: "1px solid #eee",
-              borderRadius: 10,
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: 12,
-                fontWeight: 700,
-                color: "#888",
-              }}
-            >
-              Then
-            </p>
-            <p style={{ margin: "8px 0 0", color: "#444" }}>
-              Closed by hand, once a month. Pull the numbers, reconcile four
-              entities, book every journal entry manually — the P&amp;L only
-              true at month-end.
-            </p>
-          </div>
-          <div
-            style={{
-              flex: "1 1 200px",
-              padding: "16px 18px",
-              border: "1px solid #ec4899",
-              borderRadius: 10,
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: 12,
-                fontWeight: 700,
-                color: "#ec4899",
-              }}
-            >
-              Now
-            </p>
-            <p style={{ margin: "8px 0 0", color: "#111" }}>
-              The agent runs it every week — pulls Metabase + Stripe across four
-              entities, books the entries into QuickBooks itself, in minutes.
-              The books are always current.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <figure style={{ margin: "32px 0 0" }}>
+      <figure style={{ margin: "20px 0 0" }}>
         <svg
           viewBox="0 0 700 150"
           width="100%"
@@ -754,6 +562,260 @@ export default function Home() {
           a 34× speed-up from the 2023 peak.
         </figcaption>
       </figure>
+
+      <p
+        style={{
+          marginTop: 56,
+          fontSize: 13,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#888",
+        }}
+      >
+        Customer support
+      </p>
+
+      <section
+        style={{
+          margin: "20px 0 0",
+          padding: "44px 28px",
+          border: "1px solid #eee",
+          borderRadius: 14,
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 12,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#888",
+          }}
+        >
+          Support resolution time
+        </p>
+        <p
+          style={{
+            margin: "14px 0 0",
+            fontSize: "clamp(72px, 17vw, 120px)",
+            fontWeight: 700,
+            lineHeight: 1,
+            letterSpacing: "-0.04em",
+            color: "#111",
+          }}
+        >
+          489×
+        </p>
+        <p style={{ margin: "6px 0 0", fontSize: 22, color: "#111" }}>faster</p>
+
+        <div
+          style={{ margin: "36px auto 0", maxWidth: 420, textAlign: "left" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: 13,
+              color: "#888",
+            }}
+          >
+            <span>Before</span>
+            <span>17.3 days</span>
+          </div>
+          <div
+            style={{
+              marginTop: 6,
+              height: 10,
+              background: "#eee",
+              borderRadius: 999,
+            }}
+          >
+            <div
+              style={{
+                width: "100%",
+                height: 10,
+                background: "#ccc",
+                borderRadius: 999,
+              }}
+            />
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: 13,
+              color: "#111",
+              marginTop: 20,
+            }}
+          >
+            <span>After</span>
+            <span>51 minutes</span>
+          </div>
+          <div
+            style={{
+              marginTop: 6,
+              height: 10,
+              background: "#eee",
+              borderRadius: 999,
+            }}
+          >
+            <div
+              style={{
+                width: "0.2%",
+                minWidth: 4,
+                height: 10,
+                background: "#ec4899",
+                borderRadius: 999,
+              }}
+            />
+          </div>
+        </div>
+
+        <p style={{ margin: "30px 0 0", fontSize: 13, color: "#888" }}>
+          Median resolution time for human-handled tickets. Internal support
+          dashboard, Q1 → Q2 2026.
+        </p>
+      </section>
+
+      <p
+        style={{
+          marginTop: 56,
+          fontSize: 13,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#888",
+        }}
+      >
+        Fraud &amp; risk
+      </p>
+
+      <section
+        style={{
+          margin: "20px 0 0",
+          padding: "44px 28px",
+          border: "1px solid #eee",
+          borderRadius: 14,
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: "clamp(52px, 12vw, 76px)",
+            fontWeight: 700,
+            lineHeight: 1,
+            letterSpacing: "-0.03em",
+            color: "#111",
+          }}
+        >
+          ~99%
+        </p>
+        <p style={{ margin: "6px 0 0", fontSize: 18, color: "#111" }}>
+          handled with no human
+        </p>
+        <p style={{ margin: "16px 0 0", fontSize: 13, color: "#888" }}>
+          Standard fraud and risk cases reviewed and actioned autonomously by
+          the agent.
+        </p>
+      </section>
+
+      <p
+        style={{
+          marginTop: 56,
+          fontSize: 13,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#888",
+        }}
+      >
+        Finance
+      </p>
+
+      <section
+        style={{
+          margin: "20px 0 0",
+          padding: "24px",
+          border: "1px solid #eee",
+          borderRadius: 14,
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 11,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "#888",
+            textAlign: "center",
+          }}
+        >
+          The monthly financial close
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 16,
+            marginTop: 18,
+          }}
+        >
+          <div
+            style={{
+              flex: "1 1 200px",
+              padding: "16px 18px",
+              border: "1px solid #eee",
+              borderRadius: 10,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 12,
+                fontWeight: 700,
+                color: "#888",
+              }}
+            >
+              Then
+            </p>
+            <p style={{ margin: "8px 0 0", color: "#444" }}>
+              Closed by hand, once a month. Pull the numbers, reconcile four
+              entities, book every journal entry manually — the P&amp;L only
+              true at month-end.
+            </p>
+          </div>
+          <div
+            style={{
+              flex: "1 1 200px",
+              padding: "16px 18px",
+              border: "1px solid #ec4899",
+              borderRadius: 10,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 12,
+                fontWeight: 700,
+                color: "#ec4899",
+              }}
+            >
+              Now
+            </p>
+            <p style={{ margin: "8px 0 0", color: "#111" }}>
+              The agent runs it every week — pulls Metabase + Stripe across four
+              entities, books the entries into QuickBooks itself, in minutes.
+              The books are always current.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <p style={{ marginTop: 40, color: "#888" }}>
+        More is coming — tax payments, hiring and firing, and the rest of the
+        work that still touches a human today.
+      </p>
 
       <p style={{ marginTop: 24 }}>
         The software that does it is free and open-source — the entire skill
