@@ -157,9 +157,17 @@ export default function Home() {
         . The agent is the natural conclusion of that — worth a read.
       </p>
 
+      <p style={{ marginTop: 24 }}>
+        Getting here meant building our own tools. Two of them grew into real
+        products: <strong>Helper</strong>, which runs customer support, and{" "}
+        <strong>Flexile</strong>, which runs our cap table, payroll, dividends
+        and buybacks. We built them to scale ourselves down — and we&apos;re our
+        own first customer. You can use them too.
+      </p>
+
       <p style={{ marginTop: 24, color: "#888" }}>
-        Here is what it runs today — engineering, support, fraud &amp; risk, and
-        finance — with more on the way.
+        Here is what it runs today — engineering, support, fraud &amp; risk,
+        finance, and investor relations — with more on the way.
       </p>
 
       <p
@@ -547,6 +555,40 @@ export default function Home() {
             </p>
           </div>
         </div>
+      </section>
+
+      <p
+        style={{
+          marginTop: 56,
+          fontSize: 13,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#888",
+        }}
+      >
+        Investor relations
+      </p>
+
+      <section
+        style={{
+          margin: "20px 0 0",
+          padding: "44px 28px",
+          border: "1px solid #eee",
+          borderRadius: 14,
+        }}
+      >
+        <p style={{ margin: 0, fontSize: 18, color: "#111" }}>
+          Once a year, Gumroad returns money to the people who backed it — a
+          dividend to shareholders and a buyback of community-round shares.
+        </p>
+        <p style={{ margin: "18px 0 0", color: "#444" }}>
+          The agent runs the whole cycle through Flexile: it works out each
+          holder&apos;s share, issues the payments, and answers the questions
+          that come with them — when the dividend lands, how the buyback is
+          priced, what it means for taxes. What used to be a finance-team
+          scramble now runs end to end, and no investor waits on a human to hear
+          back.
+        </p>
       </section>
 
       <p style={{ marginTop: 40, color: "#888" }}>
