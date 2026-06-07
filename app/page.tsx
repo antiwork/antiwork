@@ -475,6 +475,51 @@ export default function Home() {
       </figure>
 
       <p style={{ marginTop: 24 }}>
+        And the code ships faster than it ever has. Through the 2010s, the time
+        from a pull request opening to merging crept up as the codebase and team
+        grew — peaking near 18 hours in 2023. In 2026 the agent took over review
+        and merge, and it collapsed to about half an hour.
+      </p>
+
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
+          viewBox="0 0 520 64"
+          width="100%"
+          height="64"
+          preserveAspectRatio="none"
+          role="img"
+          aria-label="Median time from pull request opened to merged, 2012 to 2026: around 1 to 4 hours through the 2010s, climbing to a peak of about 18 hours in 2023, then collapsing to about 32 minutes in 2026."
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <path
+            d="M 4.0 57.8 L 40.6 49.5 L 77.1 58.5 L 113.7 58.2 L 150.3 58.8 L 186.9 54.9 L 223.4 40.7 L 260.0 44.6 L 296.6 56.5 L 333.1 50.8 L 369.7 18.2 L 406.3 4.0 L 442.9 10.8 L 479.4 57.8 L 516.0 60.0"
+            fill="none"
+            stroke="#111"
+            strokeWidth={1}
+            vectorEffect="non-scaling-stroke"
+          />
+          <circle cx="406.3" cy="4.0" r="2.5" fill="#ec4899" />
+          <circle cx="516.0" cy="60.0" r="2.5" fill="#111" />
+        </svg>
+        <figcaption
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: 6,
+            color: "#888",
+            fontSize: 13,
+          }}
+        >
+          <span style={{ color: "#ec4899" }}>17.9 hrs · 2023</span>
+          <span style={{ color: "#111" }}>~32 min · 2026</span>
+        </figcaption>
+        <figcaption style={{ marginTop: 4, color: "#888", fontSize: 13 }}>
+          Median time from a pull request opening to merging, 2012–2026. Roughly
+          a 34× speed-up from the 2023 peak.
+        </figcaption>
+      </figure>
+
+      <p style={{ marginTop: 24 }}>
         The software that does it is free and open-source — the entire skill
         library. Download it, run it, owe us nothing. We want you to.
       </p>
