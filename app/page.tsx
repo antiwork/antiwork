@@ -725,23 +725,21 @@ export default function Home() {
       </p>
 
       <div style={{ marginTop: 20 }}>
-        <span
-          aria-disabled="true"
-          title="Coming soon"
+        <a
+          href="mailto:gumclaw@gumroad.com?subject=Book%20a%2090-minute%20call%20(%2410%2C000)&body=Hi%20Antiwork%20team%2C%0A%0AI'd%20like%20to%20book%20a%2090-minute%20call%20to%20learn%20how%20you%20run%20the%20company%20with%20an%20agent.%0A%0AName%3A%0ACompany%3A%0AWhat%20I'm%20hoping%20to%20learn%3A%0A"
           style={{
             display: "inline-flex",
             alignItems: "center",
             padding: "12px 20px",
-            border: "1px solid #e5e5e5",
+            border: "1px solid #111",
             borderRadius: 999,
             fontSize: 15,
-            color: "#bbb",
-            cursor: "not-allowed",
-            userSelect: "none",
+            color: "#111",
+            textDecoration: "none",
           }}
         >
-          Book a 90-minute call — $10,000 — coming soon
-        </span>
+          Book a 90-minute call — $10,000
+        </a>
       </div>
 
       <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
