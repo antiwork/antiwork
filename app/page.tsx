@@ -51,6 +51,54 @@ export default function Home() {
         Gumroad grew.
       </p>
 
+      <p style={{ marginTop: 24 }}>
+        Quietly, relentlessly, it kept paying creators — month after month,
+        compounding into more than a billion dollars in earnings.
+      </p>
+
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
+          viewBox="0 0 520 64"
+          width="100%"
+          height="64"
+          preserveAspectRatio="none"
+          role="img"
+          aria-label="Cumulative creator earnings on Gumroad, April 2011 to June 2026: a compounding curve that crosses one billion dollars in mid-2024 and reaches about 1.2 billion."
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <path
+            d="M 4.0 60.0 L 6.8 60.0 L 9.6 60.0 L 12.4 60.0 L 15.3 60.0 L 18.1 60.0 L 20.9 60.0 L 23.7 60.0 L 26.5 60.0 L 29.3 60.0 L 32.1 60.0 L 34.9 60.0 L 37.8 60.0 L 40.6 60.0 L 43.4 60.0 L 46.2 60.0 L 49.0 60.0 L 51.8 60.0 L 54.6 60.0 L 57.5 60.0 L 60.3 60.0 L 63.1 60.0 L 65.9 59.9 L 68.7 59.9 L 71.5 59.9 L 74.3 59.9 L 77.1 59.9 L 80.0 59.9 L 82.8 59.8 L 85.6 59.8 L 88.4 59.7 L 91.2 59.7 L 94.0 59.6 L 96.8 59.6 L 99.6 59.5 L 102.5 59.5 L 105.3 59.5 L 108.1 59.4 L 110.9 59.4 L 113.7 59.3 L 116.5 59.3 L 119.3 59.2 L 122.2 59.1 L 125.0 59.0 L 127.8 58.9 L 130.6 58.9 L 133.4 58.8 L 136.2 58.7 L 139.0 58.7 L 141.8 58.6 L 144.7 58.5 L 147.5 58.4 L 150.3 58.3 L 153.1 58.3 L 155.9 58.2 L 158.7 58.1 L 161.5 57.9 L 164.4 57.8 L 167.2 57.7 L 170.0 57.5 L 172.8 57.4 L 175.6 57.3 L 178.4 57.1 L 181.2 57.0 L 184.0 56.9 L 186.9 56.7 L 189.7 56.6 L 192.5 56.4 L 195.3 56.3 L 198.1 56.1 L 200.9 55.9 L 203.7 55.8 L 206.5 55.6 L 209.4 55.5 L 212.2 55.3 L 215.0 55.2 L 217.8 55.0 L 220.6 54.9 L 223.4 54.7 L 226.2 54.5 L 229.1 54.3 L 231.9 54.2 L 234.7 54.0 L 237.5 53.8 L 240.3 53.6 L 243.1 53.4 L 245.9 53.2 L 248.7 53.0 L 251.6 52.8 L 254.4 52.6 L 257.2 52.4 L 260.0 52.2 L 262.8 51.9 L 265.6 51.7 L 268.4 51.5 L 271.3 51.2 L 274.1 51.0 L 276.9 50.7 L 279.7 50.4 L 282.5 50.2 L 285.3 49.9 L 288.1 49.6 L 290.9 49.3 L 293.8 48.9 L 296.6 48.6 L 299.4 48.2 L 302.2 47.9 L 305.0 47.4 L 307.8 46.9 L 310.6 46.3 L 313.5 45.8 L 316.3 45.2 L 319.1 44.6 L 321.9 44.0 L 324.7 43.5 L 327.5 42.8 L 330.3 42.2 L 333.1 41.5 L 336.0 40.9 L 338.8 40.1 L 341.6 39.4 L 344.4 38.6 L 347.2 37.9 L 350.0 37.2 L 352.8 36.5 L 355.6 35.8 L 358.5 35.2 L 361.3 34.4 L 364.1 33.8 L 366.9 33.0 L 369.7 32.4 L 372.5 31.7 L 375.3 31.0 L 378.2 30.2 L 381.0 29.5 L 383.8 28.8 L 386.6 28.2 L 389.4 27.5 L 392.2 26.9 L 395.0 26.1 L 397.8 25.4 L 400.7 24.6 L 403.5 24.0 L 406.3 23.3 L 409.1 22.6 L 411.9 22.0 L 414.7 21.4 L 417.5 20.8 L 420.4 20.1 L 423.2 19.6 L 426.0 19.0 L 428.8 18.3 L 431.6 17.7 L 434.4 17.0 L 437.2 16.4 L 440.0 15.7 L 442.9 15.2 L 445.7 14.6 L 448.5 14.0 L 451.3 13.5 L 454.1 13.0 L 456.9 12.5 L 459.7 12.1 L 462.5 11.6 L 465.4 11.2 L 468.2 10.7 L 471.0 10.3 L 473.8 9.9 L 476.6 9.5 L 479.4 9.0 L 482.2 8.6 L 485.1 8.2 L 487.9 7.8 L 490.7 7.4 L 493.5 7.0 L 496.3 6.6 L 499.1 6.2 L 501.9 5.7 L 504.7 5.3 L 507.6 4.9 L 510.4 4.5 L 513.2 4.1 L 516.0 4.0 L 516.0 60.0 L 4.0 60.0 Z"
+            fill="#fce7f3"
+            stroke="none"
+          />
+          <path
+            d="M 4.0 60.0 L 63.1 60.0 L 122.2 59.1 L 164.4 57.8 L 200.9 55.9 L 240.3 53.6 L 265.6 51.7 L 296.6 48.6 L 319.1 44.6 L 358.5 35.2 L 397.8 25.4 L 437.2 16.4 L 451.3 13.5 L 468.2 10.7 L 516.0 4.0"
+            fill="none"
+            stroke="#ec4899"
+            strokeWidth={1.2}
+            vectorEffect="non-scaling-stroke"
+          />
+          <circle cx="451.3" cy="13.5" r="2.5" fill="#888" />
+          <circle cx="516.0" cy="4.0" r="2.5" fill="#ec4899" />
+        </svg>
+        <figcaption
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: 6,
+            color: "#888",
+            fontSize: 13,
+          }}
+        >
+          <span>$1B · mid-2024</span>
+          <span style={{ color: "#111" }}>$1.2B · 2026</span>
+        </figcaption>
+        <figcaption style={{ marginTop: 4, color: "#888", fontSize: 13 }}>
+          Cumulative creator earnings, every month since 2011. Over $1.2 billion
+          has moved through Gumroad to the people who make things.
+        </figcaption>
+      </figure>
+
       <figure style={{ margin: "32px 0 0" }}>
         <svg
           viewBox="0 0 520 64"
