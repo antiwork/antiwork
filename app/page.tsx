@@ -160,9 +160,10 @@ export default function Home() {
       <p style={{ marginTop: 24 }}>
         Getting here meant building our own tools. Two of them grew into real
         products: <strong>Helper</strong>, which runs customer support, and{" "}
-        <strong>Flexile</strong>, which runs our cap table, payroll, dividends
-        and buybacks. We built them to scale ourselves down — and we&apos;re our
-        own first customer. You can use them too.
+        <strong>Flexile</strong>, which runs our cap table, dividends, and share
+        buybacks — everything our investors touch. We built them to scale
+        ourselves down — and we&apos;re our own first customer. You can use them
+        too.
       </p>
 
       <p style={{ marginTop: 24, color: "#888" }}>
@@ -498,12 +499,35 @@ export default function Home() {
         >
           The monthly financial close
         </p>
+
+        <div style={{ textAlign: "center", margin: "22px 0 6px" }}>
+          <p
+            style={{
+              margin: 0,
+              fontSize: "clamp(56px, 13vw, 88px)",
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: "-0.04em",
+              color: "#111",
+            }}
+          >
+            104 hrs
+          </p>
+          <p style={{ margin: "8px 0 0", fontSize: 16, color: "#444" }}>
+            of outside-accountant time a month — now minutes, every week.
+          </p>
+          <p style={{ margin: "8px 0 0", fontSize: 13, color: "#888" }}>
+            Escalon HUB task report, April 2026 — the human hours behind one
+            month&apos;s close.
+          </p>
+        </div>
+
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
             gap: 16,
-            marginTop: 18,
+            marginTop: 24,
           }}
         >
           <div
