@@ -30,6 +30,12 @@ export default function Home() {
         We automated ourselves out of the work.
       </p>
 
+      <p style={{ marginTop: 16, color: "#888" }}>
+        If you run a company that still does this by hand — support, finance,
+        fraud, the whole back office — this is how we stopped, and how you can
+        too.
+      </p>
+
       <p style={{ marginTop: 24 }}>
         Coming out of COVID, Gumroad was a profitable business with a
         normal-size team — a few dozen people across engineering, support, and
@@ -428,7 +434,9 @@ export default function Home() {
       <p style={{ marginTop: 24 }}>
         And the answers don&apos;t just come faster — they come from the agent.
         It handled 2.7 million of those 3.2 million responses, leaving the
-        humans free for the cases that genuinely need them.
+        humans free for the cases that genuinely need them. If your support
+        queue is one hire away from keeping up, the call pays for itself before
+        you make it.
       </p>
 
       <p
@@ -591,6 +599,37 @@ export default function Home() {
         </div>
       </section>
 
+      <div
+        style={{
+          margin: "28px 0 0",
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: 14,
+        }}
+      >
+        <a
+          href="https://gumclaw.gumroad.com/l/gzhptn"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            padding: "12px 20px",
+            background: "#ec4899",
+            border: "1px solid #ec4899",
+            borderRadius: 999,
+            fontSize: 15,
+            fontWeight: 700,
+            color: "#fff",
+            textDecoration: "none",
+          }}
+        >
+          Book the 90-minute teardown — $10,000
+        </a>
+        <span style={{ fontSize: 14, color: "#888" }}>
+          If even a fraction of a 104-hour close is yours, the math is easy.
+        </span>
+      </div>
+
       <p
         id="investors"
         style={{
@@ -718,29 +757,78 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 24 }}>
-        We&apos;ll share how we did it. The whole point is to teach you to fish
-        — to run your own company this way — not to make you dependent on us. If
-        you want the playbook, book a 90-minute call and we&apos;ll walk you
-        through exactly how it works.
+        We&apos;ll show you how we did it. The tools are out there — the hard
+        part is the judgment: what to automate first, what has to stay human,
+        and how to hand an agent your money and your customers without breaking
+        trust. It took us three years and a few expensive wrong turns to learn
+        that. In 90 minutes, you get the distilled version — and a prioritized
+        plan for your own company. You&apos;ll own it; you won&apos;t be renting
+        it from us.
       </p>
 
-      <div style={{ marginTop: 20 }}>
-        <a
-          href="https://gumclaw.gumroad.com/l/gzhptn"
+      <section
+        style={{
+          margin: "28px 0 0",
+          padding: "28px",
+          border: "1px solid #eee",
+          borderRadius: 14,
+        }}
+      >
+        <p
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "12px 20px",
-            border: "1px solid #111",
-            borderRadius: 999,
-            fontSize: 15,
-            color: "#111",
-            textDecoration: "none",
+            margin: 0,
+            fontSize: 12,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "#888",
           }}
         >
-          Book a 90-minute call — $10,000
-        </a>
-      </div>
+          The call
+        </p>
+        <p style={{ margin: "14px 0 0", fontSize: 18, color: "#111" }}>
+          90 minutes, 1:1, with the team that built and runs Gumclaw.
+        </p>
+        <ul
+          style={{
+            margin: "16px 0 0",
+            paddingLeft: 20,
+            color: "#444",
+          }}
+        >
+          <li>
+            A teardown of where an agent can take work off your team first.
+          </li>
+          <li>
+            The architecture and guardrails we actually run in production.
+          </li>
+          <li>The org and trust changes that made it stick.</li>
+          <li>A prioritized 90-day automation plan for your company.</li>
+        </ul>
+        <p style={{ margin: "18px 0 0", fontSize: 14, color: "#888" }}>
+          For founders and operators of 5–100 person internet businesses who
+          want to grow without rebuilding a conventional team. $10,000 — less
+          than one month of the accountant time the agent replaced.
+        </p>
+        <div style={{ marginTop: 22 }}>
+          <a
+            href="https://gumclaw.gumroad.com/l/gzhptn"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              padding: "14px 24px",
+              background: "#ec4899",
+              border: "1px solid #ec4899",
+              borderRadius: 999,
+              fontSize: 17,
+              fontWeight: 700,
+              color: "#fff",
+              textDecoration: "none",
+            }}
+          >
+            Book the 90-minute teardown — $10,000
+          </a>
+        </div>
+      </section>
 
       <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
         We automated ourselves out of the work. Now we&apos;re just having fun.
