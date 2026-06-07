@@ -32,12 +32,11 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         Gumroad started in 2011 as a weekend project — a single link that let
-        anyone sell anything. By 2014 it was doing about $915K a year and
-        burning cash to get there.
+        anyone sell anything.
       </p>
 
       <p style={{ marginTop: 24 }}>
-        In 2015 it{" "}
+        In 2015 Gumroad{" "}
         <LinkCard
           href="https://sahillavingia.com/reflecting"
           title="Reflecting on My Failure to Build a Billion-Dollar Company"
@@ -49,14 +48,7 @@ export default function Home() {
         </LinkCard>
         . The Series B fell through, and the team went from twenty-some people
         to a handful overnight. Most companies don&apos;t come back from that.
-        Gumroad spent the next decade proving you don&apos;t need the headcount
-        to win.
-      </p>
-
-      <p style={{ marginTop: 24 }}>
-        Revenue went from $915K in 2014 to $9.2M in 2020 to $20.7M in 2023 — the
-        year it turned a real profit (~$9.8M). It held around $18M in 2025. Same
-        small team. Billions in creator earnings moved through it.
+        Gumroad grew.
       </p>
 
       <figure style={{ margin: "32px 0 0" }}>
