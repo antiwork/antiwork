@@ -490,27 +490,13 @@ export default function Home() {
         aria-label="Back to top"
         style={{
           display: "inline-flex",
-          flexDirection: "column",
           alignItems: "center",
-          gap: 8,
           marginTop: 56,
           textDecoration: "none",
           cursor: "pointer",
         }}
       >
-        <div style={{ transform: "rotate(180deg)", display: "flex" }}>
-          <Font text="W" color="#ccc" size={30} />
-        </div>
-        <span
-          style={{
-            fontSize: 11,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "#bbb",
-          }}
-        >
-          Back to top
-        </span>
+        <Font text="A" color="#ccc" size={30} />
       </a>
     </main>
   );
