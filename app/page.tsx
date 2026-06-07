@@ -182,6 +182,27 @@ export default function Home() {
         you to.
       </p>
 
+      <p style={{ marginTop: 32, fontSize: 14, color: "#888" }}>Read more:</p>
+      <ul style={{ marginTop: 8, paddingLeft: 20, fontSize: 14 }}>
+        <li>
+          <a
+            href="https://sahillavingia.com/reflecting"
+            style={{ color: "#111" }}
+          >
+            Reflecting on My Failure to Build a Billion-Dollar Company
+          </a>{" "}
+          <span style={{ color: "#888" }}>— the 2015 near-death, in full.</span>
+        </li>
+        <li style={{ marginTop: 6 }}>
+          <a href="https://sahillavingia.com/work" style={{ color: "#111" }}>
+            No Meetings, No Deadlines, No Full-Time Employees
+          </a>{" "}
+          <span style={{ color: "#888" }}>
+            — how the small team actually operates.
+          </span>
+        </li>
+      </ul>
+
       <p style={{ marginTop: 48, color: "#888", fontSize: 14 }}>
         We automated ourselves out of the work. Built on OpenClaw + Hermes,
         open-source.
