@@ -158,17 +158,7 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         We call it Gumclaw. It runs support, fraud &amp; risk, engineering, and
-        finance through a single agent — alongside a team of five:{" "}
-        <LinkCard
-          href="https://sahillavingia.com/work"
-          title="No Meetings, No Deadlines, No Full-Time Employees"
-          description="I started Gumroad in 2011. In 2015, we reached a peak of 23 full-time employees. In 2016, after failing to raise more money, I ended up back where I began: a one-person company."
-          source="sahillavingia.com"
-          image="/cards/work.jpg"
-        >
-          three engineers and two in support
-        </LinkCard>
-        . A year ago that took a whole company.
+        finance.
       </p>
 
       <section
@@ -509,7 +499,7 @@ export default function Home() {
         }}
       >
         <div style={{ transform: "rotate(180deg)", display: "flex" }}>
-          <Font text="ANTIWORK" color="#ccc" size={30} />
+          <Font text="W" color="#ccc" size={30} />
         </div>
         <span
           style={{
