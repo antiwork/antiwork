@@ -22,7 +22,7 @@ export default function Home() {
         color: "#111",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div id="top" style={{ display: "flex", alignItems: "center" }}>
         <Font text="ANTIWORK" color="#111" size={30} />
       </div>
 
@@ -490,13 +490,38 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
+        We automated ourselves out of the work.
+        <br />
         Now we&apos;re just having fun.
       </p>
 
-      <p style={{ marginTop: 16, color: "#888", fontSize: 14 }}>
-        We automated ourselves out of the work. The software&apos;s free and
-        open-source.
-      </p>
+      <a
+        href="#top"
+        aria-label="Back to top"
+        style={{
+          display: "inline-flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 8,
+          marginTop: 56,
+          textDecoration: "none",
+          cursor: "pointer",
+        }}
+      >
+        <div style={{ transform: "rotate(180deg)", display: "flex" }}>
+          <Font text="ANTIWORK" color="#ccc" size={30} />
+        </div>
+        <span
+          style={{
+            fontSize: 11,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#bbb",
+          }}
+        >
+          Back to top
+        </span>
+      </a>
     </main>
   );
 }
