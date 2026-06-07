@@ -4,10 +4,8 @@ import { Logo } from "@/app/components/Logo";
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
   description:
-    "Gumroad runs support, fraud & risk, engineering, and finance through a single AI agent on a 6-person team. The software is free. The only thing we sell is how we did it.",
+    "Gumroad started in 2011, nearly died in 2015, and now runs support, fraud & risk, engineering, and finance through a single AI agent on a 6-person team. This is how.",
 };
-
-const BOOK_URL = "https://gumclaw.gumroad.com/l/gzhptn";
 
 export default function Home() {
   return (
@@ -23,17 +21,61 @@ export default function Home() {
         color: "#111",
       }}
     >
-      <Logo size={40} color="black" background="transparent" />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <Logo size={40} color="black" background="transparent" />
+        <span style={{ marginLeft: 12, fontSize: 28, fontWeight: 700 }}>
+          Antiwork
+        </span>
+      </div>
 
-      <p style={{ marginTop: 32 }}>Antiwork</p>
-
-      <p style={{ marginTop: 24 }}>We automated ourselves out of the work.</p>
+      <p style={{ marginTop: 32, fontSize: 20, color: "#111" }}>
+        We automated ourselves out of the work.
+      </p>
 
       <p style={{ marginTop: 24 }}>
-        Gumroad runs support, fraud &amp; risk, engineering, and finance through
-        a single AI agent on a 6-person team. A year ago that took a whole
-        company.
+        Gumroad started in 2011 as a weekend project — a single link that let
+        anyone sell anything. By 2014 it was doing about $915K a year and
+        burning cash to get there.
       </p>
+
+      <p style={{ marginTop: 24 }}>
+        In 2015 it nearly died. The Series B fell through, and the team went
+        from twenty-some people to a handful overnight. Most companies
+        don&apos;t come back from that. Gumroad spent the next decade proving
+        you don&apos;t need the headcount to win.
+      </p>
+
+      <p style={{ marginTop: 24 }}>
+        Revenue went from $915K in 2014 to $9.2M in 2020 to $20.7M in 2023 — the
+        year it turned a real profit (~$9.8M). It held around $18M in 2025. Same
+        small team. Billions in creator earnings moved through it.
+      </p>
+
+      <p style={{ marginTop: 24 }}>
+        Then 2026 hit an inflection — the agent took over the work, and the
+        numbers bent up while the team kept shrinking:
+      </p>
+
+      <div
+        style={{
+          marginTop: 16,
+          padding: "20px 24px",
+          border: "1px solid #eee",
+          borderRadius: 8,
+        }}
+      >
+        <p style={{ margin: 0, fontWeight: 700 }}>Q1 2026</p>
+        <p style={{ margin: "4px 0 0", color: "#444" }}>
+          Revenue $5.49M, up 22% from Q1 2025. EBITDA $2.18M, up 63%.{" "}
+          <span style={{ color: "#888" }}>(projected, financial sheet)</span>
+        </p>
+        <p style={{ margin: "16px 0 0", fontWeight: 700 }}>Q2 2026 (so far)</p>
+        <p style={{ margin: "4px 0 0", color: "#444" }}>
+          342+ engineering PRs merged by the agent. Support queue cut from ~600
+          to 31 — a 95% reduction. ~$3.8M of revenue per employee, 82× the 2014
+          figure.
+        </p>
+      </div>
 
       <figure style={{ margin: "32px 0 0" }}>
         <svg
@@ -73,26 +115,14 @@ export default function Home() {
         </figcaption>
       </figure>
 
-      <p style={{ marginTop: 24 }}>
-        The software that does it is free and open-source — OpenClaw, Hermes,
-        the entire skill library. Download it, run it, owe us nothing. We want
-        you to.
+      <p style={{ marginTop: 32, fontSize: 20, color: "#111" }}>
+        Today one AI agent runs the company.
       </p>
 
       <p style={{ marginTop: 24 }}>
-        The only thing we sell is how we did it: the year of operating knowledge
-        that makes a free framework run a real company without falling over.
-        What to automate first, what to keep human, where an agent earns trust.
-      </p>
-
-      <p style={{ marginTop: 24 }}>
-        That&apos;s a call. $10,000 — 90 minutes with the people who built and
-        run it. Book one, or several at today&apos;s price if you want; it may
-        go up later, or not.
-      </p>
-
-      <p style={{ marginTop: 24 }}>
-        Some of what one agent does, all from production:
+        We call it Gumclaw. It runs support, fraud &amp; risk, engineering, and
+        finance through a single agent on a 6-person team. A year ago that took
+        a whole company. Some of what it does, all from production:
       </p>
 
       <ul style={{ marginTop: 8, paddingLeft: 20 }}>
@@ -146,16 +176,15 @@ export default function Home() {
         </figcaption>
       </figure>
 
-      <p style={{ marginTop: 32 }}>
-        →{" "}
-        <a href={BOOK_URL} style={{ color: "#111" }}>
-          Book the call
-        </a>
+      <p style={{ marginTop: 24 }}>
+        The software that does it is free and open-source — OpenClaw, Hermes,
+        the entire skill library. Download it, run it, owe us nothing. We want
+        you to.
       </p>
 
       <p style={{ marginTop: 48, color: "#888", fontSize: 14 }}>
-        We automated ourselves out of the work. The software&apos;s on us — the
-        shortcut is ten grand. Built on OpenClaw + Hermes, open-source.
+        We automated ourselves out of the work. Built on OpenClaw + Hermes,
+        open-source.
       </p>
     </main>
   );
