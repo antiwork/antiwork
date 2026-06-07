@@ -437,45 +437,6 @@ export default function Home() {
 
       <figure style={{ margin: "32px 0 0" }}>
         <svg
-          viewBox="0 0 420 96"
-          width="100%"
-          height="96"
-          role="img"
-          aria-label="Pull requests merged on the main codebase: all of 2025 was 1041; Q1 2026 was 491 and Q2 2026 is 747 — the first two quarters of 2026 already exceed all of 2025."
-          style={{ display: "block", overflow: "visible" }}
-        >
-          <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            2025
-          </text>
-          <rect x="70" y="8" width="300" height="14" fill="#ccc" />
-          <text x="376" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            1041
-          </text>
-
-          <text x="0" y="50" fontSize="12" fill="#111" fontFamily="monospace">
-            Q1 &apos;26
-          </text>
-          <rect x="70" y="40" width="141.5" height="14" fill="#ec4899" />
-          <text x="217" y="50" fontSize="12" fill="#111" fontFamily="monospace">
-            491
-          </text>
-
-          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
-            Q2 &apos;26
-          </text>
-          <rect x="70" y="72" width="215.3" height="14" fill="#ec4899" />
-          <text x="291" y="82" fontSize="12" fill="#111" fontFamily="monospace">
-            747
-          </text>
-        </svg>
-        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
-          Pull requests merged on the main codebase. The first two quarters of
-          2026 already beat all of 2025 — same team, the agent does the rest.
-        </figcaption>
-      </figure>
-
-      <figure style={{ margin: "32px 0 0" }}>
-        <svg
           viewBox="0 0 700 150"
           width="100%"
           height="150"
