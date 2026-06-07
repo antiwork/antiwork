@@ -718,9 +718,31 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 24 }}>
-        The software that does it is free and open-source — the entire skill
-        library. Download it, run it, owe us nothing. We want you to.
+        We&apos;re not selling the software — the agent and the standard
+        operating procedures behind it are how we run, and they stay ours. But
+        if you want to understand how a company runs itself this way, we&apos;ll
+        walk you through it.
       </p>
+
+      <div style={{ marginTop: 20 }}>
+        <span
+          aria-disabled="true"
+          title="Coming soon"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            padding: "12px 20px",
+            border: "1px solid #e5e5e5",
+            borderRadius: 999,
+            fontSize: 15,
+            color: "#bbb",
+            cursor: "not-allowed",
+            userSelect: "none",
+          }}
+        >
+          Book a call — coming soon
+        </span>
+      </div>
 
       <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
         We automated ourselves out of the work. Now we&apos;re just having fun.
