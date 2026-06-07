@@ -581,13 +581,99 @@ export default function Home() {
           Once a year, Gumroad returns money to the people who backed it — a
           dividend to shareholders and a buyback of community-round shares.
         </p>
-        <p style={{ margin: "18px 0 0", color: "#444" }}>
+
+        <div style={{ textAlign: "center", margin: "36px 0 8px" }}>
+          <p
+            style={{
+              margin: 0,
+              fontSize: 12,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "#888",
+            }}
+          >
+            Returned to investors since 2023
+          </p>
+          <p
+            style={{
+              margin: "14px 0 0",
+              fontSize: "clamp(64px, 15vw, 104px)",
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: "-0.04em",
+              color: "#111",
+            }}
+          >
+            $14.2M
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 16,
+            marginTop: 28,
+          }}
+        >
+          <div
+            style={{
+              flex: "1 1 200px",
+              padding: "16px 18px",
+              border: "1px solid #eee",
+              borderRadius: 10,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 22,
+                fontWeight: 700,
+                color: "#111",
+              }}
+            >
+              $11.2M
+            </p>
+            <p style={{ margin: "6px 0 0", fontSize: 13, color: "#888" }}>
+              in dividends across four annual rounds, paid to 7,447 investors.
+            </p>
+          </div>
+          <div
+            style={{
+              flex: "1 1 200px",
+              padding: "16px 18px",
+              border: "1px solid #eee",
+              borderRadius: 10,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 22,
+                fontWeight: 700,
+                color: "#ec4899",
+              }}
+            >
+              $3.0M
+            </p>
+            <p style={{ margin: "6px 0 0", fontSize: 13, color: "#888" }}>
+              buying back community-round shares across three tender offers.
+            </p>
+          </div>
+        </div>
+
+        <p style={{ margin: "24px 0 0", color: "#444" }}>
           The agent runs the whole cycle through Flexile: it works out each
           holder&apos;s share, issues the payments, and answers the questions
           that come with them — when the dividend lands, how the buyback is
           priced, what it means for taxes. What used to be a finance-team
           scramble now runs end to end, and no investor waits on a human to hear
           back.
+        </p>
+
+        <p style={{ margin: "20px 0 0", fontSize: 13, color: "#888" }}>
+          Dividends and community-round buybacks paid through Flexile,
+          2023–2026.
         </p>
       </section>
 
