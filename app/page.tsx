@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Logo } from "@/app/components/Logo";
+import { Font } from "@/app/components/Font";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -22,10 +22,7 @@ export default function Home() {
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
-        <Logo size={40} color="black" background="transparent" />
-        <span style={{ marginLeft: 12, fontSize: 28, fontWeight: 700 }}>
-          Antiwork
-        </span>
+        <Font text="ANTIWORK" color="#111" size={30} />
       </div>
 
       <p style={{ marginTop: 32, fontSize: 20, color: "#111" }}>
