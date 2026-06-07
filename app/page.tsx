@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Font } from "@/app/components/Font";
+import { LinkCard } from "@/app/components/LinkCard";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -36,10 +37,20 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 24 }}>
-        In 2015 it nearly died. The Series B fell through, and the team went
-        from twenty-some people to a handful overnight. Most companies
-        don&apos;t come back from that. Gumroad spent the next decade proving
-        you don&apos;t need the headcount to win.
+        In 2015 it{" "}
+        <LinkCard
+          href="https://sahillavingia.com/reflecting"
+          title="Reflecting on My Failure to Build a Billion-Dollar Company"
+          description="In 2011, I left my job as the second employee at Pinterest — before I vested any of my stock — to work on what I thought would be my life's work…"
+          source="sahillavingia.com"
+          image="https://sahillavingia.com/gr.png"
+        >
+          nearly died
+        </LinkCard>
+        . The Series B fell through, and the team went from twenty-some people
+        to a handful overnight. Most companies don&apos;t come back from that.
+        Gumroad spent the next decade proving you don&apos;t need the headcount
+        to win.
       </p>
 
       <p style={{ marginTop: 24 }}>
@@ -147,8 +158,17 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         We call it Gumclaw. It runs support, fraud &amp; risk, engineering, and
-        finance through a single agent — alongside a team of five: three
-        engineers and two in support. A year ago that took a whole company.
+        finance through a single agent — alongside a team of five:{" "}
+        <LinkCard
+          href="https://sahillavingia.com/work"
+          title="No Meetings, No Deadlines, No Full-Time Employees"
+          description="I started Gumroad in 2011. In 2015, we reached a peak of 23 full-time employees. In 2016, after failing to raise more money, I ended up back where I began: a one-person company."
+          source="sahillavingia.com"
+          image="https://sahillavingia.com/gumroadians.png"
+        >
+          three engineers and two in support
+        </LinkCard>
+        . A year ago that took a whole company.
       </p>
 
       <section
@@ -299,27 +319,6 @@ export default function Home() {
         the entire skill library. Download it, run it, owe us nothing. We want
         you to.
       </p>
-
-      <p style={{ marginTop: 32, fontSize: 14, color: "#888" }}>Read more:</p>
-      <ul style={{ marginTop: 8, paddingLeft: 20, fontSize: 14 }}>
-        <li>
-          <a
-            href="https://sahillavingia.com/reflecting"
-            style={{ color: "#111" }}
-          >
-            Reflecting on My Failure to Build a Billion-Dollar Company
-          </a>{" "}
-          <span style={{ color: "#888" }}>— the 2015 near-death, in full.</span>
-        </li>
-        <li style={{ marginTop: 6 }}>
-          <a href="https://sahillavingia.com/work" style={{ color: "#111" }}>
-            No Meetings, No Deadlines, No Full-Time Employees
-          </a>{" "}
-          <span style={{ color: "#888" }}>
-            — how the small team actually operates.
-          </span>
-        </li>
-      </ul>
 
       <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
         Now we&apos;re just having fun.
