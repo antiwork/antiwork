@@ -718,10 +718,10 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 24 }}>
-        We&apos;re not selling the software — the agent and the standard
-        operating procedures behind it are how we run, and they stay ours. But
-        if you want to understand how a company runs itself this way, we&apos;ll
-        walk you through it.
+        We&apos;ll share how we did it. The whole point is to teach you to fish
+        — to run your own company this way — not to make you dependent on us. If
+        you want the playbook, book a 90-minute call and we&apos;ll walk you
+        through exactly how it works.
       </p>
 
       <div style={{ marginTop: 20 }}>
@@ -740,7 +740,7 @@ export default function Home() {
             userSelect: "none",
           }}
         >
-          Book a call — coming soon
+          Book a 90-minute call — $10,000 — coming soon
         </span>
       </div>
 
