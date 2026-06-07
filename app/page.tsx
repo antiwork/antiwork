@@ -261,67 +261,36 @@ export default function Home() {
           width="100%"
           height="96"
           role="img"
-          aria-label="Pull requests merged per engineer per month, indexed to 2025 = 100: 2023 was 50, 2024 was 54, 2025 is 100. Output per engineer doubled."
+          aria-label="Pull requests merged on the main codebase: all of 2025 was 1041; Q1 2026 was 491 and Q2 2026 is 747 — the first two quarters of 2026 already exceed all of 2025."
           style={{ display: "block", overflow: "visible" }}
         >
           <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            2023
-          </text>
-          <rect x="48" y="8" width="160" height="14" fill="#ccc" />
-          <text x="214" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            50
-          </text>
-
-          <text x="0" y="50" fontSize="12" fill="#888" fontFamily="monospace">
-            2024
-          </text>
-          <rect x="48" y="40" width="171.5" height="14" fill="#ccc" />
-          <text x="226" y="50" fontSize="12" fill="#888" fontFamily="monospace">
-            54
-          </text>
-
-          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
             2025
           </text>
-          <rect x="48" y="72" width="320" height="14" fill="#ec4899" />
-          <text x="374" y="82" fontSize="12" fill="#111" fontFamily="monospace">
-            100
-          </text>
-        </svg>
-        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
-          Pull requests merged per engineer, indexed to 2025. Same people, twice
-          the output — the agent does the rest.
-        </figcaption>
-      </figure>
-
-      <figure style={{ margin: "32px 0 0" }}>
-        <svg
-          viewBox="0 0 420 72"
-          width="100%"
-          height="72"
-          role="img"
-          aria-label="Pull requests merged on the main codebase by quarter: Q1 2026 was 491, Q2 2026 is 747 and still running."
-          style={{ display: "block", overflow: "visible" }}
-        >
-          <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            Q1 &apos;26
-          </text>
-          <rect x="78" y="8" width="185" height="14" fill="#ccc" />
-          <text x="269" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            491
+          <rect x="70" y="8" width="300" height="14" fill="#ccc" />
+          <text x="376" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            1041
           </text>
 
           <text x="0" y="50" fontSize="12" fill="#111" fontFamily="monospace">
+            Q1 &apos;26
+          </text>
+          <rect x="70" y="40" width="141.5" height="14" fill="#ec4899" />
+          <text x="217" y="50" fontSize="12" fill="#111" fontFamily="monospace">
+            491
+          </text>
+
+          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
             Q2 &apos;26
           </text>
-          <rect x="78" y="40" width="282" height="14" fill="#ec4899" />
-          <text x="366" y="50" fontSize="12" fill="#111" fontFamily="monospace">
+          <rect x="70" y="72" width="215.3" height="14" fill="#ec4899" />
+          <text x="291" y="82" fontSize="12" fill="#111" fontFamily="monospace">
             747
           </text>
         </svg>
         <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
-          And in raw terms — pull requests merged on the main codebase, by
-          quarter. Q2 isn&apos;t over yet, and it&apos;s already lapped Q1.
+          Pull requests merged on the main codebase. The first two quarters of
+          2026 already beat all of 2025 — same team, the agent does the rest.
         </figcaption>
       </figure>
 
