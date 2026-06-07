@@ -476,41 +476,236 @@ export default function Home() {
 
       <figure style={{ margin: "32px 0 0" }}>
         <svg
-          viewBox="0 0 420 96"
+          viewBox="0 0 700 150"
           width="100%"
-          height="96"
+          height="150"
           role="img"
-          aria-label="Pull requests merged per engineer: all of 2025 was 74 per engineer across 14; Q1 2026 was 45 across 11; Q2 2026 is 124 per engineer across 6 — a single quarter now beats a full year."
+          aria-label="Pull requests merged per engineer, by quarter, 2012 to 2026. Hovered around 25 to 80 for over a decade, then spikes to 119 in Q2 2026 — the highest in the company's history, on a team of six."
           style={{ display: "block", overflow: "visible" }}
         >
-          <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            2025
+          <rect x="0.0" y="127.5" width="10.1" height="0.5" fill="#ccc" />
+          <rect x="12.1" y="117.7" width="10.1" height="10.3" fill="#ccc" />
+          <rect x="24.2" y="108.8" width="10.1" height="19.2" fill="#ccc" />
+          <rect x="36.3" y="101.5" width="10.1" height="26.6" fill="#ccc" />
+          <rect x="48.4" y="97.0" width="10.1" height="31.0" fill="#ccc" />
+          <rect x="60.5" y="92.1" width="10.1" height="35.9" fill="#ccc" />
+          <rect x="72.6" y="80.0" width="10.1" height="48.0" fill="#ccc" />
+          <rect x="84.7" y="98.9" width="10.1" height="29.1" fill="#ccc" />
+          <rect x="96.8" y="103.1" width="10.1" height="24.9" fill="#ccc" />
+          <rect x="108.9" y="102.7" width="10.1" height="25.3" fill="#ccc" />
+          <rect x="121.0" y="101.6" width="10.1" height="26.4" fill="#ccc" />
+          <rect x="133.1" y="98.7" width="10.1" height="29.3" fill="#ccc" />
+          <rect x="145.2" y="67.1" width="10.1" height="60.9" fill="#ccc" />
+          <rect x="157.3" y="59.3" width="10.1" height="68.7" fill="#ccc" />
+          <rect x="169.4" y="46.5" width="10.1" height="81.5" fill="#ccc" />
+          <rect x="181.6" y="49.2" width="10.1" height="78.8" fill="#ccc" />
+          <rect x="193.7" y="48.3" width="10.1" height="79.7" fill="#ccc" />
+          <rect x="205.8" y="125.3" width="10.1" height="2.7" fill="#ccc" />
+          <rect x="217.9" y="125.7" width="10.1" height="2.3" fill="#ccc" />
+          <rect x="230.0" y="126.0" width="10.1" height="2.0" fill="#ccc" />
+          <rect x="242.1" y="111.8" width="10.1" height="16.2" fill="#ccc" />
+          <rect x="254.2" y="110.6" width="10.1" height="17.4" fill="#ccc" />
+          <rect x="266.3" y="99.5" width="10.1" height="28.5" fill="#ccc" />
+          <rect x="278.4" y="101.2" width="10.1" height="26.8" fill="#ccc" />
+          <rect x="290.5" y="99.3" width="10.1" height="28.7" fill="#ccc" />
+          <rect x="302.6" y="106.2" width="10.1" height="21.8" fill="#ccc" />
+          <rect x="314.7" y="87.5" width="10.1" height="40.5" fill="#ccc" />
+          <rect x="326.8" y="85.9" width="10.1" height="42.1" fill="#ccc" />
+          <rect x="338.9" y="98.3" width="10.1" height="29.7" fill="#ccc" />
+          <rect x="351.0" y="90.0" width="10.1" height="38.0" fill="#ccc" />
+          <rect x="363.1" y="126.5" width="10.1" height="1.5" fill="#eee" />
+          <rect x="375.2" y="126.5" width="10.1" height="1.5" fill="#eee" />
+          <rect x="387.3" y="88.4" width="10.1" height="39.6" fill="#ccc" />
+          <rect x="399.4" y="55.5" width="10.1" height="72.5" fill="#ccc" />
+          <rect x="411.5" y="63.1" width="10.1" height="64.9" fill="#ccc" />
+          <rect x="423.6" y="69.2" width="10.1" height="58.8" fill="#ccc" />
+          <rect x="435.7" y="85.1" width="10.1" height="42.9" fill="#ccc" />
+          <rect x="447.8" y="83.8" width="10.1" height="44.2" fill="#ccc" />
+          <rect x="459.9" y="90.4" width="10.1" height="37.6" fill="#ccc" />
+          <rect x="472.0" y="89.4" width="10.1" height="38.6" fill="#ccc" />
+          <rect x="484.1" y="93.0" width="10.1" height="35.0" fill="#ccc" />
+          <rect x="496.2" y="94.8" width="10.1" height="33.2" fill="#ccc" />
+          <rect x="508.3" y="100.3" width="10.1" height="27.7" fill="#ccc" />
+          <rect x="520.4" y="82.2" width="10.1" height="45.8" fill="#ccc" />
+          <rect x="532.6" y="78.3" width="10.1" height="49.7" fill="#ccc" />
+          <rect x="544.7" y="83.7" width="10.1" height="44.3" fill="#ccc" />
+          <rect x="556.8" y="98.0" width="10.1" height="30.0" fill="#ccc" />
+          <rect x="568.9" y="98.2" width="10.1" height="29.8" fill="#ccc" />
+          <rect x="581.0" y="94.3" width="10.1" height="33.7" fill="#ccc" />
+          <rect x="593.1" y="94.9" width="10.1" height="33.1" fill="#ccc" />
+          <rect x="605.2" y="88.8" width="10.1" height="39.2" fill="#ccc" />
+          <rect x="617.3" y="104.9" width="10.1" height="23.1" fill="#ccc" />
+          <rect x="629.4" y="99.6" width="10.1" height="28.4" fill="#ccc" />
+          <rect x="641.5" y="95.2" width="10.1" height="32.8" fill="#ccc" />
+          <rect x="653.6" y="90.4" width="10.1" height="37.6" fill="#ccc" />
+          <rect x="665.7" y="93.0" width="10.1" height="35.0" fill="#ccc" />
+          <rect x="677.8" y="83.3" width="10.1" height="44.7" fill="#ccc" />
+          <rect x="689.9" y="10.8" width="10.1" height="117.2" fill="#ec4899" />
+          <text
+            x="694.9"
+            y="7"
+            fontSize="9"
+            fill="#ec4899"
+            fontFamily="monospace"
+            textAnchor="end"
+          >
+            119
           </text>
-          <rect x="70" y="8" width="179" height="14" fill="#ccc" />
-          <text x="255" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            74
+          <text
+            x="5.1"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            12
           </text>
-
-          <text x="0" y="50" fontSize="12" fill="#111" fontFamily="monospace">
-            Q1 &apos;26
+          <text
+            x="53.5"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            13
           </text>
-          <rect x="70" y="40" width="109" height="14" fill="#ec4899" />
-          <text x="185" y="50" fontSize="12" fill="#111" fontFamily="monospace">
-            45
+          <text
+            x="101.9"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            14
           </text>
-
-          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
-            Q2 &apos;26
+          <text
+            x="150.3"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            15
           </text>
-          <rect x="70" y="72" width="300" height="14" fill="#ec4899" />
-          <text x="376" y="82" fontSize="12" fill="#111" fontFamily="monospace">
-            124
+          <text
+            x="198.7"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            16
+          </text>
+          <text
+            x="247.1"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            17
+          </text>
+          <text
+            x="295.5"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            18
+          </text>
+          <text
+            x="343.9"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            19
+          </text>
+          <text
+            x="392.4"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            20
+          </text>
+          <text
+            x="440.8"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            21
+          </text>
+          <text
+            x="489.2"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            22
+          </text>
+          <text
+            x="537.6"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            23
+          </text>
+          <text
+            x="586.0"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            24
+          </text>
+          <text
+            x="634.4"
+            y="142"
+            fontSize="7"
+            fill="#bbb"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            25
+          </text>
+          <text
+            x="682.8"
+            y="142"
+            fontSize="7"
+            fill="#ec4899"
+            fontFamily="monospace"
+            textAnchor="middle"
+          >
+            26
           </text>
         </svg>
         <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
-          Pull requests merged per engineer. In Q2 2026 a single quarter&apos;s
-          output per person — across a team of six — beats all of 2025&apos;s,
-          when the team was fourteen.
+          Pull requests merged per engineer, every quarter since 2012. For
+          fourteen years it held between roughly 25 and 80. In Q2 2026 — on a
+          team of six — it hit 119, the highest in the company&apos;s history.
         </figcaption>
       </figure>
 
