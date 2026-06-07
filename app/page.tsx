@@ -66,14 +66,13 @@ export default function Home() {
       >
         <p style={{ margin: 0, fontWeight: 700 }}>Q1 2026</p>
         <p style={{ margin: "4px 0 0", color: "#444" }}>
-          Revenue $5.49M, up 22% from Q1 2025. EBITDA $2.18M, up 63%.{" "}
-          <span style={{ color: "#888" }}>(projected, financial sheet)</span>
+          491 pull requests merged by the agent on the main codebase. Support
+          handled at ~$117M in creator earnings per support person.
         </p>
         <p style={{ margin: "16px 0 0", fontWeight: 700 }}>Q2 2026 (so far)</p>
         <p style={{ margin: "4px 0 0", color: "#444" }}>
-          342+ engineering PRs merged by the agent. Support queue cut from ~600
-          to 31 — a 95% reduction. ~$3.8M of revenue per employee, 82× the 2014
-          figure.
+          747 pull requests merged. Support queue cut from ~600 to 31 — a 95%
+          reduction. ~$3.8M of revenue per employee, 82× the 2014 figure.
         </p>
       </div>
 
@@ -139,40 +138,32 @@ export default function Home() {
 
       <figure style={{ margin: "32px 0 0" }}>
         <svg
-          viewBox="0 0 420 96"
+          viewBox="0 0 420 72"
           width="100%"
-          height="96"
+          height="72"
           role="img"
-          aria-label="Pull requests merged per engineer per month, indexed to 2025 = 100: 2023 was 50, 2024 was 54, 2025 is 100. Output per engineer doubled."
+          aria-label="Pull requests merged on the main codebase by quarter: Q1 2026 was 491, Q2 2026 is 747 and still running."
           style={{ display: "block", overflow: "visible" }}
         >
           <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            2023
+            Q1 &apos;26
           </text>
-          <rect x="48" y="8" width="160" height="14" fill="#ccc" />
-          <text x="214" y="18" fontSize="12" fill="#888" fontFamily="monospace">
-            50
-          </text>
-
-          <text x="0" y="50" fontSize="12" fill="#888" fontFamily="monospace">
-            2024
-          </text>
-          <rect x="48" y="40" width="171.5" height="14" fill="#ccc" />
-          <text x="226" y="50" fontSize="12" fill="#888" fontFamily="monospace">
-            54
+          <rect x="78" y="8" width="185" height="14" fill="#ccc" />
+          <text x="269" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            491
           </text>
 
-          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
-            2025
+          <text x="0" y="50" fontSize="12" fill="#111" fontFamily="monospace">
+            Q2 &apos;26
           </text>
-          <rect x="48" y="72" width="320" height="14" fill="#ec4899" />
-          <text x="374" y="82" fontSize="12" fill="#111" fontFamily="monospace">
-            100
+          <rect x="78" y="40" width="282" height="14" fill="#ec4899" />
+          <text x="366" y="50" fontSize="12" fill="#111" fontFamily="monospace">
+            747
           </text>
         </svg>
         <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
-          Pull requests merged per engineer, indexed to 2025. Same people, twice
-          the output — the agent does the rest.
+          Pull requests merged on the main codebase, by quarter. Q2 isn&apos;t
+          over yet — and it&apos;s already lapped Q1.
         </figcaption>
       </figure>
 
@@ -203,7 +194,11 @@ export default function Home() {
         </li>
       </ul>
 
-      <p style={{ marginTop: 48, color: "#888", fontSize: 14 }}>
+      <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
+        Now we&apos;re just having fun.
+      </p>
+
+      <p style={{ marginTop: 16, color: "#888", fontSize: 14 }}>
         We automated ourselves out of the work. Built on OpenClaw + Hermes,
         open-source.
       </p>
