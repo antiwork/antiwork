@@ -474,6 +474,46 @@ export default function Home() {
         </figcaption>
       </figure>
 
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
+          viewBox="0 0 420 96"
+          width="100%"
+          height="96"
+          role="img"
+          aria-label="Pull requests merged per engineer: all of 2025 was 74 per engineer across 14; Q1 2026 was 45 across 11; Q2 2026 is 124 per engineer across 6 — a single quarter now beats a full year."
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            2025
+          </text>
+          <rect x="70" y="8" width="179" height="14" fill="#ccc" />
+          <text x="255" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            74
+          </text>
+
+          <text x="0" y="50" fontSize="12" fill="#111" fontFamily="monospace">
+            Q1 &apos;26
+          </text>
+          <rect x="70" y="40" width="109" height="14" fill="#ec4899" />
+          <text x="185" y="50" fontSize="12" fill="#111" fontFamily="monospace">
+            45
+          </text>
+
+          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
+            Q2 &apos;26
+          </text>
+          <rect x="70" y="72" width="300" height="14" fill="#ec4899" />
+          <text x="376" y="82" fontSize="12" fill="#111" fontFamily="monospace">
+            124
+          </text>
+        </svg>
+        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+          Pull requests merged per engineer. In Q2 2026 a single quarter&apos;s
+          output per person — across a team of six — beats all of 2025&apos;s,
+          when the team was fourteen.
+        </figcaption>
+      </figure>
+
       <p style={{ marginTop: 24 }}>
         And the code ships faster than it ever has. Through the 2010s, the time
         from a pull request opening to merging crept up as the codebase and team
