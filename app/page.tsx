@@ -255,25 +255,6 @@ export default function Home() {
         </p>
       </section>
 
-      <p style={{ marginTop: 32 }}>
-        Some of what it does, all from production:
-      </p>
-
-      <ul style={{ marginTop: 8, paddingLeft: 20 }}>
-        <li>
-          ~98.5% of support tickets auto-resolved, first reply under a minute
-        </li>
-        <li>
-          ~$117M in creator earnings supported per person on a two-person
-          support team
-        </li>
-        <li>
-          ~99% of standard fraud/risk cases handled with no human in the loop
-        </li>
-        <li>idea → shipped in about half an hour, down from a ~99h peak</li>
-        <li>82× revenue per employee since 2014</li>
-      </ul>
-
       <figure style={{ margin: "32px 0 0" }}>
         <svg
           viewBox="0 0 420 96"
