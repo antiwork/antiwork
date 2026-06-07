@@ -99,28 +99,8 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         Then 2026 hit an inflection — the agent took over the work, and the
-        numbers bent up while the team kept shrinking:
+        numbers bent up while the team kept shrinking.
       </p>
-
-      <div
-        style={{
-          marginTop: 16,
-          padding: "20px 24px",
-          border: "1px solid #eee",
-          borderRadius: 8,
-        }}
-      >
-        <p style={{ margin: 0, fontWeight: 700 }}>Q1 2026</p>
-        <p style={{ margin: "4px 0 0", color: "#444" }}>
-          491 pull requests merged by the agent on the main codebase. Support
-          handled at ~$117M in creator earnings per support person.
-        </p>
-        <p style={{ margin: "16px 0 0", fontWeight: 700 }}>Q2 2026 (so far)</p>
-        <p style={{ margin: "4px 0 0", color: "#444" }}>
-          747 pull requests merged. Support queue cut from ~600 to 31 — a 95%
-          reduction. ~$3.8M of revenue per employee, 82× the 2014 figure.
-        </p>
-      </div>
 
       <figure style={{ margin: "32px 0 0" }}>
         <svg
