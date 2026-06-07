@@ -121,11 +121,121 @@ export default function Home() {
       <p style={{ marginTop: 24 }}>
         We call it Gumclaw. It runs support, fraud &amp; risk, engineering, and
         finance through a single agent on a 6-person team. A year ago that took
-        a whole company. Some of what it does, all from production:
+        a whole company.
+      </p>
+
+      <section
+        style={{
+          margin: "40px 0 0",
+          padding: "44px 28px",
+          border: "1px solid #eee",
+          borderRadius: 14,
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 12,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#888",
+          }}
+        >
+          Support resolution time
+        </p>
+        <p
+          style={{
+            margin: "14px 0 0",
+            fontSize: "clamp(72px, 17vw, 120px)",
+            fontWeight: 700,
+            lineHeight: 1,
+            letterSpacing: "-0.04em",
+            color: "#111",
+          }}
+        >
+          489×
+        </p>
+        <p style={{ margin: "6px 0 0", fontSize: 22, color: "#111" }}>faster</p>
+
+        <div
+          style={{ margin: "36px auto 0", maxWidth: 420, textAlign: "left" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: 13,
+              color: "#888",
+            }}
+          >
+            <span>Before</span>
+            <span>17.3 days</span>
+          </div>
+          <div
+            style={{
+              marginTop: 6,
+              height: 10,
+              background: "#eee",
+              borderRadius: 999,
+            }}
+          >
+            <div
+              style={{
+                width: "100%",
+                height: 10,
+                background: "#ccc",
+                borderRadius: 999,
+              }}
+            />
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: 13,
+              color: "#111",
+              marginTop: 20,
+            }}
+          >
+            <span>After</span>
+            <span>51 minutes</span>
+          </div>
+          <div
+            style={{
+              marginTop: 6,
+              height: 10,
+              background: "#eee",
+              borderRadius: 999,
+            }}
+          >
+            <div
+              style={{
+                width: "0.2%",
+                minWidth: 4,
+                height: 10,
+                background: "#ec4899",
+                borderRadius: 999,
+              }}
+            />
+          </div>
+        </div>
+
+        <p style={{ margin: "30px 0 0", fontSize: 13, color: "#888" }}>
+          Median resolution time for human-handled tickets. Internal support
+          dashboard, Q1 → Q2 2026.
+        </p>
+      </section>
+
+      <p style={{ marginTop: 32 }}>
+        Some of what it does, all from production:
       </p>
 
       <ul style={{ marginTop: 8, paddingLeft: 20 }}>
-        <li>~98.5% of support tickets auto-resolved (17.3 days → 51 min)</li>
+        <li>
+          ~98.5% of support tickets auto-resolved, first reply under a minute
+        </li>
         <li>
           ~$117M in creator earnings handled per support person (1.5 of them)
         </li>
