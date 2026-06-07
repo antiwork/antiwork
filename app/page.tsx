@@ -726,7 +726,7 @@ export default function Home() {
 
       <div style={{ marginTop: 20 }}>
         <a
-          href="mailto:gumclaw@gumroad.com?subject=Book%20a%2090-minute%20call%20(%2410%2C000)&body=Hi%20Antiwork%20team%2C%0A%0AI'd%20like%20to%20book%20a%2090-minute%20call%20to%20learn%20how%20you%20run%20the%20company%20with%20an%20agent.%0A%0AName%3A%0ACompany%3A%0AWhat%20I'm%20hoping%20to%20learn%3A%0A"
+          href="https://gumclaw.gumroad.com/l/gzhptn"
           style={{
             display: "inline-flex",
             alignItems: "center",
