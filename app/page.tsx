@@ -4,7 +4,7 @@ import { Font } from "@/app/components/Font";
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
   description:
-    "Gumroad started in 2011, nearly died in 2015, and now runs support, fraud & risk, engineering, and finance through a single AI agent on a 6-person team. This is how.",
+    "Gumroad started in 2011, nearly died in 2015, and now runs support, fraud & risk, engineering, and finance through a single AI agent on a 5-person team. This is how.",
 };
 
 export default function Home() {
@@ -92,8 +92,9 @@ export default function Home() {
           <span style={{ color: "#111" }}>+$5.9M · 2025</span>
         </figcaption>
         <figcaption style={{ marginTop: 4, color: "#888", fontSize: 13 }}>
-          Annual profit (EBITDA), 2012–2025. Dotted line is break-even. Roughly
-          $420K of profit per person in 2025 across a team of 14.
+          Annual profit (EBITDA), 2012–2025. Dotted line is break-even. That
+          $5.9M in 2025 — across today&apos;s team of five — is over $1M of
+          profit per person.
         </figcaption>
       </figure>
 
@@ -146,8 +147,8 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         We call it Gumclaw. It runs support, fraud &amp; risk, engineering, and
-        finance through a single agent on a 6-person team. A year ago that took
-        a whole company.
+        finance through a single agent — alongside a team of five: three
+        engineers and two in support. A year ago that took a whole company.
       </p>
 
       <section
@@ -263,7 +264,8 @@ export default function Home() {
           ~98.5% of support tickets auto-resolved, first reply under a minute
         </li>
         <li>
-          ~$117M in creator earnings handled per support person (1.5 of them)
+          ~$117M in creator earnings supported per person on a two-person
+          support team
         </li>
         <li>
           ~99% of standard fraud/risk cases handled with no human in the loop
