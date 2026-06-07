@@ -51,6 +51,55 @@ export default function Home() {
         small team. Billions in creator earnings moved through it.
       </p>
 
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
+          viewBox="0 0 520 64"
+          width="100%"
+          height="64"
+          preserveAspectRatio="none"
+          role="img"
+          aria-label="Annual profit (EBITDA), 2012 to 2025: deep losses through 2015, near break-even 2016 to 2022, then sharply profitable from 2023 — peak ~$9.8M in 2023, ~$5.9M in 2025."
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <line
+            x1="4"
+            y1="44.6"
+            x2="516"
+            y2="44.6"
+            stroke="#ddd"
+            strokeWidth={1}
+            strokeDasharray="3 3"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            d="M 4.0 48.1 L 43.4 52.4 L 82.8 58.5 L 122.2 60.0 L 161.5 45.3 L 200.9 45.0 L 240.3 44.6 L 279.7 45.5 L 319.1 44.7 L 358.5 51.7 L 397.8 50.0 L 437.2 4.0 L 476.6 21.6 L 516.0 20.4"
+            fill="none"
+            stroke="#111"
+            strokeWidth={1}
+            vectorEffect="non-scaling-stroke"
+          />
+          <circle cx="122.2" cy="60.0" r="2.5" fill="#888" />
+          <circle cx="437.2" cy="4.0" r="2.5" fill="#ec4899" />
+          <circle cx="516.0" cy="20.4" r="2.5" fill="#111" />
+        </svg>
+        <figcaption
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: 6,
+            color: "#888",
+            fontSize: 13,
+          }}
+        >
+          <span>−$3.7M · 2015</span>
+          <span style={{ color: "#111" }}>+$5.9M · 2025</span>
+        </figcaption>
+        <figcaption style={{ marginTop: 4, color: "#888", fontSize: 13 }}>
+          Annual profit (EBITDA), 2012–2025. Dotted line is break-even. Roughly
+          $420K of profit per person in 2025 across a team of 14.
+        </figcaption>
+      </figure>
+
       <p style={{ marginTop: 24 }}>
         Then 2026 hit an inflection — the agent took over the work, and the
         numbers bent up while the team kept shrinking:
@@ -248,6 +297,45 @@ export default function Home() {
 
       <figure style={{ margin: "32px 0 0" }}>
         <svg
+          viewBox="0 0 420 96"
+          width="100%"
+          height="96"
+          role="img"
+          aria-label="Pull requests merged per engineer per month, indexed to 2025 = 100: 2023 was 50, 2024 was 54, 2025 is 100. Output per engineer doubled."
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <text x="0" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            2023
+          </text>
+          <rect x="48" y="8" width="160" height="14" fill="#ccc" />
+          <text x="214" y="18" fontSize="12" fill="#888" fontFamily="monospace">
+            50
+          </text>
+
+          <text x="0" y="50" fontSize="12" fill="#888" fontFamily="monospace">
+            2024
+          </text>
+          <rect x="48" y="40" width="171.5" height="14" fill="#ccc" />
+          <text x="226" y="50" fontSize="12" fill="#888" fontFamily="monospace">
+            54
+          </text>
+
+          <text x="0" y="82" fontSize="12" fill="#111" fontFamily="monospace">
+            2025
+          </text>
+          <rect x="48" y="72" width="320" height="14" fill="#ec4899" />
+          <text x="374" y="82" fontSize="12" fill="#111" fontFamily="monospace">
+            100
+          </text>
+        </svg>
+        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+          Pull requests merged per engineer, indexed to 2025. Same people, twice
+          the output — the agent does the rest.
+        </figcaption>
+      </figure>
+
+      <figure style={{ margin: "32px 0 0" }}>
+        <svg
           viewBox="0 0 420 72"
           width="100%"
           height="72"
@@ -272,8 +360,8 @@ export default function Home() {
           </text>
         </svg>
         <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
-          Pull requests merged on the main codebase, by quarter. Q2 isn&apos;t
-          over yet — and it&apos;s already lapped Q1.
+          And in raw terms — pull requests merged on the main codebase, by
+          quarter. Q2 isn&apos;t over yet, and it&apos;s already lapped Q1.
         </figcaption>
       </figure>
 
