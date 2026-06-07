@@ -366,6 +366,85 @@ export default function Home() {
         </section>
       </div>
 
+      <section
+        style={{
+          marginTop: 16,
+          padding: "24px",
+          border: "1px solid #eee",
+          borderRadius: 14,
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 11,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "#888",
+            textAlign: "center",
+          }}
+        >
+          The monthly financial close
+        </p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 16,
+            marginTop: 18,
+          }}
+        >
+          <div
+            style={{
+              flex: "1 1 200px",
+              padding: "16px 18px",
+              border: "1px solid #eee",
+              borderRadius: 10,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 12,
+                fontWeight: 700,
+                color: "#888",
+              }}
+            >
+              Then
+            </p>
+            <p style={{ margin: "8px 0 0", color: "#444" }}>
+              Closed by hand, once a month. Pull the numbers, reconcile four
+              entities, book every journal entry manually — the P&amp;L only
+              true at month-end.
+            </p>
+          </div>
+          <div
+            style={{
+              flex: "1 1 200px",
+              padding: "16px 18px",
+              border: "1px solid #ec4899",
+              borderRadius: 10,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 12,
+                fontWeight: 700,
+                color: "#ec4899",
+              }}
+            >
+              Now
+            </p>
+            <p style={{ margin: "8px 0 0", color: "#111" }}>
+              The agent runs it every week — pulls Metabase + Stripe across four
+              entities, books the entries into QuickBooks itself, in minutes.
+              The books are always current.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <figure style={{ margin: "32px 0 0" }}>
         <svg
           viewBox="0 0 420 96"
