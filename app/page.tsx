@@ -760,13 +760,11 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
-        We automated ourselves out of the work.
-        <br />
-        Now we&apos;re just having fun.
+        We automated ourselves out of the work. Now we&apos;re just having fun.
       </p>
 
       <a
-        href="#top"
+        href="#"
         aria-label="Back to top"
         style={{
           display: "inline-flex",
