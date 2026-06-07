@@ -485,9 +485,8 @@ export default function Home() {
       </figure>
 
       <p style={{ marginTop: 24 }}>
-        The software that does it is free and open-source — OpenClaw, Hermes,
-        the entire skill library. Download it, run it, owe us nothing. We want
-        you to.
+        The software that does it is free and open-source — the entire skill
+        library. Download it, run it, owe us nothing. We want you to.
       </p>
 
       <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
@@ -495,7 +494,7 @@ export default function Home() {
       </p>
 
       <p style={{ marginTop: 16, color: "#888", fontSize: 14 }}>
-        We automated ourselves out of the work. Built on OpenClaw + Hermes,
+        We automated ourselves out of the work. The software&apos;s free and
         open-source.
       </p>
     </main>
