@@ -515,40 +515,7 @@ export default function Home() {
         it from us.
       </p>
 
-      <section className="mt-7 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card p-7 shadow-card">
-        <p className="m-0 text-[12px] uppercase tracking-[0.16em] text-muted">
-          The call
-        </p>
-        <p className="mt-3.5 text-[18px] text-fg">
-          90 minutes, 1:1, with the team that built and runs Gumclaw.
-        </p>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-2 marker:text-[#ec4899]">
-          <li>
-            A teardown of where an agent can take work off your team first.
-          </li>
-          <li>
-            The architecture and guardrails we actually run in production.
-          </li>
-          <li>The org and trust changes that made it stick.</li>
-          <li>A prioritized 90-day automation plan for your company.</li>
-        </ul>
-        <p className="mt-[18px] text-[14px] text-muted">
-          For founders and operators of 5–100 person internet businesses who
-          want to grow without rebuilding a conventional team. $10,000 — less
-          than one month of the accountant time the agent replaced.
-        </p>
-        <p className="mt-4 rounded-[10px] border border-[#fbcfe8] bg-[#fdf2f8] px-4 py-3.5 text-[14px] text-[#9d174d]">
-          <strong className="text-[#9d174d]">Credit applies:</strong> if you
-          decide to have us help you build it afterward, the full $10,000 is
-          credited toward that engagement — so the call counts toward the work,
-          not on top of it.
-        </p>
-        <div className="mt-[22px]">
-          <BookCTA placement="offer" />
-        </div>
-      </section>
-
-      <p className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted">
+      <p className="mt-10 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted">
         Other ways to work with us
       </p>
 
