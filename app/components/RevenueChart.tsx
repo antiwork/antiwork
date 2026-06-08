@@ -1,10 +1,10 @@
-// Q1 EBITDA: Q1 2025 (actual) vs Q1 2026 (projected).
+// Q1 EBITDA: Q1 2025 vs Q1 2026 (both finalized actuals).
 // Source: Antiwork 2026 investor deck (app/2026/slides/q1-projection.tsx).
-// Q1 2025 EBITDA $1.341M, Q1 2026 EBITDA $2.180M (+63%). The deck labels the
-// 2026 figure as a projection; surfaced as such below.
+// Q1 2025 EBITDA $1.341M, Q1 2026 EBITDA $2.180M (+63%). Q1 2026 is closed
+// and finalized (taxes paid).
 const DATA = [
   { label: "Q1 2025", ebitda: 1.341, note: "", color: "#f9a8d4" },
-  { label: "Q1 2026", ebitda: 2.18, note: "projected", color: "#db2777" },
+  { label: "Q1 2026", ebitda: 2.18, note: "", color: "#db2777" },
 ];
 
 const MAX = 2.5; // y-axis ceiling in $M
@@ -41,7 +41,7 @@ export function RevenueChart() {
           width="100%"
           height={H}
           role="img"
-          aria-label="Q1 adjusted EBITDA: $1.34M in Q1 2025, rising to $2.18M projected in Q1 2026 — a 63% year-over-year increase."
+          aria-label="Q1 adjusted EBITDA: $1.34M in Q1 2025, rising to $2.18M in Q1 2026 — a 63% year-over-year increase."
           style={{ display: "block", overflow: "visible" }}
         >
           {/* gridlines */}
@@ -123,8 +123,8 @@ export function RevenueChart() {
         </svg>
       </div>
       <figcaption className="mt-2 text-[13px] text-muted">
-        Q1 adjusted EBITDA — $1.34M (2025) to $2.18M (2026, projected), +63%
-        while the team shrank. Source: Antiwork investor financials.
+        Q1 adjusted EBITDA — $1.34M (2025) to $2.18M (2026), +63% while the team
+        shrank. Source: Antiwork investor financials.
       </figcaption>
     </figure>
   );
