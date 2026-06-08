@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Font } from "@/app/components/Font";
-import { LinkCard } from "@/app/components/LinkCard";
 import { BookCTA } from "@/app/components/BookCTA";
 import { StickyCTA } from "@/app/components/StickyCTA";
 import { ProductLink } from "@/app/components/ProductLink";
 import { RevenueChart } from "@/app/components/RevenueChart";
-import { TeamAvatars } from "@/app/components/TeamAvatars";
 import { AskGumclaw } from "@/app/components/AskGumclaw";
 import { Faq } from "@/app/components/Faq";
 
@@ -154,54 +152,9 @@ export default function Home() {
         Today one AI agent runs the company.
       </p>
 
-      <p style={{ marginTop: 24 }}>
-        We call it Gumclaw. In 2026 it took over the work — and the numbers bent
-        up while the team kept shrinking. A lean team and a tireless agent turn
-        out to be the best thing that ever happened to the customer: faster
-        answers, faster fixes, faster everything. The ceiling on how good the
-        experience can get keeps rising.
-      </p>
-
-      <p style={{ marginTop: 28, fontSize: 13, letterSpacing: "0.04em" }}>
-        <span
-          style={{
-            textTransform: "uppercase",
-            letterSpacing: "0.16em",
-            color: "var(--muted)",
-            fontSize: 12,
-          }}
-        >
-          The humans
-        </span>
-      </p>
-      <TeamAvatars />
+      <p style={{ marginTop: 24 }}>We call it Gumclaw.</p>
 
       <AskGumclaw />
-
-      <p style={{ marginTop: 24 }}>
-        This isn&apos;t a pivot — it&apos;s where we&apos;ve been heading for
-        years. Sahil wrote about{" "}
-        <LinkCard
-          href="https://sahillavingia.com/reflecting"
-          title="Reflecting on My Failure to Build a Billion-Dollar Company"
-          description="In 2011, I left my job as the second employee at Pinterest — before I vested any of my stock — to work on what I thought would be my life's work…"
-          source="sahillavingia.com"
-          image="/cards/reflecting.jpg"
-        >
-          letting go of the billion-dollar dream
-        </LinkCard>{" "}
-        and{" "}
-        <LinkCard
-          href="https://sahillavingia.com/work"
-          title="No Meetings, No Deadlines, No Full-Time Employees"
-          description="I started Gumroad in 2011. In 2015, we reached a peak of 23 full-time employees. In 2016, after failing to raise more money, I ended up back where I began: a one-person company."
-          source="sahillavingia.com"
-          image="/cards/work.jpg"
-        >
-          building a company with no meetings and no full-time employees
-        </LinkCard>
-        . The agent is the natural conclusion of that — worth a read.
-      </p>
 
       <p style={{ marginTop: 24 }}>
         Getting here meant building our own tools. Two of them grew into real
