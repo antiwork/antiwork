@@ -548,6 +548,98 @@ export default function Home() {
         </div>
       </section>
 
+      <p className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted">
+        Other ways to work with us
+      </p>
+
+      <p className="mt-4 text-muted">
+        The call is the front door. Depending on where you are, there&apos;s a
+        lighter way in and a heavier way forward — same playbook, different
+        depth.
+      </p>
+
+      <div className="mt-6 flex flex-col gap-3">
+        {/* Rung 0 — free */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <p className="m-0 text-[15px] font-bold text-fg">
+              The playbook, in the open
+            </p>
+            <p className="mt-1 text-[13px] text-muted">
+              Write-ups, the SOPs at a high level, and Ask Gumclaw answering
+              real questions. How we say we want to work with everyone.
+            </p>
+          </div>
+          <p className="m-0 text-[15px] font-bold text-fg">Free</p>
+        </div>
+
+        {/* Rung 1 — cohort */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <p className="m-0 text-[15px] font-bold text-fg">Group cohort</p>
+            <p className="mt-1 text-[13px] text-muted">
+              A live workshop in a small room. The same teardown thinking,
+              shared across a handful of founders who learn from each other.
+            </p>
+          </div>
+          <p className="m-0 text-[15px] font-bold text-fg">$1,000 / seat</p>
+        </div>
+
+        {/* Rung 2 — the call (you are here) */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-[#ec4899] bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <div className="flex items-center gap-2">
+              <p className="m-0 text-[15px] font-bold text-fg">
+                The teardown call
+              </p>
+              <span className="rounded-full bg-[#fdf2f8] px-2 py-[2px] text-[11px] font-bold uppercase tracking-[0.12em] text-[#9d174d]">
+                You&apos;re here
+              </span>
+            </div>
+            <p className="mt-1 text-[13px] text-muted">
+              90 minutes, 1:1, with the team that built and runs Gumclaw. Credit
+              applies toward what comes next.
+            </p>
+          </div>
+          <p className="m-0 text-[15px] font-bold text-[#be185d]">$10,000</p>
+        </div>
+
+        {/* Rung 3 — implementation */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <p className="m-0 text-[15px] font-bold text-fg">
+              Build it with us
+            </p>
+            <p className="mt-1 text-[13px] text-muted">
+              We work alongside your team to stand the agent up in your business
+              — the architecture, the guardrails, the org changes that make it
+              stick. The $10,000 credits toward it.
+            </p>
+          </div>
+          <p className="m-0 whitespace-nowrap text-[15px] font-bold text-fg">
+            From $50,000
+          </p>
+        </div>
+
+        {/* Rung 4 — bespoke */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <p className="m-0 text-[15px] font-bold text-fg">Bespoke</p>
+            <p className="mt-1 text-[13px] text-muted">
+              For larger companies, or ones we believe in. Deeper engagements,
+              and sometimes equity or revenue share instead of a fee.
+            </p>
+          </div>
+          <p className="m-0 text-[15px] font-bold text-fg">Let&apos;s talk</p>
+        </div>
+      </div>
+
+      <p className="mt-4 text-[13px] text-muted">
+        Pricing flexes with company size and where you are in the world — a
+        five-person bootstrapped shop and a hundred-person VC-backed company
+        don&apos;t pay the same for the same room. Ask.
+      </p>
+
       <Faq />
 
       <p className="mt-12 text-[20px] text-fg">
