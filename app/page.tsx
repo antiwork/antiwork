@@ -6,6 +6,7 @@ import { StickyCTA } from "@/app/components/StickyCTA";
 import { ProductLink } from "@/app/components/ProductLink";
 import { RevenueChart } from "@/app/components/RevenueChart";
 import { TeamAvatars } from "@/app/components/TeamAvatars";
+import { AskGumclaw } from "@/app/components/AskGumclaw";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -171,6 +172,8 @@ export default function Home() {
         </span>
       </p>
       <TeamAvatars />
+
+      <AskGumclaw />
 
       <p style={{ marginTop: 24 }}>
         This isn&apos;t a pivot — it&apos;s where we&apos;ve been heading for

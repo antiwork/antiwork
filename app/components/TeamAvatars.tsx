@@ -3,7 +3,7 @@
 // `img` on a member; until then the polished monogram keeps the row consistent.
 const TEAM = [
   { name: "Sahil", initials: "S", from: "#a78bfa", to: "#6d28d9" },
-  { name: "Yacco", initials: "Y", from: "#fdba74", to: "#c2410c" },
+  { name: "Gianfranco", initials: "G", from: "#fdba74", to: "#c2410c" },
   { name: "Ershad", initials: "E", from: "#6ee7b7", to: "#047857" },
   { name: "Mac", initials: "M", from: "#7dd3fc", to: "#0369a1" },
   { name: "Jyo", initials: "J", from: "#f9a8d4", to: "#be185d" },
