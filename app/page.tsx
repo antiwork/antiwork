@@ -3,6 +3,7 @@ import { Font } from "@/app/components/Font";
 import { LinkCard } from "@/app/components/LinkCard";
 import { BookCTA } from "@/app/components/BookCTA";
 import { StickyCTA } from "@/app/components/StickyCTA";
+import { ProductLink } from "@/app/components/ProductLink";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -32,16 +33,11 @@ export default function Home() {
         We automated ourselves out of the work.
       </p>
 
-      <p style={{ marginTop: 16, color: "#888" }}>
-        If you run a company that still does this by hand — support, finance,
-        fraud, the whole back office — this is how we stopped, and how you can
-        too.
-      </p>
-
       <p style={{ marginTop: 24 }}>
-        Coming out of COVID, Gumroad was a profitable business with a
-        normal-size team — a few dozen people across engineering, support, and
-        operations, doing the work by hand the way every company does.
+        Coming out of COVID, <ProductLink brand="gumroad">Gumroad</ProductLink>{" "}
+        was a profitable business with a normal-size team — a few dozen people
+        across engineering, support, and operations, doing the work by hand the
+        way every company does.
       </p>
 
       <p style={{ marginTop: 24 }}>
@@ -167,11 +163,11 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         Getting here meant building our own tools. Two of them grew into real
-        products: <strong>Helper</strong>, which runs customer support, and{" "}
-        <strong>Flexile</strong>, which runs our cap table, dividends, and share
-        buybacks — everything our investors touch. We built them to scale
-        ourselves down — and we&apos;re our own first customer. You can use them
-        too.
+        products: <ProductLink brand="helper">Helper</ProductLink>, which runs
+        customer support, and <ProductLink brand="flexile">Flexile</ProductLink>
+        , which runs our cap table, dividends, and share buybacks — everything
+        our investors touch. We built them to scale ourselves down — and
+        we&apos;re our own first customer. You can use them too.
       </p>
 
       <p style={{ marginTop: 24, color: "#888" }}>
