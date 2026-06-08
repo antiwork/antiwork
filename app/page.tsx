@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Font } from "@/app/components/Font";
 import { LinkCard } from "@/app/components/LinkCard";
+import { BookCTA } from "@/app/components/BookCTA";
+import { StickyCTA } from "@/app/components/StickyCTA";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -608,23 +610,7 @@ export default function Home() {
           gap: 14,
         }}
       >
-        <a
-          href="https://gumclaw.gumroad.com/l/gzhptn"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "12px 20px",
-            background: "#ec4899",
-            border: "1px solid #ec4899",
-            borderRadius: 999,
-            fontSize: 15,
-            fontWeight: 700,
-            color: "#fff",
-            textDecoration: "none",
-          }}
-        >
-          Book the 90-minute teardown — $10,000
-        </a>
+        <BookCTA placement="mid" />
         <span style={{ fontSize: 14, color: "#888" }}>
           If even a fraction of a 104-hour close is yours, the math is easy.
         </span>
@@ -809,24 +795,24 @@ export default function Home() {
           want to grow without rebuilding a conventional team. $10,000 — less
           than one month of the accountant time the agent replaced.
         </p>
+        <p
+          style={{
+            margin: "16px 0 0",
+            padding: "14px 16px",
+            background: "#fdf2f8",
+            border: "1px solid #fbcfe8",
+            borderRadius: 10,
+            fontSize: 14,
+            color: "#9d174d",
+          }}
+        >
+          <strong style={{ color: "#9d174d" }}>No risk:</strong> if you decide
+          to have us help you build it, the full $10,000 is credited toward the
+          engagement. The call either stands on its own or it doesn&apos;t cost
+          you anything.
+        </p>
         <div style={{ marginTop: 22 }}>
-          <a
-            href="https://gumclaw.gumroad.com/l/gzhptn"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "14px 24px",
-              background: "#ec4899",
-              border: "1px solid #ec4899",
-              borderRadius: 999,
-              fontSize: 17,
-              fontWeight: 700,
-              color: "#fff",
-              textDecoration: "none",
-            }}
-          >
-            Book the 90-minute teardown — $10,000
-          </a>
+          <BookCTA placement="offer" />
         </div>
       </section>
 
@@ -847,6 +833,7 @@ export default function Home() {
       >
         <Font text="A" color="#ccc" size={30} />
       </a>
+      <StickyCTA />
     </main>
   );
 }
