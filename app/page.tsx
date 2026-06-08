@@ -7,6 +7,7 @@ import { ProductLink } from "@/app/components/ProductLink";
 import { RevenueChart } from "@/app/components/RevenueChart";
 import { TeamAvatars } from "@/app/components/TeamAvatars";
 import { AskGumclaw } from "@/app/components/AskGumclaw";
+import { Faq } from "@/app/components/Faq";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -949,15 +950,17 @@ export default function Home() {
             color: "#9d174d",
           }}
         >
-          <strong style={{ color: "#9d174d" }}>No risk:</strong> if you decide
-          to have us help you build it, the full $10,000 is credited toward the
-          engagement. The call either stands on its own or it doesn&apos;t cost
-          you anything.
+          <strong style={{ color: "#9d174d" }}>Credit applies:</strong> if you
+          decide to have us help you build it afterward, the full $10,000 is
+          credited toward that engagement — so the call counts toward the work,
+          not on top of it.
         </p>
         <div style={{ marginTop: 22 }}>
           <BookCTA placement="offer" />
         </div>
       </section>
+
+      <Faq />
 
       <p style={{ marginTop: 48, fontSize: 20, color: "var(--fg)" }}>
         We automated ourselves out of the work. Now we&apos;re just having fun.
