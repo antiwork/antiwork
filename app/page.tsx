@@ -4,6 +4,8 @@ import { LinkCard } from "@/app/components/LinkCard";
 import { BookCTA } from "@/app/components/BookCTA";
 import { StickyCTA } from "@/app/components/StickyCTA";
 import { ProductLink } from "@/app/components/ProductLink";
+import { RevenueChart } from "@/app/components/RevenueChart";
+import { TeamAvatars } from "@/app/components/TeamAvatars";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -142,6 +144,8 @@ export default function Home() {
         </figcaption>
       </figure>
 
+      <RevenueChart />
+
       <p style={{ marginTop: 32, fontSize: 20, color: "#111" }}>
         Today one AI agent runs the company.
       </p>
@@ -153,6 +157,20 @@ export default function Home() {
         answers, faster fixes, faster everything. The ceiling on how good the
         experience can get keeps rising.
       </p>
+
+      <p style={{ marginTop: 28, fontSize: 13, letterSpacing: "0.04em" }}>
+        <span
+          style={{
+            textTransform: "uppercase",
+            letterSpacing: "0.16em",
+            color: "#888",
+            fontSize: 12,
+          }}
+        >
+          The humans
+        </span>
+      </p>
+      <TeamAvatars />
 
       <p style={{ marginTop: 24 }}>
         This isn&apos;t a pivot — it&apos;s where we&apos;ve been heading for
@@ -473,9 +491,12 @@ export default function Home() {
         style={{
           margin: "20px 0 0",
           padding: "44px 28px",
-          border: "1px solid #eee",
+          border: "1px solid #ececec",
           borderRadius: 14,
           textAlign: "center",
+          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          boxShadow:
+            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
         }}
       >
         <p
@@ -517,8 +538,11 @@ export default function Home() {
         style={{
           margin: "20px 0 0",
           padding: "24px",
-          border: "1px solid #eee",
+          border: "1px solid #ececec",
           borderRadius: 14,
+          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          boxShadow:
+            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
         }}
       >
         <p
@@ -570,6 +594,9 @@ export default function Home() {
               padding: "16px 18px",
               border: "1px solid #eee",
               borderRadius: 10,
+              background: "linear-gradient(180deg,#ffffff,#f7f7f7)",
+              boxShadow:
+                "0 1px 0 #ffffff inset, 0 4px 10px -6px rgba(0,0,0,0.12)",
             }}
           >
             <p
@@ -648,8 +675,11 @@ export default function Home() {
         style={{
           margin: "20px 0 0",
           padding: "44px 28px",
-          border: "1px solid #eee",
+          border: "1px solid #ececec",
           borderRadius: 14,
+          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          boxShadow:
+            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
         }}
       >
         <p style={{ margin: 0, fontSize: 18, color: "#111" }}>
@@ -697,6 +727,9 @@ export default function Home() {
               padding: "16px 18px",
               border: "1px solid #eee",
               borderRadius: 10,
+              background: "linear-gradient(180deg,#ffffff,#f7f7f7)",
+              boxShadow:
+                "0 1px 0 #ffffff inset, 0 4px 10px -6px rgba(0,0,0,0.12)",
             }}
           >
             <p
@@ -719,6 +752,9 @@ export default function Home() {
               padding: "16px 18px",
               border: "1px solid #eee",
               borderRadius: 10,
+              background: "linear-gradient(180deg,#ffffff,#f7f7f7)",
+              boxShadow:
+                "0 1px 0 #ffffff inset, 0 4px 10px -6px rgba(0,0,0,0.12)",
             }}
           >
             <p
@@ -765,8 +801,11 @@ export default function Home() {
         style={{
           margin: "28px 0 0",
           padding: "28px",
-          border: "1px solid #eee",
+          border: "1px solid #ececec",
           borderRadius: 14,
+          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          boxShadow:
+            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
         }}
       >
         <p
