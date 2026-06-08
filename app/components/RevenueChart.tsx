@@ -31,10 +31,10 @@ export function RevenueChart() {
           position: "relative",
           padding: "20px 18px 14px",
           borderRadius: 16,
-          background: "linear-gradient(180deg, #ffffff 0%, #fafafa 100%)",
-          border: "1px solid #ececec",
+          background: "var(--card)",
+          border: "1px solid var(--card-border)",
           boxShadow:
-            "0 1px 0 #ffffff inset, 0 10px 30px -12px rgba(0,0,0,0.18), 0 2px 6px -2px rgba(0,0,0,0.08)",
+            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 30px -12px var(--card-shadow), 0 2px 6px -2px var(--card-shadow-sm)",
         }}
       >
         <div
@@ -50,13 +50,18 @@ export function RevenueChart() {
               fontSize: 12,
               letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "#888",
+              color: "var(--muted)",
             }}
           >
             Revenue &amp; profit
           </span>
           <span
-            style={{ display: "flex", gap: 14, fontSize: 12, color: "#666" }}
+            style={{
+              display: "flex",
+              gap: 14,
+              fontSize: 12,
+              color: "var(--muted-2)",
+            }}
           >
             <span
               style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
@@ -125,14 +130,14 @@ export function RevenueChart() {
                 x2={W - PAD_R}
                 y1={y(g)}
                 y2={y(g)}
-                stroke="#000000"
-                strokeOpacity={0.06}
+                stroke="var(--fg)"
+                strokeOpacity={0.08}
               />
               <text
                 x={PAD_L}
                 y={y(g) - 3}
                 fontSize="10"
-                fill="#aaa"
+                fill="var(--faint-2)"
                 fontFamily="monospace"
               >
                 ${g}M
@@ -214,7 +219,7 @@ export function RevenueChart() {
                   x={cx}
                   y={base + 20}
                   fontSize="12"
-                  fill="#555"
+                  fill="var(--muted-2)"
                   fontFamily="monospace"
                   textAnchor="middle"
                 >
@@ -225,7 +230,7 @@ export function RevenueChart() {
           })}
         </svg>
       </div>
-      <figcaption style={{ marginTop: 8, color: "#888", fontSize: 13 }}>
+      <figcaption style={{ marginTop: 8, color: "var(--muted)", fontSize: 13 }}>
         Revenue and adjusted EBITDA, 2023–2025 — profitable every year while the
         team shrank. Source: Antiwork investor financials.
       </figcaption>

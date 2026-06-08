@@ -90,9 +90,9 @@ export function LinkCard({
         onTouchMove={clearPress}
         onContextMenu={(e) => coarse && e.preventDefault()}
         style={{
-          color: "#111",
+          color: "var(--fg)",
           textDecoration: "underline",
-          textDecorationColor: "#bbb",
+          textDecorationColor: "var(--faint-2)",
           textUnderlineOffset: "2px",
         }}
       >
@@ -109,8 +109,8 @@ export function LinkCard({
           zIndex: 20,
           width: 320,
           maxWidth: "min(320px, 86vw)",
-          background: "#fff",
-          border: "1px solid #e5e5e5",
+          background: "var(--surface)",
+          border: "1px solid var(--card-border)",
           borderRadius: 10,
           boxShadow: open
             ? "0 8px 28px rgba(0,0,0,0.12)"
@@ -130,8 +130,8 @@ export function LinkCard({
             style={{
               display: "block",
               height: 120,
-              background: `#f5f5f5 url("${image}") center/cover no-repeat`,
-              borderBottom: "1px solid #eee",
+              background: `var(--card-2) url("${image}") center/cover no-repeat`,
+              borderBottom: "1px solid var(--card-border)",
             }}
           />
         ) : null}
@@ -142,7 +142,7 @@ export function LinkCard({
               fontSize: 14,
               fontWeight: 700,
               lineHeight: 1.35,
-              color: "#111",
+              color: "var(--fg)",
             }}
           >
             {title}
@@ -153,7 +153,7 @@ export function LinkCard({
               marginTop: 6,
               fontSize: 12.5,
               lineHeight: 1.5,
-              color: "#666",
+              color: "var(--muted-2)",
             }}
           >
             {description}
@@ -165,7 +165,7 @@ export function LinkCard({
               fontSize: 11,
               letterSpacing: "0.04em",
               textTransform: "uppercase",
-              color: "#999",
+              color: "var(--muted)",
             }}
           >
             {source}

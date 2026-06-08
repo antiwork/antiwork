@@ -37,8 +37,8 @@ export function StickyCTA() {
         display: "flex",
         justifyContent: "center",
         padding: "12px 16px",
-        background: "rgba(255,255,255,0.92)",
-        borderTop: "1px solid #eee",
+        background: "var(--sticky-bg)",
+        borderTop: "1px solid var(--card-border)",
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",
         transform: visible ? "translateY(0)" : "translateY(110%)",
@@ -59,7 +59,7 @@ export function StickyCTA() {
             "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
         }}
       >
-        <span style={{ fontSize: 14, color: "#444" }}>
+        <span style={{ fontSize: 14, color: "var(--muted-2)" }}>
           See how it works for your company.
         </span>
         <BookCTA placement="sticky" />

@@ -25,7 +25,7 @@ export default function Home() {
           "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
         fontSize: 16,
         lineHeight: 1.7,
-        color: "#111",
+        color: "var(--fg)",
       }}
     >
       <div id="top" style={{ display: "flex", alignItems: "center" }}>
@@ -34,14 +34,14 @@ export default function Home() {
           title="Get the Antiwork font"
           style={{ display: "inline-flex", textDecoration: "none" }}
         >
-          <Font text="ANTIWORK" color="#111" size={30} />
+          <Font text="ANTIWORK" color="var(--fg)" size={30} />
         </a>
       </div>
-      <p style={{ marginTop: 8, fontSize: 13, color: "#888" }}>
+      <p style={{ marginTop: 8, fontSize: 13, color: "var(--muted)" }}>
         <a
           href="https://gumclaw.gumroad.com/l/rbexyn"
           style={{
-            color: "#888",
+            color: "var(--muted)",
             textDecoration: "underline",
             textUnderlineOffset: "2px",
           }}
@@ -50,7 +50,7 @@ export default function Home() {
         </a>
       </p>
 
-      <p style={{ marginTop: 32, fontSize: 20, color: "#111" }}>
+      <p style={{ marginTop: 32, fontSize: 20, color: "var(--fg)" }}>
         We automated ourselves out of the work.
       </p>
 
@@ -79,18 +79,18 @@ export default function Home() {
             x="120"
             y="22"
             fontSize="11"
-            fill="#888"
+            fill="var(--muted)"
             fontFamily="monospace"
             textAnchor="end"
           >
             2023
           </text>
-          <rect x="130" y="10" width="380.0" height="16" fill="#ccc" />
+          <rect x="130" y="10" width="380.0" height="16" fill="var(--faint)" />
           <text
             x="516.0"
             y="22"
             fontSize="11"
-            fill="#888"
+            fill="var(--muted)"
             fontFamily="monospace"
             textAnchor="end"
           >
@@ -101,18 +101,18 @@ export default function Home() {
             x="120"
             y="56"
             fontSize="11"
-            fill="#888"
+            fill="var(--muted)"
             fontFamily="monospace"
             textAnchor="end"
           >
             2024
           </text>
-          <rect x="130" y="44" width="212.8" height="16" fill="#ccc" />
+          <rect x="130" y="44" width="212.8" height="16" fill="var(--faint)" />
           <text
             x="348.8"
             y="56"
             fontSize="11"
-            fill="#888"
+            fill="var(--muted)"
             fontFamily="monospace"
           >
             14
@@ -122,7 +122,7 @@ export default function Home() {
             x="120"
             y="90"
             fontSize="11"
-            fill="#111"
+            fill="var(--fg)"
             fontFamily="monospace"
             textAnchor="end"
           >
@@ -133,13 +133,15 @@ export default function Home() {
             x="212.0"
             y="90"
             fontSize="11"
-            fill="#111"
+            fill="var(--fg)"
             fontFamily="monospace"
           >
             5
           </text>
         </svg>
-        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+        <figcaption
+          style={{ marginTop: 6, color: "var(--muted)", fontSize: 13 }}
+        >
           Company headcount — 25 in 2023, to 14, to 5 humans today. The work
           didn&apos;t leave. It moved to the agent.
         </figcaption>
@@ -147,7 +149,7 @@ export default function Home() {
 
       <RevenueChart />
 
-      <p style={{ marginTop: 32, fontSize: 20, color: "#111" }}>
+      <p style={{ marginTop: 32, fontSize: 20, color: "var(--fg)" }}>
         Today one AI agent runs the company.
       </p>
 
@@ -164,7 +166,7 @@ export default function Home() {
           style={{
             textTransform: "uppercase",
             letterSpacing: "0.16em",
-            color: "#888",
+            color: "var(--muted)",
             fontSize: 12,
           }}
         >
@@ -209,7 +211,7 @@ export default function Home() {
         we&apos;re our own first customer. You can use them too.
       </p>
 
-      <p style={{ marginTop: 24, color: "#888" }}>
+      <p style={{ marginTop: 24, color: "var(--muted)" }}>
         Here is what it runs today — with more on the way.
       </p>
 
@@ -233,10 +235,10 @@ export default function Home() {
             href={`#${id}`}
             style={{
               fontSize: 13,
-              color: "#111",
+              color: "var(--fg)",
               textDecoration: "none",
               padding: "6px 12px",
-              border: "1px solid #e5e5e5",
+              border: "1px solid var(--pill-border)",
               borderRadius: 999,
             }}
           >
@@ -253,7 +255,7 @@ export default function Home() {
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "#888",
+          color: "var(--muted)",
         }}
       >
         Engineering
@@ -268,19 +270,97 @@ export default function Home() {
           aria-label="Pull requests merged per engineer, by quarter, 2023 to 2026. Held in the low-to-mid 30s and 40s through 2023, 2024 and 2025, then jumped to 119 in Q2 2026 — the highest in the company's history, on a team of six."
           style={{ display: "block", overflow: "visible" }}
         >
-          <rect x="0.0" y="78.3" width="33.4" height="49.7" fill="#ccc" />
-          <rect x="37.4" y="83.7" width="33.4" height="44.3" fill="#ccc" />
-          <rect x="74.9" y="98.0" width="33.4" height="30.0" fill="#ccc" />
-          <rect x="112.3" y="98.2" width="33.4" height="29.8" fill="#ccc" />
-          <rect x="149.7" y="94.3" width="33.4" height="33.7" fill="#ccc" />
-          <rect x="187.1" y="94.9" width="33.4" height="33.1" fill="#ccc" />
-          <rect x="224.6" y="88.8" width="33.4" height="39.2" fill="#ccc" />
-          <rect x="262.0" y="104.9" width="33.4" height="23.1" fill="#ccc" />
-          <rect x="299.4" y="99.6" width="33.4" height="28.4" fill="#ccc" />
-          <rect x="336.9" y="95.2" width="33.4" height="32.8" fill="#ccc" />
-          <rect x="374.3" y="90.4" width="33.4" height="37.6" fill="#ccc" />
-          <rect x="411.7" y="93.0" width="33.4" height="35.0" fill="#ccc" />
-          <rect x="449.1" y="83.3" width="33.4" height="44.7" fill="#ccc" />
+          <rect
+            x="0.0"
+            y="78.3"
+            width="33.4"
+            height="49.7"
+            fill="var(--faint)"
+          />
+          <rect
+            x="37.4"
+            y="83.7"
+            width="33.4"
+            height="44.3"
+            fill="var(--faint)"
+          />
+          <rect
+            x="74.9"
+            y="98.0"
+            width="33.4"
+            height="30.0"
+            fill="var(--faint)"
+          />
+          <rect
+            x="112.3"
+            y="98.2"
+            width="33.4"
+            height="29.8"
+            fill="var(--faint)"
+          />
+          <rect
+            x="149.7"
+            y="94.3"
+            width="33.4"
+            height="33.7"
+            fill="var(--faint)"
+          />
+          <rect
+            x="187.1"
+            y="94.9"
+            width="33.4"
+            height="33.1"
+            fill="var(--faint)"
+          />
+          <rect
+            x="224.6"
+            y="88.8"
+            width="33.4"
+            height="39.2"
+            fill="var(--faint)"
+          />
+          <rect
+            x="262.0"
+            y="104.9"
+            width="33.4"
+            height="23.1"
+            fill="var(--faint)"
+          />
+          <rect
+            x="299.4"
+            y="99.6"
+            width="33.4"
+            height="28.4"
+            fill="var(--faint)"
+          />
+          <rect
+            x="336.9"
+            y="95.2"
+            width="33.4"
+            height="32.8"
+            fill="var(--faint)"
+          />
+          <rect
+            x="374.3"
+            y="90.4"
+            width="33.4"
+            height="37.6"
+            fill="var(--faint)"
+          />
+          <rect
+            x="411.7"
+            y="93.0"
+            width="33.4"
+            height="35.0"
+            fill="var(--faint)"
+          />
+          <rect
+            x="449.1"
+            y="83.3"
+            width="33.4"
+            height="44.7"
+            fill="var(--faint)"
+          />
           <rect x="486.6" y="10.8" width="33.4" height="117.2" fill="#ec4899" />
           <text
             x="503.3"
@@ -296,7 +376,7 @@ export default function Home() {
             x="16.7"
             y="144"
             fontSize="8"
-            fill="#bbb"
+            fill="var(--faint-2)"
             fontFamily="monospace"
             textAnchor="middle"
           >
@@ -306,7 +386,7 @@ export default function Home() {
             x="166.4"
             y="144"
             fontSize="8"
-            fill="#bbb"
+            fill="var(--faint-2)"
             fontFamily="monospace"
             textAnchor="middle"
           >
@@ -316,7 +396,7 @@ export default function Home() {
             x="316.1"
             y="144"
             fontSize="8"
-            fill="#bbb"
+            fill="var(--faint-2)"
             fontFamily="monospace"
             textAnchor="middle"
           >
@@ -333,7 +413,9 @@ export default function Home() {
             2026
           </text>
         </svg>
-        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+        <figcaption
+          style={{ marginTop: 6, color: "var(--muted)", fontSize: 13 }}
+        >
           Pull requests merged per engineer, by quarter. Steady in the 30s and
           40s through 2023–2025, then 119 in Q2 2026 — the most in the
           company&apos;s history, on a team of six.
@@ -360,26 +442,28 @@ export default function Home() {
           <path
             d="M 4.0 4.3 L 174.7 10.8 L 345.3 56.3 L 516.0 58.4"
             fill="none"
-            stroke="#111"
+            stroke="var(--fg)"
             strokeWidth={1}
             vectorEffect="non-scaling-stroke"
           />
           <circle cx="4.0" cy="4.3" r="2.5" fill="#ec4899" />
-          <circle cx="516.0" cy="58.4" r="2.5" fill="#111" />
+          <circle cx="516.0" cy="58.4" r="2.5" fill="var(--fg)" />
         </svg>
         <figcaption
           style={{
             display: "flex",
             justifyContent: "space-between",
             marginTop: 6,
-            color: "#888",
+            color: "var(--muted)",
             fontSize: 13,
           }}
         >
           <span style={{ color: "#ec4899" }}>17.9 hrs · 2023</span>
-          <span style={{ color: "#111" }}>~32 min · 2026</span>
+          <span style={{ color: "var(--fg)" }}>~32 min · 2026</span>
         </figcaption>
-        <figcaption style={{ marginTop: 4, color: "#888", fontSize: 13 }}>
+        <figcaption
+          style={{ marginTop: 4, color: "var(--muted)", fontSize: 13 }}
+        >
           Median time from a pull request opening to merging, 2023–2026. From
           most of a day to half an hour — roughly a 34× speed-up.
         </figcaption>
@@ -393,7 +477,7 @@ export default function Home() {
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "#888",
+          color: "var(--muted)",
         }}
       >
         Customer support
@@ -419,10 +503,10 @@ export default function Home() {
         >
           {[
             ["<1 hr", 97.68, "#ec4899"],
-            ["1–4 hr", 0.42, "#ccc"],
-            ["4–12 hr", 0.54, "#ccc"],
-            ["12–24 hr", 0.5, "#ccc"],
-            ["24 hr+", 0.85, "#ccc"],
+            ["1–4 hr", 0.42, "var(--faint)"],
+            ["4–12 hr", 0.54, "var(--faint)"],
+            ["12–24 hr", 0.5, "var(--faint)"],
+            ["24 hr+", 0.85, "var(--faint)"],
           ].map(([label, pct, color], i) => {
             const x = 8 + i * 104;
             const barW = 72;
@@ -442,7 +526,7 @@ export default function Home() {
                   x={x + barW / 2}
                   y={y - 6}
                   fontSize="11"
-                  fill={color === "#ec4899" ? "#ec4899" : "#888"}
+                  fill={color === "#ec4899" ? "#ec4899" : "var(--muted)"}
                   fontFamily="monospace"
                   textAnchor="middle"
                 >
@@ -452,7 +536,7 @@ export default function Home() {
                   x={x + barW / 2}
                   y={148}
                   fontSize="9"
-                  fill="#bbb"
+                  fill="var(--faint-2)"
                   fontFamily="monospace"
                   textAnchor="middle"
                 >
@@ -462,7 +546,9 @@ export default function Home() {
             );
           })}
         </svg>
-        <figcaption style={{ marginTop: 6, color: "#888", fontSize: 13 }}>
+        <figcaption
+          style={{ marginTop: 6, color: "var(--muted)", fontSize: 13 }}
+        >
           Time to first response across 3.2M support replies, Jan 2024 – Feb
           2026. Nearly everything is answered within the hour.
         </figcaption>
@@ -484,7 +570,7 @@ export default function Home() {
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "#888",
+          color: "var(--muted)",
         }}
       >
         Fraud &amp; risk
@@ -494,12 +580,12 @@ export default function Home() {
         style={{
           margin: "20px 0 0",
           padding: "44px 28px",
-          border: "1px solid #ececec",
+          border: "1px solid var(--card-border)",
           borderRadius: 14,
           textAlign: "center",
-          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          background: "var(--card)",
           boxShadow:
-            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
+            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
         }}
       >
         <p
@@ -509,15 +595,15 @@ export default function Home() {
             fontWeight: 700,
             lineHeight: 1,
             letterSpacing: "-0.03em",
-            color: "#111",
+            color: "var(--fg)",
           }}
         >
           ~99%
         </p>
-        <p style={{ margin: "6px 0 0", fontSize: 18, color: "#111" }}>
+        <p style={{ margin: "6px 0 0", fontSize: 18, color: "var(--fg)" }}>
           handled with no human
         </p>
-        <p style={{ margin: "16px 0 0", fontSize: 13, color: "#888" }}>
+        <p style={{ margin: "16px 0 0", fontSize: 13, color: "var(--muted)" }}>
           Standard fraud and risk cases reviewed and actioned autonomously by
           the agent.
         </p>
@@ -531,7 +617,7 @@ export default function Home() {
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "#888",
+          color: "var(--muted)",
         }}
       >
         Finance
@@ -541,11 +627,11 @@ export default function Home() {
         style={{
           margin: "20px 0 0",
           padding: "24px",
-          border: "1px solid #ececec",
+          border: "1px solid var(--card-border)",
           borderRadius: 14,
-          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          background: "var(--card)",
           boxShadow:
-            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
+            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
         }}
       >
         <p
@@ -554,7 +640,7 @@ export default function Home() {
             fontSize: 11,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "#888",
+            color: "var(--muted)",
             textAlign: "center",
           }}
         >
@@ -569,15 +655,17 @@ export default function Home() {
               fontWeight: 700,
               lineHeight: 1,
               letterSpacing: "-0.04em",
-              color: "#111",
+              color: "var(--fg)",
             }}
           >
             104 hrs
           </p>
-          <p style={{ margin: "8px 0 0", fontSize: 16, color: "#444" }}>
+          <p
+            style={{ margin: "8px 0 0", fontSize: 16, color: "var(--muted-2)" }}
+          >
             of outside-accountant time a month — now minutes, every week.
           </p>
-          <p style={{ margin: "8px 0 0", fontSize: 13, color: "#888" }}>
+          <p style={{ margin: "8px 0 0", fontSize: 13, color: "var(--muted)" }}>
             Escalon HUB task report, April 2026 — the human hours behind one
             month&apos;s close.
           </p>
@@ -595,11 +683,11 @@ export default function Home() {
             style={{
               flex: "1 1 200px",
               padding: "16px 18px",
-              border: "1px solid #eee",
+              border: "1px solid var(--card-border)",
               borderRadius: 10,
-              background: "linear-gradient(180deg,#ffffff,#f7f7f7)",
+              background: "var(--card-2)",
               boxShadow:
-                "0 1px 0 #ffffff inset, 0 4px 10px -6px rgba(0,0,0,0.12)",
+                "0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 10px -6px var(--card-shadow-sm)",
             }}
           >
             <p
@@ -607,12 +695,12 @@ export default function Home() {
                 margin: 0,
                 fontSize: 12,
                 fontWeight: 700,
-                color: "#888",
+                color: "var(--muted)",
               }}
             >
               Then
             </p>
-            <p style={{ margin: "8px 0 0", color: "#444" }}>
+            <p style={{ margin: "8px 0 0", color: "var(--muted-2)" }}>
               Closed by hand, once a month. Pull the numbers, reconcile four
               entities, book every journal entry manually — the P&amp;L only
               true at month-end.
@@ -636,7 +724,7 @@ export default function Home() {
             >
               Now
             </p>
-            <p style={{ margin: "8px 0 0", color: "#111" }}>
+            <p style={{ margin: "8px 0 0", color: "var(--fg)" }}>
               The agent runs it every week — pulls Metabase + Stripe across four
               entities, books the entries into QuickBooks itself, in minutes.
               The books are always current.
@@ -655,7 +743,7 @@ export default function Home() {
         }}
       >
         <BookCTA placement="mid" />
-        <span style={{ fontSize: 14, color: "#888" }}>
+        <span style={{ fontSize: 14, color: "var(--muted)" }}>
           If even a fraction of a 104-hour close is yours, the math is easy.
         </span>
       </div>
@@ -668,7 +756,7 @@ export default function Home() {
           fontSize: 13,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "#888",
+          color: "var(--muted)",
         }}
       >
         Investor relations
@@ -678,14 +766,14 @@ export default function Home() {
         style={{
           margin: "20px 0 0",
           padding: "44px 28px",
-          border: "1px solid #ececec",
+          border: "1px solid var(--card-border)",
           borderRadius: 14,
-          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          background: "var(--card)",
           boxShadow:
-            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
+            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
         }}
       >
-        <p style={{ margin: 0, fontSize: 18, color: "#111" }}>
+        <p style={{ margin: 0, fontSize: 18, color: "var(--fg)" }}>
           Once a year, Gumroad returns money to its investors — a dividend to
           shareholders and a buyback of their shares.
         </p>
@@ -697,7 +785,7 @@ export default function Home() {
               fontSize: 12,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#888",
+              color: "var(--muted)",
             }}
           >
             Returned to investors since 2023
@@ -709,7 +797,7 @@ export default function Home() {
               fontWeight: 700,
               lineHeight: 1,
               letterSpacing: "-0.04em",
-              color: "#111",
+              color: "var(--fg)",
             }}
           >
             $14.2M
@@ -728,11 +816,11 @@ export default function Home() {
             style={{
               flex: "1 1 200px",
               padding: "16px 18px",
-              border: "1px solid #eee",
+              border: "1px solid var(--card-border)",
               borderRadius: 10,
-              background: "linear-gradient(180deg,#ffffff,#f7f7f7)",
+              background: "var(--card-2)",
               boxShadow:
-                "0 1px 0 #ffffff inset, 0 4px 10px -6px rgba(0,0,0,0.12)",
+                "0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 10px -6px var(--card-shadow-sm)",
             }}
           >
             <p
@@ -740,12 +828,14 @@ export default function Home() {
                 margin: 0,
                 fontSize: 22,
                 fontWeight: 700,
-                color: "#111",
+                color: "var(--fg)",
               }}
             >
               $11.2M
             </p>
-            <p style={{ margin: "6px 0 0", fontSize: 13, color: "#888" }}>
+            <p
+              style={{ margin: "6px 0 0", fontSize: 13, color: "var(--muted)" }}
+            >
               in dividends across four annual rounds, paid to 7,447 investors.
             </p>
           </div>
@@ -753,11 +843,11 @@ export default function Home() {
             style={{
               flex: "1 1 200px",
               padding: "16px 18px",
-              border: "1px solid #eee",
+              border: "1px solid var(--card-border)",
               borderRadius: 10,
-              background: "linear-gradient(180deg,#ffffff,#f7f7f7)",
+              background: "var(--card-2)",
               boxShadow:
-                "0 1px 0 #ffffff inset, 0 4px 10px -6px rgba(0,0,0,0.12)",
+                "0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 10px -6px var(--card-shadow-sm)",
             }}
           >
             <p
@@ -770,13 +860,15 @@ export default function Home() {
             >
               $3.0M
             </p>
-            <p style={{ margin: "6px 0 0", fontSize: 13, color: "#888" }}>
+            <p
+              style={{ margin: "6px 0 0", fontSize: 13, color: "var(--muted)" }}
+            >
               buying back investor shares across three tender offers.
             </p>
           </div>
         </div>
 
-        <p style={{ margin: "24px 0 0", color: "#444" }}>
+        <p style={{ margin: "24px 0 0", color: "var(--muted-2)" }}>
           The agent runs the whole cycle through Flexile: it works out each
           holder&apos;s share, issues the payments, and answers the questions
           that come with them — when the dividend lands, how the buyback is
@@ -785,12 +877,12 @@ export default function Home() {
           back.
         </p>
 
-        <p style={{ margin: "20px 0 0", fontSize: 13, color: "#888" }}>
+        <p style={{ margin: "20px 0 0", fontSize: 13, color: "var(--muted)" }}>
           Dividends and share buybacks paid through Flexile, 2023–2026.
         </p>
       </section>
 
-      <p style={{ marginTop: 40, color: "#888" }}>
+      <p style={{ marginTop: 40, color: "var(--muted)" }}>
         We&apos;ll show you how we did it. The tools are out there — the hard
         part is the judgment: what to automate first, what has to stay human,
         and how to hand an agent your money and your customers without breaking
@@ -804,11 +896,11 @@ export default function Home() {
         style={{
           margin: "28px 0 0",
           padding: "28px",
-          border: "1px solid #ececec",
+          border: "1px solid var(--card-border)",
           borderRadius: 14,
-          background: "linear-gradient(180deg,#ffffff,#fafafa)",
+          background: "var(--card)",
           boxShadow:
-            "0 1px 0 #ffffff inset, 0 10px 28px -14px rgba(0,0,0,0.16)",
+            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
         }}
       >
         <p
@@ -817,19 +909,19 @@ export default function Home() {
             fontSize: 12,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "#888",
+            color: "var(--muted)",
           }}
         >
           The call
         </p>
-        <p style={{ margin: "14px 0 0", fontSize: 18, color: "#111" }}>
+        <p style={{ margin: "14px 0 0", fontSize: 18, color: "var(--fg)" }}>
           90 minutes, 1:1, with the team that built and runs Gumclaw.
         </p>
         <ul
           style={{
             margin: "16px 0 0",
             paddingLeft: 20,
-            color: "#444",
+            color: "var(--muted-2)",
           }}
         >
           <li>
@@ -841,7 +933,7 @@ export default function Home() {
           <li>The org and trust changes that made it stick.</li>
           <li>A prioritized 90-day automation plan for your company.</li>
         </ul>
-        <p style={{ margin: "18px 0 0", fontSize: 14, color: "#888" }}>
+        <p style={{ margin: "18px 0 0", fontSize: 14, color: "var(--muted)" }}>
           For founders and operators of 5–100 person internet businesses who
           want to grow without rebuilding a conventional team. $10,000 — less
           than one month of the accountant time the agent replaced.
@@ -867,7 +959,7 @@ export default function Home() {
         </div>
       </section>
 
-      <p style={{ marginTop: 48, fontSize: 20, color: "#111" }}>
+      <p style={{ marginTop: 48, fontSize: 20, color: "var(--fg)" }}>
         We automated ourselves out of the work. Now we&apos;re just having fun.
       </p>
 
@@ -882,7 +974,7 @@ export default function Home() {
           cursor: "pointer",
         }}
       >
-        <Font text="A" color="#ccc" size={30} />
+        <Font text="A" color="var(--faint)" size={30} />
       </a>
       <StickyCTA />
     </main>

@@ -76,7 +76,9 @@ export function TeamAvatars() {
               {m.initials}
             </span>
           </div>
-          <span style={{ fontSize: 12, color: "#555" }}>{m.name}</span>
+          <span style={{ fontSize: 12, color: "var(--muted-2)" }}>
+            {m.name}
+          </span>
         </div>
       ))}
     </div>
