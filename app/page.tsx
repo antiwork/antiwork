@@ -138,15 +138,6 @@ export default function Home() {
 
       <AskGumclaw />
 
-      <p className="mt-6">
-        Getting here meant building our own tools. Two of them grew into real
-        products: <ProductLink brand="helper">Helper</ProductLink>, which runs
-        customer support, and <ProductLink brand="flexile">Flexile</ProductLink>
-        , which runs our cap table, dividends, and share buybacks — everything
-        our investors touch. We built them to scale ourselves down — and
-        we&apos;re our own first customer. You can use them too.
-      </p>
-
       <p className="mt-6 text-muted">
         Here is what it runs today — with more on the way.
       </p>
@@ -456,6 +447,13 @@ export default function Home() {
         you make it.
       </p>
 
+      <p className="mt-6">
+        The tool behind it is <ProductLink brand="helper">Helper</ProductLink>,
+        which runs our customer support end to end. We built it to scale
+        ourselves down — and we&apos;re our own first customer. You can use it
+        too.
+      </p>
+
       <p
         id="fraud"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
@@ -557,12 +555,19 @@ export default function Home() {
         </div>
 
         <p className="mt-6 text-muted-2">
-          The agent runs the whole cycle through Flexile: it works out each
+          The agent runs the whole cycle through{" "}
+          <ProductLink brand="flexile">Flexile</ProductLink>: it works out each
           holder&apos;s share, issues the payments, and answers the questions
           that come with them — when the dividend lands, how the buyback is
           priced, what it means for taxes. What used to be a finance-team
           scramble now runs end to end, and no investor waits on a human to hear
           back.
+        </p>
+
+        <p className="mt-5 text-muted-2">
+          Flexile runs our cap table, dividends, and share buybacks — everything
+          our investors touch. We built it to scale ourselves down, and
+          we&apos;re our own first customer. You can use it too.
         </p>
 
         <p className="mt-5 text-[13px] text-muted">
