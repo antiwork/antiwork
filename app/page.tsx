@@ -8,7 +8,7 @@ import { Faq } from "@/app/components/Faq";
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
   description:
-    "Since 2023, Gumroad went from a few dozen people to five — running support, fraud & risk, engineering, and finance through a single AI agent. This is how.",
+    "Since 2023, Gumroad went from a few dozen people to five — running support, engineering, and investor relations through a single AI agent. This is how.",
 };
 
 export default function Home() {
@@ -143,8 +143,6 @@ export default function Home() {
         {[
           ["Engineering", "engineering"],
           ["Support", "support"],
-          ["Fraud & risk", "fraud"],
-          ["Finance", "finance"],
           ["Investor relations", "investors"],
         ].map(([label, id]) => (
           <a
@@ -450,69 +448,6 @@ export default function Home() {
         ourselves down — and we&apos;re our own first customer. You can use it
         too.
       </p>
-
-      <p
-        id="fraud"
-        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
-      >
-        Fraud &amp; risk
-      </p>
-
-      <section className="mt-5 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card px-7 py-11 text-center shadow-card">
-        <p className="m-0 text-[clamp(52px,12vw,76px)] font-bold leading-none tracking-[-0.03em] text-fg">
-          ~99%
-        </p>
-        <p className="mt-[6px] text-[18px] text-fg">handled with no human</p>
-        <p className="mt-4 text-[13px] text-muted">
-          Standard fraud and risk cases reviewed and actioned autonomously by
-          the agent.
-        </p>
-      </section>
-
-      <p
-        id="finance"
-        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
-      >
-        Finance
-      </p>
-
-      <section className="mt-5 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card p-6 shadow-card">
-        <p className="m-0 text-center text-[11px] uppercase tracking-[0.16em] text-muted">
-          The monthly financial close
-        </p>
-
-        <div className="mb-[6px] mt-[22px] text-center">
-          <p className="m-0 text-[clamp(56px,13vw,88px)] font-bold leading-none tracking-[-0.04em] text-fg">
-            104 hrs
-          </p>
-          <p className="mt-2 text-[16px] text-muted-2">
-            of outside-accountant time a month — now minutes, every week.
-          </p>
-          <p className="mt-2 text-[13px] text-muted">
-            Escalon HUB task report, April 2026 — the human hours behind one
-            month&apos;s close.
-          </p>
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-4">
-          <div className="flex-[1_1_200px] rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-[18px] py-4 shadow-card-sm">
-            <p className="m-0 text-[12px] font-bold text-muted">Then</p>
-            <p className="mt-2 text-muted-2">
-              Closed by hand, once a month. Pull the numbers, reconcile four
-              entities, book every journal entry manually — the P&amp;L only
-              true at month-end.
-            </p>
-          </div>
-          <div className="flex-[1_1_200px] rounded-[10px] border border-[#ec4899] px-[18px] py-4">
-            <p className="m-0 text-[12px] font-bold text-[#ec4899]">Now</p>
-            <p className="mt-2 text-fg">
-              The agent runs it every week — pulls Metabase + Stripe across four
-              entities, books the entries into QuickBooks itself, in minutes.
-              The books are always current.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <p
         id="investors"
