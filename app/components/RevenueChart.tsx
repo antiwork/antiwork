@@ -1,13 +1,13 @@
-// Annual revenue + adjusted EBITDA, 2023–2025.
-// Source: Antiwork 2026 investor deck (app/2026/slides/financials-combined.tsx).
-// Revenue and adjusted EBITDA are real figures from that deck.
+// Q1 EBITDA: Q1 2025 (actual) vs Q1 2026 (projected).
+// Source: Antiwork 2026 investor deck (app/2026/slides/q1-projection.tsx).
+// Q1 2025 EBITDA $1.341M, Q1 2026 EBITDA $2.180M (+63%). The deck labels the
+// 2026 figure as a projection; surfaced as such below.
 const DATA = [
-  { year: "2023", revenue: 20.74, ebitda: 9.81 },
-  { year: "2024", revenue: 18.95, ebitda: 5.57 },
-  { year: "2025", revenue: 17.79, ebitda: 5.85 },
+  { label: "Q1 2025", ebitda: 1.341, note: "", color: "#f9a8d4" },
+  { label: "Q1 2026", ebitda: 2.18, note: "projected", color: "#db2777" },
 ];
 
-const MAX = 22; // y-axis ceiling in $M
+const MAX = 2.5; // y-axis ceiling in $M
 const W = 520;
 const H = 230;
 const PAD_L = 16;
@@ -19,27 +19,20 @@ const plotH = H - PAD_T - PAD_B;
 
 export function RevenueChart() {
   const groupW = plotW / DATA.length;
-  const barW = 46;
-  const gap = 16;
+  const barW = 96;
 
   const y = (v: number) => PAD_T + plotH - (v / MAX) * plotH;
+  const base = y(0);
 
   return (
     <figure className="mt-8">
       <div className="relative rounded-2xl border border-card-border bg-[color:var(--card)] bg-card px-[18px] pb-[14px] pt-5 shadow-card">
         <div className="mb-1 flex items-baseline justify-between">
           <span className="text-[12px] uppercase tracking-[0.16em] text-muted">
-            Revenue &amp; profit
+            Q1 EBITDA
           </span>
-          <span className="flex gap-[14px] text-[12px] text-muted-2">
-            <span className="inline-flex items-center gap-[6px]">
-              <span className="h-[10px] w-[10px] rounded-[3px] bg-[#059669]" />
-              Revenue
-            </span>
-            <span className="inline-flex items-center gap-[6px]">
-              <span className="h-[10px] w-[10px] rounded-[3px] bg-[#db2777]" />
-              EBITDA
-            </span>
+          <span className="text-[12px] font-bold text-[#059669]">
+            +63% year over year
           </span>
         </div>
 
@@ -48,11 +41,11 @@ export function RevenueChart() {
           width="100%"
           height={H}
           role="img"
-          aria-label="Annual revenue and adjusted EBITDA, 2023 to 2025. Revenue: $20.7M in 2023, $19.0M in 2024, $17.8M in 2025. Adjusted EBITDA: $9.8M, $5.6M, $5.9M. Profitable every year."
+          aria-label="Q1 adjusted EBITDA: $1.34M in Q1 2025, rising to $2.18M projected in Q1 2026 — a 63% year-over-year increase."
           style={{ display: "block", overflow: "visible" }}
         >
           {/* gridlines */}
-          {[0, 5, 10, 15, 20].map((g) => (
+          {[0, 0.5, 1, 1.5, 2].map((g) => (
             <g key={g}>
               <line
                 x1={PAD_L}
@@ -76,56 +69,32 @@ export function RevenueChart() {
 
           {DATA.map((d, i) => {
             const cx = PAD_L + groupW * i + groupW / 2;
-            const xr = cx - barW - gap / 2 + barW / 2;
-            const xe = cx + gap / 2;
-            const ryTop = y(d.revenue);
             const eyTop = y(d.ebitda);
-            const base = y(0);
             return (
-              <g key={d.year}>
-                {/* revenue bar */}
-                <rect
-                  x={cx - barW - gap / 2}
-                  y={ryTop}
-                  width={barW}
-                  height={base - ryTop}
-                  rx={4}
-                  fill="#059669"
-                />
-                <text
-                  x={cx - gap / 2 - barW / 2}
-                  y={ryTop - 6}
-                  fontSize="11"
-                  fontWeight="700"
-                  fill="#047857"
-                  fontFamily="monospace"
-                  textAnchor="middle"
-                >
-                  ${d.revenue.toFixed(1)}M
-                </text>
-
+              <g key={d.label}>
                 {/* ebitda bar */}
                 <rect
-                  x={xe}
+                  x={cx - barW / 2}
                   y={eyTop}
                   width={barW}
                   height={base - eyTop}
                   rx={4}
-                  fill="#db2777"
+                  fill={d.color}
                 />
+                {/* value label */}
                 <text
-                  x={xe + barW / 2}
-                  y={eyTop - 6}
-                  fontSize="11"
+                  x={cx}
+                  y={eyTop - 8}
+                  fontSize="14"
                   fontWeight="700"
                   fill="#be185d"
                   fontFamily="monospace"
                   textAnchor="middle"
                 >
-                  ${d.ebitda.toFixed(1)}M
+                  ${d.ebitda.toFixed(2)}M
                 </text>
 
-                {/* year label */}
+                {/* period label */}
                 <text
                   x={cx}
                   y={base + 20}
@@ -134,16 +103,28 @@ export function RevenueChart() {
                   fontFamily="monospace"
                   textAnchor="middle"
                 >
-                  {d.year}
+                  {d.label}
                 </text>
+                {d.note && (
+                  <text
+                    x={cx}
+                    y={base + 32}
+                    fontSize="10"
+                    fill="var(--faint-2)"
+                    fontFamily="monospace"
+                    textAnchor="middle"
+                  >
+                    {d.note}
+                  </text>
+                )}
               </g>
             );
           })}
         </svg>
       </div>
       <figcaption className="mt-2 text-[13px] text-muted">
-        Revenue and adjusted EBITDA, 2023–2025 — profitable every year while the
-        team shrank. Source: Antiwork investor financials.
+        Q1 adjusted EBITDA — $1.34M (2025) to $2.18M (2026, projected), +63%
+        while the team shrank. Source: Antiwork investor financials.
       </figcaption>
     </figure>
   );
