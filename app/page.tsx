@@ -26,8 +26,26 @@ export default function Home() {
       }}
     >
       <div id="top" style={{ display: "flex", alignItems: "center" }}>
-        <Font text="ANTIWORK" color="#111" size={30} />
+        <a
+          href="https://gumclaw.gumroad.com/l/rbexyn"
+          title="Get the Antiwork font"
+          style={{ display: "inline-flex", textDecoration: "none" }}
+        >
+          <Font text="ANTIWORK" color="#111" size={30} />
+        </a>
       </div>
+      <p style={{ marginTop: 8, fontSize: 13, color: "#888" }}>
+        <a
+          href="https://gumclaw.gumroad.com/l/rbexyn"
+          style={{
+            color: "#888",
+            textDecoration: "underline",
+            textUnderlineOffset: "2px",
+          }}
+        >
+          Get the font →
+        </a>
+      </p>
 
       <p style={{ marginTop: 32, fontSize: 20, color: "#111" }}>
         We automated ourselves out of the work.
@@ -42,7 +60,7 @@ export default function Home() {
 
       <p style={{ marginTop: 24 }}>
         Over the next three years the team got smaller, the work got automated,
-        and the numbers kept climbing. This is that stretch — 2023 to today.
+        and the numbers kept climbing.
       </p>
 
       <figure style={{ margin: "32px 0 0" }}>
@@ -734,11 +752,6 @@ export default function Home() {
       </section>
 
       <p style={{ marginTop: 40, color: "#888" }}>
-        More is coming — tax payments, hiring and firing, and the rest of the
-        work that still touches a human today.
-      </p>
-
-      <p style={{ marginTop: 24 }}>
         We&apos;ll show you how we did it. The tools are out there — the hard
         part is the judgment: what to automate first, what has to stay human,
         and how to hand an agent your money and your customers without breaking
