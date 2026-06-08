@@ -9,7 +9,7 @@ import {
   type Variant,
 } from "@/app/lib/experiment";
 
-type Placement = "hero" | "mid" | "offer" | "sticky";
+type Placement = "hero" | "mid" | "offer" | "sticky" | "rung";
 
 const SIZES: Record<
   Placement,
@@ -19,9 +19,16 @@ const SIZES: Record<
   mid: { padding: "12px 20px", fontSize: 15, borderRadius: 999 },
   offer: { padding: "14px 24px", fontSize: 17, borderRadius: 999 },
   sticky: { padding: "12px 22px", fontSize: 15, borderRadius: 999 },
+  rung: { padding: "7px 16px", fontSize: 13, borderRadius: 999 },
 };
 
-export function BookCTA({ placement }: { placement: Placement }) {
+export function BookCTA({
+  placement,
+  label,
+}: {
+  placement: Placement;
+  label?: string;
+}) {
   // Assign after mount to avoid a hydration mismatch; render the control
   // label on the server and first paint, then swap to the visitor's variant.
   const [variant, setVariant] = useState<Variant>("control");
@@ -45,7 +52,7 @@ export function BookCTA({ placement }: { placement: Placement }) {
         fontSize: size.fontSize,
       }}
     >
-      {CTA_LABELS[variant]}
+      {label ?? CTA_LABELS[variant]}
     </a>
   );
 }

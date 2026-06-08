@@ -552,12 +552,6 @@ export default function Home() {
         Other ways to work with us
       </p>
 
-      <p className="mt-4 text-muted">
-        The call is the front door. Depending on where you are, there&apos;s a
-        lighter way in and a heavier way forward — same playbook, different
-        depth.
-      </p>
-
       <div className="mt-6 flex flex-col gap-3">
         {/* Rung 0 — free */}
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
@@ -586,7 +580,7 @@ export default function Home() {
         </div>
 
         {/* Rung 2 — the call (you are here) */}
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-[#ec4899] bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 rounded-[12px] border border-[#ec4899] bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
           <div className="flex-[1_1_260px]">
             <div className="flex items-center gap-2">
               <p className="m-0 text-[15px] font-bold text-fg">
@@ -597,11 +591,11 @@ export default function Home() {
               </span>
             </div>
             <p className="mt-1 text-[13px] text-muted">
-              90 minutes, 1:1, with the team that built and runs Gumclaw. Credit
-              applies toward what comes next.
+              90 minutes, 1:1, with the team that built and runs Gumclaw.
+              $10,000 — credit applies toward what comes next.
             </p>
           </div>
-          <p className="m-0 text-[15px] font-bold text-[#be185d]">$10,000</p>
+          <BookCTA placement="rung" label="Book a call →" />
         </div>
 
         {/* Rung 3 — implementation */}
@@ -633,12 +627,6 @@ export default function Home() {
           <p className="m-0 text-[15px] font-bold text-fg">Let&apos;s talk</p>
         </div>
       </div>
-
-      <p className="mt-4 text-[13px] text-muted">
-        Pricing flexes with company size and where you are in the world — a
-        five-person bootstrapped shop and a hundred-person VC-backed company
-        don&apos;t pay the same for the same room. Ask.
-      </p>
 
       <Faq />
 
