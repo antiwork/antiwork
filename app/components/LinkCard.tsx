@@ -76,7 +76,7 @@ export function LinkCard({
   return (
     <span
       ref={wrapRef}
-      style={{ position: "relative", display: "inline" }}
+      className="relative inline"
       onMouseEnter={() => !coarse && setOpen(true)}
       onMouseLeave={() => !coarse && setOpen(false)}
     >
@@ -89,12 +89,7 @@ export function LinkCard({
         onTouchEnd={clearPress}
         onTouchMove={clearPress}
         onContextMenu={(e) => coarse && e.preventDefault()}
-        style={{
-          color: "var(--fg)",
-          textDecoration: "underline",
-          textDecorationColor: "var(--faint-2)",
-          textUnderlineOffset: "2px",
-        }}
+        className="text-fg underline decoration-faint-2 underline-offset-[2px]"
       >
         {children}
       </a>
@@ -102,72 +97,28 @@ export function LinkCard({
       <span
         role="tooltip"
         aria-hidden={!open}
-        style={{
-          position: "absolute",
-          left: 0,
-          bottom: "calc(100% + 8px)",
-          zIndex: 20,
-          width: 320,
-          maxWidth: "min(320px, 86vw)",
-          background: "var(--surface)",
-          border: "1px solid var(--card-border)",
-          borderRadius: 10,
-          boxShadow: open
-            ? "0 8px 28px rgba(0,0,0,0.12)"
-            : "0 8px 28px rgba(0,0,0,0)",
-          overflow: "hidden",
-          textAlign: "left",
-          opacity: open ? 1 : 0,
-          transform: open ? "translateY(0)" : "translateY(4px)",
-          transition: "opacity 150ms ease, transform 150ms ease",
-          pointerEvents: open ? "auto" : "none",
-          fontFamily:
-            "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-        }}
+        className={`absolute bottom-[calc(100%_+_8px)] left-0 z-20 w-[320px] max-w-[min(320px,86vw)] overflow-hidden rounded-[10px] border border-card-border bg-surface text-left font-mono transition-[opacity,transform] duration-150 ease-[ease] ${
+          open
+            ? "pointer-events-auto opacity-100 shadow-[0_8px_28px_rgba(0,0,0,0.12)]"
+            : "pointer-events-none translate-y-1 opacity-0 shadow-[0_8px_28px_rgba(0,0,0,0)]"
+        }`}
       >
         {image ? (
           <span
+            className="block h-[120px] border-b border-card-border"
             style={{
-              display: "block",
-              height: 120,
               background: `var(--card-2) url("${image}") center/cover no-repeat`,
-              borderBottom: "1px solid var(--card-border)",
             }}
           />
         ) : null}
-        <span style={{ display: "block", padding: "12px 14px" }}>
-          <span
-            style={{
-              display: "block",
-              fontSize: 14,
-              fontWeight: 700,
-              lineHeight: 1.35,
-              color: "var(--fg)",
-            }}
-          >
+        <span className="block px-[14px] py-3">
+          <span className="block text-[14px] font-bold leading-[1.35] text-fg">
             {title}
           </span>
-          <span
-            style={{
-              display: "block",
-              marginTop: 6,
-              fontSize: 12.5,
-              lineHeight: 1.5,
-              color: "var(--muted-2)",
-            }}
-          >
+          <span className="mt-[6px] block text-[12.5px] leading-[1.5] text-muted-2">
             {description}
           </span>
-          <span
-            style={{
-              display: "block",
-              marginTop: 10,
-              fontSize: 11,
-              letterSpacing: "0.04em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
-            }}
-          >
+          <span className="mt-2.5 block text-[11px] uppercase tracking-[0.04em] text-muted">
             {source}
           </span>
         </span>

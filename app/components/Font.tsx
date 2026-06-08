@@ -470,14 +470,7 @@ export function Font({
     let prevCharDef: any = null;
 
     return (
-      <div
-        className="text-row"
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "flex-start",
-        }}
-      >
+      <div className="text-row flex flex-wrap justify-start">
         {Array.from(text.toUpperCase()).map((char, charIndex) => {
           const charDef = charDefinitions[char] || charDefinitions[" "];
           let marginLeft = (10 * size) / 176;

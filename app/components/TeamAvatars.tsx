@@ -12,53 +12,24 @@ const TEAM = [
 
 export function TeamAvatars() {
   return (
-    <div
-      style={{
-        marginTop: 28,
-        display: "flex",
-        flexWrap: "wrap",
-        gap: 22,
-        alignItems: "flex-start",
-      }}
-    >
+    <div className="mt-7 flex flex-wrap items-start gap-[22px]">
       {TEAM.map((m) => (
-        <div
-          key={m.name}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 8,
-            width: 64,
-          }}
-        >
+        <div key={m.name} className="flex w-16 flex-col items-center gap-2">
           <div
+            className="relative flex h-14 w-14 items-center justify-center rounded-full"
             style={{
-              position: "relative",
-              width: 56,
-              height: 56,
-              borderRadius: "50%",
               background: m.color,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
             <span
-              style={{
-                fontSize: 20,
-                fontWeight: 700,
-                color: "#fff",
-                fontFamily: "ui-rounded, -apple-system, system-ui, sans-serif",
-                letterSpacing: m.initials.length > 1 ? "-0.02em" : "0",
-              }}
+              className={`text-[20px] font-bold text-white [font-family:ui-rounded,-apple-system,system-ui,sans-serif] ${
+                m.initials.length > 1 ? "tracking-[-0.02em]" : "tracking-[0]"
+              }`}
             >
               {m.initials}
             </span>
           </div>
-          <span style={{ fontSize: 12, color: "var(--muted-2)" }}>
-            {m.name}
-          </span>
+          <span className="text-[12px] text-muted-2">{m.name}</span>
         </div>
       ))}
     </div>

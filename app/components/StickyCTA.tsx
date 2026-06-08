@@ -28,38 +28,15 @@ export function StickyCTA() {
   return (
     <div
       aria-hidden={!visible}
+      className="fixed bottom-0 left-0 right-0 z-50 flex justify-center border-t border-card-border bg-[var(--sticky-bg)] px-4 py-3 backdrop-blur-[8px] transition-[transform,opacity] duration-[250ms] ease-[ease]"
       style={{
-        position: "fixed",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 50,
-        display: "flex",
-        justifyContent: "center",
-        padding: "12px 16px",
-        background: "var(--sticky-bg)",
-        borderTop: "1px solid var(--card-border)",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
         transform: visible ? "translateY(0)" : "translateY(110%)",
         opacity: visible ? 1 : 0,
-        transition: "transform 0.25s ease, opacity 0.25s ease",
         pointerEvents: visible ? "auto" : "none",
       }}
     >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 640,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 14,
-          fontFamily:
-            "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-        }}
-      >
-        <span style={{ fontSize: 14, color: "var(--muted-2)" }}>
+      <div className="flex w-full max-w-[640px] items-center justify-between gap-[14px] font-mono">
+        <span className="text-[14px] text-muted-2">
           See how it works for your company.
         </span>
         <BookCTA placement="sticky" />

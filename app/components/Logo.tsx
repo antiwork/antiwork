@@ -13,6 +13,7 @@ export function Logo({
 }: LogoProps) {
   return (
     <div
+      className="flex items-center justify-center"
       style={{
         display: "flex",
         alignItems: "center",

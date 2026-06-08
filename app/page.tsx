@@ -15,57 +15,42 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main
-      style={{
-        maxWidth: 640,
-        margin: "0 auto",
-        padding: "64px 24px",
-        fontFamily:
-          "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-        fontSize: 16,
-        lineHeight: 1.7,
-        color: "var(--fg)",
-      }}
-    >
-      <div id="top" style={{ display: "flex", alignItems: "center" }}>
+    <main className="mx-auto max-w-[640px] px-6 py-16 font-mono text-[16px] leading-[1.7] text-fg">
+      <div id="top" className="flex items-center">
         <a
           href="https://gumclaw.gumroad.com/l/rbexyn"
           title="Get the Antiwork font"
-          style={{ display: "inline-flex", textDecoration: "none" }}
+          className="inline-flex no-underline"
         >
           <Font text="ANTIWORK" color="var(--fg)" size={30} />
         </a>
       </div>
-      <p style={{ marginTop: 8, fontSize: 13, color: "var(--muted)" }}>
+      <p className="mt-2 text-[13px] text-muted">
         <a
           href="https://gumclaw.gumroad.com/l/rbexyn"
-          style={{
-            color: "var(--muted)",
-            textDecoration: "underline",
-            textUnderlineOffset: "2px",
-          }}
+          className="text-muted underline underline-offset-[2px]"
         >
           Get the font →
         </a>
       </p>
 
-      <p style={{ marginTop: 32, fontSize: 20, color: "var(--fg)" }}>
+      <p className="mt-8 text-[20px] text-fg">
         We automated ourselves out of the work.
       </p>
 
-      <p style={{ marginTop: 24 }}>
+      <p className="mt-6">
         Coming out of COVID, <ProductLink brand="gumroad">Gumroad</ProductLink>{" "}
         was a profitable business with a normal-size team — a few dozen people
         across engineering, support, and operations, doing the work by hand the
         way every company does.
       </p>
 
-      <p style={{ marginTop: 24 }}>
+      <p className="mt-6">
         Over the next three years the team got smaller, the work got automated,
         and the numbers kept climbing.
       </p>
 
-      <figure style={{ margin: "32px 0 0" }}>
+      <figure className="mt-8">
         <svg
           viewBox="0 0 520 98"
           width="100%"
@@ -138,9 +123,7 @@ export default function Home() {
             5
           </text>
         </svg>
-        <figcaption
-          style={{ marginTop: 6, color: "var(--muted)", fontSize: 13 }}
-        >
+        <figcaption className="mt-[6px] text-[13px] text-muted">
           Company headcount — 25 in 2023, to 14, to 5 humans today. The work
           didn&apos;t leave. It moved to the agent.
         </figcaption>
@@ -148,15 +131,15 @@ export default function Home() {
 
       <RevenueChart />
 
-      <p style={{ marginTop: 32, fontSize: 20, color: "var(--fg)" }}>
+      <p className="mt-8 text-[20px] text-fg">
         Today one AI agent runs the company.
       </p>
 
-      <p style={{ marginTop: 24 }}>We call it Gumclaw.</p>
+      <p className="mt-6">We call it Gumclaw.</p>
 
       <AskGumclaw />
 
-      <p style={{ marginTop: 24 }}>
+      <p className="mt-6">
         Getting here meant building our own tools. Two of them grew into real
         products: <ProductLink brand="helper">Helper</ProductLink>, which runs
         customer support, and <ProductLink brand="flexile">Flexile</ProductLink>
@@ -165,18 +148,11 @@ export default function Home() {
         we&apos;re our own first customer. You can use them too.
       </p>
 
-      <p style={{ marginTop: 24, color: "var(--muted)" }}>
+      <p className="mt-6 text-muted">
         Here is what it runs today — with more on the way.
       </p>
 
-      <nav
-        style={{
-          marginTop: 16,
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 8,
-        }}
-      >
+      <nav className="mt-4 flex flex-wrap gap-2">
         {[
           ["Engineering", "engineering"],
           ["Support", "support"],
@@ -187,14 +163,7 @@ export default function Home() {
           <a
             key={id}
             href={`#${id}`}
-            style={{
-              fontSize: 13,
-              color: "var(--fg)",
-              textDecoration: "none",
-              padding: "6px 12px",
-              border: "1px solid var(--pill-border)",
-              borderRadius: 999,
-            }}
+            className="rounded-full border border-pill-border px-3 py-[6px] text-[13px] text-fg no-underline"
           >
             {label}
           </a>
@@ -203,19 +172,12 @@ export default function Home() {
 
       <p
         id="engineering"
-        style={{
-          marginTop: 40,
-          scrollMarginTop: 24,
-          fontSize: 13,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--muted)",
-        }}
+        className="mt-10 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Engineering
       </p>
 
-      <figure style={{ margin: "20px 0 0" }}>
+      <figure className="mt-5">
         <svg
           viewBox="0 0 520 150"
           width="100%"
@@ -367,23 +329,21 @@ export default function Home() {
             2026
           </text>
         </svg>
-        <figcaption
-          style={{ marginTop: 6, color: "var(--muted)", fontSize: 13 }}
-        >
+        <figcaption className="mt-[6px] text-[13px] text-muted">
           Pull requests merged per engineer, by quarter. Steady in the 30s and
           40s through 2023–2025, then 119 in Q2 2026 — the most in the
           company&apos;s history, on a team of six.
         </figcaption>
       </figure>
 
-      <p style={{ marginTop: 24 }}>
+      <p className="mt-6">
         And the code ships faster than it ever has. Through the 2010s, the time
         from a pull request opening to merging crept up as the codebase and team
         grew — peaking near 18 hours in 2023. In 2026 the agent took over review
         and merge, and it collapsed to about half an hour.
       </p>
 
-      <figure style={{ margin: "32px 0 0" }}>
+      <figure className="mt-8">
         <svg
           viewBox="0 0 520 64"
           width="100%"
@@ -403,21 +363,11 @@ export default function Home() {
           <circle cx="4.0" cy="4.3" r="2.5" fill="#ec4899" />
           <circle cx="516.0" cy="58.4" r="2.5" fill="var(--fg)" />
         </svg>
-        <figcaption
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginTop: 6,
-            color: "var(--muted)",
-            fontSize: 13,
-          }}
-        >
-          <span style={{ color: "#ec4899" }}>17.9 hrs · 2023</span>
-          <span style={{ color: "var(--fg)" }}>~32 min · 2026</span>
+        <figcaption className="mt-[6px] flex justify-between text-[13px] text-muted">
+          <span className="text-[#ec4899]">17.9 hrs · 2023</span>
+          <span className="text-fg">~32 min · 2026</span>
         </figcaption>
-        <figcaption
-          style={{ marginTop: 4, color: "var(--muted)", fontSize: 13 }}
-        >
+        <figcaption className="mt-1 text-[13px] text-muted">
           Median time from a pull request opening to merging, 2023–2026. From
           most of a day to half an hour — roughly a 34× speed-up.
         </figcaption>
@@ -425,19 +375,12 @@ export default function Home() {
 
       <p
         id="support"
-        style={{
-          marginTop: 56,
-          scrollMarginTop: 24,
-          fontSize: 13,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--muted)",
-        }}
+        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Customer support
       </p>
 
-      <p style={{ marginTop: 20 }}>
+      <p className="mt-5">
         Support used to mean waiting. A ticket sat in a queue until a human got
         to it — sometimes the same hour, often the next day. The agent answers
         the moment a message lands. Across 3.2 million support responses,{" "}
@@ -446,7 +389,7 @@ export default function Home() {
         tickets inside that hour.
       </p>
 
-      <figure style={{ margin: "32px 0 0" }}>
+      <figure className="mt-8">
         <svg
           viewBox="0 0 520 180"
           width="100%"
@@ -500,15 +443,13 @@ export default function Home() {
             );
           })}
         </svg>
-        <figcaption
-          style={{ marginTop: 6, color: "var(--muted)", fontSize: 13 }}
-        >
+        <figcaption className="mt-[6px] text-[13px] text-muted">
           Time to first response across 3.2M support replies, Jan 2024 – Feb
           2026. Nearly everything is answered within the hour.
         </figcaption>
       </figure>
 
-      <p style={{ marginTop: 24 }}>
+      <p className="mt-6">
         And the answers don&apos;t just come faster — they come from the agent.
         It handled 2.7 million of those 3.2 million responses, leaving the
         humans free for the cases that genuinely need them. If your support
@@ -518,45 +459,17 @@ export default function Home() {
 
       <p
         id="fraud"
-        style={{
-          marginTop: 56,
-          scrollMarginTop: 24,
-          fontSize: 13,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--muted)",
-        }}
+        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Fraud &amp; risk
       </p>
 
-      <section
-        style={{
-          margin: "20px 0 0",
-          padding: "44px 28px",
-          border: "1px solid var(--card-border)",
-          borderRadius: 14,
-          textAlign: "center",
-          background: "var(--card)",
-          boxShadow: "0 1px 3px var(--card-shadow)",
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: "clamp(52px, 12vw, 76px)",
-            fontWeight: 700,
-            lineHeight: 1,
-            letterSpacing: "-0.03em",
-            color: "var(--fg)",
-          }}
-        >
+      <section className="mt-5 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card px-7 py-11 text-center shadow-card">
+        <p className="m-0 text-[clamp(52px,12vw,76px)] font-bold leading-none tracking-[-0.03em] text-fg">
           ~99%
         </p>
-        <p style={{ margin: "6px 0 0", fontSize: 18, color: "var(--fg)" }}>
-          handled with no human
-        </p>
-        <p style={{ margin: "16px 0 0", fontSize: 13, color: "var(--muted)" }}>
+        <p className="mt-[6px] text-[18px] text-fg">handled with no human</p>
+        <p className="mt-4 text-[13px] text-muted">
           Standard fraud and risk cases reviewed and actioned autonomously by
           the agent.
         </p>
@@ -564,118 +477,41 @@ export default function Home() {
 
       <p
         id="finance"
-        style={{
-          marginTop: 56,
-          scrollMarginTop: 24,
-          fontSize: 13,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--muted)",
-        }}
+        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Finance
       </p>
 
-      <section
-        style={{
-          margin: "20px 0 0",
-          padding: "24px",
-          border: "1px solid var(--card-border)",
-          borderRadius: 14,
-          background: "var(--card)",
-          boxShadow: "0 1px 3px var(--card-shadow)",
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 11,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            textAlign: "center",
-          }}
-        >
+      <section className="mt-5 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card p-6 shadow-card">
+        <p className="m-0 text-center text-[11px] uppercase tracking-[0.16em] text-muted">
           The monthly financial close
         </p>
 
-        <div style={{ textAlign: "center", margin: "22px 0 6px" }}>
-          <p
-            style={{
-              margin: 0,
-              fontSize: "clamp(56px, 13vw, 88px)",
-              fontWeight: 700,
-              lineHeight: 1,
-              letterSpacing: "-0.04em",
-              color: "var(--fg)",
-            }}
-          >
+        <div className="mb-[6px] mt-[22px] text-center">
+          <p className="m-0 text-[clamp(56px,13vw,88px)] font-bold leading-none tracking-[-0.04em] text-fg">
             104 hrs
           </p>
-          <p
-            style={{ margin: "8px 0 0", fontSize: 16, color: "var(--muted-2)" }}
-          >
+          <p className="mt-2 text-[16px] text-muted-2">
             of outside-accountant time a month — now minutes, every week.
           </p>
-          <p style={{ margin: "8px 0 0", fontSize: 13, color: "var(--muted)" }}>
+          <p className="mt-2 text-[13px] text-muted">
             Escalon HUB task report, April 2026 — the human hours behind one
             month&apos;s close.
           </p>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 16,
-            marginTop: 24,
-          }}
-        >
-          <div
-            style={{
-              flex: "1 1 200px",
-              padding: "16px 18px",
-              border: "1px solid var(--card-border)",
-              borderRadius: 10,
-              background: "var(--card-2)",
-              boxShadow: "0 1px 2px var(--card-shadow-sm)",
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: 12,
-                fontWeight: 700,
-                color: "var(--muted)",
-              }}
-            >
-              Then
-            </p>
-            <p style={{ margin: "8px 0 0", color: "var(--muted-2)" }}>
+        <div className="mt-6 flex flex-wrap gap-4">
+          <div className="flex-[1_1_200px] rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-[18px] py-4 shadow-card-sm">
+            <p className="m-0 text-[12px] font-bold text-muted">Then</p>
+            <p className="mt-2 text-muted-2">
               Closed by hand, once a month. Pull the numbers, reconcile four
               entities, book every journal entry manually — the P&amp;L only
               true at month-end.
             </p>
           </div>
-          <div
-            style={{
-              flex: "1 1 200px",
-              padding: "16px 18px",
-              border: "1px solid #ec4899",
-              borderRadius: 10,
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: 12,
-                fontWeight: 700,
-                color: "#ec4899",
-              }}
-            >
-              Now
-            </p>
-            <p style={{ margin: "8px 0 0", color: "var(--fg)" }}>
+          <div className="flex-[1_1_200px] rounded-[10px] border border-[#ec4899] px-[18px] py-4">
+            <p className="m-0 text-[12px] font-bold text-[#ec4899]">Now</p>
+            <p className="mt-2 text-fg">
               The agent runs it every week — pulls Metabase + Stripe across four
               entities, books the entries into QuickBooks itself, in minutes.
               The books are always current.
@@ -684,139 +520,51 @@ export default function Home() {
         </div>
       </section>
 
-      <div
-        style={{
-          margin: "28px 0 0",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          gap: 14,
-        }}
-      >
+      <div className="mt-7 flex flex-wrap items-center gap-[14px]">
         <BookCTA placement="mid" />
-        <span style={{ fontSize: 14, color: "var(--muted)" }}>
+        <span className="text-[14px] text-muted">
           If even a fraction of a 104-hour close is yours, the math is easy.
         </span>
       </div>
 
       <p
         id="investors"
-        style={{
-          marginTop: 56,
-          scrollMarginTop: 24,
-          fontSize: 13,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: "var(--muted)",
-        }}
+        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Investor relations
       </p>
 
-      <section
-        style={{
-          margin: "20px 0 0",
-          padding: "44px 28px",
-          border: "1px solid var(--card-border)",
-          borderRadius: 14,
-          background: "var(--card)",
-          boxShadow: "0 1px 3px var(--card-shadow)",
-        }}
-      >
-        <p style={{ margin: 0, fontSize: 18, color: "var(--fg)" }}>
+      <section className="mt-5 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card px-7 py-11 shadow-card">
+        <p className="m-0 text-[18px] text-fg">
           Once a year, Gumroad returns money to its investors — a dividend to
           shareholders and a buyback of their shares.
         </p>
 
-        <div style={{ textAlign: "center", margin: "36px 0 8px" }}>
-          <p
-            style={{
-              margin: 0,
-              fontSize: 12,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
-            }}
-          >
+        <div className="mb-2 mt-9 text-center">
+          <p className="m-0 text-[12px] uppercase tracking-[0.18em] text-muted">
             Returned to investors since 2023
           </p>
-          <p
-            style={{
-              margin: "14px 0 0",
-              fontSize: "clamp(64px, 15vw, 104px)",
-              fontWeight: 700,
-              lineHeight: 1,
-              letterSpacing: "-0.04em",
-              color: "var(--fg)",
-            }}
-          >
+          <p className="mt-3.5 text-[clamp(64px,15vw,104px)] font-bold leading-none tracking-[-0.04em] text-fg">
             $14.2M
           </p>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 16,
-            marginTop: 28,
-          }}
-        >
-          <div
-            style={{
-              flex: "1 1 200px",
-              padding: "16px 18px",
-              border: "1px solid var(--card-border)",
-              borderRadius: 10,
-              background: "var(--card-2)",
-              boxShadow: "0 1px 2px var(--card-shadow-sm)",
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: 22,
-                fontWeight: 700,
-                color: "var(--fg)",
-              }}
-            >
-              $11.2M
-            </p>
-            <p
-              style={{ margin: "6px 0 0", fontSize: 13, color: "var(--muted)" }}
-            >
+        <div className="mt-7 flex flex-wrap gap-4">
+          <div className="flex-[1_1_200px] rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-[18px] py-4 shadow-card-sm">
+            <p className="m-0 text-[22px] font-bold text-fg">$11.2M</p>
+            <p className="mt-[6px] text-[13px] text-muted">
               in dividends across four annual rounds, paid to 7,447 investors.
             </p>
           </div>
-          <div
-            style={{
-              flex: "1 1 200px",
-              padding: "16px 18px",
-              border: "1px solid var(--card-border)",
-              borderRadius: 10,
-              background: "var(--card-2)",
-              boxShadow: "0 1px 2px var(--card-shadow-sm)",
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: 22,
-                fontWeight: 700,
-                color: "#ec4899",
-              }}
-            >
-              $3.0M
-            </p>
-            <p
-              style={{ margin: "6px 0 0", fontSize: 13, color: "var(--muted)" }}
-            >
+          <div className="flex-[1_1_200px] rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-[18px] py-4 shadow-card-sm">
+            <p className="m-0 text-[22px] font-bold text-[#ec4899]">$3.0M</p>
+            <p className="mt-[6px] text-[13px] text-muted">
               buying back investor shares across three tender offers.
             </p>
           </div>
         </div>
 
-        <p style={{ margin: "24px 0 0", color: "var(--muted-2)" }}>
+        <p className="mt-6 text-muted-2">
           The agent runs the whole cycle through Flexile: it works out each
           holder&apos;s share, issues the payments, and answers the questions
           that come with them — when the dividend lands, how the buyback is
@@ -825,12 +573,12 @@ export default function Home() {
           back.
         </p>
 
-        <p style={{ margin: "20px 0 0", fontSize: 13, color: "var(--muted)" }}>
+        <p className="mt-5 text-[13px] text-muted">
           Dividends and share buybacks paid through Flexile, 2023–2026.
         </p>
       </section>
 
-      <p style={{ marginTop: 40, color: "var(--muted)" }}>
+      <p className="mt-10 text-muted">
         We&apos;ll show you how we did it. The tools are out there — the hard
         part is the judgment: what to automate first, what has to stay human,
         and how to hand an agent your money and your customers without breaking
@@ -840,37 +588,14 @@ export default function Home() {
         it from us.
       </p>
 
-      <section
-        style={{
-          margin: "28px 0 0",
-          padding: "28px",
-          border: "1px solid var(--card-border)",
-          borderRadius: 14,
-          background: "var(--card)",
-          boxShadow: "0 1px 3px var(--card-shadow)",
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 12,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-          }}
-        >
+      <section className="mt-7 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card p-7 shadow-card">
+        <p className="m-0 text-[12px] uppercase tracking-[0.16em] text-muted">
           The call
         </p>
-        <p style={{ margin: "14px 0 0", fontSize: 18, color: "var(--fg)" }}>
+        <p className="mt-3.5 text-[18px] text-fg">
           90 minutes, 1:1, with the team that built and runs Gumclaw.
         </p>
-        <ul
-          style={{
-            margin: "16px 0 0",
-            paddingLeft: 20,
-            color: "var(--muted-2)",
-          }}
-        >
+        <ul className="mt-4 pl-5 text-muted-2">
           <li>
             A teardown of where an agent can take work off your team first.
           </li>
@@ -880,48 +605,32 @@ export default function Home() {
           <li>The org and trust changes that made it stick.</li>
           <li>A prioritized 90-day automation plan for your company.</li>
         </ul>
-        <p style={{ margin: "18px 0 0", fontSize: 14, color: "var(--muted)" }}>
+        <p className="mt-[18px] text-[14px] text-muted">
           For founders and operators of 5–100 person internet businesses who
           want to grow without rebuilding a conventional team. $10,000 — less
           than one month of the accountant time the agent replaced.
         </p>
-        <p
-          style={{
-            margin: "16px 0 0",
-            padding: "14px 16px",
-            background: "#fdf2f8",
-            border: "1px solid #fbcfe8",
-            borderRadius: 10,
-            fontSize: 14,
-            color: "#9d174d",
-          }}
-        >
-          <strong style={{ color: "#9d174d" }}>Credit applies:</strong> if you
+        <p className="mt-4 rounded-[10px] border border-[#fbcfe8] bg-[#fdf2f8] px-4 py-3.5 text-[14px] text-[#9d174d]">
+          <strong className="text-[#9d174d]">Credit applies:</strong> if you
           decide to have us help you build it afterward, the full $10,000 is
           credited toward that engagement — so the call counts toward the work,
           not on top of it.
         </p>
-        <div style={{ marginTop: 22 }}>
+        <div className="mt-[22px]">
           <BookCTA placement="offer" />
         </div>
       </section>
 
       <Faq />
 
-      <p style={{ marginTop: 48, fontSize: 20, color: "var(--fg)" }}>
+      <p className="mt-12 text-[20px] text-fg">
         We automated ourselves out of the work. Now we&apos;re just having fun.
       </p>
 
       <a
         href="#"
         aria-label="Back to top"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          marginTop: 56,
-          textDecoration: "none",
-          cursor: "pointer",
-        }}
+        className="mt-14 inline-flex cursor-pointer items-center no-underline"
       >
         <Font text="A" color="var(--faint)" size={30} />
       </a>

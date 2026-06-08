@@ -38,17 +38,11 @@ export function BookCTA({ placement }: { placement: Placement }) {
     <a
       href={CHECKOUT_URL}
       onClick={() => track("cta_click", { variant, placement })}
+      className="inline-flex items-center border border-[#ec4899] bg-[#ec4899] font-bold text-white no-underline"
       style={{
-        display: "inline-flex",
-        alignItems: "center",
         padding: size.padding,
-        background: "#ec4899",
-        border: "1px solid #ec4899",
         borderRadius: size.borderRadius,
         fontSize: size.fontSize,
-        fontWeight: 700,
-        color: "#fff",
-        textDecoration: "none",
       }}
     >
       {CTA_LABELS[variant]}

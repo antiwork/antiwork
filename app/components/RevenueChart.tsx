@@ -25,67 +25,19 @@ export function RevenueChart() {
   const y = (v: number) => PAD_T + plotH - (v / MAX) * plotH;
 
   return (
-    <figure style={{ margin: "32px 0 0" }}>
-      <div
-        style={{
-          position: "relative",
-          padding: "20px 18px 14px",
-          borderRadius: 16,
-          background: "var(--card)",
-          border: "1px solid var(--card-border)",
-          boxShadow: "0 1px 3px var(--card-shadow)",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "baseline",
-            justifyContent: "space-between",
-            marginBottom: 4,
-          }}
-        >
-          <span
-            style={{
-              fontSize: 12,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
-            }}
-          >
+    <figure className="mt-8">
+      <div className="relative rounded-2xl border border-card-border bg-[color:var(--card)] bg-card px-[18px] pb-[14px] pt-5 shadow-card">
+        <div className="mb-1 flex items-baseline justify-between">
+          <span className="text-[12px] uppercase tracking-[0.16em] text-muted">
             Revenue &amp; profit
           </span>
-          <span
-            style={{
-              display: "flex",
-              gap: 14,
-              fontSize: 12,
-              color: "var(--muted-2)",
-            }}
-          >
-            <span
-              style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-            >
-              <span
-                style={{
-                  width: 10,
-                  height: 10,
-                  borderRadius: 3,
-                  background: "#059669",
-                }}
-              />
+          <span className="flex gap-[14px] text-[12px] text-muted-2">
+            <span className="inline-flex items-center gap-[6px]">
+              <span className="h-[10px] w-[10px] rounded-[3px] bg-[#059669]" />
               Revenue
             </span>
-            <span
-              style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-            >
-              <span
-                style={{
-                  width: 10,
-                  height: 10,
-                  borderRadius: 3,
-                  background: "#db2777",
-                }}
-              />
+            <span className="inline-flex items-center gap-[6px]">
+              <span className="h-[10px] w-[10px] rounded-[3px] bg-[#db2777]" />
               EBITDA
             </span>
           </span>
@@ -189,7 +141,7 @@ export function RevenueChart() {
           })}
         </svg>
       </div>
-      <figcaption style={{ marginTop: 8, color: "var(--muted)", fontSize: 13 }}>
+      <figcaption className="mt-2 text-[13px] text-muted">
         Revenue and adjusted EBITDA, 2023–2025 — profitable every year while the
         team shrank. Source: Antiwork investor financials.
       </figcaption>

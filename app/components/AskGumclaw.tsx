@@ -51,129 +51,49 @@ export function AskGumclaw() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section
-      style={{
-        margin: "28px 0 0",
-        padding: "24px",
-        borderRadius: 16,
-        background: "#141416",
-        border: "1px solid #26262b",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-          marginBottom: 4,
-        }}
-      >
-        <span
-          style={{
-            width: 34,
-            height: 34,
-            borderRadius: "50%",
-            flexShrink: 0,
-            background: "#db2777",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            fontWeight: 700,
-            fontSize: 15,
-          }}
-        >
+    <section className="mt-7 rounded-2xl border border-[#26262b] bg-[#141416] p-6">
+      <div className="mb-1 flex items-center gap-3">
+        <span className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full bg-[#db2777] text-[15px] font-bold text-white">
           G
         </span>
         <div>
-          <p
-            style={{
-              margin: 0,
-              fontSize: 16,
-              fontWeight: 700,
-              color: "#fff",
-            }}
-          >
-            Ask Gumclaw
-          </p>
-          <p style={{ margin: 0, fontSize: 12, color: "#8a8a92" }}>
+          <p className="m-0 text-[16px] font-bold text-white">Ask Gumclaw</p>
+          <p className="m-0 text-[12px] text-[#8a8a92]">
             The agent that runs the company. Tap a question.
           </p>
         </div>
       </div>
 
-      <div
-        style={{
-          marginTop: 14,
-          display: "flex",
-          flexDirection: "column",
-          gap: 8,
-        }}
-      >
+      <div className="mt-3.5 flex flex-col gap-2">
         {QA.map((item, i) => {
           const isOpen = open === i;
           return (
             <div
               key={i}
-              style={{
-                borderRadius: 11,
-                overflow: "hidden",
-                border: "1px solid rgba(255,255,255,0.08)",
-                background: isOpen
-                  ? "rgba(255,255,255,0.05)"
-                  : "rgba(255,255,255,0.02)",
-                transition: "background 0.2s ease",
-              }}
+              className={`overflow-hidden rounded-[11px] border border-[rgba(255,255,255,0.08)] transition-[background] duration-200 ease-[ease] ${
+                isOpen
+                  ? "bg-[rgba(255,255,255,0.05)]"
+                  : "bg-[rgba(255,255,255,0.02)]"
+              }`}
             >
               <button
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                style={{
-                  width: "100%",
-                  textAlign: "left",
-                  cursor: "pointer",
-                  padding: "12px 14px",
-                  background: "transparent",
-                  border: "none",
-                  color: "#f3f3f5",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  fontFamily: "inherit",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  gap: 12,
-                }}
+                className="flex w-full cursor-pointer items-center justify-between gap-3 border-0 border-none bg-transparent px-[14px] py-3 text-left text-[14px] font-semibold text-[#f3f3f5] [font-family:inherit]"
               >
                 <span>{item.q}</span>
                 <span
-                  style={{
-                    flexShrink: 0,
-                    width: 20,
-                    height: 20,
-                    borderRadius: "50%",
-                    background: isOpen ? "#db2777" : "rgba(255,255,255,0.12)",
-                    color: "#fff",
-                    fontSize: 14,
-                    lineHeight: "20px",
-                    textAlign: "center",
-                    transition: "transform 0.2s ease, background 0.2s ease",
-                    transform: isOpen ? "rotate(45deg)" : "none",
-                  }}
+                  className={`h-5 w-5 shrink-0 rounded-full text-center text-[14px] leading-[20px] text-white transition-[transform,background] duration-200 ease-[ease] ${
+                    isOpen
+                      ? "rotate-45 bg-[#db2777]"
+                      : "bg-[rgba(255,255,255,0.12)]"
+                  }`}
                 >
                   +
                 </span>
               </button>
               {isOpen && (
-                <p
-                  style={{
-                    margin: 0,
-                    padding: "0 14px 14px",
-                    fontSize: 14,
-                    lineHeight: 1.6,
-                    color: "#c4c4cc",
-                  }}
-                >
+                <p className="m-0 px-[14px] pb-[14px] text-[14px] leading-[1.6] text-[#c4c4cc]">
                   {item.a}
                 </p>
               )}
