@@ -582,7 +582,7 @@ export default function Home() {
               shared across a handful of founders who learn from each other.
             </p>
           </div>
-          <p className="m-0 text-[15px] font-bold text-fg">$1,000 / seat</p>
+          <p className="m-0 text-[15px] font-bold text-fg">$1,500 / seat</p>
         </div>
 
         {/* Rung 2 — the call (you are here) */}
