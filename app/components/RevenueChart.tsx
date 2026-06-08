@@ -33,8 +33,7 @@ export function RevenueChart() {
           borderRadius: 16,
           background: "var(--card)",
           border: "1px solid var(--card-border)",
-          boxShadow:
-            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 30px -12px var(--card-shadow), 0 2px 6px -2px var(--card-shadow-sm)",
+          boxShadow: "0 1px 3px var(--card-shadow)",
         }}
       >
         <div
@@ -71,8 +70,7 @@ export function RevenueChart() {
                   width: 10,
                   height: 10,
                   borderRadius: 3,
-                  background: "linear-gradient(180deg,#34d399,#059669)",
-                  boxShadow: "0 1px 1px rgba(0,0,0,0.2)",
+                  background: "#059669",
                 }}
               />
               Revenue
@@ -85,8 +83,7 @@ export function RevenueChart() {
                   width: 10,
                   height: 10,
                   borderRadius: 3,
-                  background: "linear-gradient(180deg,#f9a8d4,#db2777)",
-                  boxShadow: "0 1px 1px rgba(0,0,0,0.2)",
+                  background: "#db2777",
                 }}
               />
               EBITDA
@@ -102,26 +99,6 @@ export function RevenueChart() {
           aria-label="Annual revenue and adjusted EBITDA, 2023 to 2025. Revenue: $20.7M in 2023, $19.0M in 2024, $17.8M in 2025. Adjusted EBITDA: $9.8M, $5.6M, $5.9M. Profitable every year."
           style={{ display: "block", overflow: "visible" }}
         >
-          <defs>
-            <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#6ee7b7" />
-              <stop offset="100%" stopColor="#059669" />
-            </linearGradient>
-            <linearGradient id="ebitdaGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#f9a8d4" />
-              <stop offset="100%" stopColor="#db2777" />
-            </linearGradient>
-            <filter id="barShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow
-                dx="0"
-                dy="2"
-                stdDeviation="2.5"
-                floodColor="#000000"
-                floodOpacity="0.18"
-              />
-            </filter>
-          </defs>
-
           {/* gridlines */}
           {[0, 5, 10, 15, 20].map((g) => (
             <g key={g}>
@@ -153,24 +130,15 @@ export function RevenueChart() {
             const eyTop = y(d.ebitda);
             const base = y(0);
             return (
-              <g key={d.year} filter="url(#barShadow)">
+              <g key={d.year}>
                 {/* revenue bar */}
                 <rect
                   x={cx - barW - gap / 2}
                   y={ryTop}
                   width={barW}
                   height={base - ryTop}
-                  rx={5}
-                  fill="url(#revGrad)"
-                />
-                <rect
-                  x={cx - barW - gap / 2}
-                  y={ryTop}
-                  width={barW}
-                  height={Math.min(10, base - ryTop)}
-                  rx={5}
-                  fill="#ffffff"
-                  opacity={0.25}
+                  rx={4}
+                  fill="#059669"
                 />
                 <text
                   x={cx - gap / 2 - barW / 2}
@@ -190,17 +158,8 @@ export function RevenueChart() {
                   y={eyTop}
                   width={barW}
                   height={base - eyTop}
-                  rx={5}
-                  fill="url(#ebitdaGrad)"
-                />
-                <rect
-                  x={xe}
-                  y={eyTop}
-                  width={barW}
-                  height={Math.min(10, base - eyTop)}
-                  rx={5}
-                  fill="#ffffff"
-                  opacity={0.25}
+                  rx={4}
+                  fill="#db2777"
                 />
                 <text
                   x={xe + barW / 2}

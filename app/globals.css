@@ -17,11 +17,11 @@ html {
   --muted-2: #444444;
   --faint: #cccccc; /* neutral chart bars */
   --faint-2: #bbbbbb;
-  --card: linear-gradient(180deg, #ffffff, #fafafa);
-  --card-2: linear-gradient(180deg, #ffffff, #f7f7f7);
-  --card-border: #ececec;
-  --card-shadow: rgba(0, 0, 0, 0.16);
-  --card-shadow-sm: rgba(0, 0, 0, 0.12);
+  --card: #ffffff;
+  --card-2: #fafafa;
+  --card-border: #e5e5e5;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --card-shadow-sm: rgba(0, 0, 0, 0.05);
   --pill-border: #e5e5e5;
   --surface: #ffffff;
   --sticky-bg: rgba(255, 255, 255, 0.92);
@@ -35,11 +35,11 @@ html {
     --muted-2: #c6c6ce;
     --faint: #4b4b53; /* visible neutral bars on dark */
     --faint-2: #6a6a73;
-    --card: linear-gradient(180deg, #1a1a1d, #151517);
-    --card-2: linear-gradient(180deg, #191919, #141416);
+    --card: #18181b;
+    --card-2: #161618;
     --card-border: #2a2a30;
-    --card-shadow: rgba(0, 0, 0, 0.5);
-    --card-shadow-sm: rgba(0, 0, 0, 0.4);
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --card-shadow-sm: rgba(0, 0, 0, 0.25);
     --pill-border: #33333a;
     --surface: #18181b;
     --sticky-bg: rgba(18, 18, 20, 0.92);

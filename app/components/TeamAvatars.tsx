@@ -1,13 +1,13 @@
-// Team avatars — skeuomorphic gradient "monogram" spheres with a soft inner
-// highlight and drop shadow. Real headshots can be dropped in later by setting
-// `img` on a member; until then the polished monogram keeps the row consistent.
+// Team avatars — flat solid-color monogram circles. Real headshots can be
+// dropped in later by setting `img` on a member; until then the monogram keeps
+// the row consistent.
 const TEAM = [
-  { name: "Sahil", initials: "S", from: "#a78bfa", to: "#6d28d9" },
-  { name: "Gianfranco", initials: "G", from: "#fdba74", to: "#c2410c" },
-  { name: "Ershad", initials: "E", from: "#6ee7b7", to: "#047857" },
-  { name: "Mac", initials: "M", from: "#7dd3fc", to: "#0369a1" },
-  { name: "Jyo", initials: "J", from: "#f9a8d4", to: "#be185d" },
-  { name: "Michelle", initials: "Mi", from: "#fcd34d", to: "#b45309" },
+  { name: "Sahil", initials: "S", color: "#6d28d9" },
+  { name: "Gianfranco", initials: "G", color: "#c2410c" },
+  { name: "Ershad", initials: "E", color: "#047857" },
+  { name: "Mac", initials: "M", color: "#0369a1" },
+  { name: "Jyo", initials: "J", color: "#be185d" },
+  { name: "Michelle", initials: "Mi", color: "#b45309" },
 ];
 
 export function TeamAvatars() {
@@ -38,38 +38,18 @@ export function TeamAvatars() {
               width: 56,
               height: 56,
               borderRadius: "50%",
-              background: `radial-gradient(circle at 32% 28%, ${m.from} 0%, ${m.to} 78%)`,
-              boxShadow: `
-                0 6px 14px -4px rgba(0,0,0,0.35),
-                0 2px 4px -1px rgba(0,0,0,0.2),
-                inset 0 2px 3px rgba(255,255,255,0.55),
-                inset 0 -5px 9px rgba(0,0,0,0.28)`,
+              background: m.color,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            {/* glossy top highlight */}
-            <span
-              style={{
-                position: "absolute",
-                top: 5,
-                left: 9,
-                right: 9,
-                height: 20,
-                borderRadius: "50%",
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 100%)",
-                pointerEvents: "none",
-              }}
-            />
             <span
               style={{
                 fontSize: 20,
                 fontWeight: 700,
                 color: "#fff",
                 fontFamily: "ui-rounded, -apple-system, system-ui, sans-serif",
-                textShadow: "0 1px 2px rgba(0,0,0,0.35)",
                 letterSpacing: m.initials.length > 1 ? "-0.02em" : "0",
               }}
             >

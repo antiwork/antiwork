@@ -53,7 +53,7 @@ export function Faq() {
           return (
             <div
               key={i}
-              className="overflow-hidden rounded-xl border border-neutral-200 bg-gradient-to-b from-white to-neutral-50 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_6px_16px_-10px_rgba(0,0,0,0.16)] dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-950 dark:shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_6px_16px_-10px_rgba(0,0,0,0.5)]"
+              className="overflow-hidden rounded-xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900"
             >
               <button
                 onClick={() => setOpen(isOpen ? null : i)}

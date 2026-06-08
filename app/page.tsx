@@ -585,8 +585,7 @@ export default function Home() {
           borderRadius: 14,
           textAlign: "center",
           background: "var(--card)",
-          boxShadow:
-            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
+          boxShadow: "0 1px 3px var(--card-shadow)",
         }}
       >
         <p
@@ -631,8 +630,7 @@ export default function Home() {
           border: "1px solid var(--card-border)",
           borderRadius: 14,
           background: "var(--card)",
-          boxShadow:
-            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
+          boxShadow: "0 1px 3px var(--card-shadow)",
         }}
       >
         <p
@@ -687,8 +685,7 @@ export default function Home() {
               border: "1px solid var(--card-border)",
               borderRadius: 10,
               background: "var(--card-2)",
-              boxShadow:
-                "0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 10px -6px var(--card-shadow-sm)",
+              boxShadow: "0 1px 2px var(--card-shadow-sm)",
             }}
           >
             <p
@@ -770,8 +767,7 @@ export default function Home() {
           border: "1px solid var(--card-border)",
           borderRadius: 14,
           background: "var(--card)",
-          boxShadow:
-            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
+          boxShadow: "0 1px 3px var(--card-shadow)",
         }}
       >
         <p style={{ margin: 0, fontSize: 18, color: "var(--fg)" }}>
@@ -820,8 +816,7 @@ export default function Home() {
               border: "1px solid var(--card-border)",
               borderRadius: 10,
               background: "var(--card-2)",
-              boxShadow:
-                "0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 10px -6px var(--card-shadow-sm)",
+              boxShadow: "0 1px 2px var(--card-shadow-sm)",
             }}
           >
             <p
@@ -847,8 +842,7 @@ export default function Home() {
               border: "1px solid var(--card-border)",
               borderRadius: 10,
               background: "var(--card-2)",
-              boxShadow:
-                "0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 10px -6px var(--card-shadow-sm)",
+              boxShadow: "0 1px 2px var(--card-shadow-sm)",
             }}
           >
             <p
@@ -900,8 +894,7 @@ export default function Home() {
           border: "1px solid var(--card-border)",
           borderRadius: 14,
           background: "var(--card)",
-          boxShadow:
-            "0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 28px -14px var(--card-shadow)",
+          boxShadow: "0 1px 3px var(--card-shadow)",
         }}
       >
         <p

@@ -56,10 +56,8 @@ export function AskGumclaw() {
         margin: "28px 0 0",
         padding: "24px",
         borderRadius: 16,
-        background: "linear-gradient(180deg, #0f0f11 0%, #17171a 100%)",
-        border: "1px solid #000",
-        boxShadow:
-          "0 1px 0 rgba(255,255,255,0.06) inset, 0 18px 40px -18px rgba(0,0,0,0.5)",
+        background: "#141416",
+        border: "1px solid #26262b",
       }}
     >
       <div
@@ -76,17 +74,13 @@ export function AskGumclaw() {
             height: 34,
             borderRadius: "50%",
             flexShrink: 0,
-            background:
-              "radial-gradient(circle at 32% 28%, #f9a8d4 0%, #db2777 78%)",
-            boxShadow:
-              "inset 0 2px 3px rgba(255,255,255,0.55), inset 0 -4px 7px rgba(0,0,0,0.3), 0 3px 8px -2px rgba(0,0,0,0.5)",
+            background: "#db2777",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             color: "#fff",
             fontWeight: 700,
             fontSize: 15,
-            textShadow: "0 1px 2px rgba(0,0,0,0.4)",
           }}
         >
           G
