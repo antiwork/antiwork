@@ -522,7 +522,7 @@ export default function Home() {
         <p className="mt-3.5 text-[18px] text-fg">
           90 minutes, 1:1, with the team that built and runs Gumclaw.
         </p>
-        <ul className="mt-4 pl-5 text-muted-2">
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-2 marker:text-[#ec4899]">
           <li>
             A teardown of where an agent can take work off your team first.
           </li>
@@ -617,7 +617,7 @@ export default function Home() {
             </p>
           </div>
           <p className="m-0 whitespace-nowrap text-[15px] font-bold text-fg">
-            From $50,000
+            $50,000–$250,000
           </p>
         </div>
 
