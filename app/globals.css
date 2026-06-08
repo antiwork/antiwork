@@ -2,6 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ----------------------------------------------------------------------------
+   Theme tokens. The homepage reads these via inline styles (var(--token)).
+   Dark mode follows the visitor's system preference automatically.
+---------------------------------------------------------------------------- */
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #888888;
+  --muted-2: #444444;
+  --faint: #cccccc; /* neutral chart bars */
+  --faint-2: #bbbbbb;
+  --card: #ffffff;
+  --card-2: #fafafa;
+  --card-border: #e5e5e5;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --card-shadow-sm: rgba(0, 0, 0, 0.05);
+  --pill-border: #e5e5e5;
+  --surface: #ffffff;
+  --sticky-bg: rgba(255, 255, 255, 0.92);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0e10;
+    --fg: #f3f3f5;
+    --muted: #9a9aa3;
+    --muted-2: #c6c6ce;
+    --faint: #4b4b53; /* visible neutral bars on dark */
+    --faint-2: #6a6a73;
+    --card: #18181b;
+    --card-2: #161618;
+    --card-border: #2a2a30;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --card-shadow-sm: rgba(0, 0, 0, 0.25);
+    --pill-border: #33333a;
+    --surface: #18181b;
+    --sticky-bg: rgba(18, 18, 20, 0.92);
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
 @layer base {
   :root {
     --chart-1: 12 76% 61%;
