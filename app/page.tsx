@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Font } from "@/app/components/Font";
 import { BookCTA } from "@/app/components/BookCTA";
-import { StickyCTA } from "@/app/components/StickyCTA";
 import { ProductLink } from "@/app/components/ProductLink";
 import { RevenueChart } from "@/app/components/RevenueChart";
 import { AskGumclaw } from "@/app/components/AskGumclaw";
@@ -520,13 +519,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mt-7 flex flex-wrap items-center gap-[14px]">
-        <BookCTA placement="mid" />
-        <span className="text-[14px] text-muted">
-          If even a fraction of a 104-hour close is yours, the math is easy.
-        </span>
-      </div>
-
       <p
         id="investors"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
@@ -634,7 +626,6 @@ export default function Home() {
       >
         <Font text="A" color="var(--faint)" size={30} />
       </a>
-      <StickyCTA />
     </main>
   );
 }
