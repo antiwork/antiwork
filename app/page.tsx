@@ -135,9 +135,7 @@ export default function Home() {
 
       <AskGumclaw />
 
-      <p className="mt-6 text-muted">
-        Here is what it runs today — with more on the way.
-      </p>
+      <p className="mt-6 text-muted">Here is what it runs today.</p>
 
       <nav className="mt-4 flex flex-wrap gap-2">
         {[
