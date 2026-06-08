@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Font } from "@/app/components/Font";
 import { BookCTA } from "@/app/components/BookCTA";
 import { ProductLink } from "@/app/components/ProductLink";
-import { RevenueChart } from "@/app/components/RevenueChart";
 import { AskGumclaw } from "@/app/components/AskGumclaw";
 import { Faq } from "@/app/components/Faq";
 
@@ -127,8 +126,6 @@ export default function Home() {
           didn&apos;t leave. It moved to the agent.
         </figcaption>
       </figure>
-
-      <RevenueChart />
 
       <p className="mt-8 text-[20px] text-fg">
         Today one AI agent runs the company.
