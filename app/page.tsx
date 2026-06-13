@@ -515,6 +515,72 @@ export default function Home() {
         it from us.
       </p>
 
+      <p className="mt-12 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted">
+        How we do it
+      </p>
+
+      <p className="mt-4 text-muted-2">
+        We&apos;re not a deck of advice. We point the same kind of agents that
+        run Gumroad at your company — hundreds of them, reading everything about
+        your business and the way you actually work. The agents do the work.
+        Your people move to the judgment calls.
+      </p>
+
+      <div className="mt-6 flex flex-col gap-3">
+        {/* Step 1 — agents analyze */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <p className="m-0 text-[15px] font-bold text-fg">
+              Hundreds of agents read your business
+            </p>
+            <p className="mt-1 text-[13px] text-muted">
+              They go through your codebase, your support history, your books,
+              and the way your team actually operates — every workflow, every
+              handoff, every recurring decision. Not a sample. All of it.
+            </p>
+          </div>
+          <p className="m-0 whitespace-nowrap text-[15px] font-bold text-[#ec4899]">
+            Analyze
+          </p>
+        </div>
+
+        {/* Step 2 — agents are primary */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <p className="m-0 text-[15px] font-bold text-fg">
+              The agents do the work
+            </p>
+            <p className="mt-1 text-[13px] text-muted">
+              They&apos;re the primary operators, not copilots waiting for a
+              prompt. They draft the code, answer the tickets, reconcile the
+              books, catch the fraud, and run the loop end to end — the same way
+              they run ours.
+            </p>
+          </div>
+          <p className="m-0 whitespace-nowrap text-[15px] font-bold text-[#ec4899]">
+            Execute
+          </p>
+        </div>
+
+        {/* Step 3 — humans in the loop */}
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+          <div className="flex-[1_1_260px]">
+            <p className="m-0 text-[15px] font-bold text-fg">
+              Humans stay in the loop
+            </p>
+            <p className="mt-1 text-[13px] text-muted">
+              Your people set the guardrails, approve the irreversible calls,
+              and handle the edge cases the agents escalate. Fewer of them, each
+              with far more leverage — judgment on top, agents underneath doing
+              the volume.
+            </p>
+          </div>
+          <p className="m-0 whitespace-nowrap text-[15px] font-bold text-fg">
+            Decide
+          </p>
+        </div>
+      </div>
+
       <p className="mt-10 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted">
         Other ways to work with us
       </p>
