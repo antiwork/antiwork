@@ -14,23 +14,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="mx-auto max-w-[640px] px-6 py-16 font-mono text-[16px] leading-[1.7] text-fg">
-      <div id="top" className="flex items-center">
-        <a
-          href="https://gumclaw.gumroad.com/l/rbexyn"
-          title="Get the Antiwork font"
-          className="inline-flex no-underline"
+      <div id="top" className="flex items-center gap-2">
+        <Font text="W" color="var(--fg)" size={28} />
+        <span
+          className="text-[28px] font-bold leading-none text-fg"
+          style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
         >
-          <Font text="ANTIWORK" color="var(--fg)" size={30} />
-        </a>
+          Antiwork
+        </span>
       </div>
-      <p className="mt-2 text-[13px] text-muted">
-        <a
-          href="https://gumclaw.gumroad.com/l/rbexyn"
-          className="text-muted underline underline-offset-[2px]"
-        >
-          Get the font →
-        </a>
-      </p>
 
       <p className="mt-8 text-[20px] text-fg">
         We automated ourselves out of the work.
