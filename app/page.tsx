@@ -40,7 +40,7 @@ export default function Home() {
 
       <nav className="mt-4 flex flex-wrap gap-2">
         {[
-          ["Support", "support"],
+          ["Customer support", "support"],
           ["Investor relations", "investors"],
         ].map(([label, id]) => (
           <a
