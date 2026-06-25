@@ -17,7 +17,7 @@ export default function Home() {
       <div id="top" className="flex items-center gap-2">
         <Font text="W" color="var(--fg)" size={28} />
         <span
-          className="text-[28px] font-bold leading-none text-fg"
+          className="text-[40px] font-bold leading-none text-fg"
           style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
         >
           Antiwork
