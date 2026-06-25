@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-[640px] px-6 py-16 font-mono text-[16px] leading-[1.7] text-fg">
+    <main className="mx-auto max-w-[640px] px-6 pb-16 pt-8 font-mono text-[16px] leading-[1.7] text-fg">
       <div id="top" className="flex items-center gap-2">
         <Font text="W" color="var(--fg)" size={28} />
         <span
