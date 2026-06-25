@@ -32,8 +32,6 @@ export default function Home() {
         Today one AI agent runs the company.
       </p>
 
-      <p className="mt-6">We call it Gumclaw.</p>
-
       <AskGumclaw />
 
       <p className="mt-6 text-muted">Here is what it runs today.</p>
