@@ -262,23 +262,6 @@ export default function Home() {
           <BookCTA placement="rung" label="Book a call →" />
         </div>
 
-        {/* Rung 3 — implementation */}
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
-          <div className="flex-[1_1_260px]">
-            <p className="m-0 text-[15px] font-bold text-fg">
-              Build it with us
-            </p>
-            <p className="mt-1 text-[13px] text-muted">
-              We work alongside your team to stand the agent up in your business
-              — the architecture, the guardrails, the org changes that make it
-              stick. The $10,000 credits toward it.
-            </p>
-          </div>
-          <p className="m-0 whitespace-nowrap text-[15px] font-bold text-fg">
-            $50,000–$250,000
-          </p>
-        </div>
-
         {/* Rung 4 — bespoke */}
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
           <div className="flex-[1_1_260px]">
