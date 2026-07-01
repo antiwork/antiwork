@@ -3,6 +3,7 @@ import { Font } from "@/app/components/Font";
 import { BookCTA } from "@/app/components/BookCTA";
 import { ProductLink } from "@/app/components/ProductLink";
 import { AskGumclaw } from "@/app/components/AskGumclaw";
+import { ArchitectureDiagram } from "@/app/components/ArchitectureDiagram";
 import { Faq } from "@/app/components/Faq";
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function Home() {
         {[
           ["Customer support", "support"],
           ["Investor relations", "investors"],
+          ["The architecture", "architecture"],
         ].map(([label, id]) => (
           <a
             key={id}
@@ -199,6 +201,33 @@ export default function Home() {
           Dividends and share buybacks paid through Flexile, 2023–2026.
         </p>
       </section>
+
+      <p
+        id="architecture"
+        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
+      >
+        The architecture
+      </p>
+
+      <p className="mt-5">
+        Underneath support and investor relations is one agent, running on{" "}
+        <strong>Hermes Agent</strong>. Its brain is three layers: 273{" "}
+        <strong>skills</strong> (how to do the work), 78 <strong>cron loops</strong>{" "}
+        (when to do it), and two <strong>memory files</strong> (what it knows).
+        Inputs land, the agent reasons and acts, and every action is re-verified
+        by an independent pass.
+      </p>
+
+      <div className="mt-8">
+        <ArchitectureDiagram compact />
+      </div>
+
+      <a
+        href="/skills"
+        className="mt-6 inline-flex items-center text-[14px] text-[#ec4899] no-underline"
+      >
+        See the full architecture →
+      </a>
 
       <p className="mt-10 text-muted">
         We&apos;ll show you how we did it. The tools are out there — the hard
