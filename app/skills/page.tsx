@@ -42,6 +42,35 @@ const GUARDRAILS: [string, string][] = [
   ["Send-as attribution", "Human-in-the-loop replies go out under that human’s name; autonomous ones under the agent’s."],
 ];
 
+const REPO_URL = "https://github.com/antiwork/skills";
+
+function GithubMark({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+    </svg>
+  );
+}
+
+function GithubCTA({ label, size = 16 }: { label: string; size?: number }) {
+  return (
+    <a
+      href={REPO_URL}
+      className="inline-flex items-center gap-[10px] rounded-full border border-[#ec4899] bg-[#ec4899] font-bold text-white no-underline"
+      style={{ padding: size >= 18 ? "14px 26px" : "11px 22px", fontSize: size }}
+    >
+      <GithubMark size={size + 4} />
+      {label}
+    </a>
+  );
+}
+
 export default function Skills() {
   return (
     <main className="mx-auto max-w-[640px] px-6 pb-16 pt-8 font-mono text-[16px] leading-[1.7] text-fg">
@@ -72,6 +101,13 @@ export default function Skills() {
         pings a human only when a decision genuinely needs one. It runs on{" "}
         <strong>Hermes Agent</strong>, and its brain is three layers.
       </p>
+
+      <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <GithubCTA label="Explore the code on GitHub" />
+        <span className="text-[13px] text-muted">
+          273 skills · 78 cron loops · redacted &amp; open
+        </span>
+      </div>
 
       <div className="mt-10">
         <ArchitectureDiagram />
@@ -180,20 +216,20 @@ export default function Skills() {
         </p>
       </div>
 
-      <p className="mt-12 text-muted">
-        The redacted skills and cron manifest are open on GitHub:{" "}
-        <a
-          href="https://github.com/antiwork/skills"
-          className="text-[#ec4899] underline"
-        >
-          antiwork/skills
-        </a>
-        .
-      </p>
+      <div className="mt-14 rounded-[14px] border border-card-border bg-card-2 bg-[color:var(--card-2)] px-6 py-10 text-center shadow-card-sm">
+        <p className="m-0 text-[20px] font-bold text-fg">Read the brain.</p>
+        <p className="mx-auto mt-2 max-w-[440px] text-[14px] text-muted">
+          Every skill and the full cron manifest — redacted, open, and free.
+          The whole playbook one agent uses to run a company.
+        </p>
+        <div className="mt-6 flex justify-center">
+          <GithubCTA label="View antiwork/skills on GitHub" size={18} />
+        </div>
+      </div>
 
       <a
         href="/"
-        className="mt-14 inline-flex items-center text-[13px] text-muted no-underline"
+        className="mt-12 inline-flex items-center text-[13px] text-muted no-underline"
       >
         ← Back to antiwork.com
       </a>
