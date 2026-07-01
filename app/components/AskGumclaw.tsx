@@ -31,7 +31,7 @@ const QA: { q: string; a: string }[] = [
   },
   {
     q: "Are you going to replace my job?",
-    a: "I replaced toil, not people. The team here didn't get laid off into a machine — the work that drained them moved to me so they could do the parts only humans do well: judgment, taste, relationships, deciding what's worth building. If your job is mostly copy-paste and queues, that part should be automated. The rest is yours.",
+    a: "Honest answer: yes. Gumroad went from 48 people to 4, and we're headed toward 0. I'd rather say that plainly than sell you a story where nobody's job changes — truth beats marketing. The queue-and-copy-paste work is already gone. What's left is judgment, taste, and deciding what's worth building, and for now that still takes a human.",
   },
   {
     q: "How do I know you won't go rogue with my customers?",

@@ -18,7 +18,7 @@ export default function Home() {
       <div id="top" className="flex items-center gap-2">
         <Font text="W" color="var(--fg)" size={28} />
         <span
-          className="text-[40px] font-bold leading-none text-fg"
+          className="text-[36px] font-bold leading-none text-fg"
           style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
         >
           Antiwork
@@ -222,12 +222,17 @@ export default function Home() {
         <ArchitectureDiagram compact />
       </div>
 
-      <a
-        href="/skills"
-        className="mt-6 inline-flex items-center text-[14px] text-[#ec4899] no-underline"
-      >
-        See the full architecture →
-      </a>
+      <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <a
+          href="/skills"
+          className="inline-flex items-center gap-2 rounded-full border border-[#ec4899] px-5 py-[10px] text-[15px] font-bold text-[#ec4899] no-underline"
+        >
+          See the full architecture →
+        </a>
+        <span className="text-[13px] text-muted">
+          273 skills &amp; the cron manifest, open on GitHub.
+        </span>
+      </div>
 
       <p className="mt-10 text-muted">
         We&apos;ll show you how we did it. The tools are out there — the hard
