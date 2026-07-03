@@ -174,12 +174,11 @@ export default function Home() {
 
       <p className="mt-5">
         Underneath support and investor relations is one agent, running on{" "}
-        <strong>Hermes Agent</strong>. Its brain is three layers: 273{" "}
-        <strong>skills</strong> (how to do the work), 78{" "}
-        <strong>cron loops</strong> (when to do it), and two{" "}
-        <strong>memory files</strong> (what it knows). Inputs land, the agent
-        reasons and acts, and every action is re-verified by an independent
-        pass.
+        <strong>Hermes Agent</strong>. Its brain is three layers:{" "}
+        <strong>skills</strong> (how to do the work),{" "}
+        <strong>cron loops</strong> (when to do it), and <strong>memory</strong>{" "}
+        (what it knows). Inputs land, the agent reasons and acts, and every
+        action is re-verified by an independent pass.
       </p>
 
       <div className="mt-8">
