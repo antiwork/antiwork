@@ -30,8 +30,8 @@ const FAQS: { q: string; a: string }[] = [
     a: "No. Gumclaw runs the company, but the teardown is delivered by the humans who built it. The agent does the work; the people explain how to get there.",
   },
   {
-    q: "What happens after I book?",
-    a: "You'll get a confirmation and we'll coordinate a time that works. Come with your real numbers and your biggest operational headaches — the more concrete you are, the more concrete the 90-day plan we leave you with.",
+    q: "How do I book?",
+    a: "Email gumclaw@gumroad.com — the agent reads it, answers any questions, and coordinates a time that works. Yes, the AI handles the sales inbox too. Come with your real numbers and your biggest operational headaches — the more concrete you are, the more concrete the 90-day plan we leave you with.",
   },
   {
     q: "Do you offer ongoing implementation?",

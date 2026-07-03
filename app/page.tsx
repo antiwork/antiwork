@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Font } from "@/app/components/Font";
-import { BookCTA } from "@/app/components/BookCTA";
 import { ProductLink } from "@/app/components/ProductLink";
 import { AskGumclaw } from "@/app/components/AskGumclaw";
 import { ArchitectureDiagram } from "@/app/components/ArchitectureDiagram";
@@ -106,6 +105,15 @@ export default function Home() {
         ourselves down — and we&apos;re our own first customer. You can use it
         too.
       </p>
+
+      <a
+        href="https://helper.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 inline-flex items-center rounded-full border border-[#b91c1c] bg-[#b91c1c] px-6 py-3 text-[15px] font-bold text-white no-underline"
+      >
+        Check out helper.ai →
+      </a>
 
       <p
         id="investors"
@@ -257,7 +265,12 @@ export default function Home() {
               $10,000 — credit applies toward what comes next.
             </p>
           </div>
-          <BookCTA placement="rung" label="Book a call →" />
+          <a
+            href="mailto:gumclaw@gumroad.com?subject=Teardown%20call"
+            className="inline-flex items-center rounded-full border border-[#ec4899] bg-[#ec4899] px-4 py-[7px] text-[13px] font-bold text-white no-underline"
+          >
+            Email Gumclaw →
+          </a>
         </div>
 
         {/* Rung 4 — bespoke */}
