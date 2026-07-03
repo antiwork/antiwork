@@ -185,13 +185,6 @@ export default function Home() {
         <ArchitectureDiagram />
       </div>
 
-      <a
-        href="https://github.com/antiwork"
-        className="mt-6 inline-flex items-center text-[14px] text-[#ec4899] no-underline"
-      >
-        See the code on GitHub →
-      </a>
-
       <p
         id="founder"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
