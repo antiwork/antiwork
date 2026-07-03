@@ -182,14 +182,14 @@ export default function Home() {
       </p>
 
       <div className="mt-8">
-        <ArchitectureDiagram compact />
+        <ArchitectureDiagram />
       </div>
 
       <a
-        href="/skills"
+        href="https://github.com/antiwork"
         className="mt-6 inline-flex items-center text-[14px] text-[#ec4899] no-underline"
       >
-        See the full architecture →
+        See the code on GitHub →
       </a>
 
       <p

@@ -11,10 +11,10 @@ const INPUTS = [
   "cron ticks",
 ];
 
-const LAYERS: [string, string, string][] = [
-  ["273", "Skills", "procedural memory — how to do the work"],
-  ["78", "Cron loops", "autonomous cadence — the heartbeat"],
-  ["2", "Memory files", "durable state — what it knows, who it serves"],
+const LAYERS: [string, string][] = [
+  ["Skills", "procedural memory — how to do the work"],
+  ["Cron loops", "autonomous cadence — the heartbeat"],
+  ["Memory files", "durable state — what it knows, who it serves"],
 ];
 
 const LANES: { label: string; color: string; items: string[] }[] = [
@@ -43,29 +43,16 @@ function Arrow() {
   );
 }
 
-export function ArchitectureDiagram({
-  compact = false,
-}: {
-  compact?: boolean;
-}) {
+export function ArchitectureDiagram() {
   return (
     <div>
       <div className="grid grid-cols-3 gap-3">
-        {LAYERS.map(([n, label, sub]) => (
+        {LAYERS.map(([label, sub]) => (
           <div
             key={label}
             className="rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-3 py-4 text-center shadow-card-sm"
           >
-            {!compact && (
-              <p className="m-0 text-[26px] font-bold leading-none text-[#ec4899]">
-                {n}
-              </p>
-            )}
-            <p
-              className={`${compact ? "m-0" : "mt-2"} text-[13px] font-bold text-fg`}
-            >
-              {label}
-            </p>
+            <p className="m-0 text-[13px] font-bold text-fg">{label}</p>
             <p className="mt-1 text-[11px] leading-[1.4] text-muted">{sub}</p>
           </div>
         ))}
@@ -96,8 +83,7 @@ export function ArchitectureDiagram({
             reason → plan → act → verify
           </p>
           <p className="mt-2 text-[12px] text-muted">
-            one agent · Soul + Personality · Memory ·{" "}
-            {compact ? "Skills" : "273 Skills"}
+            one agent · Soul + Personality · Memory · Skills
           </p>
         </div>
 
