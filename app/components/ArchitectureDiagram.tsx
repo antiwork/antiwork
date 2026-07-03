@@ -56,13 +56,17 @@ export function ArchitectureDiagram({
             key={label}
             className="rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-3 py-4 text-center shadow-card-sm"
           >
-            <p className="m-0 text-[26px] font-bold leading-none text-[#ec4899]">
-              {n}
-            </p>
-            <p className="mt-2 text-[13px] font-bold text-fg">{label}</p>
             {!compact && (
-              <p className="mt-1 text-[11px] leading-[1.4] text-muted">{sub}</p>
+              <p className="m-0 text-[26px] font-bold leading-none text-[#ec4899]">
+                {n}
+              </p>
             )}
+            <p
+              className={`${compact ? "m-0" : "mt-2"} text-[13px] font-bold text-fg`}
+            >
+              {label}
+            </p>
+            <p className="mt-1 text-[11px] leading-[1.4] text-muted">{sub}</p>
           </div>
         ))}
       </div>
@@ -92,7 +96,8 @@ export function ArchitectureDiagram({
             reason → plan → act → verify
           </p>
           <p className="mt-2 text-[12px] text-muted">
-            one agent · Soul + Personality · Memory · 273 Skills
+            one agent · Soul + Personality · Memory ·{" "}
+            {compact ? "Skills" : "273 Skills"}
           </p>
         </div>
 
