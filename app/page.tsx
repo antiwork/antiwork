@@ -42,6 +42,7 @@ export default function Home() {
           ["Customer support", "support"],
           ["Investor relations", "investors"],
           ["The architecture", "architecture"],
+          ["The founder", "founder"],
         ].map(([label, id]) => (
           <a
             key={id}
@@ -61,80 +62,42 @@ export default function Home() {
       </p>
 
       <p className="mt-5">
-        Support used to mean waiting. A ticket sat in a queue until a human got
-        to it — sometimes the same hour, often the next day. The agent answers
-        the moment a message lands. Across 3.2 million support responses,{" "}
-        <strong>97.7% went out within the first hour</strong> — and the agent
-        itself, which now handles 84% of everything, answers 99.9% of its
-        tickets inside that hour.
+        In the last 24 hours, 479 support tickets came in. The agent closed{" "}
+        <strong>478 of them</strong>. A human touched exactly one.
       </p>
 
       <figure className="mt-8">
-        <svg
-          viewBox="0 0 520 180"
-          width="100%"
-          height="180"
-          role="img"
-          aria-label="Distribution of 3.2 million support responses by time to first reply: 97.7% within an hour, 0.4% in 1 to 4 hours, 0.5% in 4 to 12 hours, 0.5% in 12 to 24 hours, and 0.9% after 24 hours."
-          style={{ display: "block", overflow: "visible" }}
-        >
-          {[
-            ["<1 hr", 97.68, "#ec4899"],
-            ["1–4 hr", 0.42, "var(--faint)"],
-            ["4–12 hr", 0.54, "var(--faint)"],
-            ["12–24 hr", 0.5, "var(--faint)"],
-            ["24 hr+", 0.85, "var(--faint)"],
-          ].map(([label, pct, color], i) => {
-            const x = 8 + i * 104;
-            const barW = 72;
-            const fullH = 120;
-            const h = Math.max(2, ((pct as number) / 100) * fullH);
-            const y = 130 - h;
-            return (
-              <g key={label as string}>
-                <rect
-                  x={x}
-                  y={y}
-                  width={barW}
-                  height={h}
-                  fill={color as string}
-                />
-                <text
-                  x={x + barW / 2}
-                  y={y - 6}
-                  fontSize="11"
-                  fill={color === "#ec4899" ? "#ec4899" : "var(--muted)"}
-                  fontFamily="monospace"
-                  textAnchor="middle"
-                >
-                  {pct}%
-                </text>
-                <text
-                  x={x + barW / 2}
-                  y={148}
-                  fontSize="9"
-                  fill="var(--faint-2)"
-                  fontFamily="monospace"
-                  textAnchor="middle"
-                >
-                  {label}
-                </text>
-              </g>
-            );
-          })}
-        </svg>
-        <figcaption className="mt-[6px] text-[13px] text-muted">
-          Time to first response across 3.2M support replies, Jan 2024 – Feb
-          2026. Nearly everything is answered within the hour.
+        <p className="m-0 text-[clamp(64px,15vw,104px)] font-bold leading-none tracking-[-0.04em] text-fg">
+          478<span className="text-faint">/479</span>
+        </p>
+        <figcaption className="mt-3 text-[13px] text-muted">
+          Tickets resolved by the agent alone in the last 24 hours. Ranked
+          against the team by tickets resolved, it does more than everyone else
+          combined.
         </figcaption>
       </figure>
 
-      <p className="mt-6">
-        And the answers don&apos;t just come faster — they come from the agent.
-        It handled 2.7 million of those 3.2 million responses, leaving the
-        humans free for the cases that genuinely need them. If your support
-        queue is one hire away from keeping up, the call pays for itself before
-        you make it.
+      <div className="mt-8 flex flex-wrap gap-x-10 gap-y-4">
+        {[
+          ["~50s", "median first reply"],
+          ["23 min", "median resolution"],
+          ["1 in 3", "closed in under 5 min"],
+        ].map(([n, l]) => (
+          <div key={l as string}>
+            <p className="m-0 text-[22px] font-bold text-fg">{n}</p>
+            <p className="mt-1 text-[13px] text-muted">{l}</p>
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-8">
+        It carries the queue, not just the easy part — returned payouts,
+        accounts under review, data-deletion requests, a refund question in
+        Spanish, answered in Spanish. And the one ticket that did need a human
+        arrived as a GitHub issue with everything the agent had already
+        gathered, so the person picked up where it left off, not from zero. If
+        your support queue is one hire away from keeping up, the call pays for
+        itself before you make it.
       </p>
 
       <p className="mt-6">
@@ -212,10 +175,11 @@ export default function Home() {
       <p className="mt-5">
         Underneath support and investor relations is one agent, running on{" "}
         <strong>Hermes Agent</strong>. Its brain is three layers: 273{" "}
-        <strong>skills</strong> (how to do the work), 78 <strong>cron loops</strong>{" "}
-        (when to do it), and two <strong>memory files</strong> (what it knows).
-        Inputs land, the agent reasons and acts, and every action is re-verified
-        by an independent pass.
+        <strong>skills</strong> (how to do the work), 78{" "}
+        <strong>cron loops</strong> (when to do it), and two{" "}
+        <strong>memory files</strong> (what it knows). Inputs land, the agent
+        reasons and acts, and every action is re-verified by an independent
+        pass.
       </p>
 
       <div className="mt-8">
@@ -228,6 +192,26 @@ export default function Home() {
       >
         See the full architecture →
       </a>
+
+      <p
+        id="founder"
+        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
+      >
+        The founder
+      </p>
+
+      <p className="mt-5">
+        Running the company takes the founder about{" "}
+        <strong>one hour a week</strong>. He reads what the agent escalated,
+        signs what only a human can sign, and closes the laptop.
+      </p>
+
+      <p className="mt-6">
+        The rest of his week goes to his day job. He is a full-time employee of
+        the Internal Revenue Service. That is not a joke. Everything on this
+        page — the 478 of 479 tickets, the $14.2M returned to investors — is
+        what one agent runs while its founder works for the federal government.
+      </p>
 
       <p className="mt-10 text-muted">
         We&apos;ll show you how we did it. The tools are out there — the hard
@@ -273,14 +257,9 @@ export default function Home() {
         {/* Rung 2 — the call (you are here) */}
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 rounded-[12px] border border-[#ec4899] bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
           <div className="flex-[1_1_260px]">
-            <div className="flex items-center gap-2">
-              <p className="m-0 text-[15px] font-bold text-fg">
-                The teardown call
-              </p>
-              <span className="rounded-full bg-[#fdf2f8] px-2 py-[2px] text-[11px] font-bold uppercase tracking-[0.12em] text-[#9d174d]">
-                You&apos;re here
-              </span>
-            </div>
+            <p className="m-0 text-[15px] font-bold text-fg">
+              The teardown call
+            </p>
             <p className="mt-1 text-[13px] text-muted">
               90 minutes, 1:1, with the team that built and runs Gumclaw.
               $10,000 — credit applies toward what comes next.
