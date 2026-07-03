@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Font } from "@/app/components/Font";
 import { ArchitectureDiagram } from "@/app/components/ArchitectureDiagram";
 
@@ -9,7 +10,11 @@ export const metadata: Metadata = {
 };
 
 const DOMAINS: [string, number, string][] = [
-  ["gumroad", 146, "support · risk · refunds · KYC · payouts · compliance · tax · eng"],
+  [
+    "gumroad",
+    146,
+    "support · risk · refunds · KYC · payouts · compliance · tax · eng",
+  ],
   ["software-development", 22, "TDD · debugging · code review · planning"],
   ["creative", 20, "diagrams · infographics · design · video"],
   ["productivity", 14, "Google Workspace · Notion · Linear · Ramp"],
@@ -34,19 +39,41 @@ const TAG_COLOR: Record<string, string> = {
 };
 
 const GUARDRAILS: [string, string][] = [
-  ["Confirm before every payment", "No autonomous spend; vendor bank-detail changes trigger an out-of-band BEC check."],
-  ["Irreversible-only gating", "Reversible actions run free; one-way doors are gated behind a human."],
-  ["Critic + backstop passes", "Every loop is re-verified by an independent pass on a timer. “Done” means a critic confirmed it in production."],
-  ["Anti-fabrication rule", "No fact asserted without a live source pulled this session. IDs and amounts are copied, never recalled."],
-  ["Humanization clause", "Every customer-facing line reads like a person wrote it."],
-  ["Send-as attribution", "Human-in-the-loop replies go out under that human’s name; autonomous ones under the agent’s."],
+  [
+    "Confirm before every payment",
+    "No autonomous spend; vendor bank-detail changes trigger an out-of-band BEC check.",
+  ],
+  [
+    "Irreversible-only gating",
+    "Reversible actions run free; one-way doors are gated behind a human.",
+  ],
+  [
+    "Critic + backstop passes",
+    "Every loop is re-verified by an independent pass on a timer. “Done” means a critic confirmed it in production.",
+  ],
+  [
+    "Anti-fabrication rule",
+    "No fact asserted without a live source pulled this session. IDs and amounts are copied, never recalled.",
+  ],
+  [
+    "Humanization clause",
+    "Every customer-facing line reads like a person wrote it.",
+  ],
+  [
+    "Send-as attribution",
+    "Human-in-the-loop replies go out under that human’s name; autonomous ones under the agent’s.",
+  ],
 ];
 
 export default function Skills() {
   return (
     <main className="mx-auto max-w-[640px] px-6 pb-16 pt-8 font-mono text-[16px] leading-[1.7] text-fg">
       <div className="flex items-center gap-2">
-        <a href="/" aria-label="Antiwork home" className="flex items-center gap-2 no-underline">
+        <Link
+          href="/"
+          aria-label="Antiwork home"
+          className="flex items-center gap-2 no-underline"
+        >
           <Font text="W" color="var(--fg)" size={24} />
           <span
             className="text-[30px] font-bold leading-none text-fg"
@@ -54,7 +81,7 @@ export default function Skills() {
           >
             Antiwork
           </span>
-        </a>
+        </Link>
       </div>
 
       <p className="mt-8 text-[13px] uppercase tracking-[0.18em] text-muted">
@@ -125,7 +152,7 @@ export default function Skills() {
         human&apos;s attention.
       </p>
 
-      <div className="mt-6 rounded-[12px] border border-card-border bg-card bg-[color:var(--card)] p-4 shadow-card-sm">
+      <div className="mt-6 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card p-4 shadow-card-sm">
         {CADENCE.map(([name, when, tag], i) => (
           <div
             key={name}
@@ -157,7 +184,7 @@ export default function Skills() {
         {GUARDRAILS.map(([title, body]) => (
           <div
             key={title}
-            className="rounded-[12px] border border-card-border bg-card bg-[color:var(--card)] px-5 py-4 shadow-card-sm"
+            className="rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm"
           >
             <p className="m-0 text-[15px] font-bold text-fg">{title}</p>
             <p className="mt-1 text-[13px] text-muted">{body}</p>
@@ -168,7 +195,7 @@ export default function Skills() {
       <p className="mt-14 text-[13px] uppercase tracking-[0.18em] text-muted">
         The one thing it doesn&apos;t do
       </p>
-      <div className="mt-6 rounded-[12px] border border-[#ec4899] bg-card bg-[color:var(--card)] px-5 py-6 text-center shadow-card-sm">
+      <div className="mt-6 rounded-[12px] border border-[#ec4899] bg-[color:var(--card)] bg-card px-5 py-6 text-center shadow-card-sm">
         <p className="m-0 text-[34px] font-bold leading-none text-[#ec4899]">
           0.01%
         </p>
@@ -191,12 +218,12 @@ export default function Skills() {
         .
       </p>
 
-      <a
+      <Link
         href="/"
         className="mt-14 inline-flex items-center text-[13px] text-muted no-underline"
       >
         ← Back to antiwork.com
-      </a>
+      </Link>
     </main>
   );
 }
