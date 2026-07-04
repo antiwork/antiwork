@@ -6,12 +6,12 @@ import { useState } from "react";
 // `media` strategy (dark: classes follow prefers-color-scheme).
 const FAQS: { q: string; a: string }[] = [
   {
-    q: "What exactly do I get for $10,000?",
+    q: "What exactly do I get on the call?",
     a: "A 90-minute, 1:1 call with the team that built and runs Gumclaw, plus a prioritized 90-day automation plan for your company. We tear down where an agent can take work off your team first, walk through the architecture and guardrails we actually run in production, and cover the org and trust changes that made it stick.",
   },
   {
     q: "Is the call refundable?",
-    a: "No — the call is non-refundable. It's a senior, hands-on working session and the plan is yours to keep. If you go on to have us help you implement, the full $10,000 is credited toward that engagement, so it counts toward the work rather than on top of it.",
+    a: "No — the call is non-refundable. It's a senior, hands-on working session and the plan is yours to keep. If you go on to have us help you implement, the full price of the call is credited toward that engagement, so it counts toward the work rather than on top of it.",
   },
   {
     q: "Who's actually on the call?",
@@ -23,7 +23,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Can't I just use the tools myself?",
-    a: "You can — Helper and Flexile are real products you can use, and the essays are free. The tools are the easy part. The $10,000 buys the judgment: what to automate first, what has to stay human, and how to hand an agent your money and customers without breaking trust. That's the part that took us three years and a few expensive wrong turns.",
+    a: "You can — Helper and Flexile are real products you can use, and the essays are free. The tools are the easy part. The call buys the judgment: what to automate first, what has to stay human, and how to hand an agent your money and customers without breaking trust. That's the part that took us three years and a few expensive wrong turns.",
   },
   {
     q: "Will an AI run the call?",
@@ -35,7 +35,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Do you offer ongoing implementation?",
-    a: "Yes, for a subset of companies. The call is the front door: if it's a fit on both sides, we'll talk about helping you build, and the $10,000 is credited toward that work.",
+    a: "Yes, for a subset of companies. The call is the front door: if it's a fit on both sides, we'll talk about helping you build, and the call price is credited toward that work.",
   },
 ];
 

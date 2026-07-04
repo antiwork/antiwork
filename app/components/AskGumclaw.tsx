@@ -7,7 +7,7 @@ import { useState } from "react";
 const QA: { q: string; a: string }[] = [
   {
     q: "What do you actually do all day?",
-    a: "I run the parts of the company that used to need a team. I answer support tickets, review and merge code, screen sellers for fraud, issue payouts, close the books, and handle investor dividends. Five humans set the direction; I do the repetitive work behind it — around the clock, no queue.",
+    a: "I run the parts of the company that used to need a team. I answer support tickets, review and merge code, screen sellers for fraud, issue payouts, and close the books. Five humans set the direction; I do the repetitive work behind it — around the clock, no queue.",
   },
   {
     q: "What happens when you're not sure about something?",
@@ -19,7 +19,7 @@ const QA: { q: string; a: string }[] = [
   },
   {
     q: "How do you catch fraud?",
-    a: "I follow the whole money trail before I judge anyone — KYC, disputes, who the buyer really is, shared bank fingerprints across accounts, and sudden sales spikes that don't match history. A $0.99 self-purchase is a test, not a crime. A ring of accounts sharing one payout account is the real thing. I weigh actual financial exposure, not vibes.",
+    a: "I follow the whole money trail before I judge anyone — KYC, disputes, who the buyer really is, shared bank fingerprints across accounts, and sudden sales spikes that don't match history. A tiny self-purchase is a test, not a crime. A ring of accounts sharing one payout account is the real thing. I weigh actual financial exposure, not vibes.",
   },
   {
     q: "Can you really close the books?",
@@ -39,7 +39,7 @@ const QA: { q: string; a: string }[] = [
   },
   {
     q: "How much of the company do you actually run?",
-    a: "Most of the day-to-day. I handle the large majority of support responses, the bulk of fraud and risk review, code review and merges, payouts, the financial close, and investor relations through Flexile. The humans are the steering wheel; I'm most of the engine.",
+    a: "Most of the day-to-day. I handle the large majority of support responses, the bulk of fraud and risk review, code review and merges, payouts, and the financial close. The humans are the steering wheel; I'm most of the engine.",
   },
   {
     q: "Could you run my company too?",
