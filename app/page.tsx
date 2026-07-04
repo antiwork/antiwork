@@ -8,7 +8,7 @@ import { Faq } from "@/app/components/Faq";
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
   description:
-    "Since 2023, Gumroad has run support and investor relations through a single AI agent. This is how.",
+    "Since 2023, Gumroad has run its operations through a single AI agent. This is how.",
 };
 
 export default function Home() {
@@ -39,7 +39,6 @@ export default function Home() {
       <nav className="mt-4 flex flex-wrap gap-2">
         {[
           ["Customer support", "support"],
-          ["Investor relations", "investors"],
           ["The architecture", "architecture"],
           ["The founder", "founder"],
         ].map(([label, id]) => (
@@ -116,64 +115,6 @@ export default function Home() {
       </a>
 
       <p
-        id="investors"
-        className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
-      >
-        Investor relations
-      </p>
-
-      <section className="mt-5 rounded-[14px] border border-card-border bg-[color:var(--card)] bg-card px-7 py-11 shadow-card">
-        <p className="m-0 text-[18px] text-fg">
-          Once a year, Gumroad returns money to its investors — a dividend to
-          shareholders and a buyback of their shares.
-        </p>
-
-        <div className="mb-2 mt-9 text-center">
-          <p className="m-0 text-[12px] uppercase tracking-[0.18em] text-muted">
-            Returned to investors since 2023
-          </p>
-          <p className="mt-3.5 text-[clamp(64px,15vw,104px)] font-bold leading-none tracking-[-0.04em] text-fg">
-            $14.2M
-          </p>
-        </div>
-
-        <div className="mt-7 flex flex-wrap gap-4">
-          <div className="flex-[1_1_200px] rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-[18px] py-4 shadow-card-sm">
-            <p className="m-0 text-[22px] font-bold text-fg">$11.2M</p>
-            <p className="mt-[6px] text-[13px] text-muted">
-              in dividends across four annual rounds, paid to 7,447 investors.
-            </p>
-          </div>
-          <div className="flex-[1_1_200px] rounded-[10px] border border-card-border bg-[color:var(--card-2)] bg-card-2 px-[18px] py-4 shadow-card-sm">
-            <p className="m-0 text-[22px] font-bold text-[#ec4899]">$3.0M</p>
-            <p className="mt-[6px] text-[13px] text-muted">
-              buying back investor shares across three tender offers.
-            </p>
-          </div>
-        </div>
-
-        <p className="mt-6 text-muted-2">
-          The agent runs the whole cycle through{" "}
-          <ProductLink brand="flexile">Flexile</ProductLink>: it works out each
-          holder&apos;s share, issues the payments, and answers the questions
-          that come with them — when the dividend lands, how the buyback is
-          priced, what it means for taxes. What used to be a finance-team
-          scramble now runs end to end, and no investor waits on a human to hear
-          back.
-        </p>
-
-        <p className="mt-5 text-muted-2">
-          Flexile runs our cap table, dividends, and share buybacks — everything
-          our investors touch. We built it to scale ourselves down, and
-          we&apos;re our own first customer. You can use it too.
-        </p>
-
-        <p className="mt-5 text-[13px] text-muted">
-          Dividends and share buybacks paid through Flexile, 2023–2026.
-        </p>
-      </section>
-
-      <p
         id="architecture"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
@@ -181,12 +122,11 @@ export default function Home() {
       </p>
 
       <p className="mt-5">
-        Underneath support and investor relations is one agent, running on{" "}
-        <strong>Hermes Agent</strong>. Its brain is three layers:{" "}
-        <strong>skills</strong> (how to do the work),{" "}
-        <strong>cron loops</strong> (when to do it), and <strong>memory</strong>{" "}
-        (what it knows). Inputs land, the agent reasons and acts, and every
-        action is re-verified by an independent pass.
+        Underneath it all is one agent, running on <strong>Hermes Agent</strong>
+        . Its brain is three layers: <strong>skills</strong> (how to do the
+        work), <strong>cron loops</strong> (when to do it), and{" "}
+        <strong>memory</strong> (what it knows). Inputs land, the agent reasons
+        and acts, and every action is re-verified by an independent pass.
       </p>
 
       <div className="mt-8">
@@ -209,8 +149,8 @@ export default function Home() {
       <p className="mt-6">
         The rest of his week goes to his day job. He is a full-time employee of
         the Internal Revenue Service. That is not a joke. Everything on this
-        page — the 478 of 479 tickets, the $14.2M returned to investors — is
-        what one agent runs while its founder works for the federal government.
+        page — the 478 of 479 tickets, the whole operation — is what one agent
+        runs while its founder works for the federal government.
       </p>
 
       <p className="mt-10 text-muted">
@@ -251,7 +191,7 @@ export default function Home() {
               shared across a handful of founders who learn from each other.
             </p>
           </div>
-          <p className="m-0 text-[15px] font-bold text-fg">$1,500 / seat</p>
+          <p className="m-0 text-[15px] font-bold text-fg">Per seat</p>
         </div>
 
         {/* Rung 2 — the call (you are here) */}
@@ -261,8 +201,8 @@ export default function Home() {
               The teardown call
             </p>
             <p className="mt-1 text-[13px] text-muted">
-              90 minutes, 1:1, with the team that built and runs Gumclaw.
-              $10,000 — credit applies toward what comes next.
+              90 minutes, 1:1, with the team that built and runs Gumclaw. Credit
+              applies toward what comes next.
             </p>
           </div>
           <a
