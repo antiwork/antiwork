@@ -170,7 +170,7 @@ export default function Home() {
           </p>
         </div>
         <a
-          href="https://x.com/gumclaw"
+          href="https://x.com/intent/post?text=%40gumclaw%20"
           className="inline-flex items-center rounded-full border border-[#ec4899] bg-[#ec4899] px-4 py-[7px] text-[13px] font-bold text-white no-underline"
         >
           Ask on X →
