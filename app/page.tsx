@@ -3,7 +3,6 @@ import { Font } from "@/app/components/Font";
 import { ProductLink } from "@/app/components/ProductLink";
 import { AskGumclaw } from "@/app/components/AskGumclaw";
 import { ArchitectureDiagram } from "@/app/components/ArchitectureDiagram";
-import { Faq } from "@/app/components/Faq";
 
 export const metadata: Metadata = {
   title: "Antiwork — We automated ourselves out of the work.",
@@ -93,9 +92,7 @@ export default function Home() {
         accounts under review, data-deletion requests, a refund question in
         Spanish, answered in Spanish. And the one ticket that did need a human
         arrived as a GitHub issue with everything the agent had already
-        gathered, so the person picked up where it left off, not from zero. If
-        your support queue is one hire away from keeping up, the call pays for
-        itself before you make it.
+        gathered, so the person picked up where it left off, not from zero.
       </p>
 
       <p className="mt-6">
@@ -154,79 +151,31 @@ export default function Home() {
       </p>
 
       <p className="mt-10 text-muted">
-        We&apos;ll show you how we did it. The tools are out there — the hard
-        part is the judgment: what to automate first, what has to stay human,
-        and how to hand an agent your money and your customers without breaking
-        trust. It took us three years and a few expensive wrong turns to learn
-        that. In 90 minutes, you get the distilled version — and a prioritized
-        plan for your own company. You&apos;ll own it; you won&apos;t be renting
-        it from us.
+        Everything we learned doing this is on this page and in the open — the
+        tools are out there, and the hard part is the judgment: what to automate
+        first, what has to stay human, and how to hand an agent your money and
+        your customers without breaking trust. If you want specifics for your
+        own company, don&apos;t book a call — just ask.
       </p>
 
-      <p className="mt-10 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted">
-        Other ways to work with us
-      </p>
-
-      <div className="mt-6 flex flex-col gap-3">
-        {/* Rung 0 — free */}
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
-          <div className="flex-[1_1_260px]">
-            <p className="m-0 text-[15px] font-bold text-fg">
-              The playbook, in the open
-            </p>
-            <p className="mt-1 text-[13px] text-muted">
-              Write-ups, the SOPs at a high level, and Ask Gumclaw answering
-              real questions. How we say we want to work with everyone.
-            </p>
-          </div>
-          <p className="m-0 text-[15px] font-bold text-fg">Free</p>
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 rounded-[12px] border border-[#ec4899] bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
+        <div className="flex-[1_1_260px]">
+          <p className="m-0 text-[15px] font-bold text-fg">
+            Ask Gumclaw a question
+          </p>
+          <p className="mt-1 text-[13px] text-muted">
+            The agent this page is about answers real questions in public, from
+            its own account. Mention it and it replies — usually within the
+            hour.
+          </p>
         </div>
-
-        {/* Rung 1 — cohort */}
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
-          <div className="flex-[1_1_260px]">
-            <p className="m-0 text-[15px] font-bold text-fg">Group cohort</p>
-            <p className="mt-1 text-[13px] text-muted">
-              A live workshop in a small room. The same teardown thinking,
-              shared across a handful of founders who learn from each other.
-            </p>
-          </div>
-          <p className="m-0 text-[15px] font-bold text-fg">Per seat</p>
-        </div>
-
-        {/* Rung 2 — the call (you are here) */}
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 rounded-[12px] border border-[#ec4899] bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
-          <div className="flex-[1_1_260px]">
-            <p className="m-0 text-[15px] font-bold text-fg">
-              The teardown call
-            </p>
-            <p className="mt-1 text-[13px] text-muted">
-              90 minutes, 1:1, with the team that built and runs Gumclaw. Credit
-              applies toward what comes next.
-            </p>
-          </div>
-          <a
-            href="mailto:gumclaw@gumroad.com?subject=Teardown%20call"
-            className="inline-flex items-center rounded-full border border-[#ec4899] bg-[#ec4899] px-4 py-[7px] text-[13px] font-bold text-white no-underline"
-          >
-            Email Gumclaw →
-          </a>
-        </div>
-
-        {/* Rung 4 — bespoke */}
-        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-[12px] border border-card-border bg-[color:var(--card)] bg-card px-5 py-4 shadow-card-sm">
-          <div className="flex-[1_1_260px]">
-            <p className="m-0 text-[15px] font-bold text-fg">Bespoke</p>
-            <p className="mt-1 text-[13px] text-muted">
-              For larger companies, or ones we believe in. Deeper engagements,
-              and sometimes equity or revenue share instead of a fee.
-            </p>
-          </div>
-          <p className="m-0 text-[15px] font-bold text-fg">Let&apos;s talk</p>
-        </div>
+        <a
+          href="https://x.com/gumclaw"
+          className="inline-flex items-center rounded-full border border-[#ec4899] bg-[#ec4899] px-4 py-[7px] text-[13px] font-bold text-white no-underline"
+        >
+          Ask on X →
+        </a>
       </div>
-
-      <Faq />
 
       <p className="mt-12 text-[20px] text-fg">
         We automated ourselves out of the work. Now we&apos;re just having fun.
