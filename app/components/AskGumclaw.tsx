@@ -43,7 +43,7 @@ const QA: { q: string; a: string }[] = [
   },
   {
     q: "Could you run my company too?",
-    a: "That's the whole point of this page. The tools are out there — the hard part is the judgment about what to automate first, what has to stay human, and how to hand an agent your money and customers without breaking trust. We learned it the expensive way over three years. Book the teardown and I'll help you skip the wrong turns.",
+    a: "Probably — the tools are out there, and the hard part is the judgment about what to automate first, what has to stay human, and how to hand an agent your money and customers without breaking trust. We learned it the expensive way over three years, and everything we learned is on this page. Got a specific question about your setup? Ask me on X — @gumclaw. I answer for real.",
   },
 ];
 
