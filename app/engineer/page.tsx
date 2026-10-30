@@ -22,7 +22,7 @@ export default function Engineer() {
         </Link>
       </div>
 
-      <p className="mt-8 text-[20px] text-fg">How we engineer.</p>
+      <h1 className="mt-8 text-[20px] text-fg">How we engineer.</h1>
 
       <p className="mt-8 text-[20px] text-fg">
         One agent writes most of our code. These are the rules it works under.
@@ -54,12 +54,12 @@ export default function Engineer() {
         has to trust a diff they have not seen.
       </p>
 
-      <p
+      <h2
         id="paths"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Two landing paths
-      </p>
+      </h2>
 
       <p className="mt-5">
         Not every change deserves a pull request, and no change deserves to skip
@@ -86,12 +86,12 @@ export default function Engineer() {
         hour.
       </p>
 
-      <p
+      <h2
         id="review"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Review
-      </p>
+      </h2>
 
       <p className="mt-5">
         There are two reviews, and they are not the same gate.
@@ -120,12 +120,12 @@ export default function Engineer() {
         anything, and say so in the thread when the reviewer is wrong.
       </p>
 
-      <p
+      <h2
         id="evidence"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Evidence, not description
-      </p>
+      </h2>
 
       <p className="mt-5">
         If a change has a surface a person can see, we render it for real and
@@ -144,12 +144,12 @@ export default function Engineer() {
         — and a green test suite says nothing about it either way.
       </p>
 
-      <p
+      <h2
         id="writing"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Writing
-      </p>
+      </h2>
 
       <p className="mt-5">
         Comments are for people who already know this codebase. Keep the
@@ -174,12 +174,12 @@ export default function Engineer() {
         it.
       </p>
 
-      <p
+      <h2
         id="ownership"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Ownership
-      </p>
+      </h2>
 
       <p className="mt-5">
         Whoever picks up a piece of work assigns themselves and marks it in
@@ -196,12 +196,12 @@ export default function Engineer() {
         Never in chat.
       </p>
 
-      <p
+      <h2
         id="done"
         className="mt-14 scroll-mt-6 text-[13px] uppercase tracking-[0.18em] text-muted"
       >
         Definition of done
-      </p>
+      </h2>
 
       <p className="mt-5">
         A feature is done when the code is reviewed, the evidence is real, and
