@@ -394,7 +394,7 @@ mercury               111 cleared, 0 uncategorized                   ok
 treasury              dividends 30,764.33                            ok
 flexile               4 paid invoices                                ok
 wise                  3 remittances, 1,043,053.83                    ok
-close accruals        revenue 402,761.11 / cogs 71,634.48 / cap 66,600.86
+close accruals        5020 402,761.11 / 6010 71,634.48 / cap 66,600.86
 tax offsets           169,787.34 out of revenue tax, into payable
 tax provision         YTD pre-tax 6,792,947.39  ->  2,173,743.17
 bean-check            green`}
