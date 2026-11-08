@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "A talk in sixteen slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
 };
 
-const SLIDES = 19;
+const SLIDES = 20;
 
 function Slide({
   n,
@@ -82,6 +82,7 @@ export default function Accounting() {
           ["Audit trail", "audit"],
           ["Failures", "failures"],
           ["Human", "human"],
+          ["CFO", "cfo"],
           ["Start Monday", "start"],
           ["One rule", "rule"],
         ].map(([label, id]) => (
@@ -562,7 +563,59 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={18} id="start" title="If you start on Monday">
+      <Slide n={18} id="cfo" title="How the CFO is looped in">
+        <p>
+          &quot;A human signs off&quot; is not a design until it names the
+          human, the artifact, and the deadline. Ours is the CFO, and this is
+          the whole interface.
+        </p>
+        <p>
+          <strong>One package on a schedule.</strong> Daily, silence — unless an
+          exception needs a decision. Monthly, a close package: the assertions
+          with their receipts, every exception with its source document, the
+          proposed postings as a diff, and a numbered list of the decisions
+          actually being asked for.
+        </p>
+        <p>
+          <strong>Decision cards, not a dashboard.</strong> Each item is one
+          question with the evidence attached, the number behind every option,
+          and one line saying what happens if nobody answers. A dashboard
+          invites looking; a card asks for a signature.
+        </p>
+        <p>
+          <strong>Deadlines are the agent&apos;s problem to track.</strong>
+          Filing and payment dates live in the same file as the assertions, so
+          an unanswered item escalates on a schedule and then escalates again to
+          the CEO. It never resolves itself by default, and a quiet deadline is
+          a failure of the loop, not a decision.
+        </p>
+        <p>
+          <strong>Separation of duties.</strong> The agent reads everything and
+          writes the book. Money rails, adjustments to a closed period and the
+          sign-off need the CFO&apos;s approval recorded against the exact
+          change — so the audit trail holds the approval, not only the entry.
+        </p>
+        <p>
+          <strong>Noise is a failure, so it is budgeted.</strong> If the person
+          who signs gets a message a day, they will stop reading them. The daily
+          message cap exists so that receiving one means something.
+        </p>
+        <p>
+          <strong>They set the rules; the agent follows them.</strong>{" "}
+          Materiality thresholds, which accounts may be posted unattended, how
+          long an exception may live, who signs what — all of it lives in files
+          the agent must read before it acts, and only finance may change them.
+          The agent can propose a change to a rule. It cannot edit one.
+        </p>
+        <p className="text-muted">
+          The honest limit: this loop is only as good as the attention behind
+          it. The goal is that attention goes to ten decisions a month rather
+          than a thousand lines — and that when the CFO is away, the loop keeps
+          working and stops in exactly the right place.
+        </p>
+      </Slide>
+
+      <Slide n={19} id="start" title="If you start on Monday">
         <ol className="ml-5 list-decimal space-y-2">
           <li>
             Put the ledger in plain-text double entry, in git. No exceptions.
@@ -588,7 +641,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={19} id="rule" title="The one rule">
+      <Slide n={20} id="rule" title="The one rule">
         <p className="text-[20px]">
           If the agent cannot show you the source document and the diff it
           produced, it does not go in the books.
