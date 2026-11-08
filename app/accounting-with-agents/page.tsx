@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "A talk in sixteen slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
 };
 
-const SLIDES = 18;
+const SLIDES = 19;
 
 function Slide({
   n,
@@ -72,6 +72,7 @@ export default function Accounting() {
           ["Idempotency", "idempotency"],
           ["Reconcile", "reconcile"],
           ["The daily loop", "daily"],
+          ["Cadence", "cadence"],
           ["Assertions", "assertions"],
           ["Evidence", "evidence"],
           ["Guardrails", "guardrails"],
@@ -238,22 +239,43 @@ payroll / tax    → attachments   →                  →  month close
         </p>
       </Slide>
 
-      <Slide
-        n={7}
-        id="daily"
-        title="The daily loop: what it does, and what it refuses"
-      >
-        <p>
-          Once a day: pull the new sources, ingest with keys, match payouts to
-          deposits, list every unmatched item, check that the trial balance
-          holds, and write a one-screen report — numbers, exceptions, what it
-          could not resolve.
-        </p>
+      <Slide n={7} id="daily" title="The daily close, step by step">
+        <ol className="ml-5 list-decimal space-y-2">
+          <li>
+            Pull every source that moved since the last run: processor reports,
+            bank lines, invoices, bills.
+          </li>
+          <li>
+            Ingest each event under its source key, upserting — a second run
+            changes nothing.
+          </li>
+          <li>
+            Match payouts to deposits and bills to payments. Anything unmatched
+            becomes a named exception with the source document attached.
+          </li>
+          <li>
+            Post the entries the rules can post; propose the ones they cannot,
+            as a diff a human can accept or reject.
+          </li>
+          <li>
+            Run the assertions: entries balance, no unmatched item without an
+            exception, no exception past its window, closed periods untouched.
+          </li>
+          <li>
+            Write a one-screen report — the numbers, the exceptions, what it
+            could not resolve, and what it refused to do.
+          </li>
+        </ol>
         <p>
           What it refuses, by rule: create a new account, change a period that
           is closed, move money, or &quot;fix&quot; an exception by deleting it.
           Refusals are output too. An agent that can always produce a clean
           report is not doing accounting.
+        </p>
+        <p>
+          A step that fails stops the rest and reports a failure, not a partial
+          success. A close that half-ran is not a smaller close — it is a
+          misleading one.
         </p>
         <p className="text-muted">
           The loop is a script with a checklist, woken by cron. The model&apos;s
@@ -262,8 +284,53 @@ payroll / tax    → attachments   →                  →  month close
         </p>
       </Slide>
 
+      <Slide n={8} id="cadence" title="What else recurs, and how often">
+        <p>
+          The daily close is one rung of a ladder. Almost all of the work is on
+          a timer, because the useful question is not &quot;what should we
+          do&quot; but &quot;how long can we be wrong about this?&quot;
+        </p>
+        <pre className="overflow-x-auto rounded border border-card-border bg-card-2 p-4 text-[13px] leading-[1.6]">
+          {`every 2-5 min    watchdogs       pool health, proxy health, session budgets
+every 15-30 min  front line      new tickets, risk queue slice, deploy check
+hourly           trust & safety  piracy and DMCA queue, satisfaction scan
+daily            books           close, card-testing, spam, policy drift
+weekly           patterns        refund abuse, rings, spend digest, release
+monthly          close+filings   month close, balance snapshots, tax accruals
+quarterly/year   review          accounting review, policy review
+on event         hooks           mail push, GitHub, errors, deploy callbacks`}
+        </pre>
+        <p>
+          <strong>
+            A timer is a promise about latency; an event is a promise about
+            speed.
+          </strong>{" "}
+          Where both exist — a mail push plus a polling backstop, a webhook plus
+          a sweep — the pair is only safe because every handler is idempotent,
+          so the second delivery changes nothing.
+        </p>
+        <p>
+          <strong>Cadence is a risk decision.</strong> Fraud and payouts get
+          minutes because being wrong for a day is expensive. The books get a
+          day because a day&apos;s error is still cheap. Filings get a month
+          because that is the deadline, not the risk.
+        </p>
+        <p>
+          <strong>Loops stay silent unless something changed,</strong> and there
+          is a hard daily cap on how many messages the scheduler may send a
+          person, so that silence keeps meaning &quot;fine.&quot; Watchdogs
+          watch the loops themselves — heartbeat, stale queue, disk headroom,
+          budget — because otherwise silence is ambiguous.
+        </p>
+        <p className="text-muted">
+          And loops retire. One tied to a single open ticket dies with the
+          ticket; a weekly review kills the ones nobody reads. Rot is the
+          default state of a scheduler, not an accident.
+        </p>
+      </Slide>
+
       <Slide
-        n={8}
+        n={9}
         id="assertions"
         title="A close is a list of assertions, not a feeling"
       >
@@ -286,7 +353,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={9}
+        n={10}
         id="evidence"
         title="Every number is read back, in the same session"
       >
@@ -309,7 +376,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={10}
+        n={11}
         id="guardrails"
         title="The guardrails that actually earned their place"
       >
@@ -338,7 +405,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={11}
+        n={12}
         id="salestax"
         title="Sales tax: deterministic, so the agent prepares it"
       >
@@ -373,7 +440,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={12}
+        n={13}
         id="incometax"
         title="Income tax: judgment, so the agent assembles instead of deciding"
       >
@@ -406,7 +473,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={13} id="unsure" title="When it is unsure, it stops">
+      <Slide n={14} id="unsure" title="When it is unsure, it stops">
         <p>
           The default for an ambiguous source document is not the most likely
           classification. It is a question, filed where a person will see it,
@@ -422,7 +489,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={14}
+        n={15}
         id="audit"
         title='Six months later you must be able to ask "why is this number here?"'
       >
@@ -442,7 +509,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={15} id="failures" title="What went wrong, honestly">
+      <Slide n={16} id="failures" title="What went wrong, honestly">
         <ul className="ml-5 list-disc space-y-2">
           <li>
             <strong>Double-booking</strong> from a non-idempotent sync. Fixed
@@ -474,7 +541,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={16}
+        n={17}
         id="human"
         title="What stays human, and why that is not a compromise"
       >
@@ -495,7 +562,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={17} id="start" title="If you start on Monday">
+      <Slide n={18} id="start" title="If you start on Monday">
         <ol className="ml-5 list-decimal space-y-2">
           <li>
             Put the ledger in plain-text double entry, in git. No exceptions.
@@ -521,7 +588,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={18} id="rule" title="The one rule">
+      <Slide n={19} id="rule" title="The one rule">
         <p className="text-[20px]">
           If the agent cannot show you the source document and the diff it
           produced, it does not go in the books.
