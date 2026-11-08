@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "A talk in sixteen slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
 };
 
-const SLIDES = 20;
+const SLIDES = 21;
 
 function Slide({
   n,
@@ -83,6 +83,7 @@ export default function Accounting() {
           ["Failures", "failures"],
           ["Human", "human"],
           ["CFO", "cfo"],
+          ["Cost", "cost"],
           ["Start Monday", "start"],
           ["One rule", "rule"],
         ].map(([label, id]) => (
@@ -615,7 +616,58 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={19} id="start" title="If you start on Monday">
+      <Slide
+        n={19}
+        id="cost"
+        title="What the finance function costs, before and after"
+      >
+        <p>
+          These are our own invoices, not a vendor deck, and they are the only
+          money on these slides. Every company&apos;s numbers are different; the
+          shape of the change is what travels.
+        </p>
+        <pre className="overflow-x-auto rounded border border-card-border bg-card-2 p-4 text-[13px] leading-[1.6]">
+          {`month      outsourced finance + fractional CFO    agent-run finance
+Jan 2026   $28.0K billed                          -
+Feb        $34.0K billed (incl. add-on)           -
+Mar        $18.8K billed                          -
+Apr        $21.5K billed                          -
+May        $27.5K billed (incl. add-on)           -
+Jun        $20.6K billed                          -
+Jul        $18.5K accrued, unpaid at cutover      -
+Aug-Nov    -                                      $0 retainer
+average    about $24K / month                     $0 / month retainer`}
+        </pre>
+        <p>
+          <strong>
+            Down about $24K a month, and the retainer line is zero.
+          </strong>{" "}
+          What left with the retainer: the close, the journal entries, the
+          filing coordination, the reviewer. What stayed: the work, the same
+          assertions, and a named person who signs.
+        </p>
+        <p>
+          <strong>What replaced it:</strong> this pipeline — ingestion,
+          reconciliation, assertions, the close package — plus a CFO on hourly
+          for judgment, and tax-compliance vendors only where a jurisdiction
+          requires a local agent or a fiscal representative. The plants that
+          cost money now are the ones that are legally required to exist.
+        </p>
+        <p>
+          <strong>What the number does not show.</strong> The agent&apos;s own
+          model spend is not zero. The review still costs a person hours — fewer
+          of them, spent on decisions instead of data entry. And the risk did
+          not disappear, it moved: we are now the ones who have to be right, so
+          the control has to be a test rather than a relationship.
+        </p>
+        <p className="text-muted">
+          Read as a savings story, that is the honest version: the saving is
+          real, and it is only safe because the close is a set of assertions you
+          can re-run. A retainer buys someone to blame; a pipeline buys a diff.
+        </p>
+      </Slide>
+
+      <Slide n={20} id="start" title="If you start on Monday">
         <ol className="ml-5 list-decimal space-y-2">
           <li>
             Put the ledger in plain-text double entry, in git. No exceptions.
@@ -641,7 +693,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={20} id="rule" title="The one rule">
+      <Slide n={21} id="rule" title="The one rule">
         <p className="text-[20px]">
           If the agent cannot show you the source document and the diff it
           produced, it does not go in the books.
