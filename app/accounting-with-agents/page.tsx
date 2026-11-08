@@ -696,31 +696,42 @@ assert period_is_locked_and_signed()`}
           shape of the change is what travels.
         </p>
         <pre className="overflow-x-auto rounded border border-card-border bg-card-2 p-4 text-[13px] leading-[1.6]">
-          {`month      outsourced finance + fractional CFO    agent-run finance
-Jan 2026   $28.0K billed                          -
-Feb        $34.0K billed (incl. add-on)           -
-Mar        $18.8K billed                          -
-Apr        $21.5K billed                          -
-May        $27.5K billed (incl. add-on)           -
-Jun        $20.6K billed                          -
-Jul        $18.5K accrued, unpaid at cutover      -
-Aug-Nov    -                                      $0 retainer
-average    about $24K / month                     $0 / month retainer`}
+          {`month     retainer billed     hours paid    intl accounting
+Jan 2026  $28.0K              -             -
+Feb       $34.0K (+add-on)    -             -
+Mar       $18.8K              -             -
+Apr       $21.5K              -             -
+May       $27.5K (+add-on)    -             -
+Jun       $20.6K              -             -
+Jul       $18.5K (last one)   -             -
+Aug       -                   $14.6K        -
+Sep       -                   $4.8K         -
+Oct       -                   $1.8K*        $15.2K
+average   about $24K/month    about $7K     about $5K`}
         </pre>
         <p>
           <strong>
-            Down about $24K a month, and the retainer line is zero.
+            Down from about $24K a month to about $7K — and not to zero.
           </strong>{" "}
-          What left with the retainer: the close, the journal entries, the
-          filing coordination, the reviewer. What stayed: the work, the same
+          The retainer bought coverage; what we buy now is hours, and hours
+          swing: $14.6K in August, $4.8K in September, $1.8K in October. What
+          left with the retainer was the close, the journal entries, the filing
+          coordination, the reviewer. What stayed: the work, the same
           assertions, and a named person who signs.
         </p>
         <p>
-          <strong>What replaced it:</strong> this pipeline — ingestion,
-          reconciliation, assertions, the close package — plus a CFO on hourly
-          for judgment, and tax-compliance vendors only where a jurisdiction
-          requires a local agent or a fiscal representative. The plants that
-          cost money now are the ones that are legally required to exist.
+          <strong>The line that did not fall</strong> is international
+          accounting: $15.2K in October, for a jurisdiction that requires a
+          local filing agent. That is the honest floor of this exercise — some
+          of the money is the cost of a place, not the cost of a person, and no
+          amount of software removes it.
+        </p>
+        <p>
+          *The $19.9K invoice dated mid-October was voided by the payment
+          provider on the 21st and had not been re-paid as of November 8, so it
+          is not in the column. If it comes back, October is $21.7K of hours and
+          the three-month average is about $12K — still half, but not a rounding
+          error.
         </p>
         <p>
           <strong>What the number does not show.</strong> The agent&apos;s own
@@ -730,9 +741,10 @@ average    about $24K / month                     $0 / month retainer`}
           the control has to be a test rather than a relationship.
         </p>
         <p className="text-muted">
-          Read as a savings story, that is the honest version: the saving is
-          real, and it is only safe because the close is a set of assertions you
-          can re-run. A retainer buys someone to blame; a pipeline buys a diff.
+          Read as a savings story, that is the honest version: roughly half the
+          cost, most of it now variable, and none of it safe unless the close is
+          a set of assertions you can re-run. A retainer buys someone to blame;
+          a pipeline buys a diff.
         </p>
       </Slide>
 
