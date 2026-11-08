@@ -63,7 +63,7 @@ function Bars({
   const yFor = (v: number) => H - (v / top) * H;
   const grid = gridValues ?? [0, 0.25, 0.5, 0.75, 1].map((f) => top * 0.92 * f);
   return (
-    <svg viewBox={`0 0 ${W} ${H + 22}`} className="w-full text-fg" role="img">
+    <svg viewBox={`0 -10 ${W} ${H + 34}`} className="w-full text-fg" role="img">
       {grid.map((g, i) => (
         <g key={i}>
           <line
