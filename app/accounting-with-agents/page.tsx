@@ -401,9 +401,11 @@ bean-check            green`}
         </pre>
         <p>
           <strong>Two of those lines are why a person still signs.</strong> The
-          tax provision turns $6.8M of year-to-date profit into a $2.2M
-          liability at 32 percent; the accruals move the month&apos;s expense by
-          $400K. A wrong number there is not a typo, it is a filing.
+          Stripe processing fees alone are $402,761.11 for the month, booked to
+          cost of revenue — one accrual bigger than most companies&apos; whole
+          month of costs. And the provision turns $6.8M of year-to-date profit
+          into a $2.2M liability at 32 percent. A wrong number there is not a
+          typo, it is a filing.
         </p>
         <p>
           The daily half is separate and smaller: revenue posts itself every day
@@ -415,9 +417,9 @@ bean-check            green`}
         </p>
         <Bars
           values={[
-            47.1, 45.3, 51.0, 57.0, 50.9, 46.3, 45.6, 42.5, 42.9, 39.1, 40.5,
-            45.9, 42.3, 42.1, 44.8, 44.5, 39.0, 39.4, 42.5, 43.4, 43.8, 43.0,
-            40.6, 39.1, 39.9, 39.9, 42.7, 43.5, 47.7, 43.7, 40.4,
+            50.2, 48.1, 55.5, 62.7, 54.5, 49.9, 49.0, 45.5, 45.9, 42.2, 43.8,
+            49.1, 45.5, 44.8, 48.0, 47.6, 42.0, 42.3, 45.3, 46.7, 46.9, 45.9,
+            43.5, 41.7, 42.8, 42.5, 45.8, 46.4, 51.3, 46.7, 43.5,
           ]}
           labels={[
             "1",
@@ -456,9 +458,12 @@ bean-check            green`}
           labelEvery={7}
         />
         <p className="text-muted">
-          Daily net sales booked into the ledger, October 2026, $K. Thirty-one
-          bars, none of them entered by hand, summing to $1,356.4K — the same
-          figure the monthly revenue slide shows.
+          Daily revenue posted by the importer, Stripe and PayPal, October 2026,
+          $K. Thirty-one bars, none of them entered by hand, adding to
+          $1,455.6K. The closed P&amp;L says $1,442.3K, and the $13.3K between
+          them is refund and deferred-revenue handling that only happens at
+          close — which is the argument for a close being a step, not a
+          formality.
         </p>
       </Slide>
 
