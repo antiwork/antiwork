@@ -43,6 +43,8 @@ function Bars({
   opacities,
   valueLabels,
   labelEvery,
+  topValue,
+  gridValues,
 }: {
   values: number[];
   labels: string[];
@@ -51,13 +53,15 @@ function Bars({
   opacities?: number[];
   valueLabels?: boolean;
   labelEvery?: number;
+  topValue?: number;
+  gridValues?: number[];
 }) {
   const W = 600;
   const H = 150;
-  const top = Math.max(...values) * 1.08;
+  const top = topValue ?? Math.max(...values) * 1.08;
   const bw = W / values.length;
   const yFor = (v: number) => H - (v / top) * H;
-  const grid = [0, 0.25, 0.5, 0.75, 1].map((f) => top * 0.92 * f);
+  const grid = gridValues ?? [0, 0.25, 0.5, 0.75, 1].map((f) => top * 0.92 * f);
   return (
     <svg viewBox={`0 0 ${W} ${H + 22}`} className="w-full text-fg" role="img">
       {grid.map((g, i) => (
@@ -456,6 +460,8 @@ bean-check            green`}
           ]}
           format={(v) => `${Math.round(v)}`}
           labelEvery={7}
+          topValue={68}
+          gridValues={[0, 20, 40, 60]}
         />
         <p className="text-muted">
           Daily revenue posted by the importer, Stripe and PayPal, October 2026,
@@ -892,6 +898,8 @@ average   about $24.1K       about $7.9K           (Aug-Oct)
           format={(v) => `$${v.toFixed(1)}K`}
           opacities={[0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.65, 0.8, 0.95, 0.95]}
           valueLabels
+          topValue={36}
+          gridValues={[0, 10, 20, 30]}
         />
         <p>
           Seven faded bars of retainer, then four of hours. The eye does the
