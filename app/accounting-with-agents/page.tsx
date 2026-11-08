@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "A talk in sixteen slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
 };
 
-const SLIDES = 16;
+const SLIDES = 18;
 
 function Slide({
   n,
@@ -75,6 +75,8 @@ export default function Accounting() {
           ["Assertions", "assertions"],
           ["Evidence", "evidence"],
           ["Guardrails", "guardrails"],
+          ["Sales tax", "salestax"],
+          ["Income tax", "incometax"],
           ["Unsure", "unsure"],
           ["Audit trail", "audit"],
           ["Failures", "failures"],
@@ -335,7 +337,76 @@ assert period_is_locked_and_signed()`}
         </ul>
       </Slide>
 
-      <Slide n={11} id="unsure" title="When it is unsure, it stops">
+      <Slide
+        n={11}
+        id="salestax"
+        title="Sales tax: deterministic, so the agent prepares it"
+      >
+        <p>
+          Sales tax is the closest thing in tax to an engineering problem: a
+          rate, a taxable base, a period. Which jurisdiction, which rate applied
+          on the date of the sale, what was collected, what was remitted, what
+          is owed.
+        </p>
+        <p>
+          <strong>The agent runs all of it.</strong> Loading the month&apos;s
+          orders, checking that every order reached the rate engine, accruing
+          jurisdiction by jurisdiction, posting the monthly journal entry,
+          reconciling what the processor collected against what was remitted,
+          and tracking every deadline. The loop runs whether or not anyone is
+          watching, and it ends in a file a person can read in a minute.
+        </p>
+        <p>
+          <strong>A person presses the button.</strong> Not because the
+          arithmetic is hard, but because a filed return is a statement to a
+          government, and an amendment costs money, penalties and credibility.
+          Preparing and filing are two different acts, and only one of them is
+          reversible.
+        </p>
+        <p className="text-muted">
+          What actually breaks it: a rate change inside the period, a new
+          jurisdiction crossed by an economic threshold, refunds that land in
+          the next period, an exemption certificate that arrives late. None of
+          those are computations. They are questions, and the loop files them as
+          questions.
+        </p>
+      </Slide>
+
+      <Slide
+        n={12}
+        id="incometax"
+        title="Income tax: judgment, so the agent assembles instead of deciding"
+      >
+        <p>
+          There is no &quot;the number.&quot; Depreciation method, entity
+          classification, how a cost is treated, the timing of revenue, which
+          treaty position applies, when to make an estimated payment — each one
+          is a decision, and the number is downstream of it.
+        </p>
+        <p>
+          <strong>The agent runs the evidence, not the decision.</strong> It
+          closes the books to a known state, keeps a trail for every position
+          already taken, computes the arithmetic under each option a person
+          hands it, tracks deadlines and payment rails, triages notices and
+          drafts the replies, and prepares the paperwork that follows a
+          decision.
+        </p>
+        <p>
+          <strong>A person decides.</strong> Positions, elections, amounts,
+          signatures. Liability attaches to a person, so the deliverable cannot
+          be a finished answer with the reasoning buried inside it. It has to be
+          the options, the numbers behind each, and what being wrong would cost.
+        </p>
+        <p className="text-muted">
+          The failure mode to design against is an agent that picks the
+          interpretation which makes the books balance, because it can. Sales
+          tax asks &quot;is the arithmetic right?&quot; Income tax asks
+          &quot;what did we decide?&quot; — a machine can only answer the first
+          question.
+        </p>
+      </Slide>
+
+      <Slide n={13} id="unsure" title="When it is unsure, it stops">
         <p>
           The default for an ambiguous source document is not the most likely
           classification. It is a question, filed where a person will see it,
@@ -351,7 +422,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={12}
+        n={14}
         id="audit"
         title='Six months later you must be able to ask "why is this number here?"'
       >
@@ -371,7 +442,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={13} id="failures" title="What went wrong, honestly">
+      <Slide n={15} id="failures" title="What went wrong, honestly">
         <ul className="ml-5 list-disc space-y-2">
           <li>
             <strong>Double-booking</strong> from a non-idempotent sync. Fixed
@@ -403,7 +474,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={14}
+        n={16}
         id="human"
         title="What stays human, and why that is not a compromise"
       >
@@ -424,7 +495,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={15} id="start" title="If you start on Monday">
+      <Slide n={17} id="start" title="If you start on Monday">
         <ol className="ml-5 list-decimal space-y-2">
           <li>
             Put the ledger in plain-text double entry, in git. No exceptions.
@@ -450,7 +521,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={16} id="rule" title="The one rule">
+      <Slide n={18} id="rule" title="The one rule">
         <p className="text-[20px]">
           If the agent cannot show you the source document and the diff it
           produced, it does not go in the books.
