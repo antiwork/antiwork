@@ -5,10 +5,10 @@ import { Font } from "@/app/components/Font";
 export const metadata: Metadata = {
   title: "Antiwork — Accounting with agents",
   description:
-    "A talk in sixteen slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
+    "A talk in twenty-four slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
 };
 
-const SLIDES = 21;
+const SLIDES = 24;
 
 function Slide({
   n,
@@ -32,6 +32,71 @@ function Slide({
       <h2 className="mt-2 text-[21px] leading-[1.35] text-fg">{title}</h2>
       <div className="mt-5 space-y-4">{children}</div>
     </section>
+  );
+}
+
+function Bars({
+  values,
+  labels,
+  format,
+}: {
+  values: number[];
+  labels: string[];
+  format: (v: number) => string;
+}) {
+  const W = 600;
+  const H = 150;
+  const top = Math.max(...values) * 1.08;
+  const bw = W / values.length;
+  const yFor = (v: number) => H - (v / top) * H;
+  const grid = [0, 0.25, 0.5, 0.75, 1].map((f) => top * 0.92 * f);
+  return (
+    <svg viewBox={`0 0 ${W} ${H + 22}`} className="w-full text-fg" role="img">
+      {grid.map((g, i) => (
+        <g key={i}>
+          <line
+            x1={0}
+            x2={W}
+            y1={yFor(g)}
+            y2={yFor(g)}
+            stroke="currentColor"
+            strokeOpacity={i === 0 ? 0.35 : 0.1}
+            strokeDasharray={i === 0 ? undefined : "2 5"}
+          />
+          <text
+            x={2}
+            y={yFor(g) - 3}
+            fontSize={8}
+            fill="currentColor"
+            fillOpacity={0.4}
+          >
+            {format(g)}
+          </text>
+        </g>
+      ))}
+      {values.map((v, i) => (
+        <g key={i}>
+          <rect
+            x={i * bw + 3}
+            y={yFor(v)}
+            width={bw - 6}
+            height={H - yFor(v)}
+            fill="currentColor"
+            fillOpacity={0.78}
+          />
+          <text
+            x={i * bw + bw / 2}
+            y={H + 14}
+            textAnchor="middle"
+            fontSize={8.5}
+            fill="currentColor"
+            fillOpacity={0.5}
+          >
+            {labels[i]}
+          </text>
+        </g>
+      ))}
+    </svg>
   );
 }
 
@@ -59,8 +124,9 @@ export default function Accounting() {
 
       <p className="mt-4 text-muted">
         A talk in {SLIDES} slides. Scroll, or print to PDF. Written from running
-        a real ledger for a real company — the numbers in our books are not in
-        here, but the method is.
+        a real ledger for a real company. Two slides have our own money in them,
+        because a method nobody can check against numbers is a brochure; the
+        rest is the method, which is the part that travels.
       </p>
 
       <nav className="mt-6 flex flex-wrap gap-2 print:hidden">
@@ -84,6 +150,9 @@ export default function Accounting() {
           ["Human", "human"],
           ["CFO", "cfo"],
           ["Cost", "cost"],
+          ["Revenue", "revenue"],
+          ["Check-in", "checkin"],
+          ["Emits", "emits"],
           ["Start Monday", "start"],
           ["One rule", "rule"],
         ].map(([label, id]) => (
@@ -667,7 +736,137 @@ average    about $24K / month                     $0 / month retainer`}
         </p>
       </Slide>
 
-      <Slide n={20} id="start" title="If you start on Monday">
+      <Slide
+        n={20}
+        id="revenue"
+        title="Revenue over time, straight from the ledger"
+      >
+        <p>
+          Nothing on this chart was typed into this page. It is rendered from
+          the same double-entry ledger the loops maintain: the twelve most
+          recent months, each one a month the close actually ran and a person
+          signed.
+        </p>
+        <Bars
+          values={[
+            1459911, 1363596, 1544444, 2112595, 1494309, 1420716, 1439660,
+            1378376, 1451539, 1526687, 1400078, 1442271,
+          ]}
+          labels={[
+            "Nov",
+            "Dec",
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+          ]}
+          format={(v) =>
+            v >= 1e6 ? `$${(v / 1e6).toFixed(1)}M` : `$${Math.round(v / 1e3)}K`
+          }
+        />
+        <p>
+          Last twelve months: <strong>$18.03M</strong>. February is a single
+          spike; the rest of the band sits between about $1.36M and $1.53M a
+          month, which is the shape you want from a business whose finance
+          function you are about to make boring.
+        </p>
+        <p>
+          A revenue chart is only as good as the close behind it. This one can
+          be regenerated from the ledger by a script and it changes only when
+          the books change — if the chart and the ledger ever disagree, the
+          chart is the thing that is wrong.
+        </p>
+        <p className="text-muted">
+          Note the shape as much as the number: flat revenue and a finance
+          function that got cheaper is the interesting part, and neither is
+          visible on a dashboard that only shows the total.
+        </p>
+      </Slide>
+
+      <Slide n={21} id="checkin" title="The check-in screen">
+        <div className="rounded border border-card-border bg-card-2 p-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/home-dashboard.png"
+            alt="The home dashboard: a needs-attention card, a revenue row from the books, and a queues card where zeros are healthy."
+            className="mx-auto w-full max-w-[340px] rounded"
+          />
+        </div>
+        <p>
+          That is the whole dashboard. One static page, regenerated by a script,
+          opened on a phone. It is built on a single rule:{" "}
+          <strong>a healthy company reads as zeros.</strong> Empty queues, no
+          open pull requests. Zeros are the good news, so any number that is not
+          zero is the signal, and nobody has to remember yesterday&apos;s value
+          to know whether today is fine.
+        </p>
+        <p>
+          The money rows are the deliberate exception: they sit at the top and
+          they are large, because those are the numbers worth reading twice. The
+          label says &quot;from the books&quot; only when the figure came from
+          the closed ledger — not from a processor feed, not an estimate.
+        </p>
+        <p>
+          Every tile is a count of something with a definition and a query
+          behind it. Nothing on the screen is a vibe, which is why it can be
+          trusted to say &quot;zero&quot; and mean it.
+        </p>
+        <p className="text-muted">
+          Screenshot is the live page from this morning: 8 open support threads
+          with 5 past the eight-hour line, and 29 open issues with 24 past it —
+          so the top of the screen reads 29, not zero. A dashboard that was
+          always green would be a dashboard nobody needed.
+        </p>
+      </Slide>
+
+      <Slide n={22} id="emits" title="What it emits: alerts and issues">
+        <p>
+          Two things leave the loops — messages and work items — and both are
+          countable, which is what makes the whole system auditable from
+          outside. Issues opened by the agent, per month:
+        </p>
+        <Bars
+          values={[62, 29, 106, 346, 891, 701, 806, 931, 237]}
+          labels={[
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov*",
+          ]}
+          format={(v) => `${Math.round(v)}`}
+        />
+        <p>
+          Sixty-two in March, nine hundred and thirty-one in October. The work
+          did not grow that fast; the throughput of noticing did. An issue is
+          the right output for an agent because it is the same object a person
+          uses: it has an owner, a state, a deadline and a public history.
+        </p>
+        <p>
+          Messages go to Telegram, and they are metered: about 1,500 in October
+          across seven threads, a median of seven a day in a thread. Every
+          message carries the name of the loop that sent it, so a loop that
+          talks too much shows up in the ledger and gets fixed or retired.
+        </p>
+        <p className="text-muted">
+          The rule that keeps a channel readable: the loops speak when a number
+          is not zero, not when a clock says it is time. Silence is the default
+          and it has to keep meaning &quot;nothing happened.&quot; *November is
+          eight days.
+        </p>
+      </Slide>
+
+      <Slide n={23} id="start" title="If you start on Monday">
         <ol className="ml-5 list-decimal space-y-2">
           <li>
             Put the ledger in plain-text double entry, in git. No exceptions.
@@ -693,7 +892,7 @@ average    about $24K / month                     $0 / month retainer`}
         </p>
       </Slide>
 
-      <Slide n={21} id="rule" title="The one rule">
+      <Slide n={24} id="rule" title="The one rule">
         <p className="text-[20px]">
           If the agent cannot show you the source document and the diff it
           produced, it does not go in the books.
