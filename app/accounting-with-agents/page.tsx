@@ -696,42 +696,53 @@ assert period_is_locked_and_signed()`}
           shape of the change is what travels.
         </p>
         <pre className="overflow-x-auto rounded border border-card-border bg-card-2 p-4 text-[13px] leading-[1.6]">
-          {`month     retainer billed     hours paid    intl accounting
-Jan 2026  $28.0K              -             -
-Feb       $34.0K (+add-on)    -             -
-Mar       $18.8K              -             -
-Apr       $21.5K              -             -
-May       $27.5K (+add-on)    -             -
-Jun       $20.6K              -             -
-Jul       $18.5K (last one)   -             -
-Aug       -                   $14.6K        -
-Sep       -                   $4.8K         -
-Oct       -                   $1.8K*        $15.2K
-average   about $24K/month    about $7K     about $5K`}
+          {`month     retainer billed   finance vendor cost   what it was
+Jan 2026  $28.0K            -                     retainer
+Feb       $34.0K            -                     retainer + add-on
+Mar       $18.8K            -                     retainer
+Apr       $21.5K            -                     retainer
+May       $27.5K            -                     retainer + add-on
+Jun       $20.6K            -                     retainer
+Jul       $18.5K            -                     last retainer invoice
+Aug       -                 $14.7K                transition invoice
+Sep       -                 $6.7K                 hours for September
+Oct       -                 $2.2K                 hours for October
+Nov*      -                 $4.9K                 2025 federal filing
+average   about $24.1K       about $7.9K           (Aug-Oct)
+                                     intl accounting, Oct only: $15.2K`}
         </pre>
         <p>
           <strong>
-            Down from about $24K a month to about $7K — and not to zero.
+            Down from about $24K a month to under $8K, and to $2.2K in the first
+            clean month.
           </strong>{" "}
-          The retainer bought coverage; what we buy now is hours, and hours
-          swing: $14.6K in August, $4.8K in September, $1.8K in October. What
-          left with the retainer was the close, the journal entries, the filing
-          coordination, the reviewer. What stayed: the work, the same
-          assertions, and a named person who signs.
+          October is 7.25 hours of a CFO&apos;s time at $290 an hour plus a $71
+          payroll-platform fee. August is the transition invoice, when a wrapped
+          relationship was still being unwound. What left with the retainer: the
+          close, the journal entries, the filing coordination, the reviewer.
+          What stayed: the work, the same assertions, and a named person who
+          signs.
         </p>
         <p>
-          <strong>The line that did not fall</strong> is international
-          accounting: $15.2K in October, for a jurisdiction that requires a
-          local filing agent. That is the honest floor of this exercise — some
-          of the money is the cost of a place, not the cost of a person, and no
-          amount of software removes it.
+          <strong>Booked to the month the hours were worked,</strong> not the
+          month the money left. September&apos;s invoice is dated October 1 and
+          cleared October 29; October&apos;s is dated November 1 and had not
+          cleared at the close. Both sit in the accrual, which is why these
+          numbers are not the bank statement — and why a cash-only view of a
+          finance function will always lie to you by a month.
         </p>
         <p>
-          *The $19.9K invoice dated mid-October was voided by the payment
-          provider on the 21st and had not been re-paid as of November 8, so it
-          is not in the column. If it comes back, October is $21.7K of hours and
-          the three-month average is about $12K — still half, but not a rounding
-          error.
+          <strong>Two lines are not the run-rate.</strong> International
+          accounting came to $15.2K in October, because a jurisdiction requires
+          a local filing agent — that is the cost of a place, not of a person,
+          and no amount of software removes it. And $4.4K of 2025 federal filing
+          fees arrived in November, net of 2025 retainer credits; that is a year
+          of compliance landing in one month.
+        </p>
+        <p>
+          *A $19.9K draft in mid-October was a vendor billing error, reversed
+          three days later. The ledger nets it to zero and the correction file
+          says so by name, so that nobody reverses it twice.
         </p>
         <p>
           <strong>What the number does not show.</strong> The agent&apos;s own
@@ -741,10 +752,10 @@ average   about $24K/month    about $7K     about $5K`}
           the control has to be a test rather than a relationship.
         </p>
         <p className="text-muted">
-          Read as a savings story, that is the honest version: roughly half the
-          cost, most of it now variable, and none of it safe unless the close is
-          a set of assertions you can re-run. A retainer buys someone to blame;
-          a pipeline buys a diff.
+          Read as a savings story, that is the honest version: a third of the
+          cost, nearly all of it now variable, and none of it safe unless the
+          close is a set of assertions you can re-run. A retainer buys someone
+          to blame; a pipeline buys a diff.
         </p>
       </Slide>
 
