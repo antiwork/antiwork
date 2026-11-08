@@ -5,10 +5,10 @@ import { Font } from "@/app/components/Font";
 export const metadata: Metadata = {
   title: "Antiwork — Accounting with agents",
   description:
-    "A talk in twenty-four slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
+    "A talk in twenty-six slides: how an agent keeps a double-entry ledger, closes the month, and stays out of the places a mistake is irreversible. What worked, what we will not automate, and the minimum you need to try it.",
 };
 
-const SLIDES = 24;
+const SLIDES = 26;
 
 function Slide({
   n,
@@ -39,10 +39,18 @@ function Bars({
   values,
   labels,
   format,
+  colors,
+  opacities,
+  valueLabels,
+  labelEvery,
 }: {
   values: number[];
   labels: string[];
   format: (v: number) => string;
+  colors?: string[];
+  opacities?: number[];
+  valueLabels?: boolean;
+  labelEvery?: number;
 }) {
   const W = 600;
   const H = 150;
@@ -81,9 +89,21 @@ function Bars({
             y={yFor(v)}
             width={bw - 6}
             height={H - yFor(v)}
-            fill="currentColor"
-            fillOpacity={0.78}
+            fill={colors?.[i] ?? "currentColor"}
+            fillOpacity={opacities?.[i] ?? 0.78}
           />
+          {valueLabels ? (
+            <text
+              x={i * bw + bw / 2}
+              y={yFor(v) - 4}
+              textAnchor="middle"
+              fontSize={7.5}
+              fill="currentColor"
+              fillOpacity={0.5}
+            >
+              {format(v)}
+            </text>
+          ) : null}
           <text
             x={i * bw + bw / 2}
             y={H + 14}
@@ -92,7 +112,7 @@ function Bars({
             fill="currentColor"
             fillOpacity={0.5}
           >
-            {labels[i]}
+            {labelEvery && i % labelEvery !== 0 ? "" : labels[i]}
           </text>
         </g>
       ))}
@@ -138,6 +158,7 @@ export default function Accounting() {
           ["Idempotency", "idempotency"],
           ["Reconcile", "reconcile"],
           ["The daily loop", "daily"],
+          ["Close report", "closereport"],
           ["Cadence", "cadence"],
           ["Assertions", "assertions"],
           ["Evidence", "evidence"],
@@ -150,6 +171,7 @@ export default function Accounting() {
           ["Human", "human"],
           ["CFO", "cfo"],
           ["Cost", "cost"],
+          ["Cost chart", "costchart"],
           ["Revenue", "revenue"],
           ["Check-in", "checkin"],
           ["Emits", "emits"],
@@ -355,7 +377,97 @@ payroll / tax    → attachments   →                  →  month close
         </p>
       </Slide>
 
-      <Slide n={8} id="cadence" title="What else recurs, and how often">
+      <Slide n={8} id="closereport" title="The close, as it comes out">
+        <p>
+          On the first, one command re-runs every importer for the month that
+          just ended and writes a file a controller could sign. Nothing in the
+          list below is a summary somebody typed: each line is a count the
+          importer returned, so a silent drop shows up as a number that got
+          smaller.
+        </p>
+        <pre className="overflow-x-auto rounded border border-card-border bg-card-2 p-4 text-[12px] leading-[1.55]">
+          {`2026-10 close report                            generated 2026-11-01
+finance mail ingest   45 days of mail                                ok
+revenue               31 days, 62 entries                            ok
+ramp                  396 cleared, 0 uncategorized                   ok
+mercury               111 cleared, 0 uncategorized                   ok
+treasury              dividends 30,764.33                            ok
+flexile               4 paid invoices                                ok
+wise                  3 remittances, 1,043,053.83                    ok
+close accruals        revenue 402,761.11 / cogs 71,634.48 / cap 66,600.86
+tax offsets           169,787.34 out of revenue tax, into payable
+tax provision         YTD pre-tax 6,792,947.39  ->  2,173,743.17
+bean-check            green`}
+        </pre>
+        <p>
+          <strong>Two of those lines are why a person still signs.</strong> The
+          Stripe processing fees alone are $402,761.11 for the month, booked to
+          cost of revenue — one accrual bigger than most companies&apos; whole
+          month of costs. And the provision turns $6.8M of year-to-date profit
+          into a $2.2M liability at 32 percent. A wrong number there is not a
+          typo, it is a filing.
+        </p>
+        <p>
+          The daily half is separate and smaller: revenue posts itself every day
+          of the month — 31 of 31 days in October, all 7 so far in November — a
+          one-screen report lands in a chat thread at 11:00 every weekday, and
+          the tax rails get re-walked at noon. So the numbers move daily and the
+          assertions run monthly. That is the right split: a number that arrives
+          late is annoying, an assertion that is skipped is invisible.
+        </p>
+        <Bars
+          values={[
+            50.2, 48.1, 55.5, 62.7, 54.5, 49.9, 49.0, 45.5, 45.9, 42.2, 43.8,
+            49.1, 45.5, 44.8, 48.0, 47.6, 42.0, 42.3, 45.3, 46.7, 46.9, 45.9,
+            43.5, 41.7, 42.8, 42.5, 45.8, 46.4, 51.3, 46.7, 43.5,
+          ]}
+          labels={[
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+          ]}
+          format={(v) => `${Math.round(v)}`}
+          labelEvery={7}
+        />
+        <p className="text-muted">
+          Daily revenue posted by the importer, Stripe and PayPal, October 2026,
+          $K. Thirty-one bars, none of them entered by hand, adding to
+          $1,455.6K. The closed P&amp;L says $1,442.3K, and the $13.3K between
+          them is refund and deferred-revenue handling that only happens at
+          close — which is the argument for a close being a step, not a
+          formality.
+        </p>
+      </Slide>
+
+      <Slide n={9} id="cadence" title="What else recurs, and how often">
         <p>
           The daily close is one rung of a ladder. Almost all of the work is on
           a timer, because the useful question is not &quot;what should we
@@ -401,7 +513,7 @@ on event         hooks           mail push, GitHub, errors, deploy callbacks`}
       </Slide>
 
       <Slide
-        n={9}
+        n={10}
         id="assertions"
         title="A close is a list of assertions, not a feeling"
       >
@@ -424,7 +536,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={10}
+        n={11}
         id="evidence"
         title="Every number is read back, in the same session"
       >
@@ -447,7 +559,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={11}
+        n={12}
         id="guardrails"
         title="The guardrails that actually earned their place"
       >
@@ -476,7 +588,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={12}
+        n={13}
         id="salestax"
         title="Sales tax: deterministic, so the agent prepares it"
       >
@@ -511,7 +623,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={13}
+        n={14}
         id="incometax"
         title="Income tax: judgment, so the agent assembles instead of deciding"
       >
@@ -544,7 +656,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={14} id="unsure" title="When it is unsure, it stops">
+      <Slide n={15} id="unsure" title="When it is unsure, it stops">
         <p>
           The default for an ambiguous source document is not the most likely
           classification. It is a question, filed where a person will see it,
@@ -560,7 +672,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={15}
+        n={16}
         id="audit"
         title='Six months later you must be able to ask "why is this number here?"'
       >
@@ -580,7 +692,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={16} id="failures" title="What went wrong, honestly">
+      <Slide n={17} id="failures" title="What went wrong, honestly">
         <ul className="ml-5 list-disc space-y-2">
           <li>
             <strong>Double-booking</strong> from a non-idempotent sync. Fixed
@@ -612,7 +724,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={17}
+        n={18}
         id="human"
         title="What stays human, and why that is not a compromise"
       >
@@ -633,7 +745,7 @@ assert period_is_locked_and_signed()`}
         </p>
       </Slide>
 
-      <Slide n={18} id="cfo" title="How the CFO is looped in">
+      <Slide n={19} id="cfo" title="How the CFO is looped in">
         <p>
           &quot;A human signs off&quot; is not a design until it names the
           human, the artifact, and the deadline. Ours is the CFO, and this is
@@ -686,7 +798,7 @@ assert period_is_locked_and_signed()`}
       </Slide>
 
       <Slide
-        n={19}
+        n={20}
         id="cost"
         title="What the finance function costs, before and after"
       >
@@ -759,8 +871,51 @@ average   about $24.1K       about $7.9K           (Aug-Oct)
         </p>
       </Slide>
 
+      <Slide n={21} id="costchart" title="The same line, drawn to scale">
+        <Bars
+          values={[
+            28.0, 34.0, 18.8, 21.5, 27.5, 20.6, 18.5, 14.7, 6.7, 2.2, 4.9,
+          ]}
+          labels={[
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+          ]}
+          format={(v) => `$${v.toFixed(1)}K`}
+          opacities={[0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.65, 0.8, 0.95, 0.95]}
+          valueLabels
+        />
+        <p>
+          Seven faded bars of retainer, then four of hours. The eye does the
+          arithmetic before the sentence does:{" "}
+          <strong>
+            $24.1K a month for seven months, $7.9K for the three after it, and
+            $2.2K in the month that counts.
+          </strong>
+        </p>
+        <p>
+          October is the first clean month of the new shape — 7.25 hours of a
+          CFO&apos;s time and a payroll-platform fee, with the close, the
+          reconciliations and the reporting done by the pipeline on these
+          slides. The November bar is eight days old and mostly one annual
+          filing, which is why it sits above October rather than below it.
+        </p>
+        <p className="text-muted">
+          Same source as the table: the GL at cutover for January–July, the live
+          ledger for August onward, booked to the month the hours were worked.
+        </p>
+      </Slide>
+
       <Slide
-        n={20}
+        n={22}
         id="revenue"
         title="Revenue over time, straight from the ledger"
       >
@@ -812,7 +967,7 @@ average   about $24.1K       about $7.9K           (Aug-Oct)
         </p>
       </Slide>
 
-      <Slide n={21} id="checkin" title="The check-in screen">
+      <Slide n={23} id="checkin" title="The check-in screen">
         <div className="rounded border border-card-border bg-card-2 p-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -848,7 +1003,7 @@ average   about $24.1K       about $7.9K           (Aug-Oct)
         </p>
       </Slide>
 
-      <Slide n={22} id="emits" title="What it emits: alerts and issues">
+      <Slide n={24} id="emits" title="What it emits: alerts and issues">
         <p>
           Two things leave the loops — messages and work items — and both are
           countable, which is what makes the whole system auditable from
@@ -889,7 +1044,7 @@ average   about $24.1K       about $7.9K           (Aug-Oct)
         </p>
       </Slide>
 
-      <Slide n={23} id="start" title="If you start on Monday">
+      <Slide n={25} id="start" title="If you start on Monday">
         <ol className="ml-5 list-decimal space-y-2">
           <li>
             Put the ledger in plain-text double entry, in git. No exceptions.
@@ -915,7 +1070,7 @@ average   about $24.1K       about $7.9K           (Aug-Oct)
         </p>
       </Slide>
 
-      <Slide n={24} id="rule" title="The one rule">
+      <Slide n={26} id="rule" title="The one rule">
         <p className="text-[20px]">
           If the agent cannot show you the source document and the diff it
           produced, it does not go in the books.
